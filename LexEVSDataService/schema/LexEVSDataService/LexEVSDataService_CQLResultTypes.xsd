@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://dataService.cagrid.LexBIG.LexGrid.org/LexEVSDataService/CQLResultTypes" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    
+    <!-- Exposed Objects' schemas are imported here -->
+	<xs:import namespace="http://LexGrid.org/schema/2009/01/LexGrid/builtins" schemaLocation="./builtins.xsd"/>
+	<xs:import namespace="http://LexGrid.org/schema/2009/01/LexGrid/concepts" schemaLocation="./concepts.xsd"/>
+	<xs:import namespace="http://LexGrid.org/schema/2009/01/LexGrid/versions" schemaLocation="./versions.xsd"/>
+	<xs:import namespace="http://LexGrid.org/schema/2009/01/LexGrid/NCIHistorytypes" schemaLocation="./NCIHistorytypes.xsd"/>
+	<xs:import namespace="http://LexGrid.org/schema/2009/01/LexGrid/lbInterfacetypes" schemaLocation="./InterfaceElementstypes.xsd"/>
+	<xs:import namespace="http://LexGrid.org/schema/2009/01/LexGrid/lbInterfacetypes" schemaLocation="./InterfaceElementstypes.xsd"/>
+	<xs:import namespace="http://LexGrid.org/schema/2009/01/LexGrid/versions" schemaLocation="./versions.xsd"/>
+	<xs:import namespace="http://LexGrid.org/schema/2009/01/LexGrid/versions" schemaLocation="./versions.xsd"/>
+	<xs:import namespace="http://LexGrid.org/schema/2009/01/LexGrid/builtins" schemaLocation="./builtins.xsd"/>
+	<xs:import namespace="http://LexGrid.org/schema/2009/01/LexGrid/versions" schemaLocation="./versions.xsd"/>
+	<xs:import namespace="http://LexGrid.org/schema/2009/01/LexGrid/versions" schemaLocation="./versions.xsd"/>
+	<xs:import namespace="http://LexGrid.org/schema/LexBIG/2009/01/caGrid" schemaLocation="./cagrid.xsd"/>
+	<xs:import namespace="http://LexGrid.org/schema/2009/01/LexGrid/versions" schemaLocation="./versions.xsd"/>
+	<xs:import namespace="http://LexGrid.org/schema/2009/01/LexGrid/versions" schemaLocation="./versions.xsd"/>
+	<xs:import namespace="http://LexGrid.org/schema/2009/01/LexGrid/concepts" schemaLocation="./concepts.xsd"/>
+	<xs:import namespace="http://LexGrid.org/schema/2009/01/LexGrid/Coretypes" schemaLocation="./CoreTypes.xsd"/>
+	<xs:import namespace="http://LexGrid.org/schema/2009/01/LexGrid/versions" schemaLocation="./versions.xsd"/>
+	<xs:import namespace="http://LexGrid.org/schema/LexBIG/2009/01/caGrid" schemaLocation="./cagrid.xsd"/>
+
+
+
+    <xs:group name="PermissibleCQLObjectResults">
+        <xs:choice>        
+        <!-- element references to exposed objects -->
+		<xs:element ref="ns0:changeType" xmlns:ns0="http://LexGrid.org/schema/2009/01/LexGrid/NCIHistorytypes"/>
+		<xs:element ref="ns0:ProcessState" xmlns:ns0="http://LexGrid.org/schema/2009/01/LexGrid/lbInterfacetypes"/>
+		<xs:element ref="ns0:SortContext" xmlns:ns0="http://LexGrid.org/schema/2009/01/LexGrid/lbInterfacetypes"/>
+		<xs:element ref="ns0:RelationshipDistanceBasedPolicy" xmlns:ns0="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
+		<xs:element ref="ns0:Status" xmlns:ns0="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
+		<xs:element ref="ns0:ExtensionIdentification" xmlns:ns0="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
+		<xs:element ref="ns0:SetResolutionPolicy" xmlns:ns0="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
+		<xs:element ref="ns0:ConceptIdentification" xmlns:ns0="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
+		<xs:element ref="ns0:HierarchyIdentification" xmlns:ns0="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
+		<xs:element ref="ns0:CodeState" xmlns:ns0="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
+		<xs:element ref="ns0:HierarchyResolutionPolicy" xmlns:ns0="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
+		<xs:element ref="ns0:CodingSchemeIdentification" xmlns:ns0="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
+		<xs:element ref="ns0:PropertyIdentification" xmlns:ns0="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
+		<xs:element ref="ns0:CodeExistence" xmlns:ns0="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
+		<xs:element ref="ns0:RelationshipTypeBasedPolicy" xmlns:ns0="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
+		<xs:element ref="ns0:RelationshipPolicy" xmlns:ns0="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
+		<xs:element ref="ns0:DirectionalAssociationIdentification" xmlns:ns0="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
+		<xs:element ref="ns0:AssociationIdentification" xmlns:ns0="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
+		<xs:element ref="ns0:GraphResolutionPolicy" xmlns:ns0="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
+		<xs:element ref="ns0:CodingSchemeIdentification" xmlns:ns0="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
+		<xs:element ref="ns0:Direction" xmlns:ns0="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
+		<xs:element ref="ns0:NodeListPolicy" xmlns:ns0="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
+		<xs:element ref="ns0:MatchCriteria" xmlns:ns0="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
+		<xs:element ref="ns0:RelationContainerIdentification" xmlns:ns0="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
+		<xs:element ref="ns0:CodeRelationship" xmlns:ns0="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
+		<xs:element ref="ns0:CodingSchemeVersionStatus" xmlns:ns0="http://LexGrid.org/schema/2009/01/LexGrid/Coretypes"/>
+		<xs:element ref="ns0:LogLevel" xmlns:ns0="http://LexGrid.org/schema/2009/01/LexGrid/Coretypes"/>
+ 
+        </xs:choice>
+    </xs:group>
+</xs:schema>

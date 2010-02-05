@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ServiceGroupRegistrationParameters xmlns:sgc="http://mds.globus.org/servicegroup/client"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/03/addressing"
+  xmlns:agg="http://mds.globus.org/aggregator/types"
+  xmlns="http://mds.globus.org/servicegroup/client">
+  <!-- The ServiceGroupEPR defines the servicegroup to which registrations will be made -->
+  <ServiceGroupEPR>
+    <wsa:Address>INDEX_SERVICE_URL</wsa:Address>
+  </ServiceGroupEPR>
+  <!-- Specifies that the registration will be renewed every 10 minutes -->
+  <RefreshIntervalSecs>REGISTRATION_REFRESH</RefreshIntervalSecs>
+  <Content xsi:type="agg:AggregatorContent" xmlns:agg="http://mds.globus.org/aggregator/types">
+    <agg:AggregatorConfig xsi:type="agg:AggregatorConfig">
+      <agg:GetMultipleResourcePropertiesPollType
+			xmlns:ns5="http://LexGrid.org/schema/2009/01/LexGrid/codingSchemes"
+			xmlns:ns4="http://LexGrid.org/schema/2009/01/LexGrid/builtins"
+			xmlns:ns14="http://dataService.cagrid.LexBIG.LexGrid.org/LexEVSDataService/CQLResultTypes"
+			xmlns:ns17="http://LexGrid.org/schema/2009/01/LexGrid/lbInterfacetypes"
+			xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			xmlns:ns22="http://LexGrid.org/schema/LexBIG/2009/01/InterfaceElements"
+			xmlns:ns7="http://LexGrid.org/schema/2009/01/LexGrid/commonTypes"
+			xmlns:ns3="http://LexGrid.org/schema/2009/01/LexGrid/naming"
+			xmlns:ns0="http://LexGrid.org/schema/2009/01/LexGrid/commonTypesTypes"
+			xmlns:ns24="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"
+			xmlns:ns8="gme://caCORE.caCORE/3.2/gov.nih.nci.evs.security"
+			xmlns:ns13="http://CQL.caBIG/1/gov.nih.nci.cagrid.CQLResultSet"
+			xmlns:ns9="http://dataService.cagrid.LexBIG.LexGrid.org/LexEVSDataService/types"
+			xmlns:ns12="http://CQL.caBIG/1/gov.nih.nci.cagrid.CQLQuery"
+			xmlns:ns21="http://LexGrid.org/schema/2009/01/LexGrid/Coretypes"
+			xmlns:ns11="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata"
+			xmlns:ns16="http://gov.nih.nci.cagrid.data/DataServiceExceptions"
+			xmlns:ns15="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.dataservice"
+			xmlns:ns23="http://LexGrid.org/schema/2009/01/LexGrid/NCIHistory"
+			xmlns:ns25="http://LexGrid.org/schema/LexBIG/2009/01/enums"
+			xmlns:ns6="http://LexGrid.org/schema/2009/01/LexGrid/relations"
+			xmlns:ns10="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.security"
+			xmlns:ns20="http://LexGrid.org/schema/LexBIG/2009/01/Core"
+			xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/versions"
+			xmlns:ns1="http://LexGrid.org/schema/2009/01/LexGrid/concepts"
+			xmlns:ns19="http://LexGrid.org/schema/2009/01/LexGrid/NCIHistorytypes"
+			xmlns:ns18="http://LexGrid.org/schema/LexBIG/2009/01/Collections">
+        <!-- Specifies that the index should refresh information
+            every 300000 milliseconds (once every 5 minutes) -->
+        <agg:PollIntervalMillis>INDEX_REFRESH</agg:PollIntervalMillis>
+        <!-- specifies all Resource Properties that should be retrieved from the service -->
+		<agg:ResourcePropertyNames>ns11:ServiceMetadata</agg:ResourcePropertyNames>
+	
+		<agg:ResourcePropertyNames>ns15:DomainModel</agg:ResourcePropertyNames>
+	
+      </agg:GetMultipleResourcePropertiesPollType>
+    </agg:AggregatorConfig>
+    <agg:AggregatorData/>
+  </Content>
+</ServiceGroupRegistrationParameters>

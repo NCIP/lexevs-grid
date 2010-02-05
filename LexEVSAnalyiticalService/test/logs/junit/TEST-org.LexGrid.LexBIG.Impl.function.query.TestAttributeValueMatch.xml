@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="0" hostname="R0131678" name="org.LexGrid.LexBIG.Impl.function.query.TestAttributeValueMatch" tests="4" time="16.656" timestamp="2008-06-04T16:46:16">
+  <properties>
+    <property name="file.encoding.pkg" value="sun.io" />
+    <property name="env.PROMPT" value="$P$G" />
+    <property name="env.MAYO_SYSTEM_TABLET" value="FALSE" />
+    <property name="java.home" value="C:\Program Files\Java\jdk1.5.0_11\jre" />
+    <property name="test.src.dir" value="test/src" />
+    <property name="env.MAYO_OS_SP_VER" value="2.0" />
+    <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.5.0_11\jre\lib\endorsed" />
+    <property name="env.USERNAME" value="m005256" />
+    <property name="src.dir" value="src" />
+    <property name="ext.globus.dir" value="C:\cagrid\globus\ws-core-4.0.3" />
+    <property name="sun.os.patch.level" value="Service Pack 2" />
+    <property name="java.vendor.url" value="http://java.sun.com/" />
+    <property name="env.COMPUTERNAME" value="R0131678" />
+    <property name="java.version" value="1.5.0_11" />
+    <property name="ant.file.Developer Modified Build File" value="W:\user\m005256\cagrid\LexBIGCaGridServices\dev-build.xml" />
+    <property name="eclipse.pdebuild.home" value="/C:/eclipse/plugins/org.eclipse.pde.build_3.3.0.v20070612/./" />
+    <property name="env.MAYO_OS_FUNCTION" value="WORKSTATION" />
+    <property name="env.MAYO_MCR_STARTMENU" value="NONE" />
+    <property name="java.vendor.url.bug" value="http://java.sun.com/cgi-bin/bugreport.cgi" />
+    <property name="env.USERPROFILE" value="C:\Documents and Settings\m005256" />
+    <property name="javadoc.dir" value="W:\user\m005256\cagrid\LexBIGCaGridServices\build/javadoc" />
+    <property name="introduce.skeleton.namespace.domain" value="http://LexBIGCaGridServices.cagrid.nci.nih.gov/LexBIGCaGridServices" />
+    <property name="test.lib.dir" value="test/lib" />
+    <property name="env.SystemRoot" value="C:\WINDOWS" />
+    <property name="introduce.ns.excludes" value=" -x http://LexGrid.org/schema/2006/01/lbCoretypes -x http://LexGrid.org/schema/2006/01/LexGrid/relations -x http://LexGrid.org/LexBIG/2006/01/Core -x http://LexGrid.org/LexBIG/2006/01/TerminologyServiceMetadata -x gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata -x http://LexGrid.org/schema/2006/01/LexGrid/versions -x http://LexGrid.org/schema/2006/01/LexGrid/codingSchemes -x http://LexGrid.org/LexBIG/2006/01/Collections -x http://LexGrid.org/schema/2006/01/NCIHistorytypes -x http://LexGrid.org/schema/2006/01/LexGrid/ldap -x http://LexGrid.org/schema/2006/01/LexGrid/builtins -x http://LexGrid.org/schema/2006/01/LexGrid/commonTypes -x http://LexGrid.org/schema/2006/01/LexGrid/naming -x http://LexGrid.org/schema/2006/01/LexGrid/NCIChangeTypes -x gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.security -x gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.common -x http://LexGrid.org/schema/2006/01/LexGrid/concepts -x gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.service -x http://LexGrid.org/schema/2006/01/lbInterfacetypes -x http://LexGrid.org/LexBIG/2006/01/InterfaceElements" />
+    <property name="user.name" value="m005256" />
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle" />
+    <property name="sun.jnu.encoding" value="Cp1252" />
+    <property name="java.runtime.name" value="Java(TM) 2 Runtime Environment, Standard Edition" />
+    <property name="schema.dest" value="W:\user\m005256\cagrid\LexBIGCaGridServices\build\schema" />
+    <property name="env.MAYO_AD_SITE_NAME" value="Rochester-Client-3" />
+    <property name="env.MAYO_COMPUTER_DOMAIN_NAME" value="MFAD" />
+    <property name="lib.dir" value="lib" />
+    <property name="tools.lib.dir" value="tools/lib" />
+    <property name="java.specification.name" value="Java Platform API Specification" />
+    <property name="test.jar.name" value="LexBIGCaGridServices-tests.jar" />
+    <property name="user.timezone" value="" />
+    <property name="path.separator" value=";" />
+    <property name="client.jar.name" value="LexBIGCaGridServices-client.jar" />
+    <property name="env.Include" value="c:\sybase12_5_1\OCS-12_5\include" />
+    <property name="env.MAYO_AD_USER_DN" value="CN=M005256,OU=USERS,OU=MCR,DC=MFAD,DC=MFROOT,DC=ORG" />
+    <property name="env.PROCESSOR_IDENTIFIER" value="x86 Family 15 Model 3 Stepping 4, GenuineIntel" />
+    <property name="env.MAYO_DISPLAY_MONITORS" value="2" />
+    <property name="file.encoding" value="Cp1252" />
+    <property name="env.MAYO_SYSTEM_MOBILE" value="FALSE" />
+    <property name="jar.prefix" value="LexBIGCaGridServices" />
+    <property name="junit.results.dir" value="test/logs/junit" />
+    <property name="introduce.soap.binding.excludes" value=" http://LexGrid.org/schema/2006/01/lbCoretypes http://LexGrid.org/schema/2006/01/LexGrid/relations http://LexGrid.org/LexBIG/2006/01/Core http://LexGrid.org/LexBIG/2006/01/TerminologyServiceMetadata http://LexGrid.org/schema/2006/01/LexGrid/versions http://LexGrid.org/schema/2006/01/LexGrid/codingSchemes http://LexGrid.org/LexBIG/2006/01/Collections http://LexGrid.org/schema/2006/01/NCIHistorytypes http://LexGrid.org/schema/2006/01/LexGrid/ldap http://LexGrid.org/schema/2006/01/LexGrid/builtins http://LexGrid.org/schema/2006/01/LexGrid/commonTypes http://LexGrid.org/schema/2006/01/LexGrid/naming http://LexGrid.org/schema/2006/01/LexGrid/NCIChangeTypes gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.security http://LexGrid.org/schema/2006/01/LexGrid/concepts http://LexGrid.org/schema/2006/01/lbInterfacetypes http://LexGrid.org/LexBIG/2006/01/InterfaceElements" />
+    <property name="env.NUMBER_OF_PROCESSORS" value="2" />
+    <property name="env.APPDATA" value="C:\Documents and Settings\m005256\Application Data" />
+    <property name="ant.file" value="W:\user\m005256\cagrid\LexBIGCaGridServices\build.xml" />
+    <property name="env.Lib" value="c:\sybase12_5_1\OCS-12_5\lib;C:\sybase12_5_1\ADO.NET\dll" />
+    <property name="env.QTJAVA" value="c:\Program Files\Java\jre1.5.0_06\lib\ext\QTJava.zip" />
+    <property name="test.log.dir" value="test/logs" />
+    <property name="java.io.tmpdir" value="C:\DOCUME~1\m005256\LOCALS~1\Temp\" />
+    <property name="user.language" value="en" />
+    <property name="env.MAYO_REMOTE_SESSION" value="FALSE" />
+    <property name="env.SystemDrive" value="C:" />
+    <property name="line.separator" value="
+" />
+    <property name="env.MAYO_AD_USER_OU" value="USERS" />
+    <property name="garjars.id" value="garjars" />
+    <property name="java.debug" value="on" />
+    <property name="ant.file.build-deploy file" value="W:\user\m005256\cagrid\LexBIGCaGridServices\build-deploy.xml" />
+    <property name="introduce.skeleton.service.name" value="LexBIGCaGridServices" />
+    <property name="tools.dir" value="tools" />
+    <property name="schema.src" value="C:\cagrid\globus\ws-core-4.0.3\share\schema" />
+    <property name="java.vm.info" value="mixed mode, sharing" />
+    <property name="sun.desktop" value="windows" />
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
+    <property name="ant.file.run-tools file" value="W:\user\m005256\cagrid\LexBIGCaGridServices\run-tools.xml" />
+    <property name="common.jar.name" value="LexBIGCaGridServices-common.jar" />
+    <property name="ant.file.Introduce Master Build File" value="W:\user\m005256\cagrid\LexBIGCaGridServices\build.xml" />
+    <property name="env.PATHEXT" value=".COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH" />
+    <property name="env.TOMCAT_HOME" value="C:\caGrid1_2\tomcat\jakarta-tomcat-5.0.28" />
+    <property name="build.stubs" value="W:\user\m005256\cagrid\LexBIGCaGridServices\build-stubs.xml" />
+    <property name="env.LOGONSERVER" value="\\ROEMAD008D" />
+    <property name="introduce.skeleton.timestamp" value="1212441375810" />
+    <property name="eclipse.pdebuild.templates" value="/C:/eclipse/plugins/org.eclipse.pde.build_3.3.0.v20070612/templates/" />
+    <property name="stubs.src" value="W:\user\m005256\cagrid\LexBIGCaGridServices\build\stubs-LexBIGCaGridServices\src" />
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob" />
+    <property name="build.dest" value="W:\user\m005256\cagrid\LexBIGCaGridServices\build\classes" />
+    <property name="test.build.dest" value="W:\user\m005256\cagrid\LexBIGCaGridServices\build/test/classes" />
+    <property name="env.MAYO_OS_VER" value="5.1" />
+    <property name="ant.version" value="Apache Ant version 1.7.0 compiled on December 13 2006" />
+    <property name="env.USERDOMAIN" value="MFAD" />
+    <property name="env.PROCESSOR_LEVEL" value="15" />
+    <property name="env.windir" value="C:\WINDOWS" />
+    <property name="env.CLASSPATH" value="C:\Program Files\Altova\xmlspy\XMLSpyInterface.jar" />
+    <property name="os.name" value="Windows XP" />
+    <property name="java.specification.vendor" value="Sun Microsystems Inc." />
+    <property name="stubs.dest" value="W:\user\m005256\cagrid\LexBIGCaGridServices\build\stubs-LexBIGCaGridServices\classes" />
+    <property name="env.MAYO_USER_NAME" value="M005256" />
+    <property name="env.TMP" value="C:\DOCUME~1\m005256\LOCALS~1\Temp" />
+    <property name="java.vm.name" value="Java HotSpot(TM) Client VM" />
+    <property name="env.OS" value="Windows_NT" />
+    <property name="java.library.path" value="C:\Program Files\Java\jdk1.5.0_11\jre\bin;.;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Java\jdk1.5.0_11\bin\..\jre\bin\client;C:\Program Files\Java\jdk1.5.0_11\bin\..\jre\bin;C:\Program Files\ActiveState Komodo IDE 4.2\;C:\Program Files\Java\jdk1.5.0_11\bin\;C:\Program Files\PHP\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;c:\sybase12_5_1\ODBC;c:\sybase12_5_1\OLEDB;c:\sybase12_5_1\OCS-12_5\bin;c:\sybase12_5_1\OCS-12_5\dll;C:\sybase12_5_1\ADO.NET\dll;c:\Program Files\QuickTime\QTSystem\;C:\Program Files\IDM Computer Solutions\UltraEdit-32;c:\Python25;C:\Program Files\SoftProject GmbH\xsl-easy3.0\;C:\Program Files\ActiveState Komodo IDE 4.2\;C:\Program Files\Java\jdk1.5.0_11\bin\;C:\Program Files\PHP\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;c:\sybase12_5_1\ODBC;c:\sybase12_5_1\OLEDB;c:\sybase12_5_1\OCS-12_5\bin;c:\sybase12_5_1\OCS-12_5\dll;C:\sybase12_5_1\ADO.NET\dll;c:\Program Files\QuickTime\QTSystem\;C:\Program Files\IDM Computer Solutions\UltraEdit-32;c:\Python25;C:\Program Files\SoftProject GmbH\xsl-easy3.0\;C:\Extra4NT;C:\PROGRA~1\DBBALA~1\CDBS6~1.0\DATADI~1\Drivers;C:\apache-ant-1.7.0\bin;C:\Program Files\ActiveState Komodo IDE 4.2\;C:\Program Files\Java\jdk1.5.0_11\bin\;C:\Program Files\PHP\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;c:\sybase12_5_1\ODBC;c:\sybase12_5_1\OLEDB;c:\sybase12_5_1\OCS-12_5\bin;c:\sybase12_5_1\OCS-12_5\dll;C:\sybase12_5_1\ADO.NET\dll;c:\Program Files\QuickTime\QTSystem\;C:\Program Files\IDM Computer Solutions\UltraEdit-32;c:\Python25;C:\Program Files\SoftProject GmbH\xsl-easy3.0\;C:\Program Files\ActiveState Komodo IDE 4.2\;C:\Program Files\Java\jdk1.5.0_11\bin\;C:\Program Files\PHP\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;c:\sybase12_5_1\ODBC;c:\sybase12_5_1\OLEDB;c:\sybase12_5_1\OCS-12_5\bin;c:\sybase12_5_1\OCS-12_5\dll;C:\sybase12_5_1\ADO.NET\dll;c:\Program Files\QuickTime\QTSystem\;C:\Program Files\IDM Computer Solutions\UltraEdit-32;c:\Python25;C:\Program Files\SoftProject GmbH\xsl-easy3.0\;C:\Extra4NT;C:\PROGRA~1\DBBALA~1\CDBS6~1.0\DATADI~1\Drivers;C:\apache-ant-1.7.0\bin;;C:\Extra4NT" />
+    <property name="env.MAYO_AD_LOGONSERVER" value="ROEMAD008D" />
+    <property name="ant.file.developers-build-deploy file" value="W:\user\m005256\cagrid\LexBIGCaGridServices\dev-build-deploy.xml" />
+    <property name="eclipse.pdebuild.scripts" value="/C:/eclipse/plugins/org.eclipse.pde.build_3.3.0.v20070612/scripts/" />
+    <property name="ant.java.version" value="1.5" />
+    <property name="basedir" value="W:\user\m005256\cagrid\LexBIGCaGridServices" />
+    <property name="java.class.version" value="49.0" />
+    <property name="ant.home" value="C:\eclipse\plugins\org.apache.ant_1.7.0.v200706080842" />
+    <property name="introduce.skeleton.services.list" value="LexBIGCaGridServices,CodedNodeSet,CodedNodeGraph,LexBIGServiceConvenienceMethods,ResolvedConceptReferencesIterator,HistoryService,LexBIGServiceMetadata" />
+    <property name="env.Path" value="C:\Program Files\Java\jdk1.5.0_11\bin\..\jre\bin\client;C:\Program Files\Java\jdk1.5.0_11\bin\..\jre\bin;C:\Program Files\ActiveState Komodo IDE 4.2\;C:\Program Files\Java\jdk1.5.0_11\bin\;C:\Program Files\PHP\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;c:\sybase12_5_1\ODBC;c:\sybase12_5_1\OLEDB;c:\sybase12_5_1\OCS-12_5\bin;c:\sybase12_5_1\OCS-12_5\dll;C:\sybase12_5_1\ADO.NET\dll;c:\Program Files\QuickTime\QTSystem\;C:\Program Files\IDM Computer Solutions\UltraEdit-32;c:\Python25;C:\Program Files\SoftProject GmbH\xsl-easy3.0\;C:\Program Files\ActiveState Komodo IDE 4.2\;C:\Program Files\Java\jdk1.5.0_11\bin\;C:\Program Files\PHP\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;c:\sybase12_5_1\ODBC;c:\sybase12_5_1\OLEDB;c:\sybase12_5_1\OCS-12_5\bin;c:\sybase12_5_1\OCS-12_5\dll;C:\sybase12_5_1\ADO.NET\dll;c:\Program Files\QuickTime\QTSystem\;C:\Program Files\IDM Computer Solutions\UltraEdit-32;c:\Python25;C:\Program Files\SoftProject GmbH\xsl-easy3.0\;C:\Extra4NT;C:\PROGRA~1\DBBALA~1\CDBS6~1.0\DATADI~1\Drivers;C:\apache-ant-1.7.0\bin;C:\Program Files\ActiveState Komodo IDE 4.2\;C:\Program Files\Java\jdk1.5.0_11\bin\;C:\Program Files\PHP\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;c:\sybase12_5_1\ODBC;c:\sybase12_5_1\OLEDB;c:\sybase12_5_1\OCS-12_5\bin;c:\sybase12_5_1\OCS-12_5\dll;C:\sybase12_5_1\ADO.NET\dll;c:\Program Files\QuickTime\QTSystem\;C:\Program Files\IDM Computer Solutions\UltraEdit-32;c:\Python25;C:\Program Files\SoftProject GmbH\xsl-easy3.0\;C:\Program Files\ActiveState Komodo IDE 4.2\;C:\Program Files\Java\jdk1.5.0_11\bin\;C:\Program Files\PHP\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;c:\sybase12_5_1\ODBC;c:\sybase12_5_1\OLEDB;c:\sybase12_5_1\OCS-12_5\bin;c:\sybase12_5_1\OCS-12_5\dll;C:\sybase12_5_1\ADO.NET\dll;c:\Program Files\QuickTime\QTSystem\;C:\Program Files\IDM Computer Solutions\UltraEdit-32;c:\Python25;C:\Program Files\SoftProject GmbH\xsl-easy3.0\;C:\Extra4NT;C:\PROGRA~1\DBBALA~1\CDBS6~1.0\DATADI~1\Drivers;C:\apache-ant-1.7.0\bin;;C:\Extra4NT" />
+    <property name="env.HOMEDRIVE" value="H:" />
+    <property name="env.HOMESHARE" value="\\HSRNTFS\HOME" />
+    <property name="env.SYBASE_OCS" value="OCS-12_5" />
+    <property name="build.packages" value="C:\cagrid\globus\ws-core-4.0.3\share\globus_wsrf_common\build-packages.xml" />
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.5.0_11\jre\bin" />
+    <property name="build.dir" value="W:\user\m005256\cagrid\LexBIGCaGridServices\build" />
+    <property name="env.PROCESSOR_REVISION" value="0304" />
+    <property name="sun.management.compiler" value="HotSpot Client Compiler" />
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment" />
+    <property name="user.variant" value="" />
+    <property name="stubs.jar.name" value="LexBIGCaGridServices-stubs.jar" />
+    <property name="ant.project.name" value="Introduce Master Build File" />
+    <property name="schema.dir" value="schema" />
+    <property name="GT4.ns.excludes" value="-x http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-BaseFaults-1.2-draft-01.xsd -x http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-BaseFaults-1.2-draft-01.wsdl -x http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceLifetime-1.2-draft-01.xsd -x http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceLifetime-1.2-draft-01.wsdl -x http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties-1.2-draft-01.xsd -x http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties-1.2-draft-01.wsdl -x http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ServiceGroup-1.2-draft-01.xsd -x http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ServiceGroup-1.2-draft-01.wsdl -x http://docs.oasis-open.org/wsn/2004/06/wsn-WS-BaseNotification-1.2-draft-01.xsd -x http://docs.oasis-open.org/wsn/2004/06/wsn-WS-BaseNotification-1.2-draft-01.wsdl -x http://schemas.xmlsoap.org/ws/2004/04/trust -x http://schemas.xmlsoap.org/ws/2002/12/policy -x http://schemas.xmlsoap.org/ws/2002/07/utility -x http://schemas.xmlsoap.org/ws/2004/04/sc -x http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd -x http://www.w3.org/2000/09/xmldsig# -x http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd -x http://schemas.xmlsoap.org/ws/2004/09/enumeration" />
+    <property name="introduce.skeleton.destination.dir" value="W:\user\m005256\cagrid\LexBIGCaGridServices" />
+    <property name="java.vm.specification.version" value="1.0" />
+    <property name="env.GLOBUS_LOCATION" value="C:\cagrid\globus\ws-core-4.0.3" />
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
+    <property name="introduce.skeleton.extensions" value="cagrid_metadata" />
+    <property name="build.lib.dir" value="W:\user\m005256\cagrid\LexBIGCaGridServices\build\lib" />
+    <property name="sun.cpu.isalist" value="" />
+    <property name="env.PHPRC" value="C:\Program Files\PHP\" />
+    <property name="env.MAYO_DISPLAY_RESOLUTION" value="1920X1200" />
+    <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.5.0_11\jre\lib\ext" />
+    <property name="garschema.id" value="garschema" />
+    <property name="os.version" value="5.1" />
+    <property name="env.MAYO_AD_COMPUTER_DN" value="CN=R0131678,OU=GENERAL USE,OU=COMPUTERS,OU=MCR,DC=MFAD,DC=MFROOT,DC=ORG" />
+    <property name="user.home" value="C:\Documents and Settings\m005256" />
+    <property name="java.vm.vendor" value="Sun Microsystems Inc." />
+    <property name="mappings.file" value="W:\user\m005256\cagrid\LexBIGCaGridServices/namespace2package.mappings" />
+    <property name="garetc.id" value="garetc" />
+    <property name="env.USERDNSDOMAIN" value="MFAD.MFROOT.ORG" />
+    <property name="env.JAVA_HOME" value="C:\Program Files\Java\jdk1.5.0_11" />
+    <property name="env.Path_old" value="C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem" />
+    <property name="stubs.dir" value="W:\user\m005256\cagrid\LexBIGCaGridServices\build\stubs-LexBIGCaGridServices" />
+    <property name="user.dir" value="W:\user\m005256\cagrid\LexBIGCaGridServices" />
+    <property name="schema.path" value="LexBIGCaGridServices" />
+    <property name="env.FP_NO_HOST_CHECK" value="NO" />
+    <property name="test.dir" value="test" />
+    <property name="tomcat.dir" value="C:\caGrid1_2\tomcat\jakarta-tomcat-5.0.28" />
+    <property name="sun.cpu.endian" value="little" />
+    <property name="env.MAYO_MCR_FUNCTION" value="NON-EED" />
+    <property name="env.ALLUSERSPROFILE" value="C:\Documents and Settings\All Users" />
+    <property name="env.PROCESSOR_ARCHITECTURE" value="x86" />
+    <property name="env.MAYO_AD_COMPUTER_OU" value="GENERAL USE" />
+    <property name="java.vm.version" value="1.5.0_11-b03" />
+    <property name="java.class.path" value="W:\user\m005256\cagrid\LexBIGCaGridServices\build\test\classes;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\addressing-1.0.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\axis-url.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\axis.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\bootstrap.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\cog-axis.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\cog-jglobus.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\cog-tomcat.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\cog-url.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\commonj.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\commons-beanutils.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\commons-cli-2.0.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\commons-collections-3.0.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\commons-digester.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\commons-discovery.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\commons-logging.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\concurrent.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\cryptix-asn1.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\cryptix.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\cryptix32.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\globus_resolution_service.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\globus_resolution_stubs_java.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\globus_resolution_test.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\globus_transfer_service.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\globus_transfer_stubs_java.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\globus_transfer_test.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\globus_usage_core.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\globus_usage_packets_common.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\globus_wsrf_tools_test.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\jaxrpc.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\jce-jdk13-125.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\jgss.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\junit-4.3.1.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\junit.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\log4j-1.2.13.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\log4j-1.2.8.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\naming-common.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\naming-factory.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\naming-java.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\naming-resources.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\opensaml.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\puretls.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\resolver.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\saaj.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\servlet.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\wsdl4j.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\wsrf_common.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\wsrf_core.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\wsrf_core_registry.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\wsrf_core_registry_stubs.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\wsrf_core_samples_authzService.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\wsrf_core_samples_authzService_stubs.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\wsrf_core_samples_counter.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\wsrf_core_samples_counter_stubs.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\wsrf_core_samples_mgmt.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\wsrf_core_samples_mgmt_stubs.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\wsrf_core_stubs.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\wsrf_provider_jce.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\wsrf_test.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\wsrf_test_interop.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\wsrf_test_interop_stubs.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\wsrf_test_unit.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\wsrf_test_unit_stubs.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\wsrf_tools.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\wss4j.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\xalan.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\xercesImpl.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\xml-apis.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\test\lib\xmlsec.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\build\classes;W:\user\m005256\cagrid\LexBIGCaGridServices\build\stubs-LexBIGCaGridServices\classes;W:\user\m005256\cagrid\LexBIGCaGridServices\lib\acegi-security-1.0.4.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\lib\asm.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\lib\caGrid-1.1-metadata-data.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\lib\caGrid-Introduce-serviceTools-1.2.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\lib\caGrid-ServiceSecurityProvider-client-1.2.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\lib\caGrid-ServiceSecurityProvider-common-1.2.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\lib\caGrid-ServiceSecurityProvider-service-1.2.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\lib\caGrid-ServiceSecurityProvider-stubs-1.2.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\lib\caGrid-advertisement-1.2.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\lib\caGrid-core-1.2.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\lib\caGrid-metadata-common-1.2.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\lib\caGrid-metadata-security-1.2.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\lib\caGrid-metadatautils-1.2.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\lib\castor-0.9.9.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\lib\castor-1.2.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\lib\castor-bean-serializer.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\lib\cglib-2.1.3.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\lib\commons-codec-1.3.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\lib\globus_wsrf_mds_aggregator.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\lib\globus_wsrf_mds_aggregator_stubs.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\lib\globus_wsrf_servicegroup.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\lib\globus_wsrf_servicegroup_stubs.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\lib\hibernate3.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\lib\jdom-1.0.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\lib\lbAdmin.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\lib\lbImpl.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\lib\lbInterfaces.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\lib\lbModel.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\lib\lgConverter.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\lib\lgIndexer.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\lib\lgModel.emf.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\lib\lgModel.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\lib\lgRDFConverter.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\lib\lgResourceReader.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\lib\lgUtility.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\lib\sdk-client-framework.jar;W:\user\m005256\cagrid\LexBIGCaGridServices\lib\spring.jar;C:\cagrid\globus\ws-core-4.0.3\lib\addressing-1.0.jar;C:\cagrid\globus\ws-core-4.0.3\lib\axis-url.jar;C:\cagrid\globus\ws-core-4.0.3\lib\axis.jar;C:\cagrid\globus\ws-core-4.0.3\lib\bootstrap.jar;C:\cagrid\globus\ws-core-4.0.3\lib\cog-axis.jar;C:\cagrid\globus\ws-core-4.0.3\lib\cog-jglobus.jar;C:\cagrid\globus\ws-core-4.0.3\lib\cog-tomcat.jar;C:\cagrid\globus\ws-core-4.0.3\lib\cog-url.jar;C:\cagrid\globus\ws-core-4.0.3\lib\commonj.jar;C:\cagrid\globus\ws-core-4.0.3\lib\commons-beanutils.jar;C:\cagrid\globus\ws-core-4.0.3\lib\commons-cli-2.0.jar;C:\cagrid\globus\ws-core-4.0.3\lib\commons-collections-3.0.jar;C:\cagrid\globus\ws-core-4.0.3\lib\commons-digester.jar;C:\cagrid\globus\ws-core-4.0.3\lib\commons-discovery.jar;C:\cagrid\globus\ws-core-4.0.3\lib\commons-logging.jar;C:\cagrid\globus\ws-core-4.0.3\lib\concurrent.jar;C:\cagrid\globus\ws-core-4.0.3\lib\cryptix-asn1.jar;C:\cagrid\globus\ws-core-4.0.3\lib\cryptix.jar;C:\cagrid\globus\ws-core-4.0.3\lib\cryptix32.jar;C:\cagrid\globus\ws-core-4.0.3\lib\globus_resolution_service.jar;C:\cagrid\globus\ws-core-4.0.3\lib\globus_resolution_stubs_java.jar;C:\cagrid\globus\ws-core-4.0.3\lib\globus_resolution_test.jar;C:\cagrid\globus\ws-core-4.0.3\lib\globus_transfer_service.jar;C:\cagrid\globus\ws-core-4.0.3\lib\globus_transfer_stubs_java.jar;C:\cagrid\globus\ws-core-4.0.3\lib\globus_transfer_test.jar;C:\cagrid\globus\ws-core-4.0.3\lib\globus_usage_core.jar;C:\cagrid\globus\ws-core-4.0.3\lib\globus_usage_packets_common.jar;C:\cagrid\globus\ws-core-4.0.3\lib\globus_wsrf_tools_test.jar;C:\cagrid\globus\ws-core-4.0.3\lib\jaxrpc.jar;C:\cagrid\globus\ws-core-4.0.3\lib\jce-jdk13-125.jar;C:\cagrid\globus\ws-core-4.0.3\lib\jgss.jar;C:\cagrid\globus\ws-core-4.0.3\lib\junit.jar;C:\cagrid\globus\ws-core-4.0.3\lib\log4j-1.2.8.jar;C:\cagrid\globus\ws-core-4.0.3\lib\naming-common.jar;C:\cagrid\globus\ws-core-4.0.3\lib\naming-factory.jar;C:\cagrid\globus\ws-core-4.0.3\lib\naming-java.jar;C:\cagrid\globus\ws-core-4.0.3\lib\naming-resources.jar;C:\cagrid\globus\ws-core-4.0.3\lib\opensaml.jar;C:\cagrid\globus\ws-core-4.0.3\lib\puretls.jar;C:\cagrid\globus\ws-core-4.0.3\lib\resolver.jar;C:\cagrid\globus\ws-core-4.0.3\lib\saaj.jar;C:\cagrid\globus\ws-core-4.0.3\lib\servlet.jar;C:\cagrid\globus\ws-core-4.0.3\lib\wsdl4j.jar;C:\cagrid\globus\ws-core-4.0.3\lib\wsrf_common.jar;C:\cagrid\globus\ws-core-4.0.3\lib\wsrf_core.jar;C:\cagrid\globus\ws-core-4.0.3\lib\wsrf_core_registry.jar;C:\cagrid\globus\ws-core-4.0.3\lib\wsrf_core_registry_stubs.jar;C:\cagrid\globus\ws-core-4.0.3\lib\wsrf_core_samples_authzService.jar;C:\cagrid\globus\ws-core-4.0.3\lib\wsrf_core_samples_authzService_stubs.jar;C:\cagrid\globus\ws-core-4.0.3\lib\wsrf_core_samples_counter.jar;C:\cagrid\globus\ws-core-4.0.3\lib\wsrf_core_samples_counter_stubs.jar;C:\cagrid\globus\ws-core-4.0.3\lib\wsrf_core_samples_mgmt.jar;C:\cagrid\globus\ws-core-4.0.3\lib\wsrf_core_samples_mgmt_stubs.jar;C:\cagrid\globus\ws-core-4.0.3\lib\wsrf_core_stubs.jar;C:\cagrid\globus\ws-core-4.0.3\lib\wsrf_provider_jce.jar;C:\cagrid\globus\ws-core-4.0.3\lib\wsrf_test.jar;C:\cagrid\globus\ws-core-4.0.3\lib\wsrf_test_interop.jar;C:\cagrid\globus\ws-core-4.0.3\lib\wsrf_test_interop_stubs.jar;C:\cagrid\globus\ws-core-4.0.3\lib\wsrf_test_unit.jar;C:\cagrid\globus\ws-core-4.0.3\lib\wsrf_test_unit_stubs.jar;C:\cagrid\globus\ws-core-4.0.3\lib\wsrf_tools.jar;C:\cagrid\globus\ws-core-4.0.3\lib\wss4j.jar;C:\cagrid\globus\ws-core-4.0.3\lib\xalan.jar;C:\cagrid\globus\ws-core-4.0.3\lib\xercesImpl.jar;C:\cagrid\globus\ws-core-4.0.3\lib\xml-apis.jar;C:\cagrid\globus\ws-core-4.0.3\lib\xmlsec.jar;C:\Program Files\Altova\xmlspy\XMLSpyInterface.jar;C:\eclipse\plugins\org.apache.ant_1.7.0.v200706080842\lib\ant-launcher.jar;C:\eclipse\plugins\org.apache.ant_1.7.0.v200706080842\lib\ant.jar;C:\eclipse\plugins\org.apache.ant_1.7.0.v200706080842\lib\ant-junit.jar" />
+    <property name="env.HOMEPATH" value="\" />
+    <property name="env.SonicCentral" value="C:\Program Files\Common Files\Sonic Shared\Sonic Central\" />
+    <property name="ant.library.dir" value="C:\eclipse\plugins\org.apache.ant_1.7.0.v200706080842\lib" />
+    <property name="os.arch" value="x86" />
+    <property name="env.SESSIONNAME" value="Console" />
+    <property name="sun.java.launcher" value="SUN_STANDARD" />
+    <property name="env.MAYO_COMPUTER_NAME" value="R0131678" />
+    <property name="env.CommonProgramFiles" value="C:\Program Files\Common Files" />
+    <property name="ant.core.lib" value="C:\eclipse\plugins\org.apache.ant_1.7.0.v200706080842\lib\ant.jar" />
+    <property name="env.MAYO_OS_PLATFORM" value="WINDOWS_NT" />
+    <property name="env.ProgramFiles" value="C:\Program Files" />
+    <property name="java.vm.specification.vendor" value="Sun Microsystems Inc." />
+    <property name="file.separator" value="\" />
+    <property name="env.SYBASE" value="C:\sybase12_5_1" />
+    <property name="java.runtime.version" value="1.5.0_11-b03" />
+    <property name="env.MAYO_MCR_DEPARTMENT" value="NONE" />
+    <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.5.0_11\jre\lib\rt.jar;C:\Program Files\Java\jdk1.5.0_11\jre\lib\i18n.jar;C:\Program Files\Java\jdk1.5.0_11\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.5.0_11\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.5.0_11\jre\lib\jce.jar;C:\Program Files\Java\jdk1.5.0_11\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.5.0_11\jre\classes" />
+    <property name="env.ComSpec" value="C:\WINDOWS\system32\cmd.exe" />
+    <property name="env.TEMP" value="C:\DOCUME~1\m005256\LOCALS~1\Temp" />
+    <property name="env.MAYO_USER_DOMAIN_NAME" value="MFAD" />
+    <property name="env.ANT_HOME" value="C:\eclipse\plugins\org.apache.ant_1.7.0.v200706080842" />
+    <property name="user.country" value="US" />
+    <property name="etc.dir" value="etc" />
+    <property name="service.jar.name" value="LexBIGCaGridServices-service.jar" />
+    <property name="service.name" value="LexBIGCaGridServices" />
+    <property name="java.vendor" value="Sun Microsystems Inc." />
+    <property name="env.SYBASE_JRE" value="C:\sybase12_5_1\shared-1_0\JRE-1_3" />
+    <property name="env.CATALINA_HOME" value="C:\caGrid1_2\tomcat\jakarta-tomcat-5.0.28" />
+    <property name="java.specification.version" value="1.5" />
+    <property name="jboss.dir" value="${env.JBOSS_HOME}" />
+    <property name="sun.arch.data.model" value="32" />
+  </properties>
+  <testcase classname="org.LexGrid.LexBIG.Impl.function.query.TestAttributeValueMatch" name="testAttributeValueMatcha" time="13.625" />
+  <testcase classname="org.LexGrid.LexBIG.Impl.function.query.TestAttributeValueMatch" name="testAttributeValueMatchb" time="0.657" />
+  <testcase classname="org.LexGrid.LexBIG.Impl.function.query.TestAttributeValueMatch" name="testAttributeValueMatchc" time="0.922" />
+  <testcase classname="org.LexGrid.LexBIG.Impl.function.query.TestAttributeValueMatch" name="testAttributeValueMatchd" time="0.75" />
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

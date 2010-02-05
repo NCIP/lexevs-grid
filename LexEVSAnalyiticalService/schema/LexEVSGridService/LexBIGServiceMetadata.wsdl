@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceMetadata" xmlns:wsrp="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties-1.2-draft-01.xsd" xmlns:wsrlw="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceLifetime-1.2-draft-01.wsdl" xmlns:wsdlpp="http://www.globus.org/namespaces/2004/10/WSDLPreprocessor" xmlns:gtwsdl1="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ServiceGroup-1.2-draft-01.wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/03/addressing" xmlns:wsntw="http://docs.oasis-open.org/wsn/2004/06/wsn-WS-BaseNotification-1.2-draft-01.wsdl" xmlns:wsrbfw="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-BaseFaults-1.2-draft-01.wsdl" xmlns:wsrpw="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties-1.2-draft-01.wsdl" xmlns:wns2="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceLifetime-1.2-draft-01.wsdl" xmlns:wns1="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties-1.2-draft-01.wsdl" xmlns:wns0="http://security.introduce.cagrid.nci.nih.gov/ServiceSecurity" xmlns:ns27="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/ResolvedConceptReferencesIterator/types" xmlns:ns30="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/Sort/types" xmlns:ns1="http://LexGrid.org/schema/2009/01/LexGrid/codingSchemes" xmlns:ns3="http://LexGrid.org/schema/2009/01/LexGrid/builtins" xmlns:ns23="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/CodedNodeSet/types" xmlns:ns6="http://LexGrid.org/schema/2009/01/LexGrid/lbInterfacetypes" xmlns:ns12="http://LexGrid.org/schema/LexBIG/2009/01/InterfaceElements" xmlns:ns5="http://LexGrid.org/schema/2009/01/LexGrid/commonTypes" xmlns:ns0="http://LexGrid.org/schema/2009/01/LexGrid/naming" xmlns:ns14="http://LexGrid.org/schema/2009/01/LexGrid/commonTypesTypes" xmlns:ns15="http://LexGrid.org/schema/LexBIG/2009/01/caGrid" xmlns:ns18="gme://caCORE.caCORE/3.2/gov.nih.nci.evs.security" xmlns:ns29="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceMetadata/types" xmlns:ns20="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/types" xmlns:ns13="http://LexGrid.org/schema/2009/01/LexGrid/Coretypes" xmlns:ns22="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata" xmlns:ns8="http://LexGrid.org/schema/2009/01/LexGrid/NCIHistory" xmlns:ns16="http://LexGrid.org/schema/LexBIG/2009/01/enums" xmlns:ns7="http://LexGrid.org/schema/2009/01/LexGrid/relations" xmlns:ns21="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.security" xmlns:ns4="http://LexGrid.org/schema/LexBIG/2009/01/Core" xmlns:ns11="http://LexGrid.org/schema/2009/01/LexGrid/versions" xmlns:ns10="http://LexGrid.org/schema/2009/01/LexGrid/concepts" xmlns:ns9="http://LexGrid.org/schema/2009/01/LexGrid/NCIHistorytypes" xmlns:ns17="http://LexGrid.org/schema/2009/01/LexGrid/NCIChangeTypes" xmlns:ns25="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/CodedNodeGraph/types" xmlns:ns31="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/Filter/types" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/Collections" xmlns:ns26="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/types" xmlns:ns19="http://schemas.xmlsoap.org/ws/2004/03/addressing" xmlns:ns28="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/HistoryService/types" xmlns:ns24="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceLifetime-1.2-draft-01.xsd" name="LexBIGServiceMetadata" targetNamespace="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceMetadata">
+  <import namespace="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties-1.2-draft-01.wsdl" location="../wsrf/properties/WS-ResourceProperties.wsdl" />
+  <import namespace="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-BaseFaults-1.2-draft-01.wsdl" location="../wsrf/faults/WS-BaseFaults.wsdl" />
+  <import namespace="http://docs.oasis-open.org/wsn/2004/06/wsn-WS-BaseNotification-1.2-draft-01.wsdl" location="../wsrf/notification/WS-BaseN.wsdl" />
+  <import namespace="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceLifetime-1.2-draft-01.wsdl" location="./../wsrf/lifetime/WS-ResourceLifetime.wsdl" />
+  <import namespace="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties-1.2-draft-01.wsdl" location="./../wsrf/properties/WS-ResourceProperties.wsdl" />
+  <import namespace="http://security.introduce.cagrid.nci.nih.gov/ServiceSecurity" location="./ServiceSecurity.wsdl" />
+  <!--============================================================
+
+                      T Y P E S
+                      
+  ============================================================-->
+  <types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsrbf="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-BaseFaults-1.2-draft-01.xsd" targetNamespace="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceMetadata" elementFormDefault="qualified" attributeFormDefault="unqualified">
+      <import namespace="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-BaseFaults-1.2-draft-01.xsd" schemaLocation="../wsrf/faults/WS-BaseFaults.xsd" />
+      <import namespace="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/ResolvedConceptReferencesIterator/types" schemaLocation="./ResolvedConceptReferencesIteratorTypes.xsd" />
+      <import namespace="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/Sort/types" schemaLocation="./SortTypes.xsd" />
+      <import namespace="http://LexGrid.org/schema/2009/01/LexGrid/codingSchemes" schemaLocation="./codingSchemes.xsd" />
+      <import namespace="http://LexGrid.org/schema/2009/01/LexGrid/builtins" schemaLocation="./builtins.xsd" />
+      <import namespace="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/CodedNodeSet/types" schemaLocation="./CodedNodeSetTypes.xsd" />
+      <import namespace="http://LexGrid.org/schema/2009/01/LexGrid/lbInterfacetypes" schemaLocation="./InterfaceElementstypes.xsd" />
+      <import namespace="http://LexGrid.org/schema/LexBIG/2009/01/InterfaceElements" schemaLocation="./InterfaceElements.xsd" />
+      <import namespace="http://LexGrid.org/schema/2009/01/LexGrid/commonTypes" schemaLocation="./commonTypes.xsd" />
+      <import namespace="http://LexGrid.org/schema/2009/01/LexGrid/naming" schemaLocation="./naming.xsd" />
+      <import namespace="http://LexGrid.org/schema/2009/01/LexGrid/commonTypesTypes" schemaLocation="./commonTypesTypes.xsd" />
+      <import namespace="http://LexGrid.org/schema/LexBIG/2009/01/caGrid" schemaLocation="./cagrid.xsd" />
+      <import namespace="gme://caCORE.caCORE/3.2/gov.nih.nci.evs.security" schemaLocation="./caCORE.caCORE-3.2_gov.nih.nci.evs.security.xsd" />
+      <import namespace="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceMetadata/types" schemaLocation="./LexBIGServiceMetadataTypes.xsd" />
+      <import namespace="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/types" schemaLocation="./LexEVSGridServiceTypes.xsd" />
+      <import namespace="http://LexGrid.org/schema/2009/01/LexGrid/Coretypes" schemaLocation="./CoreTypes.xsd" />
+      <import namespace="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata" schemaLocation="./cagrid/types/caGridMetadata.xsd" />
+      <import namespace="http://LexGrid.org/schema/2009/01/LexGrid/NCIHistory" schemaLocation="./NCIHistory.xsd" />
+      <import namespace="http://LexGrid.org/schema/LexBIG/2009/01/enums" schemaLocation="./enums.xsd" />
+      <import namespace="http://LexGrid.org/schema/2009/01/LexGrid/relations" schemaLocation="./relations.xsd" />
+      <import namespace="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.security" schemaLocation="./xsd/security.xsd" />
+      <import namespace="http://LexGrid.org/schema/LexBIG/2009/01/Core" schemaLocation="./Core.xsd" />
+      <import namespace="http://LexGrid.org/schema/2009/01/LexGrid/versions" schemaLocation="./versions.xsd" />
+      <import namespace="http://LexGrid.org/schema/2009/01/LexGrid/concepts" schemaLocation="./concepts.xsd" />
+      <import namespace="http://LexGrid.org/schema/2009/01/LexGrid/NCIHistorytypes" schemaLocation="./NCIHistorytypes.xsd" />
+      <import namespace="http://LexGrid.org/schema/2009/01/LexGrid/NCIChangeTypes" schemaLocation="./NCIHistory.xsd" />
+      <import namespace="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/CodedNodeGraph/types" schemaLocation="./CodedNodeGraphTypes.xsd" />
+      <import namespace="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/Filter/types" schemaLocation="./FilterTypes.xsd" />
+      <import namespace="http://LexGrid.org/schema/LexBIG/2009/01/Collections" schemaLocation="./Collections.xsd" />
+      <import namespace="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/types" schemaLocation="./LexBIGServiceConvenienceMethodsTypes.xsd" />
+      <import namespace="http://schemas.xmlsoap.org/ws/2004/03/addressing" schemaLocation="./../ws/addressing/WS-Addressing.xsd" />
+      <import namespace="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/HistoryService/types" schemaLocation="./HistoryServiceTypes.xsd" />
+      <import namespace="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceLifetime-1.2-draft-01.xsd" schemaLocation="../wsrf/lifetime/WS-ResourceLifetime.xsd" />
+      <element name="ListCodingSchemesRequest">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="ListCodingSchemesResponse">
+        <complexType>
+          <sequence>
+            <element ref="ns2:AbsoluteCodingSchemeVersionReferenceList" minOccurs="1" maxOccurs="1" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="RestrictToCodingSchemeRequest">
+        <complexType>
+          <sequence>
+            <element name="acsvr">
+              <complexType>
+                <sequence>
+                  <element ref="ns4:AbsoluteCodingSchemeVersionReference" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="RestrictToCodingSchemeResponse">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="RestrictToPropertiesRequest">
+        <complexType>
+          <sequence>
+            <element name="propertyIdentification">
+              <complexType>
+                <sequence>
+                  <element ref="ns15:PropertyIdentification" minOccurs="1" maxOccurs="unbounded" />
+                </sequence>
+              </complexType>
+            </element>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="RestrictToPropertiesResponse">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="RestrictToPropertyParentsRequest">
+        <complexType>
+          <sequence>
+            <element name="propertyIdentification">
+              <complexType>
+                <sequence>
+                  <element ref="ns15:PropertyIdentification" minOccurs="1" maxOccurs="unbounded" />
+                </sequence>
+              </complexType>
+            </element>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="RestrictToPropertyParentsResponse">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="RestrictToValueRequest">
+        <complexType>
+          <sequence>
+            <element name="matchCriteria">
+              <complexType>
+                <sequence>
+                  <element ref="ns15:MatchCriteria" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+            <element name="extensionIdentification">
+              <complexType>
+                <sequence>
+                  <element ref="ns15:ExtensionIdentification" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="RestrictToValueResponse">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="ResolveRequest">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="ResolveResponse">
+        <complexType>
+          <sequence>
+            <element ref="ns2:MetadataPropertyList" minOccurs="1" maxOccurs="1" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="LexBIGServiceMetadataResourceProperties">
+        <complexType>
+          <sequence>
+            <element ref="ns24:CurrentTime" />
+            <element ref="ns24:TerminationTime" />
+          </sequence>
+        </complexType>
+      </element>
+    </schema>
+  </types>
+  <!--  place service messages here -->
+  <message name="ListCodingSchemesRequest">
+    <part name="parameters" element="tns:ListCodingSchemesRequest" />
+  </message>
+  <message name="ListCodingSchemesResponse">
+    <part name="parameters" element="tns:ListCodingSchemesResponse" />
+  </message>
+  <message name="RestrictToCodingSchemeRequest">
+    <part name="parameters" element="tns:RestrictToCodingSchemeRequest" />
+  </message>
+  <message name="RestrictToCodingSchemeResponse">
+    <part name="parameters" element="tns:RestrictToCodingSchemeResponse" />
+  </message>
+  <message name="RestrictToPropertiesRequest">
+    <part name="parameters" element="tns:RestrictToPropertiesRequest" />
+  </message>
+  <message name="RestrictToPropertiesResponse">
+    <part name="parameters" element="tns:RestrictToPropertiesResponse" />
+  </message>
+  <message name="RestrictToPropertyParentsRequest">
+    <part name="parameters" element="tns:RestrictToPropertyParentsRequest" />
+  </message>
+  <message name="RestrictToPropertyParentsResponse">
+    <part name="parameters" element="tns:RestrictToPropertyParentsResponse" />
+  </message>
+  <message name="RestrictToValueRequest">
+    <part name="parameters" element="tns:RestrictToValueRequest" />
+  </message>
+  <message name="RestrictToValueResponse">
+    <part name="parameters" element="tns:RestrictToValueResponse" />
+  </message>
+  <message name="ResolveRequest">
+    <part name="parameters" element="tns:ResolveRequest" />
+  </message>
+  <message name="ResolveResponse">
+    <part name="parameters" element="tns:ResolveResponse" />
+  </message>
+  <message name="InvalidServiceContextAccessFaultMessage">
+    <part name="fault" element="ns20:InvalidServiceContextAccess" />
+  </message>
+  <message name="LBInvocationExceptionFaultMessage">
+    <part name="fault" element="ns20:LBInvocationException" />
+  </message>
+  <message name="LBParameterExceptionFaultMessage">
+    <part name="fault" element="ns20:LBParameterException" />
+  </message>
+  <!--============================================================
+
+                       P O R T T Y P E
+                      
+  ============================================================-->
+  <portType name="LexBIGServiceMetadataPortType" wsrp:ResourceProperties="tns:LexBIGServiceMetadataResourceProperties">
+    <operation name="listCodingSchemes">
+      <input message="tns:ListCodingSchemesRequest" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceMetadata/ListCodingSchemesRequest" />
+      <output message="tns:ListCodingSchemesResponse" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceMetadata/ListCodingSchemesResponse" />
+      <fault name="InvalidServiceContextAccess" message="tns:InvalidServiceContextAccessFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceMetadata/InvalidServiceContextAccessFaultMessage" />
+      <fault name="LBInvocationException" message="tns:LBInvocationExceptionFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceMetadata/LBInvocationExceptionFaultMessage" />
+    </operation>
+    <operation name="restrictToCodingScheme">
+      <input message="tns:RestrictToCodingSchemeRequest" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceMetadata/RestrictToCodingSchemeRequest" />
+      <output message="tns:RestrictToCodingSchemeResponse" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceMetadata/RestrictToCodingSchemeResponse" />
+      <fault name="InvalidServiceContextAccess" message="tns:InvalidServiceContextAccessFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceMetadata/InvalidServiceContextAccessFaultMessage" />
+      <fault name="LBParameterException" message="tns:LBParameterExceptionFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceMetadata/LBParameterExceptionFaultMessage" />
+    </operation>
+    <operation name="restrictToProperties">
+      <input message="tns:RestrictToPropertiesRequest" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceMetadata/RestrictToPropertiesRequest" />
+      <output message="tns:RestrictToPropertiesResponse" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceMetadata/RestrictToPropertiesResponse" />
+      <fault name="InvalidServiceContextAccess" message="tns:InvalidServiceContextAccessFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceMetadata/InvalidServiceContextAccessFaultMessage" />
+      <fault name="LBParameterException" message="tns:LBParameterExceptionFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceMetadata/LBParameterExceptionFaultMessage" />
+    </operation>
+    <operation name="restrictToPropertyParents">
+      <input message="tns:RestrictToPropertyParentsRequest" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceMetadata/RestrictToPropertyParentsRequest" />
+      <output message="tns:RestrictToPropertyParentsResponse" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceMetadata/RestrictToPropertyParentsResponse" />
+      <fault name="InvalidServiceContextAccess" message="tns:InvalidServiceContextAccessFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceMetadata/InvalidServiceContextAccessFaultMessage" />
+      <fault name="LBParameterException" message="tns:LBParameterExceptionFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceMetadata/LBParameterExceptionFaultMessage" />
+    </operation>
+    <operation name="restrictToValue">
+      <input message="tns:RestrictToValueRequest" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceMetadata/RestrictToValueRequest" />
+      <output message="tns:RestrictToValueResponse" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceMetadata/RestrictToValueResponse" />
+      <fault name="InvalidServiceContextAccess" message="tns:InvalidServiceContextAccessFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceMetadata/InvalidServiceContextAccessFaultMessage" />
+      <fault name="LBParameterException" message="tns:LBParameterExceptionFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceMetadata/LBParameterExceptionFaultMessage" />
+    </operation>
+    <operation name="resolve">
+      <input message="tns:ResolveRequest" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceMetadata/ResolveRequest" />
+      <output message="tns:ResolveResponse" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceMetadata/ResolveResponse" />
+      <fault name="InvalidServiceContextAccess" message="tns:InvalidServiceContextAccessFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceMetadata/InvalidServiceContextAccessFaultMessage" />
+      <fault name="LBParameterException" message="tns:LBParameterExceptionFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceMetadata/LBParameterExceptionFaultMessage" />
+      <fault name="LBInvocationException" message="tns:LBInvocationExceptionFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceMetadata/LBInvocationExceptionFaultMessage" />
+    </operation>
+    <operation name="getServiceSecurityMetadata">
+      <input message="wns0:GetServiceSecurityMetadataRequest" wsa:Action="http://security.introduce.cagrid.nci.nih.gov/ServiceSecurity/GetServiceSecurityMetadataRequest" />
+      <output message="wns0:GetServiceSecurityMetadataResponse" wsa:Action="http://security.introduce.cagrid.nci.nih.gov/ServiceSecurity/GetServiceSecurityMetadataResponse" />
+    </operation>
+    <wsdl:operation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="GetMultipleResourceProperties">
+      <wsdl:input name="GetMultipleResourcePropertiesRequest" message="wsrpw:GetMultipleResourcePropertiesRequest" wsa:Action="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties/GetMultipleResourceProperties" />
+      <wsdl:output name="GetMultipleResourcePropertiesResponse" message="wsrpw:GetMultipleResourcePropertiesResponse" wsa:Action="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties/GetMultipleResourcePropertiesResponse" />
+      <wsdl:fault name="ResourceUnknownFault" message="wsrpw:ResourceUnknownFault" />
+      <wsdl:fault name="InvalidResourcePropertyQNameFault" message="wsrpw:InvalidResourcePropertyQNameFault" />
+    </wsdl:operation>
+    <wsdl:operation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="GetResourceProperty">
+      <wsdl:input name="GetResourcePropertyRequest" message="wsrpw:GetResourcePropertyRequest" wsa:Action="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties/GetResourceProperty" />
+      <wsdl:output name="GetResourcePropertyResponse" message="wsrpw:GetResourcePropertyResponse" wsa:Action="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties/GetResourcePropertyResponse" />
+      <wsdl:fault name="ResourceUnknownFault" message="wsrpw:ResourceUnknownFault" />
+      <wsdl:fault name="InvalidResourcePropertyQNameFault" message="wsrpw:InvalidResourcePropertyQNameFault" />
+    </wsdl:operation>
+    <wsdl:operation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="QueryResourceProperties">
+      <wsdl:input name="QueryResourcePropertiesRequest" message="wsrpw:QueryResourcePropertiesRequest" wsa:Action="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties/QueryResourceProperties" />
+      <wsdl:output name="QueryResourcePropertiesResponse" message="wsrpw:QueryResourcePropertiesResponse" wsa:Action="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties/QueryResourcePropertiesResponse" />
+      <wsdl:fault name="ResourceUnknownFault" message="wsrpw:ResourceUnknownFault" />
+      <wsdl:fault name="InvalidResourcePropertyQNameFault" message="wsrpw:InvalidResourcePropertyQNameFault" />
+      <wsdl:fault name="UnknownQueryExpressionDialectFault" message="wsrpw:UnknownQueryExpressionDialectFault" />
+      <wsdl:fault name="InvalidQueryExpressionFault" message="wsrpw:InvalidQueryExpressionFault" />
+      <wsdl:fault name="QueryEvaluationErrorFault" message="wsrpw:QueryEvaluationErrorFault" />
+    </wsdl:operation>
+    <wsdl:operation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="Destroy">
+      <wsdl:input message="wsrlw:DestroyRequest" wsa:Action="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceLifetime/Destroy" />
+      <wsdl:output message="wsrlw:DestroyResponse" wsa:Action="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceLifetime/DestroyResponse" />
+      <wsdl:fault message="wsrlw:ResourceNotDestroyedFault" name="ResourceNotDestroyedFault" />
+      <wsdl:fault message="wsrlw:ResourceUnknownFault" name="ResourceUnknownFault" />
+    </wsdl:operation>
+    <wsdl:operation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="SetTerminationTime">
+      <wsdl:input message="wsrlw:SetTerminationTimeRequest" wsa:Action="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceLifetime/SetTerminationTime" />
+      <wsdl:output message="wsrlw:SetTerminationTimeResponse" wsa:Action="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceLifetime/SetTerminationTimeResponse" />
+      <wsdl:fault message="wsrlw:UnableToSetTerminationTimeFault" name="UnableToSetTerminationTimeFault" />
+      <wsdl:fault message="wsrlw:ResourceUnknownFault" name="ResourceUnknownFault" />
+      <wsdl:fault message="wsrlw:TerminationTimeChangeRejectedFault" name="TerminationTimeChangeRejectedFault" />
+    </wsdl:operation>
+  </portType>
+</definitions>
+

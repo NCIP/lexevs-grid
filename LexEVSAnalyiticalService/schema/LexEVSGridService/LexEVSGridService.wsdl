@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices" xmlns:wsrp="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties-1.2-draft-01.xsd" xmlns:wsrlw="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceLifetime-1.2-draft-01.wsdl" xmlns:wsdlpp="http://www.globus.org/namespaces/2004/10/WSDLPreprocessor" xmlns:gtwsdl1="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ServiceGroup-1.2-draft-01.wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/03/addressing" xmlns:wsntw="http://docs.oasis-open.org/wsn/2004/06/wsn-WS-BaseNotification-1.2-draft-01.wsdl" xmlns:wsrbfw="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-BaseFaults-1.2-draft-01.wsdl" xmlns:wsrpw="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties-1.2-draft-01.wsdl" xmlns:wns1="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties-1.2-draft-01.wsdl" xmlns:wns0="http://security.introduce.cagrid.nci.nih.gov/ServiceSecurity" xmlns:ns27="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/ResolvedConceptReferencesIterator/types" xmlns:ns30="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/Sort/types" xmlns:ns1="http://LexGrid.org/schema/2009/01/LexGrid/codingSchemes" xmlns:ns3="http://LexGrid.org/schema/2009/01/LexGrid/builtins" xmlns:ns23="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/CodedNodeSet/types" xmlns:ns6="http://LexGrid.org/schema/2009/01/LexGrid/lbInterfacetypes" xmlns:ns12="http://LexGrid.org/schema/LexBIG/2009/01/InterfaceElements" xmlns:ns5="http://LexGrid.org/schema/2009/01/LexGrid/commonTypes" xmlns:ns0="http://LexGrid.org/schema/2009/01/LexGrid/naming" xmlns:ns14="http://LexGrid.org/schema/2009/01/LexGrid/commonTypesTypes" xmlns:ns15="http://LexGrid.org/schema/LexBIG/2009/01/caGrid" xmlns:ns18="gme://caCORE.caCORE/3.2/gov.nih.nci.evs.security" xmlns:ns29="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceMetadata/types" xmlns:ns20="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/types" xmlns:ns13="http://LexGrid.org/schema/2009/01/LexGrid/Coretypes" xmlns:ns22="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata" xmlns:ns8="http://LexGrid.org/schema/2009/01/LexGrid/NCIHistory" xmlns:ns16="http://LexGrid.org/schema/LexBIG/2009/01/enums" xmlns:ns7="http://LexGrid.org/schema/2009/01/LexGrid/relations" xmlns:ns21="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.security" xmlns:ns4="http://LexGrid.org/schema/LexBIG/2009/01/Core" xmlns:ns11="http://LexGrid.org/schema/2009/01/LexGrid/versions" xmlns:ns10="http://LexGrid.org/schema/2009/01/LexGrid/concepts" xmlns:ns9="http://LexGrid.org/schema/2009/01/LexGrid/NCIHistorytypes" xmlns:ns17="http://LexGrid.org/schema/2009/01/LexGrid/NCIChangeTypes" xmlns:ns25="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/CodedNodeGraph/types" xmlns:ns31="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/Filter/types" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/Collections" xmlns:ns26="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/types" xmlns:ns19="http://schemas.xmlsoap.org/ws/2004/03/addressing" xmlns:ns28="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/HistoryService/types" xmlns:ns24="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceLifetime-1.2-draft-01.xsd" name="LexEVSGridService" targetNamespace="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices">
+  <import namespace="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties-1.2-draft-01.wsdl" location="../wsrf/properties/WS-ResourceProperties.wsdl" />
+  <import namespace="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-BaseFaults-1.2-draft-01.wsdl" location="../wsrf/faults/WS-BaseFaults.wsdl" />
+  <import namespace="http://docs.oasis-open.org/wsn/2004/06/wsn-WS-BaseNotification-1.2-draft-01.wsdl" location="../wsrf/notification/WS-BaseN.wsdl" />
+  <import namespace="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties-1.2-draft-01.wsdl" location="./../wsrf/properties/WS-ResourceProperties.wsdl" />
+  <import namespace="http://security.introduce.cagrid.nci.nih.gov/ServiceSecurity" location="./ServiceSecurity.wsdl" />
+  <!--============================================================
+
+                      T Y P E S
+                      
+  ============================================================-->
+  <types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsrbf="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-BaseFaults-1.2-draft-01.xsd" targetNamespace="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices" elementFormDefault="qualified" attributeFormDefault="unqualified">
+      <import namespace="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-BaseFaults-1.2-draft-01.xsd" schemaLocation="../wsrf/faults/WS-BaseFaults.xsd" />
+      <import namespace="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/ResolvedConceptReferencesIterator/types" schemaLocation="./ResolvedConceptReferencesIteratorTypes.xsd" />
+      <import namespace="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/Sort/types" schemaLocation="./SortTypes.xsd" />
+      <import namespace="http://LexGrid.org/schema/2009/01/LexGrid/codingSchemes" schemaLocation="./codingSchemes.xsd" />
+      <import namespace="http://LexGrid.org/schema/2009/01/LexGrid/builtins" schemaLocation="./builtins.xsd" />
+      <import namespace="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/CodedNodeSet/types" schemaLocation="./CodedNodeSetTypes.xsd" />
+      <import namespace="http://LexGrid.org/schema/2009/01/LexGrid/lbInterfacetypes" schemaLocation="./InterfaceElementstypes.xsd" />
+      <import namespace="http://LexGrid.org/schema/LexBIG/2009/01/InterfaceElements" schemaLocation="./InterfaceElements.xsd" />
+      <import namespace="http://LexGrid.org/schema/2009/01/LexGrid/commonTypes" schemaLocation="./commonTypes.xsd" />
+      <import namespace="http://LexGrid.org/schema/2009/01/LexGrid/naming" schemaLocation="./naming.xsd" />
+      <import namespace="http://LexGrid.org/schema/2009/01/LexGrid/commonTypesTypes" schemaLocation="./commonTypesTypes.xsd" />
+      <import namespace="http://LexGrid.org/schema/LexBIG/2009/01/caGrid" schemaLocation="./cagrid.xsd" />
+      <import namespace="gme://caCORE.caCORE/3.2/gov.nih.nci.evs.security" schemaLocation="./caCORE.caCORE-3.2_gov.nih.nci.evs.security.xsd" />
+      <import namespace="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceMetadata/types" schemaLocation="./LexBIGServiceMetadataTypes.xsd" />
+      <import namespace="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/types" schemaLocation="./LexEVSGridServiceTypes.xsd" />
+      <import namespace="http://LexGrid.org/schema/2009/01/LexGrid/Coretypes" schemaLocation="./CoreTypes.xsd" />
+      <import namespace="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata" schemaLocation="./cagrid/types/caGridMetadata.xsd" />
+      <import namespace="http://LexGrid.org/schema/2009/01/LexGrid/NCIHistory" schemaLocation="./NCIHistory.xsd" />
+      <import namespace="http://LexGrid.org/schema/LexBIG/2009/01/enums" schemaLocation="./enums.xsd" />
+      <import namespace="http://LexGrid.org/schema/2009/01/LexGrid/relations" schemaLocation="./relations.xsd" />
+      <import namespace="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.security" schemaLocation="./xsd/security.xsd" />
+      <import namespace="http://LexGrid.org/schema/LexBIG/2009/01/Core" schemaLocation="./Core.xsd" />
+      <import namespace="http://LexGrid.org/schema/2009/01/LexGrid/versions" schemaLocation="./versions.xsd" />
+      <import namespace="http://LexGrid.org/schema/2009/01/LexGrid/concepts" schemaLocation="./concepts.xsd" />
+      <import namespace="http://LexGrid.org/schema/2009/01/LexGrid/NCIHistorytypes" schemaLocation="./NCIHistorytypes.xsd" />
+      <import namespace="http://LexGrid.org/schema/2009/01/LexGrid/NCIChangeTypes" schemaLocation="./NCIHistory.xsd" />
+      <import namespace="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/CodedNodeGraph/types" schemaLocation="./CodedNodeGraphTypes.xsd" />
+      <import namespace="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/Filter/types" schemaLocation="./FilterTypes.xsd" />
+      <import namespace="http://LexGrid.org/schema/LexBIG/2009/01/Collections" schemaLocation="./Collections.xsd" />
+      <import namespace="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/types" schemaLocation="./LexBIGServiceConvenienceMethodsTypes.xsd" />
+      <import namespace="http://schemas.xmlsoap.org/ws/2004/03/addressing" schemaLocation="./../ws/addressing/WS-Addressing.xsd" />
+      <import namespace="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/HistoryService/types" schemaLocation="./HistoryServiceTypes.xsd" />
+      <import namespace="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceLifetime-1.2-draft-01.xsd" schemaLocation="../wsrf/lifetime/WS-ResourceLifetime.xsd" />
+      <element name="GetSupportedCodingSchemesRequest">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="GetSupportedCodingSchemesResponse">
+        <complexType>
+          <sequence>
+            <element ref="ns2:CodingSchemeRenderingList" minOccurs="1" maxOccurs="1" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetCodingSchemeConceptsRequest">
+        <complexType>
+          <sequence>
+            <element name="codingSchemeIdentification">
+              <complexType>
+                <sequence>
+                  <element ref="ns15:CodingSchemeIdentification" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+            <element name="versionOrTag">
+              <complexType>
+                <sequence>
+                  <element ref="ns4:CodingSchemeVersionOrTag" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetCodingSchemeConceptsResponse">
+        <complexType>
+          <sequence>
+            <element ref="ns23:CodedNodeSetReference" minOccurs="1" maxOccurs="1" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetLastUpdateTimeRequest">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="GetLastUpdateTimeResponse">
+        <complexType>
+          <sequence>
+            <element name="response" type="xs:date" minOccurs="1" maxOccurs="1" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ResolveCodingSchemeRequest">
+        <complexType>
+          <sequence>
+            <element name="codingSchemeIdentification">
+              <complexType>
+                <sequence>
+                  <element ref="ns15:CodingSchemeIdentification" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+            <element name="versionOrTag">
+              <complexType>
+                <sequence>
+                  <element ref="ns4:CodingSchemeVersionOrTag" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ResolveCodingSchemeResponse">
+        <complexType>
+          <sequence>
+            <element ref="ns1:codingScheme" minOccurs="1" maxOccurs="1" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetMatchAlgorithmsRequest">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="GetMatchAlgorithmsResponse">
+        <complexType>
+          <sequence>
+            <element ref="ns2:ModuleDescriptionList" minOccurs="1" maxOccurs="1" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetNodeGraphRequest">
+        <complexType>
+          <sequence>
+            <element name="codingSchemeIdentification">
+              <complexType>
+                <sequence>
+                  <element ref="ns15:CodingSchemeIdentification" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+            <element name="versionOrTag">
+              <complexType>
+                <sequence>
+                  <element ref="ns4:CodingSchemeVersionOrTag" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+            <element name="relationContainerIdentification">
+              <complexType>
+                <sequence>
+                  <element ref="ns15:RelationContainerIdentification" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetNodeGraphResponse">
+        <complexType>
+          <sequence>
+            <element ref="ns25:CodedNodeGraphReference" minOccurs="1" maxOccurs="1" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetSortAlgorithmsRequest">
+        <complexType>
+          <sequence>
+            <element name="context" type="xs:string" minOccurs="1" maxOccurs="1" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetSortAlgorithmsResponse">
+        <complexType>
+          <sequence>
+            <element ref="ns2:SortDescriptionList" minOccurs="1" maxOccurs="1" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetGenericExtensionsRequest">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="GetGenericExtensionsResponse">
+        <complexType>
+          <sequence>
+            <element ref="ns2:ExtensionDescriptionList" minOccurs="1" maxOccurs="1" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetGenericExtensionRequest">
+        <complexType>
+          <sequence>
+            <element name="extensionIdentification">
+              <complexType>
+                <sequence>
+                  <element ref="ns15:ExtensionIdentification" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetGenericExtensionResponse">
+        <complexType>
+          <sequence>
+            <element ref="ns26:LexBIGServiceConvenienceMethodsReference" minOccurs="1" maxOccurs="1" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetFilterExtensionsRequest">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="GetFilterExtensionsResponse">
+        <complexType>
+          <sequence>
+            <element ref="ns2:ExtensionDescriptionList" minOccurs="1" maxOccurs="1" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetHistoryServiceRequest">
+        <complexType>
+          <sequence>
+            <element name="codingSchemeIdentification">
+              <complexType>
+                <sequence>
+                  <element ref="ns15:CodingSchemeIdentification" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetHistoryServiceResponse">
+        <complexType>
+          <sequence>
+            <element ref="ns28:HistoryServiceReference" minOccurs="1" maxOccurs="1" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetServiceMetadataRequest">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="GetServiceMetadataResponse">
+        <complexType>
+          <sequence>
+            <element ref="ns29:LexBIGServiceMetadataReference" minOccurs="1" maxOccurs="1" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetSortAlgorithmRequest">
+        <complexType>
+          <sequence>
+            <element name="extensionIdentification">
+              <complexType>
+                <sequence>
+                  <element ref="ns15:ExtensionIdentification" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetSortAlgorithmResponse">
+        <complexType>
+          <sequence>
+            <element ref="ns30:SortReference" minOccurs="1" maxOccurs="1" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetFilterRequest">
+        <complexType>
+          <sequence>
+            <element name="extensionIdentification">
+              <complexType>
+                <sequence>
+                  <element ref="ns15:ExtensionIdentification" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetFilterResponse">
+        <complexType>
+          <sequence>
+            <element ref="ns31:FilterReference" minOccurs="1" maxOccurs="1" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ResolveCodingSchemeCopyrightRequest">
+        <complexType>
+          <sequence>
+            <element name="codingSchemeIdentification">
+              <complexType>
+                <sequence>
+                  <element ref="ns15:CodingSchemeIdentification" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+            <element name="versionOrTag">
+              <complexType>
+                <sequence>
+                  <element ref="ns4:CodingSchemeVersionOrTag" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ResolveCodingSchemeCopyrightResponse">
+        <complexType>
+          <sequence>
+            <element ref="ns15:CodingSchemeCopyRight" minOccurs="1" maxOccurs="1" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="SetSecurityTokenRequest">
+        <complexType>
+          <sequence>
+            <element name="codingSchemeIdentification">
+              <complexType>
+                <sequence>
+                  <element ref="ns15:CodingSchemeIdentification" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+            <element name="securityToken">
+              <complexType>
+                <sequence>
+                  <element ref="ns18:SecurityToken" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="SetSecurityTokenResponse">
+        <complexType>
+          <sequence>
+            <element ref="ns20:LexEVSGridServiceReference" minOccurs="1" maxOccurs="1" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="LexEVSGridServiceResourceProperties">
+        <complexType>
+          <sequence>
+            <element ref="ns22:ServiceMetadata" />
+          </sequence>
+        </complexType>
+      </element>
+    </schema>
+  </types>
+  <!--  place service messages here -->
+  <message name="GetSupportedCodingSchemesRequest">
+    <part name="parameters" element="tns:GetSupportedCodingSchemesRequest" />
+  </message>
+  <message name="GetSupportedCodingSchemesResponse">
+    <part name="parameters" element="tns:GetSupportedCodingSchemesResponse" />
+  </message>
+  <message name="GetCodingSchemeConceptsRequest">
+    <part name="parameters" element="tns:GetCodingSchemeConceptsRequest" />
+  </message>
+  <message name="GetCodingSchemeConceptsResponse">
+    <part name="parameters" element="tns:GetCodingSchemeConceptsResponse" />
+  </message>
+  <message name="GetLastUpdateTimeRequest">
+    <part name="parameters" element="tns:GetLastUpdateTimeRequest" />
+  </message>
+  <message name="GetLastUpdateTimeResponse">
+    <part name="parameters" element="tns:GetLastUpdateTimeResponse" />
+  </message>
+  <message name="ResolveCodingSchemeRequest">
+    <part name="parameters" element="tns:ResolveCodingSchemeRequest" />
+  </message>
+  <message name="ResolveCodingSchemeResponse">
+    <part name="parameters" element="tns:ResolveCodingSchemeResponse" />
+  </message>
+  <message name="GetMatchAlgorithmsRequest">
+    <part name="parameters" element="tns:GetMatchAlgorithmsRequest" />
+  </message>
+  <message name="GetMatchAlgorithmsResponse">
+    <part name="parameters" element="tns:GetMatchAlgorithmsResponse" />
+  </message>
+  <message name="GetNodeGraphRequest">
+    <part name="parameters" element="tns:GetNodeGraphRequest" />
+  </message>
+  <message name="GetNodeGraphResponse">
+    <part name="parameters" element="tns:GetNodeGraphResponse" />
+  </message>
+  <message name="GetSortAlgorithmsRequest">
+    <part name="parameters" element="tns:GetSortAlgorithmsRequest" />
+  </message>
+  <message name="GetSortAlgorithmsResponse">
+    <part name="parameters" element="tns:GetSortAlgorithmsResponse" />
+  </message>
+  <message name="GetGenericExtensionsRequest">
+    <part name="parameters" element="tns:GetGenericExtensionsRequest" />
+  </message>
+  <message name="GetGenericExtensionsResponse">
+    <part name="parameters" element="tns:GetGenericExtensionsResponse" />
+  </message>
+  <message name="GetGenericExtensionRequest">
+    <part name="parameters" element="tns:GetGenericExtensionRequest" />
+  </message>
+  <message name="GetGenericExtensionResponse">
+    <part name="parameters" element="tns:GetGenericExtensionResponse" />
+  </message>
+  <message name="GetFilterExtensionsRequest">
+    <part name="parameters" element="tns:GetFilterExtensionsRequest" />
+  </message>
+  <message name="GetFilterExtensionsResponse">
+    <part name="parameters" element="tns:GetFilterExtensionsResponse" />
+  </message>
+  <message name="GetHistoryServiceRequest">
+    <part name="parameters" element="tns:GetHistoryServiceRequest" />
+  </message>
+  <message name="GetHistoryServiceResponse">
+    <part name="parameters" element="tns:GetHistoryServiceResponse" />
+  </message>
+  <message name="GetServiceMetadataRequest">
+    <part name="parameters" element="tns:GetServiceMetadataRequest" />
+  </message>
+  <message name="GetServiceMetadataResponse">
+    <part name="parameters" element="tns:GetServiceMetadataResponse" />
+  </message>
+  <message name="GetSortAlgorithmRequest">
+    <part name="parameters" element="tns:GetSortAlgorithmRequest" />
+  </message>
+  <message name="GetSortAlgorithmResponse">
+    <part name="parameters" element="tns:GetSortAlgorithmResponse" />
+  </message>
+  <message name="GetFilterRequest">
+    <part name="parameters" element="tns:GetFilterRequest" />
+  </message>
+  <message name="GetFilterResponse">
+    <part name="parameters" element="tns:GetFilterResponse" />
+  </message>
+  <message name="ResolveCodingSchemeCopyrightRequest">
+    <part name="parameters" element="tns:ResolveCodingSchemeCopyrightRequest" />
+  </message>
+  <message name="ResolveCodingSchemeCopyrightResponse">
+    <part name="parameters" element="tns:ResolveCodingSchemeCopyrightResponse" />
+  </message>
+  <message name="SetSecurityTokenRequest">
+    <part name="parameters" element="tns:SetSecurityTokenRequest" />
+  </message>
+  <message name="SetSecurityTokenResponse">
+    <part name="parameters" element="tns:SetSecurityTokenResponse" />
+  </message>
+  <message name="LBInvocationExceptionFaultMessage">
+    <part name="fault" element="ns20:LBInvocationException" />
+  </message>
+  <message name="LBExceptionFaultMessage">
+    <part name="fault" element="ns20:LBException" />
+  </message>
+  <!--============================================================
+
+                       P O R T T Y P E
+                      
+  ============================================================-->
+  <portType name="LexEVSGridServicePortType" wsrp:ResourceProperties="tns:LexEVSGridServiceResourceProperties">
+    <operation name="getSupportedCodingSchemes">
+      <input message="tns:GetSupportedCodingSchemesRequest" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/GetSupportedCodingSchemesRequest" />
+      <output message="tns:GetSupportedCodingSchemesResponse" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/GetSupportedCodingSchemesResponse" />
+      <fault name="LBInvocationException" message="tns:LBInvocationExceptionFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LBInvocationExceptionFaultMessage" />
+    </operation>
+    <operation name="getCodingSchemeConcepts">
+      <input message="tns:GetCodingSchemeConceptsRequest" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/GetCodingSchemeConceptsRequest" />
+      <output message="tns:GetCodingSchemeConceptsResponse" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/GetCodingSchemeConceptsResponse" />
+      <fault name="LBException" message="tns:LBExceptionFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LBExceptionFaultMessage" />
+    </operation>
+    <operation name="getLastUpdateTime">
+      <input message="tns:GetLastUpdateTimeRequest" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/GetLastUpdateTimeRequest" />
+      <output message="tns:GetLastUpdateTimeResponse" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/GetLastUpdateTimeResponse" />
+      <fault name="LBInvocationException" message="tns:LBInvocationExceptionFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LBInvocationExceptionFaultMessage" />
+    </operation>
+    <operation name="resolveCodingScheme">
+      <input message="tns:ResolveCodingSchemeRequest" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/ResolveCodingSchemeRequest" />
+      <output message="tns:ResolveCodingSchemeResponse" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/ResolveCodingSchemeResponse" />
+      <fault name="LBException" message="tns:LBExceptionFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LBExceptionFaultMessage" />
+    </operation>
+    <operation name="getMatchAlgorithms">
+      <input message="tns:GetMatchAlgorithmsRequest" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/GetMatchAlgorithmsRequest" />
+      <output message="tns:GetMatchAlgorithmsResponse" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/GetMatchAlgorithmsResponse" />
+    </operation>
+    <operation name="getNodeGraph">
+      <input message="tns:GetNodeGraphRequest" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/GetNodeGraphRequest" />
+      <output message="tns:GetNodeGraphResponse" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/GetNodeGraphResponse" />
+      <fault name="LBException" message="tns:LBExceptionFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LBExceptionFaultMessage" />
+    </operation>
+    <operation name="getSortAlgorithms">
+      <input message="tns:GetSortAlgorithmsRequest" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/GetSortAlgorithmsRequest" />
+      <output message="tns:GetSortAlgorithmsResponse" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/GetSortAlgorithmsResponse" />
+    </operation>
+    <operation name="getGenericExtensions">
+      <input message="tns:GetGenericExtensionsRequest" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/GetGenericExtensionsRequest" />
+      <output message="tns:GetGenericExtensionsResponse" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/GetGenericExtensionsResponse" />
+    </operation>
+    <operation name="getGenericExtension">
+      <input message="tns:GetGenericExtensionRequest" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/GetGenericExtensionRequest" />
+      <output message="tns:GetGenericExtensionResponse" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/GetGenericExtensionResponse" />
+      <fault name="LBException" message="tns:LBExceptionFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LBExceptionFaultMessage" />
+    </operation>
+    <operation name="getFilterExtensions">
+      <input message="tns:GetFilterExtensionsRequest" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/GetFilterExtensionsRequest" />
+      <output message="tns:GetFilterExtensionsResponse" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/GetFilterExtensionsResponse" />
+    </operation>
+    <operation name="getHistoryService">
+      <input message="tns:GetHistoryServiceRequest" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/GetHistoryServiceRequest" />
+      <output message="tns:GetHistoryServiceResponse" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/GetHistoryServiceResponse" />
+      <fault name="LBException" message="tns:LBExceptionFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LBExceptionFaultMessage" />
+    </operation>
+    <operation name="getServiceMetadata">
+      <input message="tns:GetServiceMetadataRequest" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/GetServiceMetadataRequest" />
+      <output message="tns:GetServiceMetadataResponse" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/GetServiceMetadataResponse" />
+      <fault name="LBException" message="tns:LBExceptionFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LBExceptionFaultMessage" />
+    </operation>
+    <operation name="getSortAlgorithm">
+      <input message="tns:GetSortAlgorithmRequest" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/GetSortAlgorithmRequest" />
+      <output message="tns:GetSortAlgorithmResponse" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/GetSortAlgorithmResponse" />
+      <fault name="LBException" message="tns:LBExceptionFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LBExceptionFaultMessage" />
+    </operation>
+    <operation name="getFilter">
+      <input message="tns:GetFilterRequest" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/GetFilterRequest" />
+      <output message="tns:GetFilterResponse" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/GetFilterResponse" />
+      <fault name="LBException" message="tns:LBExceptionFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LBExceptionFaultMessage" />
+    </operation>
+    <operation name="resolveCodingSchemeCopyright">
+      <input message="tns:ResolveCodingSchemeCopyrightRequest" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/ResolveCodingSchemeCopyrightRequest" />
+      <output message="tns:ResolveCodingSchemeCopyrightResponse" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/ResolveCodingSchemeCopyrightResponse" />
+      <fault name="LBException" message="tns:LBExceptionFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LBExceptionFaultMessage" />
+    </operation>
+    <operation name="setSecurityToken">
+      <input message="tns:SetSecurityTokenRequest" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/SetSecurityTokenRequest" />
+      <output message="tns:SetSecurityTokenResponse" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/SetSecurityTokenResponse" />
+      <fault name="LBException" message="tns:LBExceptionFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LBExceptionFaultMessage" />
+    </operation>
+    <operation name="getServiceSecurityMetadata">
+      <input message="wns0:GetServiceSecurityMetadataRequest" wsa:Action="http://security.introduce.cagrid.nci.nih.gov/ServiceSecurity/GetServiceSecurityMetadataRequest" />
+      <output message="wns0:GetServiceSecurityMetadataResponse" wsa:Action="http://security.introduce.cagrid.nci.nih.gov/ServiceSecurity/GetServiceSecurityMetadataResponse" />
+    </operation>
+    <wsdl:operation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="GetMultipleResourceProperties">
+      <wsdl:input name="GetMultipleResourcePropertiesRequest" message="wsrpw:GetMultipleResourcePropertiesRequest" wsa:Action="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties/GetMultipleResourceProperties" />
+      <wsdl:output name="GetMultipleResourcePropertiesResponse" message="wsrpw:GetMultipleResourcePropertiesResponse" wsa:Action="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties/GetMultipleResourcePropertiesResponse" />
+      <wsdl:fault name="ResourceUnknownFault" message="wsrpw:ResourceUnknownFault" />
+      <wsdl:fault name="InvalidResourcePropertyQNameFault" message="wsrpw:InvalidResourcePropertyQNameFault" />
+    </wsdl:operation>
+    <wsdl:operation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="GetResourceProperty">
+      <wsdl:input name="GetResourcePropertyRequest" message="wsrpw:GetResourcePropertyRequest" wsa:Action="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties/GetResourceProperty" />
+      <wsdl:output name="GetResourcePropertyResponse" message="wsrpw:GetResourcePropertyResponse" wsa:Action="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties/GetResourcePropertyResponse" />
+      <wsdl:fault name="ResourceUnknownFault" message="wsrpw:ResourceUnknownFault" />
+      <wsdl:fault name="InvalidResourcePropertyQNameFault" message="wsrpw:InvalidResourcePropertyQNameFault" />
+    </wsdl:operation>
+    <wsdl:operation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="QueryResourceProperties">
+      <wsdl:input name="QueryResourcePropertiesRequest" message="wsrpw:QueryResourcePropertiesRequest" wsa:Action="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties/QueryResourceProperties" />
+      <wsdl:output name="QueryResourcePropertiesResponse" message="wsrpw:QueryResourcePropertiesResponse" wsa:Action="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties/QueryResourcePropertiesResponse" />
+      <wsdl:fault name="ResourceUnknownFault" message="wsrpw:ResourceUnknownFault" />
+      <wsdl:fault name="InvalidResourcePropertyQNameFault" message="wsrpw:InvalidResourcePropertyQNameFault" />
+      <wsdl:fault name="UnknownQueryExpressionDialectFault" message="wsrpw:UnknownQueryExpressionDialectFault" />
+      <wsdl:fault name="InvalidQueryExpressionFault" message="wsrpw:InvalidQueryExpressionFault" />
+      <wsdl:fault name="QueryEvaluationErrorFault" message="wsrpw:QueryEvaluationErrorFault" />
+    </wsdl:operation>
+  </portType>
+</definitions>
+

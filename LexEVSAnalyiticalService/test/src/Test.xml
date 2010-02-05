@@ -1,0 +1,93 @@
+<testProps>
+    <test>
+      <name>NCI_test_1</name>
+      <codingScheme>NCI_Thesaurus</codingScheme>
+      <searchTerm>Blood</searchTerm>
+      <conceptCode>C12434</conceptCode>
+      <propertyToSearch>FULL_SYN</propertyToSearch>
+    </test>
+    <test>
+      <name>NCI_test_2</name>
+      <codingScheme>NCI_Thesaurus</codingScheme>
+      <searchTerm>Beagle</searchTerm>
+      <conceptCode>C53897</conceptCode>
+      <propertyToSearch>FULL_SYN</propertyToSearch>
+    </test>
+    <test>
+      <name>GO_test_1</name>
+      <codingScheme>Gene Ontology</codingScheme>
+      <searchTerm>membrane</searchTerm>
+      <conceptCode>GO:0016020</conceptCode>
+      <propertyToSearch>Name</propertyToSearch>
+    </test> 
+    <test>
+      <name>GO_test_2</name>
+      <codingScheme>GO</codingScheme>
+      <searchTerm>membrane</searchTerm>
+      <conceptCode>GO:0016020</conceptCode>
+      <propertyToSearch>Name</propertyToSearch>
+    </test>
+    <test>
+      <name>NDFRT_test_1</name>
+      <codingScheme>National Drug File - Reference Terminology</codingScheme>
+      <searchTerm>Blood Proteins</searchTerm>
+      <conceptCode>C26204</conceptCode>
+      <propertyToSearch>Synonym</propertyToSearch>
+    </test>
+    <test>
+      <name>NDFRT_test_2</name>
+      <codingScheme>VA_NDFRT</codingScheme>
+      <searchTerm>blood</searchTerm>
+      <conceptCode>C26204</conceptCode>
+      <propertyToSearch>Name</propertyToSearch>
+    </test>
+    <test>
+      <name>LOINC_test_1</name>
+      <codingScheme>LOINC</codingScheme>
+      <searchTerm>Animal</searchTerm>
+      <conceptCode>L-80010</conceptCode>
+      <propertyToSearch>Name</propertyToSearch>
+    </test>
+    <test>
+      <name>Snomed_test_1</name>
+      <codingScheme>urn:oid:2.16.840.1.113883.6.96</codingScheme>
+      <searchTerm>Deer</searchTerm>
+      <conceptCode>36328005</conceptCode>
+      <propertyToSearch>Name</propertyToSearch>
+    </test>
+    <test>
+      <name>Snomed_test_2</name>
+      <codingScheme>SNOMED Clinical Terms</codingScheme>
+      <searchTerm>Deer</searchTerm>
+      <conceptCode>36328005</conceptCode>
+      <propertyToSearch>textualPresentation</propertyToSearch>
+    </test>
+    <test>
+      <name>Zebrafish_test_1</name>
+      <codingScheme>Zebrafish</codingScheme>
+      <searchTerm>Stages</searchTerm>
+      <conceptCode>ZFS_0100000</conceptCode>
+      <propertyToSearch>Name</propertyToSearch>
+    </test>
+    <test>
+      <name>MGED_test_1</name>
+      <codingScheme>The MGED Ontology</codingScheme>
+      <searchTerm>X-MO-585</searchTerm>
+      <conceptCode>Scale</conceptCode>
+      <propertyToSearch>unique_identifier</propertyToSearch>
+    </test>
+    <test>
+      <name>Meddra_test_1</name>
+      <codingScheme>Medical Dictionary for Regulatory Activities Terminology (MedDRA)</codingScheme>
+      <searchTerm>Investigations</searchTerm>
+      <conceptCode>10022891</conceptCode>
+      <propertyToSearch>Name</propertyToSearch>
+    </test> 
+    <test>
+      <name>Meddra_test_2</name>
+      <codingScheme>MedDRA</codingScheme>
+      <searchTerm>Investigations</searchTerm>
+      <conceptCode>10022891</conceptCode>
+      <propertyToSearch>textualPresentation</propertyToSearch>
+    </test>
+</testProps>

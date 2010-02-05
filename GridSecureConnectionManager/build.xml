@@ -1,0 +1,42 @@
+<project name="LexEVS Grid Security" basedir="." default="build">
+	
+   <property environment="env"/>
+   <property name="ext.globus.dir" value="${env.GLOBUS_LOCATION}" />
+
+	<target name="init" depends="clean">
+		<property name="build.classes.dir" location="build/classes"/>
+		<property environment="env"/>
+		 <path id="build.path">		
+			<fileset dir="lib">
+				<include name="*.jar"/>
+			</fileset>	
+		 	<fileset dir="${ext.globus.dir}/lib">
+		 		<include name="*.jar"/>
+		 	</fileset>		
+		 </path>	
+	</target>
+	
+	<target name="compile" depends="init">
+		<mkdir dir="build/classes"/>		
+		<javac srcdir="src"
+				 destdir="build/classes">
+				 	<classpath>
+				 		<path refid="build.path" />
+				 	</classpath>
+			</javac>
+	</target>
+	
+	<target name="jar" depends="compile">
+		<jar destfile="build/LexEVSGridSecurity.jar" basedir="build/classes"/>
+	</target>
+	
+	<target name="dist" depends="jar">
+			<move file="build/LexEVSGridSecurity.jar" todir="dist"/>
+	</target>
+				
+	<target name="build" depends="jar, dist"/>
+		
+	<target name="clean">
+		<delete dir="build"/>
+	</target>
+</project>

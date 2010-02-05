@@ -1,0 +1,1035 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods" xmlns:wsrp="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties-1.2-draft-01.xsd" xmlns:wsrlw="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceLifetime-1.2-draft-01.wsdl" xmlns:wsdlpp="http://www.globus.org/namespaces/2004/10/WSDLPreprocessor" xmlns:gtwsdl1="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ServiceGroup-1.2-draft-01.wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/03/addressing" xmlns:wsntw="http://docs.oasis-open.org/wsn/2004/06/wsn-WS-BaseNotification-1.2-draft-01.wsdl" xmlns:wsrbfw="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-BaseFaults-1.2-draft-01.wsdl" xmlns:wsrpw="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties-1.2-draft-01.wsdl" xmlns:wns2="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceLifetime-1.2-draft-01.wsdl" xmlns:wns1="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties-1.2-draft-01.wsdl" xmlns:wns0="http://security.introduce.cagrid.nci.nih.gov/ServiceSecurity" xmlns:ns27="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/ResolvedConceptReferencesIterator/types" xmlns:ns30="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/Sort/types" xmlns:ns1="http://LexGrid.org/schema/2009/01/LexGrid/codingSchemes" xmlns:ns3="http://LexGrid.org/schema/2009/01/LexGrid/builtins" xmlns:ns23="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/CodedNodeSet/types" xmlns:ns6="http://LexGrid.org/schema/2009/01/LexGrid/lbInterfacetypes" xmlns:ns12="http://LexGrid.org/schema/LexBIG/2009/01/InterfaceElements" xmlns:ns5="http://LexGrid.org/schema/2009/01/LexGrid/commonTypes" xmlns:ns0="http://LexGrid.org/schema/2009/01/LexGrid/naming" xmlns:ns14="http://LexGrid.org/schema/2009/01/LexGrid/commonTypesTypes" xmlns:ns15="http://LexGrid.org/schema/LexBIG/2009/01/caGrid" xmlns:ns18="gme://caCORE.caCORE/3.2/gov.nih.nci.evs.security" xmlns:ns29="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceMetadata/types" xmlns:ns20="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/types" xmlns:ns13="http://LexGrid.org/schema/2009/01/LexGrid/Coretypes" xmlns:ns22="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata" xmlns:ns8="http://LexGrid.org/schema/2009/01/LexGrid/NCIHistory" xmlns:ns16="http://LexGrid.org/schema/LexBIG/2009/01/enums" xmlns:ns7="http://LexGrid.org/schema/2009/01/LexGrid/relations" xmlns:ns21="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.security" xmlns:ns4="http://LexGrid.org/schema/LexBIG/2009/01/Core" xmlns:ns11="http://LexGrid.org/schema/2009/01/LexGrid/versions" xmlns:ns10="http://LexGrid.org/schema/2009/01/LexGrid/concepts" xmlns:ns9="http://LexGrid.org/schema/2009/01/LexGrid/NCIHistorytypes" xmlns:ns17="http://LexGrid.org/schema/2009/01/LexGrid/NCIChangeTypes" xmlns:ns25="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/CodedNodeGraph/types" xmlns:ns31="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/Filter/types" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/Collections" xmlns:ns26="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/types" xmlns:ns19="http://schemas.xmlsoap.org/ws/2004/03/addressing" xmlns:ns28="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/HistoryService/types" xmlns:ns24="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceLifetime-1.2-draft-01.xsd" name="LexBIGServiceConvenienceMethods" targetNamespace="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods">
+  <import namespace="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties-1.2-draft-01.wsdl" location="../wsrf/properties/WS-ResourceProperties.wsdl" />
+  <import namespace="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-BaseFaults-1.2-draft-01.wsdl" location="../wsrf/faults/WS-BaseFaults.wsdl" />
+  <import namespace="http://docs.oasis-open.org/wsn/2004/06/wsn-WS-BaseNotification-1.2-draft-01.wsdl" location="../wsrf/notification/WS-BaseN.wsdl" />
+  <import namespace="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceLifetime-1.2-draft-01.wsdl" location="./../wsrf/lifetime/WS-ResourceLifetime.wsdl" />
+  <import namespace="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties-1.2-draft-01.wsdl" location="./../wsrf/properties/WS-ResourceProperties.wsdl" />
+  <import namespace="http://security.introduce.cagrid.nci.nih.gov/ServiceSecurity" location="./ServiceSecurity.wsdl" />
+  <!--============================================================
+
+                      T Y P E S
+                      
+  ============================================================-->
+  <types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsrbf="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-BaseFaults-1.2-draft-01.xsd" targetNamespace="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods" elementFormDefault="qualified" attributeFormDefault="unqualified">
+      <import namespace="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-BaseFaults-1.2-draft-01.xsd" schemaLocation="../wsrf/faults/WS-BaseFaults.xsd" />
+      <import namespace="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/ResolvedConceptReferencesIterator/types" schemaLocation="./ResolvedConceptReferencesIteratorTypes.xsd" />
+      <import namespace="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/Sort/types" schemaLocation="./SortTypes.xsd" />
+      <import namespace="http://LexGrid.org/schema/2009/01/LexGrid/codingSchemes" schemaLocation="./codingSchemes.xsd" />
+      <import namespace="http://LexGrid.org/schema/2009/01/LexGrid/builtins" schemaLocation="./builtins.xsd" />
+      <import namespace="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/CodedNodeSet/types" schemaLocation="./CodedNodeSetTypes.xsd" />
+      <import namespace="http://LexGrid.org/schema/2009/01/LexGrid/lbInterfacetypes" schemaLocation="./InterfaceElementstypes.xsd" />
+      <import namespace="http://LexGrid.org/schema/LexBIG/2009/01/InterfaceElements" schemaLocation="./InterfaceElements.xsd" />
+      <import namespace="http://LexGrid.org/schema/2009/01/LexGrid/commonTypes" schemaLocation="./commonTypes.xsd" />
+      <import namespace="http://LexGrid.org/schema/2009/01/LexGrid/naming" schemaLocation="./naming.xsd" />
+      <import namespace="http://LexGrid.org/schema/2009/01/LexGrid/commonTypesTypes" schemaLocation="./commonTypesTypes.xsd" />
+      <import namespace="http://LexGrid.org/schema/LexBIG/2009/01/caGrid" schemaLocation="./cagrid.xsd" />
+      <import namespace="gme://caCORE.caCORE/3.2/gov.nih.nci.evs.security" schemaLocation="./caCORE.caCORE-3.2_gov.nih.nci.evs.security.xsd" />
+      <import namespace="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceMetadata/types" schemaLocation="./LexBIGServiceMetadataTypes.xsd" />
+      <import namespace="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/types" schemaLocation="./LexEVSGridServiceTypes.xsd" />
+      <import namespace="http://LexGrid.org/schema/2009/01/LexGrid/Coretypes" schemaLocation="./CoreTypes.xsd" />
+      <import namespace="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata" schemaLocation="./cagrid/types/caGridMetadata.xsd" />
+      <import namespace="http://LexGrid.org/schema/2009/01/LexGrid/NCIHistory" schemaLocation="./NCIHistory.xsd" />
+      <import namespace="http://LexGrid.org/schema/LexBIG/2009/01/enums" schemaLocation="./enums.xsd" />
+      <import namespace="http://LexGrid.org/schema/2009/01/LexGrid/relations" schemaLocation="./relations.xsd" />
+      <import namespace="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.security" schemaLocation="./xsd/security.xsd" />
+      <import namespace="http://LexGrid.org/schema/LexBIG/2009/01/Core" schemaLocation="./Core.xsd" />
+      <import namespace="http://LexGrid.org/schema/2009/01/LexGrid/versions" schemaLocation="./versions.xsd" />
+      <import namespace="http://LexGrid.org/schema/2009/01/LexGrid/concepts" schemaLocation="./concepts.xsd" />
+      <import namespace="http://LexGrid.org/schema/2009/01/LexGrid/NCIHistorytypes" schemaLocation="./NCIHistorytypes.xsd" />
+      <import namespace="http://LexGrid.org/schema/2009/01/LexGrid/NCIChangeTypes" schemaLocation="./NCIHistory.xsd" />
+      <import namespace="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/CodedNodeGraph/types" schemaLocation="./CodedNodeGraphTypes.xsd" />
+      <import namespace="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/Filter/types" schemaLocation="./FilterTypes.xsd" />
+      <import namespace="http://LexGrid.org/schema/LexBIG/2009/01/Collections" schemaLocation="./Collections.xsd" />
+      <import namespace="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/types" schemaLocation="./LexBIGServiceConvenienceMethodsTypes.xsd" />
+      <import namespace="http://schemas.xmlsoap.org/ws/2004/03/addressing" schemaLocation="./../ws/addressing/WS-Addressing.xsd" />
+      <import namespace="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/HistoryService/types" schemaLocation="./HistoryServiceTypes.xsd" />
+      <import namespace="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceLifetime-1.2-draft-01.xsd" schemaLocation="../wsrf/lifetime/WS-ResourceLifetime.xsd" />
+      <element name="GetRenderingDetailRequest">
+        <complexType>
+          <sequence>
+            <element name="codingSchemeIdentification">
+              <complexType>
+                <sequence>
+                  <element ref="ns15:CodingSchemeIdentification" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+            <element name="versionOrTag">
+              <complexType>
+                <sequence>
+                  <element ref="ns4:CodingSchemeVersionOrTag" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetRenderingDetailResponse">
+        <complexType>
+          <sequence>
+            <element ref="ns12:CodingSchemeRendering" minOccurs="1" maxOccurs="1" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetCodingSchemesWithSupportedAssociationRequest">
+        <complexType>
+          <sequence>
+            <element name="associationIdentification">
+              <complexType>
+                <sequence>
+                  <element ref="ns15:AssociationIdentification" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetCodingSchemesWithSupportedAssociationResponse">
+        <complexType>
+          <sequence>
+            <element ref="ns2:CodingSchemeRenderingList" minOccurs="1" maxOccurs="1" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetHierarchyIDsRequest">
+        <complexType>
+          <sequence>
+            <element name="codingSchemeIdentification">
+              <complexType>
+                <sequence>
+                  <element ref="ns15:CodingSchemeIdentification" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+            <element name="versionOrTag">
+              <complexType>
+                <sequence>
+                  <element ref="ns4:CodingSchemeVersionOrTag" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetHierarchyIDsResponse">
+        <complexType>
+          <sequence>
+            <element ref="ns15:HierarchyIdentification" minOccurs="1" maxOccurs="unbounded" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="IsCodeRetiredRequest">
+        <complexType>
+          <sequence>
+            <element name="conceptIdentification">
+              <complexType>
+                <sequence>
+                  <element ref="ns15:ConceptIdentification" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+            <element name="codingSchemeIdentification">
+              <complexType>
+                <sequence>
+                  <element ref="ns15:CodingSchemeIdentification" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+            <element name="versionOrTag">
+              <complexType>
+                <sequence>
+                  <element ref="ns4:CodingSchemeVersionOrTag" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="IsCodeRetiredResponse">
+        <complexType>
+          <sequence>
+            <element ref="ns15:CodeState" minOccurs="1" maxOccurs="1" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetAssociationForwardNameRequest">
+        <complexType>
+          <sequence>
+            <element name="associationIdentification">
+              <complexType>
+                <sequence>
+                  <element ref="ns15:AssociationIdentification" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+            <element name="codingSchemeIdentification">
+              <complexType>
+                <sequence>
+                  <element ref="ns15:CodingSchemeIdentification" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+            <element name="versionOrTag">
+              <complexType>
+                <sequence>
+                  <element ref="ns4:CodingSchemeVersionOrTag" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetAssociationForwardNameResponse">
+        <complexType>
+          <sequence>
+            <element ref="ns15:DirectionalAssociationIdentification" minOccurs="1" maxOccurs="1" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetAssociationForwardNamesRequest">
+        <complexType>
+          <sequence>
+            <element name="codingSchemeIdentification">
+              <complexType>
+                <sequence>
+                  <element ref="ns15:CodingSchemeIdentification" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+            <element name="versionOrTag">
+              <complexType>
+                <sequence>
+                  <element ref="ns4:CodingSchemeVersionOrTag" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetAssociationForwardNamesResponse">
+        <complexType>
+          <sequence>
+            <element ref="ns15:DirectionalAssociationIdentification" minOccurs="1" maxOccurs="unbounded" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetAssociationReverseNameRequest">
+        <complexType>
+          <sequence>
+            <element name="associationIdentification">
+              <complexType>
+                <sequence>
+                  <element ref="ns15:AssociationIdentification" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+            <element name="codingSchemeIdentification">
+              <complexType>
+                <sequence>
+                  <element ref="ns15:CodingSchemeIdentification" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+            <element name="versionOrTag">
+              <complexType>
+                <sequence>
+                  <element ref="ns4:CodingSchemeVersionOrTag" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetAssociationReverseNameResponse">
+        <complexType>
+          <sequence>
+            <element ref="ns15:DirectionalAssociationIdentification" minOccurs="1" maxOccurs="1" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetAssociationReverseNamesRequest">
+        <complexType>
+          <sequence>
+            <element name="codingSchemeIdentification">
+              <complexType>
+                <sequence>
+                  <element ref="ns15:CodingSchemeIdentification" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+            <element name="versionOrTag">
+              <complexType>
+                <sequence>
+                  <element ref="ns4:CodingSchemeVersionOrTag" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetAssociationReverseNamesResponse">
+        <complexType>
+          <sequence>
+            <element ref="ns15:DirectionalAssociationIdentification" minOccurs="1" maxOccurs="unbounded" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="IsForwardNameRequest">
+        <complexType>
+          <sequence>
+            <element name="codingSchemeIdentification">
+              <complexType>
+                <sequence>
+                  <element ref="ns15:CodingSchemeIdentification" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+            <element name="versionOrTag">
+              <complexType>
+                <sequence>
+                  <element ref="ns4:CodingSchemeVersionOrTag" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+            <element name="associationIdentification">
+              <complexType>
+                <sequence>
+                  <element ref="ns15:AssociationIdentification" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="IsForwardNameResponse">
+        <complexType>
+          <sequence>
+            <element ref="ns15:Direction" minOccurs="1" maxOccurs="1" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="IsReverseNameRequest">
+        <complexType>
+          <sequence>
+            <element name="codingSchemeIdentification">
+              <complexType>
+                <sequence>
+                  <element ref="ns15:CodingSchemeIdentification" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+            <element name="versionOrTag">
+              <complexType>
+                <sequence>
+                  <element ref="ns4:CodingSchemeVersionOrTag" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+            <element name="associationIdentification">
+              <complexType>
+                <sequence>
+                  <element ref="ns15:AssociationIdentification" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="IsReverseNameResponse">
+        <complexType>
+          <sequence>
+            <element ref="ns15:Direction" minOccurs="1" maxOccurs="1" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetHierarchyLevelNextRequest">
+        <complexType>
+          <sequence>
+            <element name="hierarchyResolutionPolicy">
+              <complexType>
+                <sequence>
+                  <element ref="ns15:HierarchyResolutionPolicy" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+            <element name="codingSchemeIdentification">
+              <complexType>
+                <sequence>
+                  <element ref="ns15:CodingSchemeIdentification" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+            <element name="versionOrTag">
+              <complexType>
+                <sequence>
+                  <element ref="ns4:CodingSchemeVersionOrTag" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetHierarchyLevelNextResponse">
+        <complexType>
+          <sequence>
+            <element ref="ns2:AssociationList" minOccurs="1" maxOccurs="1" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetHierarchyLevelPrevRequest">
+        <complexType>
+          <sequence>
+            <element name="hierarchyResolutionPolicy">
+              <complexType>
+                <sequence>
+                  <element ref="ns15:HierarchyResolutionPolicy" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+            <element name="codingSchemeIdentification">
+              <complexType>
+                <sequence>
+                  <element ref="ns15:CodingSchemeIdentification" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+            <element name="versionOrTag">
+              <complexType>
+                <sequence>
+                  <element ref="ns4:CodingSchemeVersionOrTag" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetHierarchyLevelPrevResponse">
+        <complexType>
+          <sequence>
+            <element ref="ns2:AssociationList" minOccurs="1" maxOccurs="1" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetHierarchyPathToRootRequest">
+        <complexType>
+          <sequence>
+            <element name="hierarchyResolutionPolicy">
+              <complexType>
+                <sequence>
+                  <element ref="ns15:HierarchyResolutionPolicy" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+            <element name="codingSchemeIdentification">
+              <complexType>
+                <sequence>
+                  <element ref="ns15:CodingSchemeIdentification" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+            <element name="versionOrTag">
+              <complexType>
+                <sequence>
+                  <element ref="ns4:CodingSchemeVersionOrTag" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+            <element name="hierarchyPathResolveOption">
+              <complexType>
+                <sequence>
+                  <element ref="ns16:HierarchyPathResolveOption" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetHierarchyPathToRootResponse">
+        <complexType>
+          <sequence>
+            <element ref="ns2:AssociationList" minOccurs="1" maxOccurs="1" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetHierarchyRootsRequest">
+        <complexType>
+          <sequence>
+            <element name="codingSchemeIdentification">
+              <complexType>
+                <sequence>
+                  <element ref="ns15:CodingSchemeIdentification" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+            <element name="versionOrTag">
+              <complexType>
+                <sequence>
+                  <element ref="ns4:CodingSchemeVersionOrTag" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+            <element name="hierarchyIdentification">
+              <complexType>
+                <sequence>
+                  <element ref="ns15:HierarchyIdentification" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetHierarchyRootsResponse">
+        <complexType>
+          <sequence>
+            <element ref="ns2:ResolvedConceptReferenceList" minOccurs="1" maxOccurs="1" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetHierarchyRootSetRequest">
+        <complexType>
+          <sequence>
+            <element name="codingSchemeIdentification">
+              <complexType>
+                <sequence>
+                  <element ref="ns15:CodingSchemeIdentification" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+            <element name="versionOrTag">
+              <complexType>
+                <sequence>
+                  <element ref="ns4:CodingSchemeVersionOrTag" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+            <element name="hierarchyIdentification">
+              <complexType>
+                <sequence>
+                  <element ref="ns15:HierarchyIdentification" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetHierarchyRootSetResponse">
+        <complexType>
+          <sequence>
+            <element ref="ns23:CodedNodeSetReference" minOccurs="1" maxOccurs="1" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CreateCodeNodeSetRequest">
+        <complexType>
+          <sequence>
+            <element name="conceptIdentification">
+              <complexType>
+                <sequence>
+                  <element ref="ns15:ConceptIdentification" minOccurs="1" maxOccurs="unbounded" />
+                </sequence>
+              </complexType>
+            </element>
+            <element name="codingSchemeIdentification">
+              <complexType>
+                <sequence>
+                  <element ref="ns15:CodingSchemeIdentification" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+            <element name="versionOrTag">
+              <complexType>
+                <sequence>
+                  <element ref="ns4:CodingSchemeVersionOrTag" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CreateCodeNodeSetResponse">
+        <complexType>
+          <sequence>
+            <element ref="ns23:CodedNodeSetReference" minOccurs="1" maxOccurs="1" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetAssociationForwardAndReverseNamesRequest">
+        <complexType>
+          <sequence>
+            <element name="codingSchemeIdentification">
+              <complexType>
+                <sequence>
+                  <element ref="ns15:CodingSchemeIdentification" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+            <element name="versionOrTag">
+              <complexType>
+                <sequence>
+                  <element ref="ns4:CodingSchemeVersionOrTag" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetAssociationForwardAndReverseNamesResponse">
+        <complexType>
+          <sequence>
+            <element ref="ns15:AssociationIdentification" minOccurs="1" maxOccurs="unbounded" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetCodingSchemeCopyrightRequest">
+        <complexType>
+          <sequence>
+            <element name="codingSchemeIdentification">
+              <complexType>
+                <sequence>
+                  <element ref="ns15:CodingSchemeIdentification" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+            <element name="versionOrTag">
+              <complexType>
+                <sequence>
+                  <element ref="ns4:CodingSchemeVersionOrTag" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetCodingSchemeCopyrightResponse">
+        <complexType>
+          <sequence>
+            <element ref="ns15:CodingSchemeCopyRight" minOccurs="1" maxOccurs="1" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetAssociationReverseOneLevelRequest">
+        <complexType>
+          <sequence>
+            <element name="conceptIdentification">
+              <complexType>
+                <sequence>
+                  <element ref="ns15:ConceptIdentification" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+            <element name="relationContainerIdentification">
+              <complexType>
+                <sequence>
+                  <element ref="ns15:RelationContainerIdentification" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+            <element name="associationIdentification">
+              <complexType>
+                <sequence>
+                  <element ref="ns15:AssociationIdentification" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+            <element name="codingSchemeIdentification">
+              <complexType>
+                <sequence>
+                  <element ref="ns15:CodingSchemeIdentification" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+            <element name="versionOrTag">
+              <complexType>
+                <sequence>
+                  <element ref="ns4:CodingSchemeVersionOrTag" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+            <element name="buildReferencedEntries">
+              <complexType>
+                <sequence>
+                  <element ref="ns15:ResolveConcepts" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+            <element name="associationQualifiers">
+              <complexType>
+                <sequence>
+                  <element ref="ns2:NameAndValueList" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetAssociationReverseOneLevelResponse">
+        <complexType>
+          <sequence>
+            <element ref="ns4:Association" minOccurs="1" maxOccurs="1" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetAssociationForwardOneLevelRequest">
+        <complexType>
+          <sequence>
+            <element name="conceptIdentification">
+              <complexType>
+                <sequence>
+                  <element ref="ns15:ConceptIdentification" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+            <element name="relationContainerIdentification">
+              <complexType>
+                <sequence>
+                  <element ref="ns15:RelationContainerIdentification" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+            <element name="associationIdentification">
+              <complexType>
+                <sequence>
+                  <element ref="ns15:AssociationIdentification" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+            <element name="codingSchemeIdentification">
+              <complexType>
+                <sequence>
+                  <element ref="ns15:CodingSchemeIdentification" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+            <element name="versionOrTag">
+              <complexType>
+                <sequence>
+                  <element ref="ns4:CodingSchemeVersionOrTag" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+            <element name="buildReferencedEntries">
+              <complexType>
+                <sequence>
+                  <element ref="ns15:ResolveConcepts" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+            <element name="associationQualifiers">
+              <complexType>
+                <sequence>
+                  <element ref="ns2:NameAndValueList" minOccurs="1" maxOccurs="1" />
+                </sequence>
+              </complexType>
+            </element>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetAssociationForwardOneLevelResponse">
+        <complexType>
+          <sequence>
+            <element ref="ns4:Association" minOccurs="1" maxOccurs="1" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="LexBIGServiceConvenienceMethodsResourceProperties">
+        <complexType>
+          <sequence>
+            <element ref="ns24:CurrentTime" />
+            <element ref="ns24:TerminationTime" />
+          </sequence>
+        </complexType>
+      </element>
+    </schema>
+  </types>
+  <!--  place service messages here -->
+  <message name="GetRenderingDetailRequest">
+    <part name="parameters" element="tns:GetRenderingDetailRequest" />
+  </message>
+  <message name="GetRenderingDetailResponse">
+    <part name="parameters" element="tns:GetRenderingDetailResponse" />
+  </message>
+  <message name="GetCodingSchemesWithSupportedAssociationRequest">
+    <part name="parameters" element="tns:GetCodingSchemesWithSupportedAssociationRequest" />
+  </message>
+  <message name="GetCodingSchemesWithSupportedAssociationResponse">
+    <part name="parameters" element="tns:GetCodingSchemesWithSupportedAssociationResponse" />
+  </message>
+  <message name="GetHierarchyIDsRequest">
+    <part name="parameters" element="tns:GetHierarchyIDsRequest" />
+  </message>
+  <message name="GetHierarchyIDsResponse">
+    <part name="parameters" element="tns:GetHierarchyIDsResponse" />
+  </message>
+  <message name="IsCodeRetiredRequest">
+    <part name="parameters" element="tns:IsCodeRetiredRequest" />
+  </message>
+  <message name="IsCodeRetiredResponse">
+    <part name="parameters" element="tns:IsCodeRetiredResponse" />
+  </message>
+  <message name="GetAssociationForwardNameRequest">
+    <part name="parameters" element="tns:GetAssociationForwardNameRequest" />
+  </message>
+  <message name="GetAssociationForwardNameResponse">
+    <part name="parameters" element="tns:GetAssociationForwardNameResponse" />
+  </message>
+  <message name="GetAssociationForwardNamesRequest">
+    <part name="parameters" element="tns:GetAssociationForwardNamesRequest" />
+  </message>
+  <message name="GetAssociationForwardNamesResponse">
+    <part name="parameters" element="tns:GetAssociationForwardNamesResponse" />
+  </message>
+  <message name="GetAssociationReverseNameRequest">
+    <part name="parameters" element="tns:GetAssociationReverseNameRequest" />
+  </message>
+  <message name="GetAssociationReverseNameResponse">
+    <part name="parameters" element="tns:GetAssociationReverseNameResponse" />
+  </message>
+  <message name="GetAssociationReverseNamesRequest">
+    <part name="parameters" element="tns:GetAssociationReverseNamesRequest" />
+  </message>
+  <message name="GetAssociationReverseNamesResponse">
+    <part name="parameters" element="tns:GetAssociationReverseNamesResponse" />
+  </message>
+  <message name="IsForwardNameRequest">
+    <part name="parameters" element="tns:IsForwardNameRequest" />
+  </message>
+  <message name="IsForwardNameResponse">
+    <part name="parameters" element="tns:IsForwardNameResponse" />
+  </message>
+  <message name="IsReverseNameRequest">
+    <part name="parameters" element="tns:IsReverseNameRequest" />
+  </message>
+  <message name="IsReverseNameResponse">
+    <part name="parameters" element="tns:IsReverseNameResponse" />
+  </message>
+  <message name="GetHierarchyLevelNextRequest">
+    <part name="parameters" element="tns:GetHierarchyLevelNextRequest" />
+  </message>
+  <message name="GetHierarchyLevelNextResponse">
+    <part name="parameters" element="tns:GetHierarchyLevelNextResponse" />
+  </message>
+  <message name="GetHierarchyLevelPrevRequest">
+    <part name="parameters" element="tns:GetHierarchyLevelPrevRequest" />
+  </message>
+  <message name="GetHierarchyLevelPrevResponse">
+    <part name="parameters" element="tns:GetHierarchyLevelPrevResponse" />
+  </message>
+  <message name="GetHierarchyPathToRootRequest">
+    <part name="parameters" element="tns:GetHierarchyPathToRootRequest" />
+  </message>
+  <message name="GetHierarchyPathToRootResponse">
+    <part name="parameters" element="tns:GetHierarchyPathToRootResponse" />
+  </message>
+  <message name="GetHierarchyRootsRequest">
+    <part name="parameters" element="tns:GetHierarchyRootsRequest" />
+  </message>
+  <message name="GetHierarchyRootsResponse">
+    <part name="parameters" element="tns:GetHierarchyRootsResponse" />
+  </message>
+  <message name="GetHierarchyRootSetRequest">
+    <part name="parameters" element="tns:GetHierarchyRootSetRequest" />
+  </message>
+  <message name="GetHierarchyRootSetResponse">
+    <part name="parameters" element="tns:GetHierarchyRootSetResponse" />
+  </message>
+  <message name="CreateCodeNodeSetRequest">
+    <part name="parameters" element="tns:CreateCodeNodeSetRequest" />
+  </message>
+  <message name="CreateCodeNodeSetResponse">
+    <part name="parameters" element="tns:CreateCodeNodeSetResponse" />
+  </message>
+  <message name="GetAssociationForwardAndReverseNamesRequest">
+    <part name="parameters" element="tns:GetAssociationForwardAndReverseNamesRequest" />
+  </message>
+  <message name="GetAssociationForwardAndReverseNamesResponse">
+    <part name="parameters" element="tns:GetAssociationForwardAndReverseNamesResponse" />
+  </message>
+  <message name="GetCodingSchemeCopyrightRequest">
+    <part name="parameters" element="tns:GetCodingSchemeCopyrightRequest" />
+  </message>
+  <message name="GetCodingSchemeCopyrightResponse">
+    <part name="parameters" element="tns:GetCodingSchemeCopyrightResponse" />
+  </message>
+  <message name="GetAssociationReverseOneLevelRequest">
+    <part name="parameters" element="tns:GetAssociationReverseOneLevelRequest" />
+  </message>
+  <message name="GetAssociationReverseOneLevelResponse">
+    <part name="parameters" element="tns:GetAssociationReverseOneLevelResponse" />
+  </message>
+  <message name="GetAssociationForwardOneLevelRequest">
+    <part name="parameters" element="tns:GetAssociationForwardOneLevelRequest" />
+  </message>
+  <message name="GetAssociationForwardOneLevelResponse">
+    <part name="parameters" element="tns:GetAssociationForwardOneLevelResponse" />
+  </message>
+  <message name="InvalidServiceContextAccessFaultMessage">
+    <part name="fault" element="ns20:InvalidServiceContextAccess" />
+  </message>
+  <message name="LBExceptionFaultMessage">
+    <part name="fault" element="ns20:LBException" />
+  </message>
+  <!--============================================================
+
+                       P O R T T Y P E
+                      
+  ============================================================-->
+  <portType name="LexBIGServiceConvenienceMethodsPortType" wsrp:ResourceProperties="tns:LexBIGServiceConvenienceMethodsResourceProperties">
+    <operation name="getRenderingDetail">
+      <input message="tns:GetRenderingDetailRequest" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/GetRenderingDetailRequest" />
+      <output message="tns:GetRenderingDetailResponse" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/GetRenderingDetailResponse" />
+      <fault name="InvalidServiceContextAccess" message="tns:InvalidServiceContextAccessFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/InvalidServiceContextAccessFaultMessage" />
+      <fault name="LBException" message="tns:LBExceptionFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/LBExceptionFaultMessage" />
+    </operation>
+    <operation name="getCodingSchemesWithSupportedAssociation">
+      <input message="tns:GetCodingSchemesWithSupportedAssociationRequest" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/GetCodingSchemesWithSupportedAssociationRequest" />
+      <output message="tns:GetCodingSchemesWithSupportedAssociationResponse" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/GetCodingSchemesWithSupportedAssociationResponse" />
+      <fault name="InvalidServiceContextAccess" message="tns:InvalidServiceContextAccessFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/InvalidServiceContextAccessFaultMessage" />
+      <fault name="LBException" message="tns:LBExceptionFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/LBExceptionFaultMessage" />
+    </operation>
+    <operation name="getHierarchyIDs">
+      <input message="tns:GetHierarchyIDsRequest" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/GetHierarchyIDsRequest" />
+      <output message="tns:GetHierarchyIDsResponse" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/GetHierarchyIDsResponse" />
+      <fault name="InvalidServiceContextAccess" message="tns:InvalidServiceContextAccessFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/InvalidServiceContextAccessFaultMessage" />
+      <fault name="LBException" message="tns:LBExceptionFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/LBExceptionFaultMessage" />
+    </operation>
+    <operation name="isCodeRetired">
+      <input message="tns:IsCodeRetiredRequest" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/IsCodeRetiredRequest" />
+      <output message="tns:IsCodeRetiredResponse" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/IsCodeRetiredResponse" />
+      <fault name="InvalidServiceContextAccess" message="tns:InvalidServiceContextAccessFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/InvalidServiceContextAccessFaultMessage" />
+      <fault name="LBException" message="tns:LBExceptionFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/LBExceptionFaultMessage" />
+    </operation>
+    <operation name="getAssociationForwardName">
+      <input message="tns:GetAssociationForwardNameRequest" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/GetAssociationForwardNameRequest" />
+      <output message="tns:GetAssociationForwardNameResponse" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/GetAssociationForwardNameResponse" />
+      <fault name="InvalidServiceContextAccess" message="tns:InvalidServiceContextAccessFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/InvalidServiceContextAccessFaultMessage" />
+      <fault name="LBException" message="tns:LBExceptionFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/LBExceptionFaultMessage" />
+    </operation>
+    <operation name="getAssociationForwardNames">
+      <input message="tns:GetAssociationForwardNamesRequest" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/GetAssociationForwardNamesRequest" />
+      <output message="tns:GetAssociationForwardNamesResponse" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/GetAssociationForwardNamesResponse" />
+      <fault name="InvalidServiceContextAccess" message="tns:InvalidServiceContextAccessFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/InvalidServiceContextAccessFaultMessage" />
+      <fault name="LBException" message="tns:LBExceptionFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/LBExceptionFaultMessage" />
+    </operation>
+    <operation name="getAssociationReverseName">
+      <input message="tns:GetAssociationReverseNameRequest" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/GetAssociationReverseNameRequest" />
+      <output message="tns:GetAssociationReverseNameResponse" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/GetAssociationReverseNameResponse" />
+      <fault name="InvalidServiceContextAccess" message="tns:InvalidServiceContextAccessFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/InvalidServiceContextAccessFaultMessage" />
+      <fault name="LBException" message="tns:LBExceptionFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/LBExceptionFaultMessage" />
+    </operation>
+    <operation name="getAssociationReverseNames">
+      <input message="tns:GetAssociationReverseNamesRequest" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/GetAssociationReverseNamesRequest" />
+      <output message="tns:GetAssociationReverseNamesResponse" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/GetAssociationReverseNamesResponse" />
+      <fault name="InvalidServiceContextAccess" message="tns:InvalidServiceContextAccessFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/InvalidServiceContextAccessFaultMessage" />
+      <fault name="LBException" message="tns:LBExceptionFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/LBExceptionFaultMessage" />
+    </operation>
+    <operation name="isForwardName">
+      <input message="tns:IsForwardNameRequest" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/IsForwardNameRequest" />
+      <output message="tns:IsForwardNameResponse" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/IsForwardNameResponse" />
+      <fault name="InvalidServiceContextAccess" message="tns:InvalidServiceContextAccessFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/InvalidServiceContextAccessFaultMessage" />
+      <fault name="LBException" message="tns:LBExceptionFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/LBExceptionFaultMessage" />
+    </operation>
+    <operation name="isReverseName">
+      <input message="tns:IsReverseNameRequest" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/IsReverseNameRequest" />
+      <output message="tns:IsReverseNameResponse" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/IsReverseNameResponse" />
+      <fault name="InvalidServiceContextAccess" message="tns:InvalidServiceContextAccessFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/InvalidServiceContextAccessFaultMessage" />
+      <fault name="LBException" message="tns:LBExceptionFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/LBExceptionFaultMessage" />
+    </operation>
+    <operation name="getHierarchyLevelNext">
+      <input message="tns:GetHierarchyLevelNextRequest" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/GetHierarchyLevelNextRequest" />
+      <output message="tns:GetHierarchyLevelNextResponse" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/GetHierarchyLevelNextResponse" />
+      <fault name="InvalidServiceContextAccess" message="tns:InvalidServiceContextAccessFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/InvalidServiceContextAccessFaultMessage" />
+      <fault name="LBException" message="tns:LBExceptionFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/LBExceptionFaultMessage" />
+    </operation>
+    <operation name="getHierarchyLevelPrev">
+      <input message="tns:GetHierarchyLevelPrevRequest" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/GetHierarchyLevelPrevRequest" />
+      <output message="tns:GetHierarchyLevelPrevResponse" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/GetHierarchyLevelPrevResponse" />
+      <fault name="InvalidServiceContextAccess" message="tns:InvalidServiceContextAccessFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/InvalidServiceContextAccessFaultMessage" />
+      <fault name="LBException" message="tns:LBExceptionFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/LBExceptionFaultMessage" />
+    </operation>
+    <operation name="getHierarchyPathToRoot">
+      <input message="tns:GetHierarchyPathToRootRequest" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/GetHierarchyPathToRootRequest" />
+      <output message="tns:GetHierarchyPathToRootResponse" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/GetHierarchyPathToRootResponse" />
+      <fault name="InvalidServiceContextAccess" message="tns:InvalidServiceContextAccessFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/InvalidServiceContextAccessFaultMessage" />
+      <fault name="LBException" message="tns:LBExceptionFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/LBExceptionFaultMessage" />
+    </operation>
+    <operation name="getHierarchyRoots">
+      <input message="tns:GetHierarchyRootsRequest" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/GetHierarchyRootsRequest" />
+      <output message="tns:GetHierarchyRootsResponse" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/GetHierarchyRootsResponse" />
+      <fault name="InvalidServiceContextAccess" message="tns:InvalidServiceContextAccessFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/InvalidServiceContextAccessFaultMessage" />
+      <fault name="LBException" message="tns:LBExceptionFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/LBExceptionFaultMessage" />
+    </operation>
+    <operation name="getHierarchyRootSet">
+      <input message="tns:GetHierarchyRootSetRequest" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/GetHierarchyRootSetRequest" />
+      <output message="tns:GetHierarchyRootSetResponse" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/GetHierarchyRootSetResponse" />
+      <fault name="InvalidServiceContextAccess" message="tns:InvalidServiceContextAccessFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/InvalidServiceContextAccessFaultMessage" />
+      <fault name="LBException" message="tns:LBExceptionFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/LBExceptionFaultMessage" />
+    </operation>
+    <operation name="createCodeNodeSet">
+      <input message="tns:CreateCodeNodeSetRequest" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/CreateCodeNodeSetRequest" />
+      <output message="tns:CreateCodeNodeSetResponse" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/CreateCodeNodeSetResponse" />
+      <fault name="InvalidServiceContextAccess" message="tns:InvalidServiceContextAccessFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/InvalidServiceContextAccessFaultMessage" />
+      <fault name="LBException" message="tns:LBExceptionFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/LBExceptionFaultMessage" />
+    </operation>
+    <operation name="getAssociationForwardAndReverseNames">
+      <input message="tns:GetAssociationForwardAndReverseNamesRequest" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/GetAssociationForwardAndReverseNamesRequest" />
+      <output message="tns:GetAssociationForwardAndReverseNamesResponse" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/GetAssociationForwardAndReverseNamesResponse" />
+      <fault name="InvalidServiceContextAccess" message="tns:InvalidServiceContextAccessFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/InvalidServiceContextAccessFaultMessage" />
+      <fault name="LBException" message="tns:LBExceptionFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/LBExceptionFaultMessage" />
+    </operation>
+    <operation name="getCodingSchemeCopyright">
+      <input message="tns:GetCodingSchemeCopyrightRequest" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/GetCodingSchemeCopyrightRequest" />
+      <output message="tns:GetCodingSchemeCopyrightResponse" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/GetCodingSchemeCopyrightResponse" />
+      <fault name="InvalidServiceContextAccess" message="tns:InvalidServiceContextAccessFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/InvalidServiceContextAccessFaultMessage" />
+      <fault name="LBException" message="tns:LBExceptionFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/LBExceptionFaultMessage" />
+    </operation>
+    <operation name="getAssociationReverseOneLevel">
+      <input message="tns:GetAssociationReverseOneLevelRequest" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/GetAssociationReverseOneLevelRequest" />
+      <output message="tns:GetAssociationReverseOneLevelResponse" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/GetAssociationReverseOneLevelResponse" />
+    </operation>
+    <operation name="getAssociationForwardOneLevel">
+      <input message="tns:GetAssociationForwardOneLevelRequest" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/GetAssociationForwardOneLevelRequest" />
+      <output message="tns:GetAssociationForwardOneLevelResponse" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/GetAssociationForwardOneLevelResponse" />
+    </operation>
+    <operation name="getServiceSecurityMetadata">
+      <input message="wns0:GetServiceSecurityMetadataRequest" wsa:Action="http://security.introduce.cagrid.nci.nih.gov/ServiceSecurity/GetServiceSecurityMetadataRequest" />
+      <output message="wns0:GetServiceSecurityMetadataResponse" wsa:Action="http://security.introduce.cagrid.nci.nih.gov/ServiceSecurity/GetServiceSecurityMetadataResponse" />
+    </operation>
+    <wsdl:operation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="GetMultipleResourceProperties">
+      <wsdl:input name="GetMultipleResourcePropertiesRequest" message="wsrpw:GetMultipleResourcePropertiesRequest" wsa:Action="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties/GetMultipleResourceProperties" />
+      <wsdl:output name="GetMultipleResourcePropertiesResponse" message="wsrpw:GetMultipleResourcePropertiesResponse" wsa:Action="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties/GetMultipleResourcePropertiesResponse" />
+      <wsdl:fault name="ResourceUnknownFault" message="wsrpw:ResourceUnknownFault" />
+      <wsdl:fault name="InvalidResourcePropertyQNameFault" message="wsrpw:InvalidResourcePropertyQNameFault" />
+    </wsdl:operation>
+    <wsdl:operation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="GetResourceProperty">
+      <wsdl:input name="GetResourcePropertyRequest" message="wsrpw:GetResourcePropertyRequest" wsa:Action="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties/GetResourceProperty" />
+      <wsdl:output name="GetResourcePropertyResponse" message="wsrpw:GetResourcePropertyResponse" wsa:Action="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties/GetResourcePropertyResponse" />
+      <wsdl:fault name="ResourceUnknownFault" message="wsrpw:ResourceUnknownFault" />
+      <wsdl:fault name="InvalidResourcePropertyQNameFault" message="wsrpw:InvalidResourcePropertyQNameFault" />
+    </wsdl:operation>
+    <wsdl:operation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="QueryResourceProperties">
+      <wsdl:input name="QueryResourcePropertiesRequest" message="wsrpw:QueryResourcePropertiesRequest" wsa:Action="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties/QueryResourceProperties" />
+      <wsdl:output name="QueryResourcePropertiesResponse" message="wsrpw:QueryResourcePropertiesResponse" wsa:Action="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties/QueryResourcePropertiesResponse" />
+      <wsdl:fault name="ResourceUnknownFault" message="wsrpw:ResourceUnknownFault" />
+      <wsdl:fault name="InvalidResourcePropertyQNameFault" message="wsrpw:InvalidResourcePropertyQNameFault" />
+      <wsdl:fault name="UnknownQueryExpressionDialectFault" message="wsrpw:UnknownQueryExpressionDialectFault" />
+      <wsdl:fault name="InvalidQueryExpressionFault" message="wsrpw:InvalidQueryExpressionFault" />
+      <wsdl:fault name="QueryEvaluationErrorFault" message="wsrpw:QueryEvaluationErrorFault" />
+    </wsdl:operation>
+    <wsdl:operation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="Destroy">
+      <wsdl:input message="wsrlw:DestroyRequest" wsa:Action="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceLifetime/Destroy" />
+      <wsdl:output message="wsrlw:DestroyResponse" wsa:Action="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceLifetime/DestroyResponse" />
+      <wsdl:fault message="wsrlw:ResourceNotDestroyedFault" name="ResourceNotDestroyedFault" />
+      <wsdl:fault message="wsrlw:ResourceUnknownFault" name="ResourceUnknownFault" />
+    </wsdl:operation>
+    <wsdl:operation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="SetTerminationTime">
+      <wsdl:input message="wsrlw:SetTerminationTimeRequest" wsa:Action="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceLifetime/SetTerminationTime" />
+      <wsdl:output message="wsrlw:SetTerminationTimeResponse" wsa:Action="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceLifetime/SetTerminationTimeResponse" />
+      <wsdl:fault message="wsrlw:UnableToSetTerminationTimeFault" name="UnableToSetTerminationTimeFault" />
+      <wsdl:fault message="wsrlw:ResourceUnknownFault" name="ResourceUnknownFault" />
+      <wsdl:fault message="wsrlw:TerminationTimeChangeRejectedFault" name="TerminationTimeChangeRejectedFault" />
+    </wsdl:operation>
+  </portType>
+</definitions>
+

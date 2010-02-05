@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"  
+targetNamespace="http://LexGrid.org/schema/2009/01/LexGrid/Coretypes" 
+xmlns:lbCoreTypes="http://LexGrid.org/schema/2009/01/LexGrid/Coretypes">
+
+	<xs:element name="LogLevel" type="lbCoreTypes:LogLevel"/>
+	<xs:complexType name="LogLevel">
+		<xs:annotation>
+			<xs:documentation>A selection of constants that define the level of logging for an applicaton</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="DEBUG_TYPE" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>The debug type</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ERROR_TYPE" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>The error type</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FATAL_TYPE" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>The fatal type</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="INFO_TYPE" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>The info type</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="stringValue" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>Field StringValue</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="type" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>Field type</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="WARN_TYPE" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>The warn type</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ERROR" type="lbCoreTypes:LogLevel"/>
+			<xs:element name="DEBUG" type="lbCoreTypes:LogLevel"/>
+			<xs:element name="FATAL" type="lbCoreTypes:LogLevel"/>
+			<xs:element name="INFO" type="lbCoreTypes:LogLevel"/>
+			<xs:element name="WARN" type="lbCoreTypes:LogLevel"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="CodingSchemeVersionStatus" type="lbCoreTypes:CodingSchemeVersionStatus"/>
+	<xs:complexType name="CodingSchemeVersionStatus">
+		<xs:annotation>
+			<xs:documentation>This class provides a series of set values for the version status of a given coding scheme</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ACTIVE_TYPE" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>The active type</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="INACTIVE_TYPE" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>The inactive type</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PENDING_TYPE" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>The pending type</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="stringValue" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Field  stringValue</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="type" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>Field type</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ACTIVE" type="lbCoreTypes:CodingSchemeVersionStatus"/>
+			<xs:element name="INACTIVE" type="lbCoreTypes:CodingSchemeVersionStatus"/>
+			<xs:element name="PENDING" type="lbCoreTypes:CodingSchemeVersionStatus"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

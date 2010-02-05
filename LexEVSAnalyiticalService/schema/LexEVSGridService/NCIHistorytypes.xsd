@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+targetNamespace="http://LexGrid.org/schema/2009/01/LexGrid/NCIHistorytypes" 
+xmlns:NCIHistoryType="http://LexGrid.org/schema/2009/01/LexGrid/NCIHistorytypes"
+elementFormDefault="qualified">
+
+	<xs:element name="changeType" type="NCIHistoryType:changeType"/>
+	<xs:complexType name="changeType">
+		<xs:annotation>
+			<xs:documentation>Atomic modification actions.  To be populated from a combination of Concordia, SNOMED-CT list and NCI's action list.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CREATE_TYPE" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>The instance of the create type</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MERGE_TYPE" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>The instance of the merge type</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MODIFY_TYPE" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>The instance of the modify type</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RETIRE_TYPE" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>The instance of the retire type</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SPLIT_TYPE" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>The instance of the split type</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="stringValue" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Field StringValue</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="type" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>Field type</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="_memberTable" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="MERGE" type="NCIHistoryType:changeType"/>
+			<xs:element name="CREATE" type="NCIHistoryType:changeType"/>
+			<xs:element name="SPLIT" type="NCIHistoryType:changeType"/>
+			<xs:element name="MODIFY" type="NCIHistoryType:changeType"/>
+			<xs:element name="RETIRE" type="NCIHistoryType:changeType"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

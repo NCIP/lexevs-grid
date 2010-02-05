@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jndiConfig xmlns="http://wsrf.globus.org/jndi/config">
+  <service name="SERVICE-INSTANCE-PREFIX/Filter">
+    <resource name="configuration" type="org.LexGrid.LexBIG.cagrid.LexEVSGridService.Filter.service.globus.resource.FilterResourceConfiguration">
+      <resourceParams>
+        <parameter>
+          <name>factory</name>
+          <value>org.globus.wsrf.jndi.BeanFactory</value>
+        </parameter>
+        <parameter>
+          <name>performRegistration</name>
+          <!-- Set this to false to skip ServiceGroup registration -->
+          <value>PERFORM_REGISTRATION</value>
+        </parameter>
+        <parameter>
+          <name>registrationTemplateFile</name>
+          <!-- Set this to the relative path (from the container root, e.g GLOBUS_LOCATION for globus container) of the registration parameters template file (ignored if performRegistration is false) -->
+          <value>ETC-PATH/Filter_registration.xml</value>
+        </parameter>
+      </resourceParams>
+    </resource>
+    <resource name="home" type="org.LexGrid.LexBIG.cagrid.LexEVSGridService.Filter.service.globus.resource.FilterResourceHome">
+      <resourceParams>
+        <parameter>
+          <name>factory</name>
+          <value>org.globus.wsrf.jndi.BeanFactory</value>
+        </parameter>
+        <parameter>
+          <name>resourceClass</name>
+          <value>org.LexGrid.LexBIG.cagrid.LexEVSGridService.Filter.service.globus.resource.FilterResource</value>
+        </parameter>
+        <parameter>
+          <name>resourceKeyName</name>
+          <value>{http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/Filter}FilterResultsKey</value>
+        </parameter>
+        <parameter>
+          <name>resourceKeyType</name>
+          <value>java.lang.String</value>
+        </parameter>
+      </resourceParams>
+    </resource>
+    <resourceLink name="serviceconfiguration" target="java:comp/env/services/SERVICE-INSTANCE-PREFIX/LexBIGCaGridServices/serviceconfiguration" />
+    <resourceLink name="lexBIGCaGridServicesHome" target="java:comp/env/services/SERVICE-INSTANCE-PREFIX/LexBIGCaGridServices/home" />
+    <resourceLink name="codedNodeSetHome" target="java:comp/env/services/SERVICE-INSTANCE-PREFIX/CodedNodeSet/home" />
+    <resourceLink name="codedNodeGraphHome" target="java:comp/env/services/SERVICE-INSTANCE-PREFIX/CodedNodeGraph/home" />
+    <resourceLink name="lexBIGServiceConvenienceMethodsHome" target="java:comp/env/services/SERVICE-INSTANCE-PREFIX/LexBIGServiceConvenienceMethods/home" />
+    <resourceLink name="resolvedConceptReferencesIteratorHome" target="java:comp/env/services/SERVICE-INSTANCE-PREFIX/ResolvedConceptReferencesIterator/home" />
+    <resourceLink name="historyServiceHome" target="java:comp/env/services/SERVICE-INSTANCE-PREFIX/HistoryService/home" />
+    <resourceLink name="lexBIGServiceMetadataHome" target="java:comp/env/services/SERVICE-INSTANCE-PREFIX/LexBIGServiceMetadata/home" />
+    <resourceLink name="sortHome" target="java:comp/env/services/SERVICE-INSTANCE-PREFIX/Sort/home" />
+  </service>
+  <service name="SERVICE-INSTANCE-PREFIX/Sort">
+    <resource name="configuration" type="org.LexGrid.LexBIG.cagrid.LexEVSGridService.Sort.service.globus.resource.SortResourceConfiguration">
+      <resourceParams>
+        <parameter>
+          <name>factory</name>
+          <value>org.globus.wsrf.jndi.BeanFactory</value>
+        </parameter>
+        <parameter>
+          <name>performRegistration</name>
+          <!-- Set this to false to skip ServiceGroup registration -->
+          <value>PERFORM_REGISTRATION</value>
+        </parameter>
+        <parameter>
+          <name>registrationTemplateFile</name>
+          <!-- Set this to the relative path (from the container root, e.g GLOBUS_LOCATION for globus container) of the registration parameters template file (ignored if performRegistration is false) -->
+          <value>ETC-PATH/Sort_registration.xml</value>
+        </parameter>
+      </resourceParams>
+    </resource>
+    <resource name="home" type="org.LexGrid.LexBIG.cagrid.LexEVSGridService.Sort.service.globus.resource.SortResourceHome">
+      <resourceParams>
+        <parameter>
+          <name>factory</name>
+          <value>org.globus.wsrf.jndi.BeanFactory</value>
+        </parameter>
+        <parameter>
+          <name>resourceClass</name>
+          <value>org.LexGrid.LexBIG.cagrid.LexEVSGridService.Sort.service.globus.resource.SortResource</value>
+        </parameter>
+        <parameter>
+          <name>resourceKeyName</name>
+          <value>{http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/Sort}SortResultsKey</value>
+        </parameter>
+        <parameter>
+          <name>resourceKeyType</name>
+          <value>java.lang.String</value>
+        </parameter>
+      </resourceParams>
+    </resource>
+    <resourceLink name="serviceconfiguration" target="java:comp/env/services/SERVICE-INSTANCE-PREFIX/LexBIGCaGridServices/serviceconfiguration" />
+    <resourceLink name="lexBIGCaGridServicesHome" target="java:comp/env/services/SERVICE-INSTANCE-PREFIX/LexBIGCaGridServices/home" />
+    <resourceLink name="codedNodeSetHome" target="java:comp/env/services/SERVICE-INSTANCE-PREFIX/CodedNodeSet/home" />
+    <resourceLink name="codedNodeGraphHome" target="java:comp/env/services/SERVICE-INSTANCE-PREFIX/CodedNodeGraph/home" />
+    <resourceLink name="lexBIGServiceConvenienceMethodsHome" target="java:comp/env/services/SERVICE-INSTANCE-PREFIX/LexBIGServiceConvenienceMethods/home" />
+    <resourceLink name="resolvedConceptReferencesIteratorHome" target="java:comp/env/services/SERVICE-INSTANCE-PREFIX/ResolvedConceptReferencesIterator/home" />
+    <resourceLink name="historyServiceHome" target="java:comp/env/services/SERVICE-INSTANCE-PREFIX/HistoryService/home" />
+    <resourceLink name="lexBIGServiceMetadataHome" target="java:comp/env/services/SERVICE-INSTANCE-PREFIX/LexBIGServiceMetadata/home" />
+    <resourceLink name="filterHome" target="java:comp/env/services/SERVICE-INSTANCE-PREFIX/Filter/home" />
+  </service>
+  <service name="SERVICE-INSTANCE-PREFIX/LexBIGServiceMetadata">
+    <resource name="configuration" type="org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceMetadata.service.globus.resource.LexBIGServiceMetadataResourceConfiguration">
+      <resourceParams>
+        <parameter>
+          <name>factory</name>
+          <value>org.globus.wsrf.jndi.BeanFactory</value>
+        </parameter>
+        <parameter>
+          <name>performRegistration</name>
+          <!-- Set this to false to skip ServiceGroup registration -->
+          <value>PERFORM_REGISTRATION</value>
+        </parameter>
+        <parameter>
+          <name>registrationTemplateFile</name>
+          <!-- Set this to the relative path (from the container root, e.g GLOBUS_LOCATION for globus container) of the registration parameters template file (ignored if performRegistration is false) -->
+          <value>ETC-PATH/LexBIGServiceMetadata_registration.xml</value>
+        </parameter>
+      </resourceParams>
+    </resource>
+    <resource name="home" type="org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceMetadata.service.globus.resource.LexBIGServiceMetadataResourceHome">
+      <resourceParams>
+        <parameter>
+          <name>factory</name>
+          <value>org.globus.wsrf.jndi.BeanFactory</value>
+        </parameter>
+        <parameter>
+          <name>resourceClass</name>
+          <value>org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceMetadata.service.globus.resource.LexBIGServiceMetadataResource</value>
+        </parameter>
+        <parameter>
+          <name>resourceKeyName</name>
+          <value>{http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceMetadata}LexBIGServiceMetadataKey</value>
+        </parameter>
+        <parameter>
+          <name>resourceKeyType</name>
+          <value>java.lang.String</value>
+        </parameter>
+      </resourceParams>
+    </resource>
+    <resourceLink name="serviceconfiguration" target="java:comp/env/services/SERVICE-INSTANCE-PREFIX/LexBIGCaGridServices/serviceconfiguration" />
+    <resourceLink name="lexBIGCaGridServicesHome" target="java:comp/env/services/SERVICE-INSTANCE-PREFIX/LexBIGCaGridServices/home" />
+    <resourceLink name="codedNodeSetHome" target="java:comp/env/services/SERVICE-INSTANCE-PREFIX/CodedNodeSet/home" />
+    <resourceLink name="codedNodeGraphHome" target="java:comp/env/services/SERVICE-INSTANCE-PREFIX/CodedNodeGraph/home" />
+    <resourceLink name="lexBIGServiceConvenienceMethodsHome" target="java:comp/env/services/SERVICE-INSTANCE-PREFIX/LexBIGServiceConvenienceMethods/home" />
+    <resourceLink name="resolvedConceptReferencesIteratorHome" target="java:comp/env/services/SERVICE-INSTANCE-PREFIX/ResolvedConceptReferencesIterator/home" />
+    <resourceLink name="historyServiceHome" target="java:comp/env/services/SERVICE-INSTANCE-PREFIX/HistoryService/home" />
+    <resourceLink name="sortHome" target="java:comp/env/services/SERVICE-INSTANCE-PREFIX/Sort/home" />
+    <resourceLink name="filterHome" target="java:comp/env/services/SERVICE-INSTANCE-PREFIX/Filter/home" />
+  </service>
+  <service name="SERVICE-INSTANCE-PREFIX/HistoryService">
+    <resource name="configuration" type="org.LexGrid.LexBIG.cagrid.LexEVSGridService.HistoryService.service.globus.resource.HistoryServiceResourceConfiguration">
+      <resourceParams>
+        <parameter>
+          <name>factory</name>
+          <value>org.globus.wsrf.jndi.BeanFactory</value>
+        </parameter>
+        <parameter>
+          <name>performRegistration</name>
+          <!-- Set this to false to skip ServiceGroup registration -->
+          <value>PERFORM_REGISTRATION</value>
+        </parameter>
+        <parameter>
+          <name>registrationTemplateFile</name>
+          <!-- Set this to the relative path (from the container root, e.g GLOBUS_LOCATION for globus container) of the registration parameters template file (ignored if performRegistration is false) -->
+          <value>ETC-PATH/HistoryService_registration.xml</value>
+        </parameter>
+      </resourceParams>
+    </resource>
+    <resource name="home" type="org.LexGrid.LexBIG.cagrid.LexEVSGridService.HistoryService.service.globus.resource.HistoryServiceResourceHome">
+      <resourceParams>
+        <parameter>
+          <name>factory</name>
+          <value>org.globus.wsrf.jndi.BeanFactory</value>
+        </parameter>
+        <parameter>
+          <name>resourceClass</name>
+          <value>org.LexGrid.LexBIG.cagrid.LexEVSGridService.HistoryService.service.globus.resource.HistoryServiceResource</value>
+        </parameter>
+        <parameter>
+          <name>resourceKeyName</name>
+          <value>{http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/HistoryService}HistoryServiceKey</value>
+        </parameter>
+        <parameter>
+          <name>resourceKeyType</name>
+          <value>java.lang.String</value>
+        </parameter>
+      </resourceParams>
+    </resource>
+    <resourceLink name="serviceconfiguration" target="java:comp/env/services/SERVICE-INSTANCE-PREFIX/LexBIGCaGridServices/serviceconfiguration" />
+    <resourceLink name="lexBIGCaGridServicesHome" target="java:comp/env/services/SERVICE-INSTANCE-PREFIX/LexBIGCaGridServices/home" />
+    <resourceLink name="codedNodeSetHome" target="java:comp/env/services/SERVICE-INSTANCE-PREFIX/CodedNodeSet/home" />
+    <resourceLink name="codedNodeGraphHome" target="java:comp/env/services/SERVICE-INSTANCE-PREFIX/CodedNodeGraph/home" />
+    <resourceLink name="lexBIGServiceConvenienceMethodsHome" target="java:comp/env/services/SERVICE-INSTANCE-PREFIX/LexBIGServiceConvenienceMethods/home" />
+    <resourceLink name="resolvedConceptReferencesIteratorHome" target="java:comp/env/services/SERVICE-INSTANCE-PREFIX/ResolvedConceptReferencesIterator/home" />
+    <resourceLink name="lexBIGServiceMetadataHome" target="java:comp/env/services/SERVICE-INSTANCE-PREFIX/LexBIGServiceMetadata/home" />
+    <resourceLink name="sortHome" target="java:comp/env/services/SERVICE-INSTANCE-PREFIX/Sort/home" />
+    <resourceLink name="filterHome" target="java:comp/env/services/SERVICE-INSTANCE-PREFIX/Filter/home" />
+  </service>
+  <service name="cagrid/ResolvedConceptReferencesIterator">
+    <resource name="configuration" type="org.LexGrid.LexBIG.cagrid.LexEVSGridService.ResolvedConceptReferencesIterator.service.globus.resource.ResolvedConceptReferencesIteratorResourceConfiguration">
+      <resourceParams>
+        <parameter>
+          <name>factory</name>
+          <value>org.globus.wsrf.jndi.BeanFactory</value>
+        </parameter>
+        <parameter>
+          <name>performRegistration</name>
+          <!-- Set this to false to skip ServiceGroup registration -->
+          <value>PERFORM_REGISTRATION</value>
+        </parameter>
+        <parameter>
+          <name>registrationTemplateFile</name>
+          <!-- Set this to the relative path (from the container root, e.g GLOBUS_LOCATION for globus container) of the registration parameters template file (ignored if performRegistration is false) -->
+          <value>ETC-PATH/ResolvedConceptReferencesIterator_registration.xml</value>
+        </parameter>
+      </resourceParams>
+    </resource>
+    <resource name="home" type="org.LexGrid.LexBIG.cagrid.LexEVSGridService.ResolvedConceptReferencesIterator.service.globus.resource.ResolvedConceptReferencesIteratorResourceHome">
+      <resourceParams>
+        <parameter>
+          <name>factory</name>
+          <value>org.globus.wsrf.jndi.BeanFactory</value>
+        </parameter>
+        <parameter>
+          <name>resourceClass</name>
+          <value>org.LexGrid.LexBIG.cagrid.LexEVSGridService.ResolvedConceptReferencesIterator.service.globus.resource.ResolvedConceptReferencesIteratorResource</value>
+        </parameter>
+        <parameter>
+          <name>resourceKeyName</name>
+          <value>{http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/ResolvedConceptReferencesIterator}ResolvedConceptReferencesIteratorKey</value>
+        </parameter>
+        <parameter>
+          <name>resourceKeyType</name>
+          <value>java.lang.String</value>
+        </parameter>
+      </resourceParams>
+    </resource>
+    <resourceLink name="serviceconfiguration" target="java:comp/env/services/cagrid/LexBIGCaGridServices/serviceconfiguration" />
+    <resourceLink name="lexBIGCaGridServicesHome" target="java:comp/env/services/cagrid/LexBIGCaGridServices/home" />
+    <resourceLink name="codedNodeSetHome" target="java:comp/env/services/cagrid/CodedNodeSet/home" />
+    <resourceLink name="codedNodeGraphHome" target="java:comp/env/services/cagrid/CodedNodeGraph/home" />
+    <resourceLink name="lexBIGServiceConvenienceMethodsHome" target="java:comp/env/services/cagrid/LexBIGServiceConvenienceMethods/home" />
+    <resourceLink name="historyServiceHome" target="java:comp/env/services/SERVICE-INSTANCE-PREFIX/HistoryService/home" />
+    <resourceLink name="lexBIGServiceMetadataHome" target="java:comp/env/services/SERVICE-INSTANCE-PREFIX/LexBIGServiceMetadata/home" />
+    <resourceLink name="sortHome" target="java:comp/env/services/SERVICE-INSTANCE-PREFIX/Sort/home" />
+    <resourceLink name="filterHome" target="java:comp/env/services/SERVICE-INSTANCE-PREFIX/Filter/home" />
+  </service>
+  <service name="cagrid/LexBIGServiceConvenienceMethods">
+    <resource name="configuration" type="org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceConvenienceMethods.service.globus.resource.LexBIGServiceConvenienceMethodsResourceConfiguration">
+      <resourceParams>
+        <parameter>
+          <name>factory</name>
+          <value>org.globus.wsrf.jndi.BeanFactory</value>
+        </parameter>
+        <parameter>
+          <name>performRegistration</name>
+          <!-- Set this to false to skip ServiceGroup registration -->
+          <value>PERFORM_REGISTRATION</value>
+        </parameter>
+        <parameter>
+          <name>registrationTemplateFile</name>
+          <!-- Set this to the relative path (from the container root, e.g GLOBUS_LOCATION for globus container) of the registration parameters template file (ignored if performRegistration is false) -->
+          <value>ETC-PATH/LexBIGServiceConvenienceMethods_registration.xml</value>
+        </parameter>
+      </resourceParams>
+    </resource>
+    <resource name="home" type="org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceConvenienceMethods.service.globus.resource.LexBIGServiceConvenienceMethodsResourceHome">
+      <resourceParams>
+        <parameter>
+          <name>factory</name>
+          <value>org.globus.wsrf.jndi.BeanFactory</value>
+        </parameter>
+        <parameter>
+          <name>resourceClass</name>
+          <value>org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceConvenienceMethods.service.globus.resource.LexBIGServiceConvenienceMethodsResource</value>
+        </parameter>
+        <parameter>
+          <name>resourceKeyName</name>
+          <value>{http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods}LexBIGServiceConvenienceMethodsKey</value>
+        </parameter>
+        <parameter>
+          <name>resourceKeyType</name>
+          <value>java.lang.String</value>
+        </parameter>
+      </resourceParams>
+    </resource>
+    <resourceLink name="serviceconfiguration" target="java:comp/env/services/cagrid/LexBIGCaGridServices/serviceconfiguration" />
+    <resourceLink name="lexBIGCaGridServicesHome" target="java:comp/env/services/cagrid/LexBIGCaGridServices/home" />
+    <resourceLink name="codedNodeSetHome" target="java:comp/env/services/cagrid/CodedNodeSet/home" />
+    <resourceLink name="codedNodeGraphHome" target="java:comp/env/services/cagrid/CodedNodeGraph/home" />
+    <resourceLink name="resolvedConceptReferencesIteratorHome" target="java:comp/env/services/cagrid/ResolvedConceptReferencesIterator/home" />
+    <resourceLink name="historyServiceHome" target="java:comp/env/services/SERVICE-INSTANCE-PREFIX/HistoryService/home" />
+    <resourceLink name="lexBIGServiceMetadataHome" target="java:comp/env/services/SERVICE-INSTANCE-PREFIX/LexBIGServiceMetadata/home" />
+    <resourceLink name="sortHome" target="java:comp/env/services/SERVICE-INSTANCE-PREFIX/Sort/home" />
+    <resourceLink name="filterHome" target="java:comp/env/services/SERVICE-INSTANCE-PREFIX/Filter/home" />
+  </service>
+  <service name="cagrid/CodedNodeGraph">
+    <resource name="configuration" type="org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeGraph.service.globus.resource.CodedNodeGraphResourceConfiguration">
+      <resourceParams>
+        <parameter>
+          <name>factory</name>
+          <value>org.globus.wsrf.jndi.BeanFactory</value>
+        </parameter>
+        <parameter>
+          <name>performRegistration</name>
+          <!-- Set this to false to skip ServiceGroup registration -->
+          <value>PERFORM_REGISTRATION</value>
+        </parameter>
+        <parameter>
+          <name>registrationTemplateFile</name>
+          <!-- Set this to the relative path (from the container root, e.g GLOBUS_LOCATION for globus container) of the registration parameters template file (ignored if performRegistration is false) -->
+          <value>ETC-PATH/CodedNodeGraph_registration.xml</value>
+        </parameter>
+      </resourceParams>
+    </resource>
+    <resource name="home" type="org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeGraph.service.globus.resource.CodedNodeGraphResourceHome">
+      <resourceParams>
+        <parameter>
+          <name>factory</name>
+          <value>org.globus.wsrf.jndi.BeanFactory</value>
+        </parameter>
+        <parameter>
+          <name>resourceClass</name>
+          <value>org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeGraph.service.globus.resource.CodedNodeGraphResource</value>
+        </parameter>
+        <parameter>
+          <name>resourceKeyName</name>
+          <value>{http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/CodedNodeGraph}CodedNodeGraphKey</value>
+        </parameter>
+        <parameter>
+          <name>resourceKeyType</name>
+          <value>java.lang.String</value>
+        </parameter>
+      </resourceParams>
+    </resource>
+    <resourceLink name="serviceconfiguration" target="java:comp/env/services/cagrid/LexBIGCaGridServices/serviceconfiguration" />
+    <resourceLink name="lexBIGCaGridServicesHome" target="java:comp/env/services/cagrid/LexBIGCaGridServices/home" />
+    <resourceLink name="codedNodeSetHome" target="java:comp/env/services/cagrid/CodedNodeSet/home" />
+    <resourceLink name="lexBIGServiceConvenienceMethodsHome" target="java:comp/env/services/cagrid/LexBIGServiceConvenienceMethods/home" />
+    <resourceLink name="resolvedConceptReferencesIteratorHome" target="java:comp/env/services/cagrid/ResolvedConceptReferencesIterator/home" />
+    <resourceLink name="historyServiceHome" target="java:comp/env/services/SERVICE-INSTANCE-PREFIX/HistoryService/home" />
+    <resourceLink name="lexBIGServiceMetadataHome" target="java:comp/env/services/SERVICE-INSTANCE-PREFIX/LexBIGServiceMetadata/home" />
+    <resourceLink name="sortHome" target="java:comp/env/services/SERVICE-INSTANCE-PREFIX/Sort/home" />
+    <resourceLink name="filterHome" target="java:comp/env/services/SERVICE-INSTANCE-PREFIX/Filter/home" />
+  </service>
+  <service name="cagrid/CodedNodeSet">
+    <resource name="configuration" type="org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeSet.service.globus.resource.CodedNodeSetResourceConfiguration">
+      <resourceParams>
+        <parameter>
+          <name>factory</name>
+          <value>org.globus.wsrf.jndi.BeanFactory</value>
+        </parameter>
+        <parameter>
+          <name>performRegistration</name>
+          <!-- Set this to false to skip ServiceGroup registration -->
+          <value>PERFORM_REGISTRATION</value>
+        </parameter>
+        <parameter>
+          <name>registrationTemplateFile</name>
+          <!-- Set this to the relative path (from the container root, e.g GLOBUS_LOCATION for globus container) of the registration parameters template file (ignored if performRegistration is false) -->
+          <value>ETC-PATH/CodedNodeSet_registration.xml</value>
+        </parameter>
+      </resourceParams>
+    </resource>
+    <resource name="home" type="org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeSet.service.globus.resource.CodedNodeSetResourceHome">
+      <resourceParams>
+        <parameter>
+          <name>factory</name>
+          <value>org.globus.wsrf.jndi.BeanFactory</value>
+        </parameter>
+        <parameter>
+          <name>resourceClass</name>
+          <value>org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeSet.service.globus.resource.CodedNodeSetResource</value>
+        </parameter>
+        <parameter>
+          <name>resourceKeyName</name>
+          <value>{http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/CodedNodeSet}CodedNodeSetKey</value>
+        </parameter>
+        <parameter>
+          <name>resourceKeyType</name>
+          <value>java.lang.String</value>
+        </parameter>
+      </resourceParams>
+    </resource>
+    <resourceLink name="serviceconfiguration" target="java:comp/env/services/cagrid/LexBIGCaGridServices/serviceconfiguration" />
+    <resourceLink name="lexBIGCaGridServicesHome" target="java:comp/env/services/cagrid/LexBIGCaGridServices/home" />
+    <resourceLink name="codedNodeGraphHome" target="java:comp/env/services/cagrid/CodedNodeGraph/home" />
+    <resourceLink name="lexBIGServiceConvenienceMethodsHome" target="java:comp/env/services/cagrid/LexBIGServiceConvenienceMethods/home" />
+    <resourceLink name="resolvedConceptReferencesIteratorHome" target="java:comp/env/services/cagrid/ResolvedConceptReferencesIterator/home" />
+    <resourceLink name="historyServiceHome" target="java:comp/env/services/SERVICE-INSTANCE-PREFIX/HistoryService/home" />
+    <resourceLink name="lexBIGServiceMetadataHome" target="java:comp/env/services/SERVICE-INSTANCE-PREFIX/LexBIGServiceMetadata/home" />
+    <resourceLink name="sortHome" target="java:comp/env/services/SERVICE-INSTANCE-PREFIX/Sort/home" />
+    <resourceLink name="filterHome" target="java:comp/env/services/SERVICE-INSTANCE-PREFIX/Filter/home" />
+  </service>
+  <service name="cagrid/LexEVSGridService">
+    <resource name="configuration" type="org.LexGrid.LexBIG.cagrid.LexEVSGridService.service.globus.resource.LexEVSGridServiceResourceConfiguration">
+      <resourceParams>
+        <parameter>
+          <name>factory</name>
+          <value>org.globus.wsrf.jndi.BeanFactory</value>
+        </parameter>
+        <parameter>
+          <name>performRegistration</name>
+          <!-- Set this to false to skip ServiceGroup registration -->
+          <value>PERFORM_REGISTRATION</value>
+        </parameter>
+        <parameter>
+          <name>registrationTemplateFile</name>
+          <!-- Set this to the relative path (from the container root, e.g GLOBUS_LOCATION for globus container) of the registration parameters template file (ignored if performRegistration is false) -->
+          <value>ETC-PATH/LexEVSGridService_registration.xml</value>
+        </parameter>
+        <parameter>
+          <name>serviceMetadataFile</name>
+          <!-- Set this to the relative path (from the container root, e.g GLOBUS_LOCATION for globus container) of the serviceMetadata extract -->
+          <value>ETC-PATH/serviceMetadata.xml</value>
+        </parameter>
+      </resourceParams>
+    </resource>
+    <resource name="serviceconfiguration" type="org.LexGrid.LexBIG.cagrid.LexEVSGridService.service.LexEVSGridServiceConfiguration">
+      <resourceParams>
+        <parameter>
+          <name>factory</name>
+          <value>org.globus.wsrf.jndi.BeanFactory</value>
+        </parameter>
+        <parameter>
+          <name>etcDirectoryPath</name>
+          <value>ETC-PATH</value>
+        </parameter>
+      </resourceParams>
+    </resource>
+    <resource name="home" type="org.LexGrid.LexBIG.cagrid.LexEVSGridService.service.globus.resource.LexEVSGridServiceResourceHome">
+      <resourceParams>
+        <parameter>
+          <name>factory</name>
+          <value>org.globus.wsrf.jndi.BeanFactory</value>
+        </parameter>
+      </resourceParams>
+    </resource>
+    <resourceLink name="codedNodeSetHome" target="java:comp/env/services/cagrid/CodedNodeSet/home" />
+    <resourceLink name="codedNodeGraphHome" target="java:comp/env/services/cagrid/CodedNodeGraph/home" />
+    <resourceLink name="lexBIGServiceConvenienceMethodsHome" target="java:comp/env/services/cagrid/LexBIGServiceConvenienceMethods/home" />
+    <resourceLink name="resolvedConceptReferencesIteratorHome" target="java:comp/env/services/cagrid/ResolvedConceptReferencesIterator/home" />
+    <resourceLink name="historyServiceHome" target="java:comp/env/services/SERVICE-INSTANCE-PREFIX/HistoryService/home" />
+    <resourceLink name="lexBIGServiceMetadataHome" target="java:comp/env/services/SERVICE-INSTANCE-PREFIX/LexBIGServiceMetadata/home" />
+    <resourceLink name="sortHome" target="java:comp/env/services/SERVICE-INSTANCE-PREFIX/Sort/home" />
+    <resourceLink name="filterHome" target="java:comp/env/services/SERVICE-INSTANCE-PREFIX/Filter/home" />
+  </service>
+</jndiConfig>
+

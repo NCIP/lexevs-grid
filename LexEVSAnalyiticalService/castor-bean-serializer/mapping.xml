@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapping>
+    <class
+        name="org.LexGrid.LexBIG.DataModel.Collections.ExtensionDescriptionList" auto-complete="false">
+        <description>Default mapping for class org.LexGrid.LexBIG.DataModel.Collections.ExtensionDescriptionList</description>
+        <map-to xml="extension-description-list"/>
+        <field name="extensionDescription"
+            type="org.LexGrid.LexBIG.DataModel.InterfaceElements.ExtensionDescription"
+            required="false" direct="false" transient="false" collection="array">
+            <bind-xml name="extension-description" node="element" reference="false"/>
+        </field>
+    </class>
+    
+     <class
+        name="org.LexGrid.LexBIG.DataModel.InterfaceElements.ExtensionDescription" auto-complete="false">
+        <description>Default mapping for class org.LexGrid.LexBIG.DataModel.InterfaceElements.ExtensionDescription</description>
+        <map-to xml="extension-description"/>
+        <field name="version" type="string" required="false"
+            direct="false" transient="false">
+            <bind-xml name="version" node="element" reference="false"/>
+        </field>
+        <field name="extensionProvider"
+            type="org.LexGrid.commonTypes.Source" required="false"
+            direct="false" transient="false">
+            <bind-xml name="extension-provider" node="element" reference="false"/>
+        </field>
+        <field name="extensionBaseClass" type="string" required="false"
+            direct="false" transient="false">
+            <bind-xml name="extension-base-class" node="element" reference="false"/>
+        </field>
+        <field name="name" type="string" required="false" direct="false" transient="false">
+            <bind-xml name="name" node="element" reference="false"/>
+        </field>
+        <field name="extensionClass" type="string" required="false"
+            direct="false" transient="false">
+            <bind-xml name="extension-class" node="element" reference="false"/>
+        </field>
+        <field name="description" type="string" required="false"
+            direct="false" transient="false">
+            <bind-xml name="description" node="element" reference="false"/>
+        </field>
+    </class>
+</mapping>

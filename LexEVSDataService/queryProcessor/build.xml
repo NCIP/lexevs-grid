@@ -1,0 +1,41 @@
+<project name="LexEVSDataService50 Query Processor" default="buildQueryProcessor">
+
+	<property environment="env"/>
+	<property name="ext.globus.dir" value="${env.GLOBUS_LOCATION}" />
+	
+	<target name="init">
+		<property name="build.classes.dir" location="build/classes"/>
+		 <path id="build.path">					
+			<fileset dir="../lib">
+				<include name="*.jar"/>
+			</fileset>
+		 	<fileset dir="${ext.globus.dir}/lib">
+		 		<include name="*.jar"/>
+		 	</fileset>		
+		 </path>
+	</target>
+	
+	<target name="compile" depends="clean, init">
+		<mkdir dir="build/classes"/>	 
+		<javac srcdir="src" destdir="build/classes">
+			<classpath>
+				<path refid="build.path" />
+			</classpath>
+		</javac>
+	</target>
+	
+	<target name="buildQueryProcessor" depends="init, clean, compile, jar">
+
+	</target>
+	
+	<target name="clean">
+		<delete dir="build"/>
+	</target>
+	
+	<target name="jar">
+	  <jar destfile="build/LexEVSQueryProcessor.jar"
+	       basedir="build/classes"
+	  />
+	</target>
+	
+</project>

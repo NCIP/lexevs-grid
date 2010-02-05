@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"  
+targetNamespace="http://LexGrid.org/schema/2009/01/LexGrid/commonTypesTypes" 
+xmlns:lbCommonTypesTypes="http://LexGrid.org/schema/2009/01/LexGrid/commonTypesTypes">
+
+  		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- Class: EntityTypes  -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <xs:element name="EntityTypes" type="lbCommonTypesTypes:EntityTypes"/>
+        <xs:simpleType name="EntityTypes">
+                <xs:restriction base="xs:string">
+                        <xs:annotation>
+                                <xs:documentation>A list of entityTypes to be used where appropriate.  Service behavior may be keyed off of these local identifiers, independent of the associated URI's</xs:documentation>
+                        </xs:annotation>
+                        <xs:enumeration value="concept">
+                                <xs:annotation>
+                                        <xs:documentation>The entity represents a class or category.</xs:documentation>
+                                </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="instance">
+                                <xs:annotation>
+                                        <xs:documentation>The entity represents an individual or instance.</xs:documentation>
+                                </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="association">
+                                <xs:annotation>
+                                        <xs:documentation>The entity represents a relationship, association or "property".</xs:documentation>
+                                </xs:annotation>
+                        </xs:enumeration>
+                </xs:restriction>
+        </xs:simpleType>
+	
+</xs:schema>

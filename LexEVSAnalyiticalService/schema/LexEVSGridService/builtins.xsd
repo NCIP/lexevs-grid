@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://LexGrid.org/schema/2009/01/LexGrid/builtins" 
+xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+xmlns:lgBuiltin="http://LexGrid.org/schema/2009/01/LexGrid/builtins"
+elementFormDefault="qualified" 
+targetNamespace="http://LexGrid.org/schema/2009/01/LexGrid/builtins">
+
+        <!-- ================================================= -->
+        <!-- Package: <<XSDschema>> builtins  -->
+        <!-- ================================================= -->
+        <xs:annotation>
+                <xs:documentation>
+                        <h2>Core data types for the LexGrid package</h2>
+                </xs:documentation>
+                <xs:documentation>These are the basic types used in the construction of the rest of the LexGrid model. They need to be mapped to the appropriate implementation specific data types. The mapping in this package represents the XML Schema data types mapping</xs:documentation>
+        </xs:annotation>
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- Class: <<dataType>> tsBoolean  -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <xs:simpleType name="tsBoolean">
+                <xs:annotation>
+                        <xs:documentation>A datatype having two possible values, one that represents "true" and the second "false".</xs:documentation>
+                </xs:annotation>
+                <xs:restriction base="xs:boolean"/>
+        </xs:simpleType>
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- Class:  <<dataType>> tsAnyType  -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <xs:element name="tsAnyType" type="lgBuiltin:tsAnyType"/>
+        <xs:complexType mixed="true" name="tsAnyType">
+                <xs:annotation>
+                        <xs:documentation>An opaque inner type that can contain any well-formed, but arbitrary information.</xs:documentation>
+                </xs:annotation>
+                <xs:sequence>
+                        <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+                </xs:sequence>
+        </xs:complexType>
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- Class: <<dataType>> tsCaseIgnoreIA5String  -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <xs:simpleType name="tsCaseIgnoreIA5String">
+                <xs:annotation>
+                        <xs:documentation>A non-blank, case insensitive string encoded in - IA5 (International alphabet 5 - aka. ASCII).</xs:documentation>
+                </xs:annotation>
+                <xs:restriction base="xs:string">
+                        <xs:minLength value="1"/>
+                </xs:restriction>
+        </xs:simpleType>
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- Class: <<dataType>> tsCaseSensitiveDirectoryString  -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <xs:simpleType name="tsCaseSensitiveDirectoryString">
+                <xs:annotation>
+                        <xs:documentation>A non-blank, case sensitive - UTF/8 or Unicode String.</xs:documentation>
+                </xs:annotation>
+                <xs:restriction base="xs:string">
+                        <xs:minLength value="1"/>
+                </xs:restriction>
+        </xs:simpleType>
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- Class: <<dataType>> tsCaseSensitiveIA5String  -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <xs:simpleType name="tsCaseSensitiveIA5String">
+                <xs:annotation>
+                        <xs:documentation>A non-blank, case sensitive string encoded in - IA5 (International alphabet 5 - aka. ASCII).</xs:documentation>
+                </xs:annotation>
+                <xs:restriction base="xs:string">
+                        <xs:minLength value="1"/>
+                </xs:restriction>
+        </xs:simpleType>
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- Class: <<dataType>> tsInteger  -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <xs:simpleType name="tsInteger">
+                <xs:annotation>
+                        <xs:documentation>A mathematical datatype consisting of exact integral values.</xs:documentation>
+                </xs:annotation>
+                <xs:restriction base="xs:integer"/>
+        </xs:simpleType>
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- Class: <<dataType>> tsTimestamp  -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <xs:simpleType name="tsTimestamp">
+                <xs:annotation>
+                        <xs:documentation>Af amily of datatypes whose values are points in time to various common resolutions: year, month, day, hour, minute, second, and fractions thereof.</xs:documentation>
+                </xs:annotation>
+                <xs:restriction base="xs:dateTime"/>
+        </xs:simpleType>
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- Class: <<dataType>> tsURI  -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <xs:simpleType name="tsURI">
+                <xs:annotation>
+                        <xs:documentation>A valid Uniform Resource Identifier (URI)</xs:documentation>
+                </xs:annotation>
+                <xs:restriction base="xs:anyURI"/>
+        </xs:simpleType>
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- Class: <<dataType>>  tsLocalId  -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <xs:simpleType name="tsLocalId">
+                <xs:annotation>
+                        <xs:documentation>A <i>reference</i>, as defined in <a href="http://www.w3.org/TR/curie/#s_syntax">CURIE Syntax 1.0</a>. The XML binding is currently stricter, constraining the type to a NCName, for ease of URI formation.</xs:documentation>
+                </xs:annotation>
+                <xs:restriction base="xs:NCName"/>
+        </xs:simpleType>
+</xs:schema>

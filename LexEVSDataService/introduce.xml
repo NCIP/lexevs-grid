@@ -1,0 +1,396 @@
+<ns1:ServiceDescription introduceVersion="1.2" xmlns:ns1="gme://gov.nih.nci.cagrid/1/Introduce">
+ <ns2:Namespaces xsi:type="ns2:NamespacesType" xmlns:ns2="gme://gov.nih.nci.cagrid.introduce/1/Namespace" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ns2:Namespace location="./commonTypesTypes.xsd" namespace="http://LexGrid.org/schema/2009/01/LexGrid/commonTypesTypes" packageName="org.LexGrid.commonTypes.types" xsi:type="ns2:NamespaceType">
+   <ns2:SchemaElement className="EntityTypes" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="EntityTypes" xsi:type="ns2:SchemaElementType"/>
+  </ns2:Namespace>
+  <ns2:Namespace location="./concepts.xsd" namespace="http://LexGrid.org/schema/2009/01/LexGrid/concepts" packageName="org.LexGrid.concepts" xsi:type="ns2:NamespaceType">
+   <ns2:SchemaElement className="Comment" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="comment" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement className="Concept" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="concept" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement className="Definition" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="definition" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement className="Entities" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="entities" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement className="Entity" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="entity" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement className="Instance" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="instance" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement className="Presentation" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="presentation" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement className="PropertyLink" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="propertyLink" xsi:type="ns2:SchemaElementType"/>
+  </ns2:Namespace>
+  <ns2:Namespace location="./versions.xsd" namespace="http://LexGrid.org/schema/2009/01/LexGrid/versions" packageName="org.LexGrid.versions" xsi:type="ns2:NamespaceType">
+   <ns2:SchemaElement className="ChangedEntry" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="changedEntry" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement className="CodingSchemeVersion" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="codingSchemeVersion" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement className="EditHistory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="editHistory" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement className="EntityVersion" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="entityVersion" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement className="EntryState" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="entryState" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement className="Revision" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="revision" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement className="SystemRelease" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="systemRelease" xsi:type="ns2:SchemaElementType"/>
+  </ns2:Namespace>
+  <ns2:Namespace location="./naming.xsd" namespace="http://LexGrid.org/schema/2009/01/LexGrid/naming" packageName="org.LexGrid.naming" xsi:type="ns2:NamespaceType">
+   <ns2:SchemaElement className="Mappings" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="mappings" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement className="SupportedAssociation" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="supportedAssociation" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement className="SupportedAssociationQualifier" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="supportedAssociationQualifier" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement className="SupportedCodingScheme" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="supportedCodingScheme" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement className="SupportedContainerName" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="supportedContainerName" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement className="SupportedContext" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="supportedContext" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement className="SupportedDataType" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="supportedDataType" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement className="SupportedDegreeOfFidelity" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="supportedDegreeOfFidelity" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement className="SupportedEntityType" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="supportedEntityType" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement className="SupportedHierarchy" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="supportedHierarchy" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement className="SupportedLanguage" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="supportedLanguage" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement className="SupportedNamespace" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="supportedNamespace" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement className="SupportedProperty" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="supportedProperty" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement className="SupportedPropertyLink" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="supportedPropertyLink" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement className="SupportedPropertyQualifier" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="supportedPropertyQualifier" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement className="SupportedPropertyQualifierType" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="supportedPropertyQualifierType" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement className="SupportedPropertyType" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="supportedPropertyType" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement className="SupportedRepresentationalForm" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="supportedRepresentationalForm" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement className="SupportedSortOrder" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="supportedSortOrder" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement className="SupportedSource" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="supportedSource" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement className="SupportedSourceRole" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="supportedSourceRole" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement className="SupportedStatus" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="supportedStatus" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement className="URIMap" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="URIMap" xsi:type="ns2:SchemaElementType"/>
+  </ns2:Namespace>
+  <ns2:Namespace location="./builtins.xsd" namespace="http://LexGrid.org/schema/2009/01/LexGrid/builtins" packageName="org.LexGrid.builtins" xsi:type="ns2:NamespaceType">
+   <ns2:SchemaElement className="TsAnyType" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="tsAnyType" xsi:type="ns2:SchemaElementType"/>
+  </ns2:Namespace>
+  <ns2:Namespace location="./codingSchemes.xsd" namespace="http://LexGrid.org/schema/2009/01/LexGrid/codingSchemes" packageName="org.LexGrid.codingSchemes" xsi:type="ns2:NamespaceType">
+   <ns2:SchemaElement className="CodingScheme" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="codingScheme" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement className="CodingSchemes" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="codingSchemes" xsi:type="ns2:SchemaElementType"/>
+  </ns2:Namespace>
+  <ns2:Namespace location="./relations.xsd" namespace="http://LexGrid.org/schema/2009/01/LexGrid/relations" packageName="org.LexGrid.relations" xsi:type="ns2:NamespaceType">
+   <ns2:SchemaElement className="AssociatableElement" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="associatableElement" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement className="Association" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="association" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement className="AssociationData" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="associationData" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement className="AssociationQualification" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="associationQualification" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement className="AssociationSource" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="associationSource" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement className="AssociationTarget" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="associationTarget" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement className="Relations" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="relations" xsi:type="ns2:SchemaElementType"/>
+  </ns2:Namespace>
+  <ns2:Namespace location="./commonTypes.xsd" namespace="http://LexGrid.org/schema/2009/01/LexGrid/commonTypes" packageName="org.LexGrid.commonTypes" xsi:type="ns2:NamespaceType">
+   <ns2:SchemaElement className="Describable" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="describable" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement className="EntityDescription" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="entityDescription" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement className="Properties" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="properties" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement className="Property" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="property" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement className="PropertyQualifier" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="propertyQualifier" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement className="Source" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="source" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement className="Text" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="text" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement className="Versionable" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="versionable" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement className="VersionableAndDescribable" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="versionableAndDescribable" xsi:type="ns2:SchemaElementType"/>
+  </ns2:Namespace>
+  <ns2:Namespace generateStubs="false" location="./caCORE.caCORE-3.2_gov.nih.nci.evs.security.xsd" namespace="gme://caCORE.caCORE/3.2/gov.nih.nci.evs.security" packageName="gov.nih.nci.evs.security" xsi:type="ns2:NamespaceType">
+   <ns2:SchemaElement className="SecurityToken" deserializer="gov.nih.nci.cagrid.encoding.SDKDeserializerFactory" serializer="gov.nih.nci.cagrid.encoding.SDKSerializerFactory" type="SecurityToken" xsi:type="ns2:SchemaElementType"/>
+  </ns2:Namespace>
+  <ns2:Namespace namespace="http://www.w3.org/2001/XMLSchema" xsi:type="ns2:NamespaceType">
+   <ns2:SchemaElement type="anySimpleType" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement type="anyType" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement type="anyURI" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement type="base64Binary" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement type="boolean" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement type="byte" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement type="date" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement type="dateTime" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement type="decimal" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement type="double" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement type="duration" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement type="ENTITIES" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement type="ENTITY" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement type="float" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement type="gDay" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement type="gMonth" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement type="gMonthDay" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement type="gYear" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement type="gYearMonth" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement type="hexBinary" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement type="ID" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement type="IDREF" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement type="IDREFS" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement type="int" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement type="integer" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement type="language" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement type="long" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement type="Name" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement type="NCName" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement type="negativeInteger" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement type="NMTOKEN" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement type="NMTOKENS" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement type="nonNegativeInteger" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement type="nonPositiveInteger" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement type="normalizedString" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement type="NOTATION" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement type="positiveInteger" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement type="QName" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement type="short" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement type="string" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement type="time" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement type="token" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement type="unsignedByte" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement type="unsignedInt" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement type="unsignedLong" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement type="unsignedShort" xsi:type="ns2:SchemaElementType"/>
+  </ns2:Namespace>
+  <ns2:Namespace location="./LexEVSDataServiceTypes.xsd" namespace="http://dataService.cagrid.LexBIG.LexGrid.org/LexEVSDataService/types" packageName="org.LexGrid.LexBIG.cagrid.dataService.stubs.types" xsi:type="ns2:NamespaceType">
+   <ns2:SchemaElement type="LexEVSDataServiceReference" xsi:type="ns2:SchemaElementType"/>
+  </ns2:Namespace>
+  <ns2:Namespace generateStubs="false" location="./xsd/cagrid/types/security/security.xsd" namespace="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.security" packageName="gov.nih.nci.cagrid.metadata.security" xsi:type="ns2:NamespaceType">
+   <ns2:SchemaElement type="CommunicationMechanism" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement type="CommunicationStyle" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement type="GSISecureConversation" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement type="GSISecureMessage" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement type="GSITransport" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement type="None" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement type="Operation" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement type="ServiceSecurityMetadata" xsi:type="ns2:SchemaElementType"/>
+  </ns2:Namespace>
+  <ns2:Namespace generateStubs="false" location="./xsd/cagrid/types/caGridMetadata.xsd" namespace="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata" packageName="gov.nih.nci.cagrid.metadata" xsi:type="ns2:NamespaceType">
+   <ns2:SchemaElement type="ServiceMetadata" xsi:type="ns2:SchemaElementType"/>
+  </ns2:Namespace>
+  <ns2:Namespace location="./1_gov.nih.nci.cagrid.CQLQuery.xsd" namespace="http://CQL.caBIG/1/gov.nih.nci.cagrid.CQLQuery" packageName="gov.nih.nci.cagrid.cqlquery" xsi:type="ns2:NamespaceType">
+   <ns2:SchemaElement type="CQLQuery" xsi:type="ns2:SchemaElementType"/>
+  </ns2:Namespace>
+  <ns2:Namespace location="./1_gov.nih.nci.cagrid.CQLResultSet.xsd" namespace="http://CQL.caBIG/1/gov.nih.nci.cagrid.CQLResultSet" packageName="gov.nih.nci.cagrid.cqlresultset" xsi:type="ns2:NamespaceType">
+   <ns2:SchemaElement type="CQLQueryResultCollection" xsi:type="ns2:SchemaElementType"/>
+  </ns2:Namespace>
+  <ns2:Namespace location="./LexEVSDataService_CQLResultTypes.xsd" namespace="http://dataService.cagrid.LexBIG.LexGrid.org/LexEVSDataService/CQLResultTypes" packageName="org.LexGrid.LexBIG.cagrid.dataService.cqlresulttypes" xsi:type="ns2:NamespaceType"/>
+  <ns2:Namespace location="./xsd/cagrid/types/data/data.xsd" namespace="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.dataservice" packageName="gov.nih.nci.cagrid.metadata.dataservice" xsi:type="ns2:NamespaceType">
+   <ns2:SchemaElement type="DomainModel" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement type="UMLAssociation" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement type="UMLAssociationEdge" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement type="UMLClass" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement type="UMLClassReference" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement type="UMLGeneralization" xsi:type="ns2:SchemaElementType"/>
+  </ns2:Namespace>
+  <ns2:Namespace generateStubs="false" location="./DataServiceExceptions.xsd" namespace="http://gov.nih.nci.cagrid.data/DataServiceExceptions" packageName="gov.nih.nci.cagrid.data.faults" xsi:type="ns2:NamespaceType">
+   <ns2:SchemaElement type="MalformedQueryException" xsi:type="ns2:SchemaElementType"/>
+   <ns2:SchemaElement type="QueryProcessingException" xsi:type="ns2:SchemaElementType"/>
+  </ns2:Namespace>
+  <ns2:Namespace generateStubs="false" location="./xsd/cagrid/types/caGridMetadata.xsd" namespace="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata" packageName="gov.nih.nci.cagrid.metadata" xsi:type="ns2:NamespaceType">
+   <ns2:SchemaElement type="ServiceMetadata" xsi:type="ns2:SchemaElementType"/>
+  </ns2:Namespace>
+ 
+  
+ 
+ </ns2:Namespaces>
+ <ns3:Services xsi:type="ns3:ServicesType" xmlns:ns3="gme://gov.nih.nci.cagrid.introduce/1/Services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ns3:Service name="LexEVSDataService" namespace="http://dataService.cagrid.LexBIG.LexGrid.org/LexEVSDataService" packageName="org.LexGrid.LexBIG.cagrid.dataService" xsi:type="ns3:ServiceType">
+   <ns4:Methods xsi:type="ns4:MethodsType" xmlns:ns4="gme://gov.nih.nci.cagrid.introduce/1/Methods">
+    <ns4:Method isImported="true" isProvided="true" name="GetMultipleResourceProperties" xsi:type="ns4:MethodType">
+     <ns4:Output qName="void" isArray="false"/>
+     <ns4:ImportInformation fromIntroduce="false" inputMessage="ns5:GetMultipleResourcePropertiesRequest" namespace="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties-1.2-draft-01.wsdl" outputMessage="ns5:GetMultipleResourcePropertiesResponse" packageName="org.oasis.wsrf.properties" portTypeName="GetMultipleResourceProperties" wsdlFile="../wsrf/properties/WS-ResourceProperties.wsdl" xmlns:ns5="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties-1.2-draft-01.wsdl"/>
+     <ns4:ProviderInformation providerClass="GetMRPProvider"/>
+    </ns4:Method>
+    <ns4:Method isImported="true" isProvided="true" name="GetResourceProperty" xsi:type="ns4:MethodType">
+     <ns4:Output qName="void" isArray="false"/>
+     <ns4:ImportInformation fromIntroduce="false" inputMessage="ns6:GetResourcePropertyRequest" namespace="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties-1.2-draft-01.wsdl" outputMessage="ns6:GetResourcePropertyResponse" packageName="org.oasis.wsrf.properties" portTypeName="GetResourceProperty" wsdlFile="../wsrf/properties/WS-ResourceProperties.wsdl" xmlns:ns6="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties-1.2-draft-01.wsdl"/>
+     <ns4:ProviderInformation providerClass="GetRPProvider"/>
+    </ns4:Method>
+    <ns4:Method isImported="true" isProvided="true" name="QueryResourceProperties" xsi:type="ns4:MethodType">
+     <ns4:Output qName="void" isArray="false"/>
+     <ns4:ImportInformation fromIntroduce="false" inputMessage="ns7:QueryResourcePropertiesRequest" namespace="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties-1.2-draft-01.wsdl" outputMessage="ns7:QueryResourcePropertiesResponse" packageName="org.oasis.wsrf.properties" portTypeName="QueryResourceProperties" wsdlFile="../wsrf/properties/WS-ResourceProperties.wsdl" xmlns:ns7="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties-1.2-draft-01.wsdl"/>
+     <ns4:ProviderInformation providerClass="QueryRPProvider"/>
+    </ns4:Method>
+    <ns4:Method isImported="true" isProvided="true" name="getServiceSecurityMetadata" xsi:type="ns4:MethodType">
+     <ns4:Output qName="ns8:ServiceSecurityMetadata" isArray="false" isClientHandle="false" xmlns:ns8="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.security"/>
+     <ns9:MethodSecurity xsi:type="ns9:MethodSecurity" xmlns:ns9="gme://gov.nih.nci.cagrid.introduce/1/Security">
+      <ns9:SecuritySetting xsi:type="ns9:SecuritySetting">None</ns9:SecuritySetting>
+      <ns9:MethodAuthorization xsi:type="ns9:MethodAuthorization">
+       <ns9:NoAuthorization xsi:type="ns9:NoAuthorization"/>
+      </ns9:MethodAuthorization>
+     </ns9:MethodSecurity>
+     <ns4:ImportInformation namespace="http://security.introduce.cagrid.nci.nih.gov/ServiceSecurity" packageName="gov.nih.nci.cagrid.introduce.security.stubs" portTypeName="ServiceSecurityPortType" wsdlFile="ServiceSecurity.wsdl"/>
+     <ns4:ProviderInformation providerClass="gov.nih.nci.cagrid.introduce.security.service.globus.ServiceSecurityProviderImpl"/>
+    </ns4:Method>
+    <ns4:Method description="The standard caGrid Data Service query method." isImported="true" isProvided="true" name="query" xsi:type="ns4:MethodType">
+     <ns4:Inputs>
+      <ns4:Input qName="ns10:CQLQuery" description="The CQL query to be executed against the data source." isArray="false" name="cqlQuery" xmlns:ns10="http://CQL.caBIG/1/gov.nih.nci.cagrid.CQLQuery"/>
+     </ns4:Inputs>
+     <ns4:Output qName="ns11:CQLQueryResultCollection" description="The result of executing the CQL query against the data source." isArray="false" xmlns:ns11="http://CQL.caBIG/1/gov.nih.nci.cagrid.CQLResultSet"/>
+     <ns4:Exceptions>
+      <ns4:Exception description="Thrown when an error occurs in processing a CQL query" name="QueryProcessingException" qname="ns12:QueryProcessingException" xmlns:ns12="http://gov.nih.nci.cagrid.data/DataServiceExceptions"/>
+      <ns4:Exception description="Thrown when a query is found to be improperly formed" name="MalformedQueryException" qname="ns13:MalformedQueryException" xmlns:ns13="http://gov.nih.nci.cagrid.data/DataServiceExceptions"/>
+     </ns4:Exceptions>
+     <ns4:ImportInformation inputMessage="ns14:QueryRequest" namespace="http://gov.nih.nci.cagrid.data/DataService" outputMessage="ns14:QueryResponse" packageName="gov.nih.nci.cagrid.data" portTypeName="DataServicePortType" wsdlFile="DataService.wsdl" xmlns:ns14="http://gov.nih.nci.cagrid.data/DataService"/>
+     <ns4:ProviderInformation providerClass="gov.nih.nci.cagrid.data.service.globus.DataServiceProviderImpl"/>
+    </ns4:Method>
+    <ns4:Method description="" isImported="false" isProvided="false" name="registerSecurityToken" xsi:type="ns4:MethodType">
+     <ns4:Inputs>
+      <ns4:Input qName="xsd:string" description="" isArray="false" name="codingSchemeURN" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+      <ns4:Input qName="ns15:SecurityToken" description="" isArray="false" name="securityToken" xmlns:ns15="gme://caCORE.caCORE/3.2/gov.nih.nci.evs.security"/>
+     </ns4:Inputs>
+     <ns4:Output qName="ns16:LexEVSDataServiceReference" clientHandleClass="org.LexGrid.LexBIG.cagrid.dataService.client.LexEVSDataServiceClient" description="" isArray="false" isClientHandle="true" isCreatingResourceForClientHandle="true" resourceClientIntroduceServiceName="LexEVSDataService" xmlns:ns16="http://dataService.cagrid.LexBIG.LexGrid.org/LexEVSDataService/types"/>
+     <ns4:Exceptions/>
+    </ns4:Method>
+   </ns4:Methods>
+   <ns17:ResourcePropertiesList xsi:type="ns17:ResourcePropertiesListType" xmlns:ns17="gme://gov.nih.nci.cagrid.introduce/1/Resources">
+    <ns17:ResourceProperty qName="ns18:ServiceMetadata" description="" fileLocation="serviceMetadata.xml" populateFromFile="true" register="true" xsi:type="ns17:ResourcePropertyType" xmlns:ns18="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata"/>
+    <ns17:ResourceProperty qName="ns19:DomainModel" description="" fileLocation="LexEVSDomainModel.xml" populateFromFile="true" register="true" xsi:type="ns17:ResourcePropertyType" xmlns:ns19="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.dataservice"/>
+   </ns17:ResourcePropertiesList>
+   <ns3:ResourceFrameworkOptions xsi:type="ns3:ResourceFrameworkOptions">
+    <ns3:Main xsi:type="ns3:Main"/>
+    <ns3:Singleton xsi:type="ns3:Singleton"/>
+    <ns3:Identifiable xsi:type="ns3:Identifiable"/>
+    <ns3:ResourcePropertyManagement xsi:type="ns3:ResourcePropertyManagement"/>
+   </ns3:ResourceFrameworkOptions>
+  </ns3:Service>
+ </ns3:Services>
+ <ns20:Extensions xsi:type="ns20:ExtensionsType" xmlns:ns20="gme://gov.nih.nci.cagrid.introduce/1/Extension" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ns20:Extension name="cagrid_metadata" version="1.2" xsi:type="ns20:ExtensionType"/>
+  <ns20:Extension name="data" version="1.2" xsi:type="ns20:ExtensionType">
+   <ns20:ExtensionData>
+    <ns21:Data xsi:type="ns21:Data" xmlns:ns21="http://CQL.caBIG/1/gov.nih.nci.cagrid.data.extension">
+         <ns21:CadsrInformation noDomainModel="false" projectVersion="5.0" serviceUrl="http://cagrid-service.nci.nih.gov:8080/wsrf/services/cagrid/CaDSRService" useSuppliedModel="true" xsi:type="ns21:CadsrInformation">
+         
+
+
+         <ns21:Packages mappedNamespace="http://LexGrid.org/schema/2009/01/LexGrid/naming" name="org.LexGrid.naming" xsi:type="ns21:CadsrPackage">
+           <ns21:CadsrClass className="SupportedDataType" selected="true" targetable="true" xsi:type="ns21:ClassMapping"/>
+
+           <ns21:CadsrClass className="SupportedHierarchy" selected="true" targetable="true" xsi:type="ns21:ClassMapping"/>
+
+           <ns21:CadsrClass className="SupportedSortOrder" selected="true" targetable="true" xsi:type="ns21:ClassMapping"/>
+
+           <ns21:CadsrClass className="SupportedProperty" selected="true" targetable="true" xsi:type="ns21:ClassMapping"/>
+
+           <ns21:CadsrClass className="SupportedLanguage" selected="true" targetable="true" xsi:type="ns21:ClassMapping"/>
+
+           <ns21:CadsrClass className="SupportedContainer" selected="true" targetable="true" xsi:type="ns21:ClassMapping"/>
+
+           <ns21:CadsrClass className="SupportedPropertyLink" selected="true" targetable="true" xsi:type="ns21:ClassMapping"/>
+
+           <ns21:CadsrClass className="SupportedDegreeOfFidelity" selected="true" targetable="true" xsi:type="ns21:ClassMapping"/>
+
+           <ns21:CadsrClass className="Mappings" selected="true" targetable="true" xsi:type="ns21:ClassMapping"/>
+
+           <ns21:CadsrClass className="URIMap" selected="true" targetable="true" xsi:type="ns21:ClassMapping"/>
+
+           <ns21:CadsrClass className="SupportedPropertyQualifier" selected="true" targetable="true" xsi:type="ns21:ClassMapping"/>
+
+           <ns21:CadsrClass className="SupportedCodingScheme" selected="true" targetable="true" xsi:type="ns21:ClassMapping"/>
+
+           <ns21:CadsrClass className="SupportedPropertyType" selected="true" targetable="true" xsi:type="ns21:ClassMapping"/>
+
+           <ns21:CadsrClass className="SupportedSourceRole" selected="true" targetable="true" xsi:type="ns21:ClassMapping"/>
+
+           <ns21:CadsrClass className="SupportedStatus" selected="true" targetable="true" xsi:type="ns21:ClassMapping"/>
+
+           <ns21:CadsrClass className="SupportedAssociationQualifier" selected="true" targetable="true" xsi:type="ns21:ClassMapping"/>
+
+           <ns21:CadsrClass className="SupportedContext" selected="true" targetable="true" xsi:type="ns21:ClassMapping"/>
+
+           <ns21:CadsrClass className="SupportedSource" selected="true" targetable="true" xsi:type="ns21:ClassMapping"/>
+
+           <ns21:CadsrClass className="SupportedRepresentationalForm" selected="true" targetable="true" xsi:type="ns21:ClassMapping"/>
+
+           <ns21:CadsrClass className="SupportedAssociation" selected="true" targetable="true" xsi:type="ns21:ClassMapping"/>
+
+           <ns21:CadsrClass className="SupportedPropertyQualifierType" selected="true" targetable="true" xsi:type="ns21:ClassMapping"/>
+
+           <ns21:CadsrClass className="SupportedNamespace" selected="true" targetable="true" xsi:type="ns21:ClassMapping"/>
+
+           <ns21:CadsrClass className="SupportedEntityType" selected="true" targetable="true" xsi:type="ns21:ClassMapping"/>
+		</ns21:Packages>
+    
+
+       <ns21:Packages mappedNamespace="http://LexGrid.org/schema/2009/01/LexGrid/relations" name="org.LexGrid.relations" xsi:type="ns21:CadsrPackage">
+           <ns21:CadsrClass className="AssociationData" selected="true" targetable="true" xsi:type="ns21:ClassMapping"/>
+
+           <ns21:CadsrClass className="AssociationSource" selected="true" targetable="true" xsi:type="ns21:ClassMapping"/>
+
+           <ns21:CadsrClass className="Relations" selected="true" targetable="true" xsi:type="ns21:ClassMapping"/>
+
+           <ns21:CadsrClass className="AssociatableElement" selected="true" targetable="true" xsi:type="ns21:ClassMapping"/>
+
+           <ns21:CadsrClass className="AssociationTarget" selected="true" targetable="true" xsi:type="ns21:ClassMapping"/>
+
+           <ns21:CadsrClass className="AssociationQualification" selected="true" targetable="true" xsi:type="ns21:ClassMapping"/>
+
+           <ns21:CadsrClass className="Association" selected="true" targetable="true" xsi:type="ns21:ClassMapping"/>
+
+      </ns21:Packages>
+
+      <ns21:Packages mappedNamespace="http://LexGrid.org/schema/2009/01/LexGrid/commonTypes" name="org.LexGrid.commonTypes" xsi:type="ns21:CadsrPackage">
+           <ns21:CadsrClass className="Describable" selected="true" targetable="true" xsi:type="ns21:ClassMapping"/>
+
+           <ns21:CadsrClass className="Source" selected="true" targetable="true" xsi:type="ns21:ClassMapping"/>
+
+           <ns21:CadsrClass className="Versionable" selected="true" targetable="true" xsi:type="ns21:ClassMapping"/>
+
+           <ns21:CadsrClass className="EntityDescription" selected="true" targetable="true" xsi:type="ns21:ClassMapping"/>
+
+           <ns21:CadsrClass className="Text" selected="true" targetable="true" xsi:type="ns21:ClassMapping"/>
+
+           <ns21:CadsrClass className="VersionableAndDescribable" selected="true" targetable="true" xsi:type="ns21:ClassMapping"/>
+
+           <ns21:CadsrClass className="PropertyQualifier" selected="true" targetable="true" xsi:type="ns21:ClassMapping"/>
+
+           <ns21:CadsrClass className="Properties" selected="true" targetable="true" xsi:type="ns21:ClassMapping"/>
+
+           <ns21:CadsrClass className="Property" selected="true" targetable="true" xsi:type="ns21:ClassMapping"/>
+
+      </ns21:Packages>
+
+      <ns21:Packages mappedNamespace="http://LexGrid.org/schema/2009/01/LexGrid/builtins" name="org.LexGrid.builtins" xsi:type="ns21:CadsrPackage">
+           <ns21:CadsrClass className="TsAnyType" selected="true" targetable="true" xsi:type="ns21:ClassMapping"/>
+
+      </ns21:Packages>
+
+     <ns21:Packages mappedNamespace="http://LexGrid.org/schema/2009/01/LexGrid/codingSchemes" name="org.LexGrid.codingSchemes" xsi:type="ns21:CadsrPackage">
+           <ns21:CadsrClass className="CodingScheme" selected="true" targetable="true" xsi:type="ns21:ClassMapping"/>
+
+           <ns21:CadsrClass className="CodingSchemes" selected="true" targetable="true" xsi:type="ns21:ClassMapping"/>
+
+ 
+      </ns21:Packages>
+
+      <ns21:Packages mappedNamespace="http://LexGrid.org/schema/2009/01/LexGrid/versions" name="org.LexGrid.versions" xsi:type="ns21:CadsrPackage">
+           <ns21:CadsrClass className="EntryState" selected="true" targetable="true" xsi:type="ns21:ClassMapping"/>
+
+           <ns21:CadsrClass className="CodingSchemeVersion" selected="true" targetable="true" xsi:type="ns21:ClassMapping"/>
+
+           <ns21:CadsrClass className="EditHistory" selected="true" targetable="true" xsi:type="ns21:ClassMapping"/>
+
+           <ns21:CadsrClass className="SystemRelease" selected="true" targetable="true" xsi:type="ns21:ClassMapping"/>
+
+           <ns21:CadsrClass className="ChangedEntry" selected="true" targetable="true" xsi:type="ns21:ClassMapping"/>
+
+           <ns21:CadsrClass className="Revision" selected="true" targetable="true" xsi:type="ns21:ClassMapping"/>
+
+           <ns21:CadsrClass className="EntityVersion" selected="true" targetable="true" xsi:type="ns21:ClassMapping"/>
+
+      </ns21:Packages>
+
+      <ns21:Packages mappedNamespace="http://LexGrid.org/schema/2009/01/LexGrid/concepts" name="org.LexGrid.concepts" xsi:type="ns21:CadsrPackage">
+           <ns21:CadsrClass className="Entity" selected="true" targetable="true" xsi:type="ns21:ClassMapping"/>
+
+           <ns21:CadsrClass className="Entities" selected="true" targetable="true" xsi:type="ns21:ClassMapping"/>
+
+           <ns21:CadsrClass className="Comment" selected="true" targetable="true" xsi:type="ns21:ClassMapping"/>
+
+           <ns21:CadsrClass className="Instance" selected="true" targetable="true" xsi:type="ns21:ClassMapping"/>
+
+           <ns21:CadsrClass className="concept" selected="true" targetable="true" xsi:type="ns21:ClassMapping"/>
+
+           <ns21:CadsrClass className="Definition" selected="true" targetable="true" xsi:type="ns21:ClassMapping"/>
+
+           <ns21:CadsrClass className="PropertyLink" selected="true" targetable="true" xsi:type="ns21:ClassMapping"/>
+
+           <ns21:CadsrClass className="Presentation" selected="true" targetable="true" xsi:type="ns21:ClassMapping"/>
+
+      </ns21:Packages>
+
+     </ns21:CadsrInformation>
+
+         <ns21:ServiceFeatures useBdt="false" useGridIdeitifiers="false" useWsEnumeration="false" xsi:type="ns21:ServiceFeatures"/>
+
+         <ns22:DataServiceAuditors xsi:type="ns22:DataServiceAuditors" xmlns:ns22="http://gov.nih.nci.cagrid.data/Auditing"/>
+
+    </ns21:Data>
+   </ns20:ExtensionData>
+  </ns20:Extension>
+ </ns20:Extensions>
+ <ns21:ServiceProperties xmlns:ns21="gme://gov.nih.nci.cagrid.introduce/1/Property">
+  <ns21:Property description="" isFromETC="false" key="queryProcessorClass" value="org.LexGrid.LexBIG.cagrid.dataService.queryProcessor.LexEVSDataServiceQueryProcessor"/>
+  <ns21:Property description="The location of the server-config.wsdd file" isFromETC="true" key="serverConfigLocation" value="server-config.wsdd"/>
+  <ns21:Property description="The name of the class to use for CQL query structure validation" isFromETC="false" key="dataService_cqlValidatorClass" value="gov.nih.nci.cagrid.data.cql.validation.ObjectWalkingCQLValidator"/>
+  <ns21:Property description="The name of the class to use for CQL validation against a domain model" isFromETC="false" key="dataService_domainModelValidatorClass" value="gov.nih.nci.cagrid.data.cql.validation.DomainModelValidator"/>
+  <ns21:Property description="A flag to indicate that CQL should be validated for structural correctness" isFromETC="false" key="dataService_validateCqlFlag" value="false"/>
+  <ns21:Property description="" isFromETC="false" key="dataService_validateDomainModelFlag" value="false"/>
+  <ns21:Property description="The name of the file containing the class name to QName mapping" isFromETC="true" key="dataService_classMappingsFilename" value="classToQname.xml"/>
+ </ns21:ServiceProperties>
+</ns1:ServiceDescription>

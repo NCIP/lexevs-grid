@@ -1,0 +1,673 @@
+<?xml version="1.0"?>
+<project name="evsgridservice" basedir="." default="usage">
+
+    <description>
+
+  + =========================== +
+  +                             +
+  +     LexEVS grid service     +
+  +                             +
+  + =========================== +
+
+    </description>
+
+    <!--========================================-->
+    <!-- init: initializization stuff here      -->
+    <!--========================================-->
+
+    <!-- Set properties file -->
+    <property environment="env"/>
+    <property name="build.dir" value="build"/>
+    <property name="bin.dir" value="bin"/>
+    <property name="tar.name" value="lexEVS-wsrf.tar"/>
+    <property name="zip.name" value="lexEVS-wsrf.zip"/>
+    <property name="war.dir.name" value="wsrf.war"/>
+	<property name="tomcat.war.dir.name" value="tomcat.wsrf.war"/>
+    <property name="war.dir" value="server/default/deploy/${war.dir.name}"/>
+	<property name="tomcat.war.dir" value="server/default/deploy/${tomcat.war.dir.name}"/>
+    <property name="gs.lib" value="gs.lib"/>
+    <property name="properties.file" value="introduce.properties"/>
+    <property name="gs.lib.tar.name" value="gridservice-lib.tar"/>
+	<property name="gs.lib.zip.name" value="gridservice-lib.zip"/>
+    <property name="target.dir" value="target"/>
+	<property name="client.lib.dir" value="build/lib"/>
+
+    <!-- Load Introduce property file -->
+    <property file="${properties.file}"/>
+
+    <!-- Get run time -->
+    <tstamp>
+        <format property="TODAY_US" pattern="MMMM-d-yyyy hh:mm aa" locale="en,US"/>
+    </tstamp>
+
+    <!-- Build no -->
+    <tstamp>
+        <format property="BUILDNO" pattern="MMddyyhh" locale="en,US"/>
+    </tstamp>
+
+    <!--============================-->
+    <!-- usage: show build targets  -->
+    <!--============================-->
+
+    <target name="usage" depends="-init">
+        <echo message="" />
+        <echo message="Util Build Script" />
+        <echo message="-----------------------------------" />
+        <echo message="" />
+        <echo message="Available targets are:" />
+        <echo message="" />
+        <echo message="pack               --&gt; Generates a tar file containing the service" />
+        <echo message="local              --&gt; Set configuration files for local environment" />
+        <echo message="dev                --&gt; Set configuration files for development environment" />
+        <echo message="qa                 --&gt; Set configuration files for QA environment" />
+        <echo message="stage              --&gt; Set configuration files for Staging environment" />
+        <echo message="prod               --&gt; Set configuration files for Production environment" />
+        <echo message="scp                --&gt; Copy deployment artifacts to server." />
+        <echo message="setup              --&gt; Setup local Jboss with Globus" />
+        <echo message="clean              --&gt; Removes deployment artifacts" />
+        <echo message="deploy             --&gt; Deploy to local JBoss server using target folder" />
+        <echo message="deploy-introduce   --&gt; Deploy to local JBoss server using Introduce ANT command" />
+        <echo message="undeploy           --&gt; Remove grid service from local JBoss server" />
+        <echo message="build              --&gt; Build a local copy of the service in 'target' folder" />
+        <echo message="test               --&gt; Run unit tests" />
+        <echo message="metadata           --&gt; Retrieve service metadata" />
+        <echo message="indexlog           --&gt; Retrieve index service metadata" />
+        <echo message="" />
+        <echo message="${ant.version}" />
+        <echo message="" />
+        <echo message="        JBoss home = [${env.JBOSS_HOME}]" />
+        <echo message="ANT base directory = [${basedir}]" />
+        <echo message="   Properties file = [${properties.file}]" />
+        <echo message="      Service name = [${introduce.skeleton.service.name}]" />
+        <echo message="                OS = [${os.name}]" />
+        <echo message="" />
+    </target>
+
+    <!--============================-->
+    <!-- init: Initialize the build -->
+    <!--============================-->
+
+    <target name="-init">
+        <!-- Place holder init stuff -->
+
+    </target>
+
+    <!--=========================================================-->
+    <!-- build: Build a local copy of the service (not in JBOSS) -->
+    <!--=========================================================-->
+
+    <target name="build" depends="-init, clean, setEnv">
+
+        <echo message="Build in folder [${basedir}/${target.dir}]..."/>
+
+        <antcall target="-test.env.set"/>
+
+        <!-- clean up target folder -->
+        <mkdir dir="${target.dir}" />
+        <delete quiet="true" includeemptydirs="true">
+            <fileset dir="${target.dir}" includes="**/*" />
+        </delete>
+
+        <!-- Windows -->
+        <exec osfamily="windows" executable="${env.ANT_HOME}/bin/ant.bat" dir="${env.CAGRID_LOCATION}/antfiles/jboss">
+            <arg line="-f jboss.xml deployJBoss -Djboss.dir=${basedir}/${target.dir} -Denv.GLOBUS_LOCATION=${env.GLOBUS_LOCATION}"/>
+        </exec>
+  
+        <exec osfamily="windows" executable="${env.ANT_HOME}/bin/ant.bat" dir=".">
+            <env key="JBOSS_HOME" path="${target.dir}"/>
+            <arg line="deployJBoss -Denv.GLOBUS_LOCATION=${env.GLOBUS_LOCATION}"/>
+        </exec>
+
+        <!-- Unix -->
+
+        <exec osfamily="unix" executable="${env.ANT_HOME}/bin/ant" dir="${env.CAGRID_LOCATION}/antfiles/jboss">
+            <arg line="-f jboss.xml deployJBoss -Djboss.dir=${basedir}/${target.dir} -Denv.GLOBUS_LOCATION=${env.GLOBUS_LOCATION}"/>
+        </exec>
+        <exec osfamily="unix" executable="${env.ANT_HOME}/bin/ant" dir=".">
+            <env key="JBOSS_HOME" path="${target.dir}"/>
+            <arg line="deployJBoss -Denv.GLOBUS_LOCATION=${env.GLOBUS_LOCATION}"/>
+        </exec>
+
+        <!-- Post build -->
+
+        <antcall target="-postBuild"/>
+
+    </target>
+
+    <!--================================-->
+    <!-- build: tar up evs grid service -->
+    <!--================================-->
+
+    <target name="pack" description="Tar up evs grid service." depends="-init">
+
+        <!-- Check for prerequisites -->
+
+        <antcall target="-test.build.dir"/>
+        <antcall target="-test.target.dir"/>
+
+        <delete file="${tar.name}" quiet="true" />
+
+        <!-- tar-up service from Jboss deploy directory -->
+
+        <tar destfile="${target.dir}/${tar.name}"
+            basedir="${target.dir}/${war.dir}"
+            longfile="gnu"
+        />
+
+        <!-- tar-up Globus libs incase this is a new deployment -->
+
+        <tar destfile="${target.dir}/${gs.lib.tar.name}"
+            basedir="${gs.lib}"
+            longfile="gnu"
+        />
+    	
+        <!-- zip-up service from Jboss deploy directory -->
+
+        <zip destfile="${target.dir}/${zip.name}"
+            basedir="${target.dir}/${war.dir}"
+        />
+    	
+        <!-- zip-up Globus libs incase this is a new deployment -->
+
+        <zip destfile="${target.dir}/${gs.lib.zip.name}"
+           basedir="${gs.lib}"
+        />
+    	
+        <!-- war aritifact from build -->
+    	<mkdir dir="${target.dir}/LexEVS_50_caGRIDServices_analytical_jboss"/>
+    
+		<war destfile="${target.dir}/LexEVS_50_caGRIDServices_analytical_jboss/wsrf.war" 
+			basedir="${target.dir}/${war.dir}" excludes="WEB-INF/lib/log4j*.*,WEB-INF/lib/commons-logging*.*">	
+    	</war>
+    	
+    	<zip destfile="${target.dir}/LexEVS_50_caGRIDServices_analytical_jboss.zip" 
+    		basedir="${target.dir}/LexEVS_50_caGRIDServices_analytical_jboss"
+    	/>
+    
+
+        <!-- war aritifact from build (Best for Tomcat)-->
+    	
+    	<mkdir dir="${target.dir}/LexEVS_50_caGRIDServices_analytical_tomcat"/>
+    	<mkdir dir="${target.dir}/${tomcat.war.dir}"/>
+    	<copydir dest="${target.dir}/${tomcat.war.dir}" src="${target.dir}/${war.dir}"></copydir>
+    	<copy todir="${target.dir}/${tomcat.war.dir}/WEB-INF/lib" >
+    		<fileset dir="${gs.lib}">
+    		</fileset>
+    	</copy>
+		<war destfile="${target.dir}/LexEVS_50_caGRIDServices_analytical_tomcat/wsrf.war" 
+			basedir="${target.dir}/${tomcat.war.dir}"
+		/>
+    	
+    	<zip destfile="${target.dir}/LexEVS_50_caGRIDServices_analytical_tomcat.zip" 
+    		basedir="${target.dir}/LexEVS_50_caGRIDServices_analytical_tomcat"
+    	/>
+    	
+    	<!-- create a client jar  -->
+    	
+
+    	<jar destfile="${target.dir}/LexEVS_50_caGRIDServices_analytical_client.jar">
+    		<zipgroupfileset file="${client.lib.dir}/LexEVSGridSecurity.jar" />
+    		<zipgroupfileset file="${client.lib.dir}/LexEVSGridService-client.jar" />
+    		<zipgroupfileset file="${client.lib.dir}/LexEVSGridService-common.jar" />
+    		<zipgroupfileset file="${client.lib.dir}/LexEVSGridService-stubs.jar" />
+    		<zipgroupfileset file="${client.lib.dir}/LexEVSGridService-service.jar" />
+    		<zipgroupfileset file="${client.lib.dir}/LexEVSGridService-tests.jar" />
+    	</jar>
+    
+    	<zip destfile="${target.dir}/LexEVS_50_caGRIDServices_analytical_client_dependencies.zip">
+    		<zipfileset file="${client.lib.dir}/*.jar" excludes="LexEVSGrid*,xerces*"/>
+      		<zipfileset file="test/lib/*.jar" excludes="commons-collections*,commons-logging*,lucene*,xerces*,log4j*,junit*"/>
+    		</zip>
+        <!-- Convert deploy.sh to Unix format -->
+
+        <antcall target="-fixup"/>
+
+        <copy todir="${target.dir}"
+              file="deploy.sh"
+              overwrite="true"
+        />
+
+    </target>
+
+    <target name="-fixup">
+        <!-- Convert deploy.sh to Unix format -->
+        <fixcrlf srcdir="."
+           eol="lf"
+           eof="remove"
+           includes="deploy.sh"
+        />
+    </target>
+
+    <!--============================================-->
+    <!-- deploy: Deploy using Introduce ant command -->
+    <!--============================================-->
+
+    <target name="deploy-introduce" depends="-init">
+
+        <exec osfamily="windows" executable="${env.ANT_HOME}/bin/ant.bat" dir=".">
+            <arg line="deployJBoss"/>
+        </exec>
+        <exec osfamily="unix" executable="${env.ANT_HOME}/bin/ant" dir=".">
+            <arg line="deployJBoss"/>
+        </exec>
+
+    </target>
+
+    <!--===================================-->
+    <!-- deploy: Deploy from target folder -->
+    <!--===================================-->
+
+    <target name="deploy" depends="-init">
+
+        <copy todir="${env.JBOSS_HOME}/${war.dir}" overwrite="true">
+             <fileset dir="${target.dir}/${war.dir}"/>
+        </copy>
+
+    </target>
+
+    <!--============================================-->
+    <!-- undeploy: Undeploy from local JBoss server -->
+    <!--============================================-->
+
+    <target name="undeploy" depends="-init">
+
+        <echo message="" />
+        <input
+          message="Undeploying [${env.JBOSS_HOME}/server/default/deploy/wsrf.war].${line.separator}Continue?"
+          validargs="y,n"
+          addproperty="do.remove"
+        />
+        <condition property="do.remove.abort">
+            <equals arg1="n" arg2="${do.remove}"/>
+        </condition>
+        <fail if="do.remove.abort">Remove aborted by user.</fail>
+
+        <echo message="Removing [${env.JBOSS_HOME}/server/default/deploy/wsrf.war]..."/>
+        <delete quiet="true"
+                dir="${env.JBOSS_HOME}/server/default/deploy/wsrf.war"
+        />
+
+    </target>
+
+    <!--================================-->
+    <!-- setup: setup Jboss with Globus -->
+    <!--================================-->
+
+    <target name="setup" description="setup Jboss with Globus." depends="-init">
+
+        <delete file="${env.JBOSS_HOME}/${war.dir}" quiet="true" />
+        <exec osfamily="windows" executable="${env.ANT_HOME}/bin/ant.bat" dir="${env.CAGRID_LOCATION}/antfiles/jboss">
+            <arg line="-f jboss.xml deployJBoss -Djboss.dir=${env.JBOSS_HOME}"/>
+        </exec>
+        <exec osfamily="unix" executable="${env.ANT_HOME}/bin/ant" dir="${env.CAGRID_LOCATION}/antfiles/jboss">
+            <arg line="-f jboss.xml deployJBoss -Djboss.dir=${env.JBOSS_HOME}"/>
+        </exec>
+
+    </target>
+
+    <!--======================-->
+    <!-- test: Run unit tests -->
+    <!--======================-->
+
+    <target name="test" depends="-init, setEnv">
+
+        <exec osfamily="windows" executable="${env.ANT_HOME}/bin/ant.bat" dir=".">
+            <arg line="runClient"/>
+        </exec>
+        <exec osfamily="unix" executable="${env.ANT_HOME}/bin/ant" dir=".">
+            <arg line="runClient"/>
+        </exec>
+
+    </target>
+
+    <!--============================-->
+    <!-- test: Get service metadata -->
+    <!--============================-->
+
+    <target name="metadata" depends="-init, setEnv">
+
+        <exec osfamily="windows" executable="${env.GLOBUS_LOCATION}\bin\wsrf-get-property.bat" dir=".">
+            <arg line="-a -z none -s ${service.url} {gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata}ServiceMetadata"/>
+        </exec>
+        <exec osfamily="unix" executable="${env.GLOBUS_LOCATION}/bin/wsrf-get-property" dir=".">
+            <arg line="-a -z none -s ${service.url} {gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata}ServiceMetadata"/>
+        </exec>
+
+    </target>
+
+    <!--==================================-->
+    <!-- test: Get index service metadata -->
+    <!--==================================-->
+
+    <target name="indexlog" depends="-init">
+
+        <property file="deploy.properties"/>
+
+        <echo message="Reading: ${index.service.url}"/>
+
+        <exec osfamily="windows" executable="${env.GLOBUS_LOCATION}\bin\wsrf-query.bat" dir=".">
+            <arg line="-a -z none -s ${index.service.url} / > index-grid.log"/>
+        </exec>
+        <exec osfamily="unix" executable="${env.GLOBUS_LOCATION}\bin\wsrf-query" dir=".">
+            <arg line="-a -z none -s ${index.service.url} / > index-grid.log"/>
+        </exec>
+
+    </target>
+
+    <!--==========================================-->
+    <!-- Set configuration files for environments -->
+    <!--==========================================-->
+
+    <target name="local" description="Set configuration files for local environment." depends="-init">
+
+        <property name="env.set" value="local"/>
+
+    </target>
+
+    <target name="dev" description="Set configuration files for shared development environment." depends="-init">
+
+        <property name="env.set" value="dev"/>
+
+    </target>
+
+    <target name="qa" description="Set configuration files for QA environment." depends="-init">
+
+        <property name="env.set" value="qa"/>
+
+    </target>
+
+    <target name="stage" description="Set configuration files for Staging environment." depends="-init">
+
+        <property name="env.set" value="stg"/>
+
+    </target>
+
+    <target name="prod" description="Set configuration files for Production environment." depends="-init">
+
+        <property name="env.set" value="prod"/>
+
+    </target>
+
+    <target name="setEnv">
+
+        <antcall target="-test.env.set"/>
+
+        <!-- Load property settings using passed in prefix. Prefix is removed when loaded -->
+
+        <loadproperties srcFile="util.properties">
+            <filterchain>
+                <tokenfilter>
+                    <containsregex pattern="^${env.set}\.(.*)" replace="\1"/>
+                </tokenfilter>
+            </filterchain>
+        </loadproperties>
+
+        <echo message="run-tools.xml file...."/>
+
+        <replaceregexp byline="true" file="run-tools.xml">
+            <regexp pattern="service.url&quot;\s* value=&quot;(.*)&quot;"/>
+            <substitution expression="service.url&quot; value=&quot;${service.url}&quot;"/>
+        </replaceregexp>
+
+        <echo message="Setting deploy.properties file...."/>
+
+        <replaceregexp byline="true" file="deploy.properties">
+            <regexp pattern="perform.index.service.registration=(.*)"/>
+            <substitution expression="perform.index.service.registration=${perform.index.service.registration}"/>
+        </replaceregexp>
+
+        <replaceregexp byline="true" file="deploy.properties">
+            <regexp pattern="index.service.index.refresh_milliseconds=(.*)"/>
+            <substitution expression="index.service.index.refresh_milliseconds=${index.service.index.refresh_milliseconds}"/>
+        </replaceregexp>
+
+        <replaceregexp byline="true" file="deploy.properties">
+            <regexp pattern="index.service.url=(.*)"/>
+            <substitution expression="index.service.url=${index.service.url}"/>
+        </replaceregexp>
+
+        <replaceregexp byline="true" file="deploy.properties">
+            <regexp pattern="index.service.registration.refresh_seconds=(.*)"/>
+            <substitution expression="index.service.registration.refresh_seconds=${index.service.registration.refresh_seconds}"/>
+        </replaceregexp>
+
+        <echo message="Setting evsapi client configuration files...."/>
+
+        <replaceregexp byline="true" file="src/application-config-client.xml">
+            <regexp pattern="APPLICATION_SERVICE_URL&quot;\s* value=&quot;([^app].*)applicationService&quot;"/>
+            <substitution expression="APPLICATION_SERVICE_URL&quot; value=&quot;${app.service.url}&quot;"/>
+        </replaceregexp>
+
+        <replaceregexp byline="true" file="src/application-config-client.xml">
+            <regexp pattern="serviceUrl&quot;\s* value=&quot;([^app].*)applicationService&quot;"/>
+            <substitution expression="serviceUrl&quot; value=&quot;${app.service.url}&quot;"/>
+        </replaceregexp>
+
+        <replaceregexp byline="true" file="src/application-config-client.xml">
+            <regexp pattern="serviceUrl&quot;\s* value=&quot;([^rem].*)remoteAuthenticationManager&quot;"/>
+            <substitution expression="serviceUrl&quot; value=&quot;${auth.service.url}&quot;"/>
+        </replaceregexp>
+
+        <antcall target="-fixup"/>
+        <antcall target="-addBuildDate"/>
+
+        <echo message="Service registration=${perform.index.service.registration}" />
+
+    </target>
+
+    <target name="-postBuild" depends="setEnv">
+
+        <antcall target="-test.target.dir"/>
+
+        <echo message="Setting server-config.wsdd..."/>
+
+        <!-- Remove old line -->
+        <replaceregexp byline="false" flags="gm"
+                replace=""
+                file="${target.dir}/server/default/deploy/wsrf.war/WEB-INF/etc/globus_wsrf_core/server-config.wsdd">
+                <regexp pattern="\s*&lt;parameter name=&quot;logicalHost&quot;.*/&gt;"/>
+        </replaceregexp>
+        <replaceregexp byline="false" flags="gm"
+                replace=""
+                file="${target.dir}/server/default/deploy/wsrf.war/WEB-INF/etc/globus_wsrf_core/server-config.wsdd">
+                <regexp pattern="\s*&lt;parameter name=&quot;publishHostName&quot;.*/&gt;"/>
+        </replaceregexp>
+
+        <!-- Add new line -->
+        <replaceregexp byline="true" file="${target.dir}/server/default/deploy/wsrf.war/WEB-INF/etc/globus_wsrf_core/server-config.wsdd">
+                <regexp pattern="&lt;/globalConfiguration&gt;"/>
+                <substitution expression="    &lt;parameter name=&quot;logicalHost&quot; value=&quot;${logicalHost}&quot;/&gt;&#13;        &lt;parameter name=&quot;publishHostName&quot; value=&quot;${perform.index.service.registration}&quot;/&gt;&#13;
+   \0"/>
+        </replaceregexp>
+
+        <echo message="Setting web.xml..."/>
+
+        <replaceregexp byline="false" flags="gm"
+                replace="\1${logicalPort}"
+                file="${target.dir}/server/default/deploy/wsrf.war/WEB-INF/web.xml">
+                <regexp pattern="(\s*&lt;param-name&gt;defaultPort&lt;/param-name&gt;[ \r\n\t]*&lt;param-value&gt;)[0-9]*"/>
+        </replaceregexp>
+
+    </target>
+
+    <target name="-addBuildDate">
+
+        <property file="service.properties"/>
+
+        <replaceregexp byline="true" file="service.properties">
+            <regexp pattern="buildNumber=(.*)"/>
+            <substitution expression="buildNumber=${BUILDNO}"/>
+        </replaceregexp>
+
+    </target>
+
+    <!--===========================-->
+    <!-- clean: clean package area -->
+    <!--===========================-->
+
+    <target name="clean" description="Clean all build products." depends="-init">
+
+      <!-- delete packaging products -->
+      <delete dir="${target.dir}" quiet="true"/>
+      <delete dir="${bin.dir}" quiet="true"/>
+      <delete>
+        <fileset dir="." includes="*.log"/>
+      </delete>
+      <!-- call Introduce clean target -->
+      <ant antfile="build.xml" target="clean"/>
+
+    </target>
+
+    <!--================================================-->
+    <!-- scp: copy tar file to server using secure copy -->
+    <!--================================================-->
+
+    <target name="scp" description="copy tar file to server using secure copy" depends="-init, setEnv">
+
+      <!-- Note: scp requires jsch-0.1.36.jar file to be added to Ant lib folder -->
+
+      <antcall target="-test.tar.file"/>
+
+      <!-- Get user input to proceed with secure copy -->
+
+      <input
+          message="Ready to copy tar files to server [${deploy.scp.server}].${line.separator}Continue?"
+          validargs="y,n"
+          addproperty="do.copy"
+      />
+      <condition property="do.abort">
+          <equals arg1="n" arg2="${do.copy}"/>
+      </condition>
+      <fail if="do.abort">Copy aborted by user.</fail>
+
+      <!-- Get user input -->
+
+      <input
+          message="Enter login:"
+          addproperty="scp.login"
+          defaultvalue="default"
+      />
+
+      <input
+          message="Enter password:"
+          addproperty="scp.password"
+          defaultvalue="default"
+      />
+
+      <echo message="Creating deployment folders on ${deploy.scp.server}..." />
+
+      <sshexec host="${deploy.scp.server}"
+          username="${scp.login}"
+          password="${scp.password}"
+          command="mkdir -p /${deploy.scp.target.dir}"
+          trust="yes"
+      />
+
+      <echo message="Copying tars to server ${deploy.scp.server}..." />
+
+      <scp todir="${scp.login}@${deploy.scp.server}:/${deploy.scp.target.dir}"
+           password="${scp.password}"
+           trust="yes">
+           <fileset dir=".">
+              <include name="deploy.sh"/>
+           </fileset>
+           <fileset dir="${target.dir}">
+              <include name="${tar.name}"/>
+              <include name="${gs.lib.tar.name}"/>
+           </fileset>
+      </scp>
+
+      <antcall target="-fixup"/>
+      <sshexec host="${deploy.scp.server}"
+          username="${scp.login}"
+          password="${scp.password}"
+          command="chmod +x /${deploy.scp.target.dir}/deploy.sh"
+          trust="yes"
+      />
+
+    </target>
+
+    <target name="-test.tar.file">
+      <!-- Look for the tar files that was generate after a pack -->
+      <available file="${target.dir}/${tar.name}"
+                 type="file"
+                 property="tar.file.exists"
+                 value="true"
+      />
+      <fail unless="tar.file.exists">
+          &gt;
+          Error: ${tar.name} file does not exist!
+          Execute an 'pack' target prior to running this command..
+      </fail>
+    </target>
+
+    <!--=================-->
+    <!-- Utility targets -->
+    <!--=================-->
+
+    <target name="-test.build.dir" description="Check if build folder was created by Introduce.">
+        <available file="${build.dir}"
+             type="dir"
+             property="build.dir.exists"
+             value="true"
+        />
+        <fail unless="build.dir.exists">
+            &gt;
+            Error: '${build.dir}' directory does not exist.
+            Execute 'build' target prior to running this command.
+        </fail>
+        <echo message="Found build directory!"/>
+    </target>
+
+    <target name="-test.target.dir" description="Check if service was built.">
+        <available file="${target.dir}"
+             type="dir"
+             property="target.dir.exists"
+             value="true"
+        />
+        <fail unless="target.dir.exists">
+            &gt;
+            Error: '${target.dir}' directory does not exist!
+            Run 'build' target prior to running this command.
+        </fail>
+        <echo message="Found ${target.dir}!"/>
+    </target>
+
+    <target name="-test.war.dir" description="Check if wsrf.war directory exists.">
+        <available file="${env.JBOSS_HOME}/${war.dir}"
+             type="dir"
+             property="war.dir.exists"
+             value="true"
+        />
+        <fail unless="war.dir.exists">
+            &gt;
+            Error: '${war.dir}' directory does not exist under Jboss.
+            Execute "ant deployJBoss" prior to running this command.
+        </fail>
+        <echo message="Found wsrf.war directory!"/>
+    </target>
+
+    <target name="-test.war.file" description="Check if wsrf.war file exists.">
+        <available file="${war.name}"
+             type="file"
+             property="war.file.exists"
+             value="true"
+        />
+        <fail unless="war.file.exists">
+            &gt;
+            Error: '${war.name}' file does not exist!.
+            Execute "ant -buildfile=util.xml war" prior to running this command.
+        </fail>
+        <echo message="Found wsrf.war file!"/>
+    </target>
+
+    <target name="-test.env.set" description="Check if wsrf.war file exists.">
+        <fail unless="env.set">
+            &gt;
+            Error: Target environment not set!
+            Use [ local|dev|qa|prod ] in command line.
+        </fail>
+        <echo message="Using ${env.set}"/>
+    </target>
+
+</project>

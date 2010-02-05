@@ -1,0 +1,3 @@
+service=EvsServiceInfo
+maxConnections=50
+keepAliveMinutes=20

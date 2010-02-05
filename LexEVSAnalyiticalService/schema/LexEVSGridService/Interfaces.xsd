@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/Interfaces"
+            xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/03/addressing" xmlns:tns="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/Interfaces" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:wsrbf="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-BaseFaults-1.2-draft-01.xsd" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  
+ <import namespace="http://schemas.xmlsoap.org/ws/2004/03/addressing" schemaLocation="../ws/addressing/WS-Addressing.xsd"></import>
+  
+  <element name="CodedNodeSet">
+    <complexType>
+      <sequence >
+        <element ref="wsa:EndpointReference"></element>
+      </sequence>
+    </complexType>
+  </element>
+
+  <element name="CodedNodeGraph">
+    <complexType>
+      <sequence >
+        <element ref="wsa:EndpointReference"></element>
+      </sequence>
+    </complexType>
+  </element>
+  
+    <element name="Filter">
+    <complexType>
+      <sequence >
+        <element ref="wsa:EndpointReference"></element>
+      </sequence>
+    </complexType>
+  </element>
+  
+    <element name="HistoryService">
+    <complexType>
+      <sequence >
+        <element ref="wsa:EndpointReference"></element>
+      </sequence>
+    </complexType>
+  </element>
+  
+    <element name="LexBIGServiceConvenienceMethods">
+    <complexType>
+      <sequence >
+        <element ref="wsa:EndpointReference"></element>
+      </sequence>
+    </complexType>
+  </element>
+  
+    <element name="LexBIGServiceMetadata">
+    <complexType>
+      <sequence >
+        <element ref="wsa:EndpointReference"></element>
+      </sequence>
+    </complexType>
+  </element>
+
+<element name="ResolvedConceptReferencesIterator">
+    <complexType>
+      <sequence >
+        <element ref="wsa:EndpointReference"></element>
+      </sequence>
+    </complexType>
+  </element>
+  
+  <element name="Sort">
+    <complexType>
+      <sequence >
+        <element ref="wsa:EndpointReference"></element>
+      </sequence>
+    </complexType>
+  </element>
+
+</schema>
+

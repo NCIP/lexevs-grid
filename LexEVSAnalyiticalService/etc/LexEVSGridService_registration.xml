@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ServiceGroupRegistrationParameters xmlns:sgc="http://mds.globus.org/servicegroup/client"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/03/addressing"
+  xmlns:agg="http://mds.globus.org/aggregator/types"
+  xmlns="http://mds.globus.org/servicegroup/client">
+  <!-- The ServiceGroupEPR defines the servicegroup to which registrations will be made -->
+  <ServiceGroupEPR>
+    <wsa:Address>INDEX_SERVICE_URL</wsa:Address>
+  </ServiceGroupEPR>
+  <!-- Specifies that the registration will be renewed every 10 minutes -->
+  <RefreshIntervalSecs>REGISTRATION_REFRESH</RefreshIntervalSecs>
+  <Content xsi:type="agg:AggregatorContent" xmlns:agg="http://mds.globus.org/aggregator/types">
+    <agg:AggregatorConfig xsi:type="agg:AggregatorConfig">
+      <agg:GetMultipleResourcePropertiesPollType
+			xmlns:ns27="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/ResolvedConceptReferencesIterator/types"
+			xmlns:ns30="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/Sort/types"
+			xmlns:ns1="http://LexGrid.org/schema/2009/01/LexGrid/codingSchemes"
+			xmlns:ns3="http://LexGrid.org/schema/2009/01/LexGrid/builtins"
+			xmlns:ns23="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/CodedNodeSet/types"
+			xmlns:ns6="http://LexGrid.org/schema/2009/01/LexGrid/lbInterfacetypes"
+			xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			xmlns:ns12="http://LexGrid.org/schema/LexBIG/2009/01/InterfaceElements"
+			xmlns:ns5="http://LexGrid.org/schema/2009/01/LexGrid/commonTypes"
+			xmlns:ns0="http://LexGrid.org/schema/2009/01/LexGrid/naming"
+			xmlns:ns14="http://LexGrid.org/schema/2009/01/LexGrid/commonTypesTypes"
+			xmlns:ns15="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"
+			xmlns:ns18="gme://caCORE.caCORE/3.2/gov.nih.nci.evs.security"
+			xmlns:ns29="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceMetadata/types"
+			xmlns:ns20="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/types"
+			xmlns:ns13="http://LexGrid.org/schema/2009/01/LexGrid/Coretypes"
+			xmlns:ns22="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata"
+			xmlns:ns8="http://LexGrid.org/schema/2009/01/LexGrid/NCIHistory"
+			xmlns:ns16="http://LexGrid.org/schema/LexBIG/2009/01/enums"
+			xmlns:ns7="http://LexGrid.org/schema/2009/01/LexGrid/relations"
+			xmlns:ns21="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.security"
+			xmlns:ns4="http://LexGrid.org/schema/LexBIG/2009/01/Core"
+			xmlns:ns11="http://LexGrid.org/schema/2009/01/LexGrid/versions"
+			xmlns:ns10="http://LexGrid.org/schema/2009/01/LexGrid/concepts"
+			xmlns:ns9="http://LexGrid.org/schema/2009/01/LexGrid/NCIHistorytypes"
+			xmlns:ns17="http://LexGrid.org/schema/2009/01/LexGrid/NCIChangeTypes"
+			xmlns:ns25="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/CodedNodeGraph/types"
+			xmlns:ns31="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/Filter/types"
+			xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/Collections"
+			xmlns:ns26="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/types"
+			xmlns:ns19="http://schemas.xmlsoap.org/ws/2004/03/addressing"
+			xmlns:ns28="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/HistoryService/types"
+			xmlns:ns24="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceLifetime-1.2-draft-01.xsd">
+        <!-- Specifies that the index should refresh information
+            every 300000 milliseconds (once every 5 minutes) -->
+        <agg:PollIntervalMillis>INDEX_REFRESH</agg:PollIntervalMillis>
+        <!-- specifies all Resource Properties that should be retrieved from the service -->
+		<agg:ResourcePropertyNames>ns22:ServiceMetadata</agg:ResourcePropertyNames>
+	
+      </agg:GetMultipleResourcePropertiesPollType>
+    </agg:AggregatorConfig>
+    <agg:AggregatorData/>
+  </Content>
+</ServiceGroupRegistrationParameters>

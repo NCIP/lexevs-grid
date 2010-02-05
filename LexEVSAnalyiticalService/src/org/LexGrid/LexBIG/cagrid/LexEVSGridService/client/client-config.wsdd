@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deployment xmlns="http://xml.apache.org/axis/wsdd/"
+	xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+	<globalConfiguration>
+		<parameter name="adminPassword" value="admin" />
+		<parameter name="disablePrettyXML" value="true" />
+		<parameter name="attachments.implementation"
+			value="org.apache.axis.attachments.AttachmentsImpl" />
+		<parameter name="sendXsiTypes" value="true" />
+		<parameter name="sendMultiRefs" value="true" />
+		<parameter name="sendXMLDeclaration" value="true" />
+		<parameter name="castorMapping" value="securityToken-mapping.xml" />
+		<requestFlow>
+			<handler
+				type="java:org.globus.wsrf.handlers.AddressingHandler" />
+			<handler
+				type="java:org.globus.wsrf.impl.security.authorization.ClientPropertiesHandler" />
+			<handler
+				type="java:org.globus.wsrf.impl.security.authentication.ClientPropertiesHandler" />
+			<handler
+				type="java:org.apache.axis.handlers.JAXRPCHandler">
+				<parameter name="className"
+					value="org.globus.wsrf.impl.security.authentication.securemsg.X509EncryptHandler" />
+			</handler>
+			<handler
+				type="java:org.apache.axis.handlers.JAXRPCHandler">
+				<parameter name="className"
+					value="org.globus.wsrf.impl.security.authentication.securemsg.X509SignHandler" />
+			</handler>
+			<handler
+				type="java:org.apache.axis.handlers.JAXRPCHandler">
+				<parameter name="className"
+					value="org.globus.wsrf.impl.security.authentication.UsernameHandler" />
+			</handler>
+			<handler
+				type="java:org.apache.axis.handlers.JAXRPCHandler">
+				<parameter name="authService" value="auto" />
+				<parameter name="className"
+					value="org.globus.wsrf.impl.security.authentication.secureconv.SecContextHandler" />
+			</handler>
+			<handler
+				type="java:org.apache.axis.handlers.JAXRPCHandler">
+				<parameter name="className"
+					value="org.globus.wsrf.impl.security.authentication.secureconv.GSSHandler" />
+			</handler>
+			<handler
+				type="java:org.apache.axis.handlers.JAXRPCHandler">
+				<parameter name="className"
+					value="org.globus.wsrf.impl.security.authorization.TrustedTargetHandler" />
+			</handler>
+			<handler
+				type="java:org.globus.wsrf.handlers.MessageLoggingHandler" />
+		</requestFlow>
+		<responseFlow>
+			<handler
+				type="java:org.globus.wsrf.handlers.AddressingHandler" />
+			<handler
+				type="java:org.globus.wsrf.handlers.MessageLoggingHandler" />
+			<handler
+				type="java:org.apache.axis.handlers.JAXRPCHandler">
+				<parameter name="className"
+					value="org.globus.wsrf.impl.security.authentication.wssec.WSSecurityClientHandler" />
+			</handler>
+		</responseFlow>
+	</globalConfiguration>
+	<transport name="java"
+		pivot="java:org.apache.axis.transport.java.JavaSender" />
+	<transport name="https"
+		pivot="java:org.globus.axis.transport.HTTPSSender">
+		<requestFlow>
+			<handler type="java:org.globus.axis.handlers.HTTP11Handler" />
+		</requestFlow>
+	</transport>
+	<transport name="http"
+		pivot="java:org.apache.axis.transport.http.HTTPSender">
+		<requestFlow>
+			<handler type="java:org.globus.axis.handlers.HTTP11Handler" />
+		</requestFlow>
+	</transport>
+	<transport name="local"
+		pivot="java:org.apache.axis.transport.local.LocalSender" />
+	<typeMapping
+		deserializer="org.apache.axis.encoding.ser.SimpleDeserializerFactory"
+		encodingStyle="" qname="ns1:ServiceNameType"
+		serializer="org.apache.axis.encoding.ser.SimpleSerializerFactory"
+		type="java:org.apache.axis.message.addressing.ServiceNameType"
+		xmlns:ns1="http://schemas.xmlsoap.org/ws/2004/03/addressing" />
+	<typeMapping
+		deserializer="org.apache.axis.encoding.ser.SimpleDeserializerFactory"
+		encodingStyle="" qname="ns2:BinaryExchangeType"
+		serializer="org.apache.axis.encoding.ser.SimpleSerializerFactory"
+		type="java:org.globus.ws.trust.BinaryExchangeType"
+		xmlns:ns2="http://schemas.xmlsoap.org/ws/2004/04/trust" />
+	<typeMapping
+		deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+		encodingStyle="" qname="ns3:BaseFaultType"
+		serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+		type="java:org.oasis.wsrf.faults.BaseFaultType"
+		xmlns:ns3="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-BaseFaults-1.2-draft-01.xsd" />
+	<typeMapping
+		deserializer="org.apache.axis.encoding.ser.SimpleDeserializerFactory"
+		encodingStyle="" qname="ns4:AttributedURI"
+		serializer="org.apache.axis.encoding.ser.SimpleSerializerFactory"
+		type="java:org.apache.axis.message.addressing.AttributedURI"
+		xmlns:ns4="http://schemas.xmlsoap.org/ws/2004/03/addressing" />
+	<typeMapping
+		deserializer="org.globus.wsrf.encoding.TopicExpressionDeserializerFactory"
+		encodingStyle="" qname="ns5:TopicExpressionType"
+		serializer="org.globus.wsrf.encoding.TopicExpressionSerializerFactory"
+		type="java:org.oasis.wsn.TopicExpressionType"
+		xmlns:ns5="http://docs.oasis-open.org/wsn/2004/06/wsn-WS-BaseNotification-1.2-draft-01.xsd" />
+	<typeMapping
+		deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+		encodingStyle="" qname="ns6:EndpointReferenceType"
+		serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+		type="java:org.apache.axis.message.addressing.EndpointReferenceType"
+		xmlns:ns6="http://schemas.xmlsoap.org/ws/2004/03/addressing" />
+	<typeMapping
+		deserializer="org.apache.axis.encoding.ser.SimpleDeserializerFactory"
+		encodingStyle="" qname="ns7:AttributedQName"
+		serializer="org.apache.axis.encoding.ser.SimpleSerializerFactory"
+		type="java:org.apache.axis.message.addressing.AttributedQName"
+		xmlns:ns7="http://schemas.xmlsoap.org/ws/2004/03/addressing" />
+	<typeMapping
+		deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+		encodingStyle="" qname="ns8:SecurityContextTokenType"
+		serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+		type="java:org.globus.ws.sc.SecurityContextTokenType"
+		xmlns:ns8="http://schemas.xmlsoap.org/ws/2004/04/sc" />
+	<typeMapping
+		deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+		encodingStyle="" qname="ns9:ReferencePropertiesType"
+		serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+		type="java:org.apache.axis.message.addressing.ReferencePropertiesType"
+		xmlns:ns9="http://schemas.xmlsoap.org/ws/2004/03/addressing" />
+	<typeMapping
+		deserializer="org.globus.wsrf.encoding.AnyListDeserializerFactory"
+		encodingStyle="" qname="ns10:&gt;SetResourceProperties"
+		serializer="org.globus.wsrf.encoding.AnyListSerializerFactory"
+		type="java:org.oasis.wsrf.properties.SetResourceProperties_Element"
+		xmlns:ns10="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties-1.2-draft-01.xsd" />
+	<typeMapping
+		deserializer="org.apache.axis.encoding.ser.SimpleDeserializerFactory"
+		encodingStyle="" qname="ns11:QueryExpressionDialect"
+		serializer="org.apache.axis.encoding.ser.SimpleSerializerFactory"
+		type="java:java.lang.String"
+		xmlns:ns11="http://www.globus.org/foobar" />
+	<typeMapping
+		deserializer="org.globus.wsrf.encoding.QueryExpressionDeserializerFactory"
+		encodingStyle="" qname="ns12:QueryExpressionType"
+		serializer="org.globus.wsrf.encoding.QueryExpressionSerializerFactory"
+		type="java:org.oasis.wsrf.properties.QueryExpressionType"
+		xmlns:ns12="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties-1.2-draft-01.xsd" />
+	<!-- START INTRODUCE TYPEMAPPINGS -->
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.naming.Mappings" qname="ns2:mappings" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/naming" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.naming.SupportedAssociation" qname="ns2:supportedAssociation" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/naming" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.naming.SupportedAssociationQualifier" qname="ns2:supportedAssociationQualifier" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/naming" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.naming.SupportedCodingScheme" qname="ns2:supportedCodingScheme" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/naming" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.naming.SupportedContainerName" qname="ns2:supportedContainerName" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/naming" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.naming.SupportedContext" qname="ns2:supportedContext" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/naming" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.naming.SupportedDataType" qname="ns2:supportedDataType" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/naming" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.naming.SupportedDegreeOfFidelity" qname="ns2:supportedDegreeOfFidelity" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/naming" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.naming.SupportedEntityType" qname="ns2:supportedEntityType" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/naming" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.naming.SupportedHierarchy" qname="ns2:supportedHierarchy" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/naming" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.naming.SupportedLanguage" qname="ns2:supportedLanguage" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/naming" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.naming.SupportedNamespace" qname="ns2:supportedNamespace" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/naming" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.naming.SupportedProperty" qname="ns2:supportedProperty" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/naming" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.naming.SupportedPropertyLink" qname="ns2:supportedPropertyLink" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/naming" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.naming.SupportedPropertyQualifier" qname="ns2:supportedPropertyQualifier" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/naming" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.naming.SupportedPropertyQualifierType" qname="ns2:supportedPropertyQualifierType" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/naming" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.naming.SupportedPropertyType" qname="ns2:supportedPropertyType" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/naming" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.naming.SupportedRepresentationalForm" qname="ns2:supportedRepresentationalForm" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/naming" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.naming.SupportedSortOrder" qname="ns2:supportedSortOrder" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/naming" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.naming.SupportedSource" qname="ns2:supportedSource" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/naming" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.naming.SupportedSourceRole" qname="ns2:supportedSourceRole" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/naming" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.naming.SupportedStatus" qname="ns2:supportedStatus" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/naming" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.naming.URIMap" qname="ns2:URIMap" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/naming" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.codingSchemes.CodingScheme" qname="ns2:codingScheme" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/codingSchemes" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.codingSchemes.CodingSchemes" qname="ns2:codingSchemes" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/codingSchemes" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.Collections.AbsoluteCodingSchemeVersionReferenceList" qname="ns2:AbsoluteCodingSchemeVersionReferenceList" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/Collections" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.Collections.AssociatedConceptList" qname="ns2:AssociatedConceptList" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/Collections" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.Collections.AssociatedDataList" qname="ns2:AssociatedDataList" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/Collections" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.Collections.AssociationList" qname="ns2:AssociationList" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/Collections" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.Collections.CodedNodeReferenceList" qname="ns2:CodedNodeReferenceList" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/Collections" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.Collections.CodingSchemeRenderingList" qname="ns2:CodingSchemeRenderingList" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/Collections" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.Collections.CodingSchemeSummaryList" qname="ns2:CodingSchemeSummaryList" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/Collections" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.Collections.CodingSchemeTagList" qname="ns2:CodingSchemeTagList" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/Collections" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.Collections.CodingSchemeVersionList" qname="ns2:CodingSchemeVersionList" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/Collections" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.Collections.ConceptCodes" qname="ns2:ConceptCodes" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/Collections" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.Collections.ConceptReferenceList" qname="ns2:ConceptReferenceList" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/Collections" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.Collections.ExtensionDescriptionList" qname="ns2:ExtensionDescriptionList" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/Collections" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.Collections.LocalNameList" qname="ns2:LocalNameList" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/Collections" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.Collections.MetadataPropertyList" qname="ns2:MetadataPropertyList" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/Collections" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.Collections.ModuleDescriptionList" qname="ns2:ModuleDescriptionList" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/Collections" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.Collections.NameAndValueList" qname="ns2:NameAndValueList" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/Collections" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.Collections.NCIChangeEventList" qname="ns2:NCIChangeEventList" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/Collections" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.Collections.ResolvedConceptReferenceList" qname="ns2:ResolvedConceptReferenceList" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/Collections" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.Collections.SortDescriptionList" qname="ns2:SortDescriptionList" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/Collections" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.Collections.SortOptionList" qname="ns2:SortOptionList" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/Collections" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.Collections.SupportedElementList" qname="ns2:SupportedElementList" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/Collections" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.Collections.SystemReleaseList" qname="ns2:SystemReleaseList" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/Collections" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.builtins.TsAnyType" qname="ns2:tsAnyType" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/builtins" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.Core.AbsoluteCodingSchemeVersionReference" qname="ns2:AbsoluteCodingSchemeVersionReference" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/Core" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.Core.AssociatedConcept" qname="ns2:AssociatedConcept" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/Core" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.Core.AssociatedData" qname="ns2:AssociatedData" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/Core" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.Core.Association" qname="ns2:Association" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/Core" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.Core.CodedNodeReference" qname="ns2:CodedNodeReference" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/Core" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.Core.CodingSchemeSummary" qname="ns2:CodingSchemeSummary" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/Core" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag" qname="ns2:CodingSchemeVersionOrTag" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/Core" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.Core.ConceptReference" qname="ns2:ConceptReference" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/Core" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.Core.LogEntry" qname="ns2:LogEntry" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/Core" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.Core.MetadataProperty" qname="ns2:MetadataProperty" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/Core" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.Core.NameAndValue" qname="ns2:NameAndValue" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/Core" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.Core.ReferenceLink" qname="ns2:ReferenceLink" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/Core" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.Core.ResolvedConceptReference" qname="ns2:ResolvedConceptReference" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/Core" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.Core.SupportedElement" qname="ns2:SupportedElement" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/Core" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.commonTypes.Describable" qname="ns2:describable" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/commonTypes" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.commonTypes.EntityDescription" qname="ns2:entityDescription" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/commonTypes" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.commonTypes.Properties" qname="ns2:properties" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/commonTypes" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.commonTypes.Property" qname="ns2:property" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/commonTypes" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.commonTypes.PropertyQualifier" qname="ns2:propertyQualifier" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/commonTypes" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.commonTypes.Source" qname="ns2:source" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/commonTypes" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.commonTypes.Text" qname="ns2:text" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/commonTypes" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.commonTypes.Versionable" qname="ns2:versionable" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/commonTypes" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.commonTypes.VersionableAndDescribable" qname="ns2:versionableAndDescribable" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/commonTypes" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.InterfaceElements.types.ProcessState" qname="ns2:ProcessState" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/lbInterfacetypes" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.InterfaceElements.types.SortContext" qname="ns2:SortContext" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/lbInterfacetypes" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.relations.AssociatableElement" qname="ns2:associatableElement" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/relations" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.relations.Association" qname="ns2:association" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/relations" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.relations.AssociationData" qname="ns2:associationData" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/relations" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.relations.AssociationQualification" qname="ns2:associationQualification" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/relations" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.relations.AssociationSource" qname="ns2:associationSource" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/relations" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.relations.AssociationTarget" qname="ns2:associationTarget" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/relations" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.relations.Relations" qname="ns2:relations" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/relations" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.NCIHistory.NCIChangeEvent" qname="ns2:NCIChangeEvent" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/NCIHistory" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.NCIHistory.types.ChangeType" qname="ns2:changeType" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/NCIHistorytypes" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.concepts.Comment" qname="ns2:comment" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/concepts" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.concepts.Concept" qname="ns2:concept" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/concepts" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.concepts.Definition" qname="ns2:definition" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/concepts" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.concepts.Entities" qname="ns2:entities" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/concepts" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.concepts.Entity" qname="ns2:entity" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/concepts" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.concepts.Instance" qname="ns2:instance" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/concepts" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.concepts.Presentation" qname="ns2:presentation" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/concepts" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.concepts.PropertyLink" qname="ns2:propertyLink" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/concepts" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.versions.ChangedEntry" qname="ns2:changedEntry" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/versions" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.versions.CodingSchemeVersion" qname="ns2:codingSchemeVersion" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/versions" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.versions.EditHistory" qname="ns2:editHistory" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/versions" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.versions.EntityVersion" qname="ns2:entityVersion" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/versions" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.versions.EntryState" qname="ns2:entryState" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/versions" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.versions.Revision" qname="ns2:revision" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/versions" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.versions.SystemRelease" qname="ns2:systemRelease" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/versions" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.InterfaceElements.CodingSchemeRendering" qname="ns2:CodingSchemeRendering" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/InterfaceElements" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.InterfaceElements.ExportStatus" qname="ns2:ExportStatus" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/InterfaceElements" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.InterfaceElements.ExtensionDescription" qname="ns2:ExtensionDescription" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/InterfaceElements" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.InterfaceElements.LoadStatus" qname="ns2:LoadStatus" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/InterfaceElements" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.InterfaceElements.ModuleDescription" qname="ns2:ModuleDescription" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/InterfaceElements" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.InterfaceElements.ProcessStatus" qname="ns2:ProcessStatus" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/InterfaceElements" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.InterfaceElements.ProcessStatus" qname="ns2:RenderingDetail" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/InterfaceElements" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.InterfaceElements.SortDescription" qname="ns2:SortDescription" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/InterfaceElements" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.InterfaceElements.SortOption" qname="ns2:SortOption" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/InterfaceElements" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.InterfaceElements.SystemReleaseDetail" qname="ns2:SystemReleaseDetail" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/InterfaceElements" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.Core.types.CodingSchemeVersionStatus" qname="ns2:CodingSchemeVersionStatus" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/Coretypes" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.Core.types.LogLevel" qname="ns2:LogLevel" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/Coretypes" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.commonTypes.types.EntityTypes" qname="ns2:EntityTypes" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/commonTypesTypes" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.cagrid.AssociationIdentification" qname="ns2:AssociationIdentification" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/caGrid" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.cagrid.AssociationReverseName" qname="ns2:AssociationReverseName" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/caGrid" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.cagrid.CodeExistence" qname="ns2:CodeExistence" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/caGrid" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.cagrid.CodeRelationship" qname="ns2:CodeRelationship" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/caGrid" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.cagrid.CodeState" qname="ns2:CodeState" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/caGrid" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeCopyRight" qname="ns2:CodingSchemeCopyRight" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/caGrid" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeIdentification" qname="ns2:CodingSchemeIdentification" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/caGrid" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.cagrid.ConceptIdentification" qname="ns2:ConceptIdentification" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/caGrid" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.cagrid.Direction" qname="ns2:Direction" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/caGrid" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.cagrid.DirectionalAssociationIdentification" qname="ns2:DirectionalAssociationIdentification" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/caGrid" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.cagrid.ExtensionIdentification" qname="ns2:ExtensionIdentification" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/caGrid" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.cagrid.GraphResolutionPolicy" qname="ns2:GraphResolutionPolicy" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/caGrid" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.cagrid.HierarchyIdentification" qname="ns2:HierarchyIdentification" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/caGrid" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.cagrid.HierarchyResolutionPolicy" qname="ns2:HierarchyResolutionPolicy" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/caGrid" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.cagrid.LanguageIdentification" qname="ns2:LanguageIdentification" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/caGrid" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.cagrid.MatchCriteria" qname="ns2:MatchCriteria" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/caGrid" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.cagrid.NodeListPolicy" qname="ns2:NodeListPolicy" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/caGrid" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.cagrid.PropertyIdentification" qname="ns2:PropertyIdentification" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/caGrid" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.cagrid.RelationContainerIdentification" qname="ns2:RelationContainerIdentification" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/caGrid" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.cagrid.RelationshipDistanceBasedPolicy" qname="ns2:RelationshipDistanceBasedPolicy" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/caGrid" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.cagrid.RelationshipPolicy" qname="ns2:RelationshipPolicy" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/caGrid" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.cagrid.RelationshipTypeBasedPolicy" qname="ns2:RelationshipTypeBasedPolicy" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/caGrid" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.cagrid.ResolveConcepts" qname="ns2:ResolveConcepts" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/caGrid" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.cagrid.SetResolutionPolicy" qname="ns2:SetResolutionPolicy" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/caGrid" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.cagrid.Status" qname="ns2:Status" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/caGrid" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.cagrid.TestDirectEdgeOnly" qname="ns2:TestDirectEdgeOnly" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/caGrid" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.enums.ActiveOption" qname="ns2:ActiveOption" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/enums" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.enums.HierarchyPathResolveOption" qname="ns2:HierarchyPathResolveOption" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/enums" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.enums.PropertyType" qname="ns2:PropertyType" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/enums" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.enums.SearchDesignationOption" qname="ns2:SearchDesignationOption" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/LexBIG/2009/01/enums" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.LexBIG.DataModel.NCIHistory.NCIChangeEvent" qname="ns2:NCIChangeEvent" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/NCIChangeTypes" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+<ns3:typeMapping encodingStyle="" serializer="gov.nih.nci.cagrid.encoding.SDKSerializerFactory" deserializer="gov.nih.nci.cagrid.encoding.SDKDeserializerFactory" type="ns1:gov.nih.nci.evs.security.SecurityToken" qname="ns2:SecurityToken" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="gme://caCORE.caCORE/3.2/gov.nih.nci.evs.security" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+
+
+<!-- END INTRODUCE TYPEMAPPINGS -->
+</deployment>

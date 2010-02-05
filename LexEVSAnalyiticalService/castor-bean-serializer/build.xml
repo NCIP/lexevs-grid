@@ -1,0 +1,19 @@
+<project name="castor-bean-serializer">
+	<target name="compile">
+		<mkdir dir="build/classes"/>
+	    <copy file="mapping.xml" todir="build/classes"/>
+		<javac srcdir="src/java" destdir="build/classes">
+			<classpath>
+				<fileset dir="lib">
+					<include name="*.jar"/>
+				</fileset>
+			</classpath>
+		</javac>
+	</target>
+	<target name="jar" depends="compile">	
+		<jar destfile="build/castor-bean-serializer.jar" basedir="build/classes"/>
+	</target>
+	<target name="clean">
+		<delete dir="build"/>
+	</target>
+</project>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/03/addressing" xmlns:tns="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsrbf="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-BaseFaults-1.2-draft-01.xsd" targetNamespace="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/types" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <element name="LexEVSGridServiceReference">
+    <complexType>
+      <sequence>
+        <element ref="wsa:EndpointReference" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="LBInvocationException" type="tns:LBInvocationException" />
+  <complexType name="LBInvocationException">
+    <complexContent>
+      <extension base="wsrbf:BaseFaultType" />
+    </complexContent>
+  </complexType>
+  <element name="LBException" type="tns:LBException" />
+  <complexType name="LBException">
+    <complexContent>
+      <extension base="wsrbf:BaseFaultType" />
+    </complexContent>
+  </complexType>
+  <element name="InvalidServiceContextAccess" type="tns:InvalidServiceContextAccess" />
+  <complexType name="InvalidServiceContextAccess">
+    <complexContent>
+      <extension base="wsrbf:BaseFaultType" />
+    </complexContent>
+  </complexType>
+  <element name="LBParameterException" type="tns:LBParameterException" />
+  <complexType name="LBParameterException">
+    <complexContent>
+      <extension base="wsrbf:BaseFaultType" />
+    </complexContent>
+  </complexType>
+  <element name="LBResourceUnavailableException" type="tns:LBResourceUnavailableException" />
+  <complexType name="LBResourceUnavailableException">
+    <complexContent>
+      <extension base="wsrbf:BaseFaultType" />
+    </complexContent>
+  </complexType>
+</schema>
+

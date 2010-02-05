@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapping>
+    <class
+        name="org.LexGrid.LexBIG.DataModel.Collections.ExtensionDescriptionList" auto-complete="false">
+        <description>Default mapping for class org.LexGrid.LexBIG.DataModel.Collections.ExtensionDescriptionList</description>
+        <map-to xml="extension-description-list"/>
+        <field name="extensionDescription"
+            type="org.LexGrid.LexBIG.DataModel.InterfaceElements.ExtensionDescription"
+            required="false" direct="false" transient="false" collection="array">
+            <bind-xml name="extension-description" node="element" reference="false"/>
+        </field>
+    </class>
+</mapping>
