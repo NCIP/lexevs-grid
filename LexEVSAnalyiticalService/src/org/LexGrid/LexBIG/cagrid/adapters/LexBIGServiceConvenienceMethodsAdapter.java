@@ -628,4 +628,10 @@ private LexBIGServiceConvenienceMethodsGridAdapter lbscm;
 			throws LBException {
 		throw new RuntimeException("This is not a valid Grid Service Call");
 	}
+
+	public ResolvedConceptReferenceList getHierarchyRoots(String arg0,
+			CodingSchemeVersionOrTag arg1, String arg2, boolean arg3)
+			throws LBException {
+		throw new RuntimeException("This is not a valid Grid Service Call");
+	}
 }
