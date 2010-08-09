@@ -1,28 +1,20 @@
 package org.LexGrid.LexBIG.cagrid.test.query.cql;
 
-import gov.nih.nci.cagrid.cqlquery.LogicalOperator;
-import gov.nih.nci.cagrid.cqlquery.Association;
+import edu.mayo.informatics.lexgrid.convert.directConversions.TextCommon.Concept;
 import gov.nih.nci.cagrid.cqlquery.Attribute;
 import gov.nih.nci.cagrid.cqlquery.CQLQuery;
 import gov.nih.nci.cagrid.cqlquery.Group;
 import gov.nih.nci.cagrid.cqlquery.LogicalOperator;
 import gov.nih.nci.cagrid.cqlquery.Object;
 import gov.nih.nci.cagrid.cqlquery.Predicate;
-import gov.nih.nci.cagrid.cqlquery.QueryModifier;
-import gov.nih.nci.cagrid.cqlquery.Object;
-import gov.nih.nci.cagrid.cqlresultset.CQLObjectResult;
-import gov.nih.nci.cagrid.cqlresultset.CQLQueryResults;
 import gov.nih.nci.cagrid.data.client.DataServiceClient;
 import gov.nih.nci.cagrid.data.utilities.DataServiceHandle;
 
 import java.util.Iterator;
-import java.util.List;
 
 import org.LexGrid.LexBIG.cagrid.test.setup.LexEVSDataServiceHolder;
 import org.LexGrid.LexBIG.cagrid.test.setup.ServiceTestCase;
-import org.LexGrid.LexBIG.cagrid.dataService.client.LexEVSDataServiceClient;
-import org.LexGrid.codingSchemes.CodingScheme;
-import org.LexGrid.concepts.Concept;
+import org.LexGrid.concepts.Entity;
 
 public class CQLGroups extends ServiceTestCase
 {
@@ -63,7 +55,7 @@ public class CQLGroups extends ServiceTestCase
 
 		assertTrue(results.hasNext());
 		while (results.hasNext()){
-			Concept concept = (Concept)results.next();
+			Entity concept = (Entity)results.next();
 			assertTrue(concept.getEntityCode().equals("149164001"));
 			assertTrue(concept.getEntityCodeNamespace().equals(ServiceTestCase.SNOMED_SCHEME));
 		}
@@ -130,7 +122,7 @@ public class CQLGroups extends ServiceTestCase
 
 		assertTrue(results.hasNext());
 		while (results.hasNext()){
-			Concept concept = (Concept)results.next();
+			Entity concept = (Entity)results.next();
 			assertTrue(concept.getEntityCode().equals("149164001"));
 			assertTrue(concept.getEntityCodeNamespace().equals(ServiceTestCase.SNOMED_SCHEME));
 		}
@@ -205,7 +197,7 @@ public class CQLGroups extends ServiceTestCase
 
 		assertTrue(results.hasNext());
 		while (results.hasNext()){
-			Concept concept = (Concept)results.next();
+			Entity concept = (Entity)results.next();
 			assertTrue(concept.getEntityCode().equals("149164001"));
 			assertTrue(concept.getEntityCodeNamespace().equals(ServiceTestCase.SNOMED_SCHEME));
 		}
@@ -289,7 +281,7 @@ public class CQLGroups extends ServiceTestCase
 
 		assertTrue(results.hasNext());
 		while (results.hasNext()){
-			Concept concept = (Concept)results.next();
+			Entity concept = (Entity)results.next();
 			assertTrue(concept.getEntityCode().equals("149164001"));
 			assertTrue(concept.getEntityCodeNamespace().equals(ServiceTestCase.SNOMED_SCHEME));
 		}

@@ -1,6 +1,5 @@
 package org.LexGrid.LexBIG.cagrid.test.query.cql;
 
-import gov.nih.nci.cagrid.cqlquery.LogicalOperator;
 import gov.nih.nci.cagrid.cqlquery.Association;
 import gov.nih.nci.cagrid.cqlquery.Attribute;
 import gov.nih.nci.cagrid.cqlquery.CQLQuery;
@@ -8,21 +7,14 @@ import gov.nih.nci.cagrid.cqlquery.Group;
 import gov.nih.nci.cagrid.cqlquery.LogicalOperator;
 import gov.nih.nci.cagrid.cqlquery.Object;
 import gov.nih.nci.cagrid.cqlquery.Predicate;
-import gov.nih.nci.cagrid.cqlquery.QueryModifier;
-import gov.nih.nci.cagrid.cqlquery.Object;
-import gov.nih.nci.cagrid.cqlresultset.CQLObjectResult;
-import gov.nih.nci.cagrid.cqlresultset.CQLQueryResults;
 import gov.nih.nci.cagrid.data.client.DataServiceClient;
 import gov.nih.nci.cagrid.data.utilities.DataServiceHandle;
 
 import java.util.Iterator;
-import java.util.List;
 
 import org.LexGrid.LexBIG.cagrid.test.setup.LexEVSDataServiceHolder;
 import org.LexGrid.LexBIG.cagrid.test.setup.ServiceTestCase;
-import org.LexGrid.LexBIG.cagrid.dataService.client.LexEVSDataServiceClient;
-import org.LexGrid.codingSchemes.CodingScheme;
-import org.LexGrid.concepts.Concept;
+import org.LexGrid.concepts.Entity;
 
 public class CQLConcept extends ServiceTestCase
 {
@@ -65,21 +57,21 @@ public class CQLConcept extends ServiceTestCase
 		boolean foundResults = false;
 		while (results.hasNext()){
 			foundResults = true;
-			Concept concept = (Concept)results.next();
+			Entity concept = (Entity)results.next();
 			assertTrue(concept.getEntityCode().equals("149164001"));
 			assertTrue(concept.getEntityCodeNamespace().equals(ServiceTestCase.SNOMED_SCHEME));
 		}
 		assertTrue(foundResults);
 	}	
 	
-	public void testGetConceptByIdAndCodingSchemeNamespaceWildCard() throws Exception {
+	public void testGetEntityByIdAndCodingSchemeNamespaceWildCard() throws Exception {
 		DataServiceClient svc = LexEVSDataServiceHolder.instance().getStandardService();
 		DataServiceHandle handle = new DataServiceHandle(svc);
 		
 		CQLQuery query = new CQLQuery();	
 		Object target = new Object();
 				
-		target.setName("org.LexGrid.concepts.Concept");
+		target.setName("org.LexGrid.concepts.Entity");
 		
 		Attribute at1 = new Attribute();
 		at1.setName("_entityCode");
@@ -103,21 +95,21 @@ public class CQLConcept extends ServiceTestCase
 		boolean foundResults = false;
 		while (results.hasNext()){
 			foundResults = true;
-			Concept concept = (Concept)results.next();
+			Entity concept = (Entity)results.next();
 			assertTrue(concept.getEntityCode().startsWith("10000500"));
 			assertTrue(concept.getEntityCodeNamespace().equals(ServiceTestCase.SNOMED_SCHEME));
 		}
 		assertTrue(foundResults);
 	}	
 	
-	public void testGetConceptByEntityDescriptionAndCodingSchemeNamespace() throws Exception {
+	public void testGetEntityByEntityDescriptionAndCodingSchemeNamespace() throws Exception {
 		DataServiceClient svc = LexEVSDataServiceHolder.instance().getStandardService();
 		DataServiceHandle handle = new DataServiceHandle(svc);
 		
 		CQLQuery query = new CQLQuery();	
 		Object target = new Object();
 				
-		target.setName("org.LexGrid.concepts.Concept");
+		target.setName("org.LexGrid.concepts.Entity");
 	
 		Attribute at = new Attribute();
 		at.setName("_entityCodeNamespace");
@@ -143,21 +135,21 @@ public class CQLConcept extends ServiceTestCase
 		boolean foundResults = false;
 		while (results.hasNext()){
 			foundResults = true;
-			Concept concept = (Concept)results.next();
+			Entity concept = (Entity)results.next();
 			assertTrue(concept.getEntityCode().startsWith("29506000"));
 			assertTrue(concept.getEntityCodeNamespace().equals(ServiceTestCase.SNOMED_SCHEME));
 		}
 		assertTrue(foundResults);
 	}	
 	
-	public void testGetConceptByEntityDescriptionAndCodingSchemeNamespaceWildCard() throws Exception {
+	public void testGetEntityByEntityDescriptionAndCodingSchemeNamespaceWildCard() throws Exception {
 		DataServiceClient svc = LexEVSDataServiceHolder.instance().getStandardService();
 		DataServiceHandle handle = new DataServiceHandle(svc);
 		
 		CQLQuery query = new CQLQuery();	
 		Object target = new Object();
 				
-		target.setName("org.LexGrid.concepts.Concept");
+		target.setName("org.LexGrid.concepts.Entity");
 	
 		Attribute at = new Attribute();
 		at.setName("_entityCodeNamespace");
@@ -183,21 +175,21 @@ public class CQLConcept extends ServiceTestCase
 		boolean foundResults = false;
 		while (results.hasNext()){
 			foundResults = true;
-			Concept concept = (Concept)results.next();
+			Entity concept = (Entity)results.next();
 			assertTrue(concept.getEntityCode().equals("285079000"));
 			assertTrue(concept.getEntityCodeNamespace().equals(ServiceTestCase.SNOMED_SCHEME));
 		}
 		assertTrue(foundResults);
 	}	
 	
-	public void testGetConceptByPresentationAndCodingSchemeNamespace() throws Exception {
+	public void testGetEntityByPresentationAndCodingSchemeNamespace() throws Exception {
 		DataServiceClient svc = LexEVSDataServiceHolder.instance().getStandardService();
 		DataServiceHandle handle = new DataServiceHandle(svc);
 		
 		CQLQuery query = new CQLQuery();	
 		Object target = new Object();
 				
-		target.setName("org.LexGrid.concepts.Concept");
+		target.setName("org.LexGrid.concepts.Entity");
 	
 		Attribute at = new Attribute();
 		at.setName("_entityCodeNamespace");
@@ -228,21 +220,21 @@ public class CQLConcept extends ServiceTestCase
 		boolean foundResults = false;
 		while (results.hasNext()){
 			foundResults = true;
-			Concept concept = (Concept)results.next();
+			Entity concept = (Entity)results.next();
 			assertTrue(concept.getEntityCode().equals("285079000"));
 			assertTrue(concept.getEntityCodeNamespace().equals(ServiceTestCase.SNOMED_SCHEME));
 		}
 		assertTrue(foundResults);
 	}	
 	
-	public void testGetConceptByPresentationAndNameSpaceWildCard() throws Exception {
+	public void testGetEntityByPresentationAndNameSpaceWildCard() throws Exception {
 		DataServiceClient svc = LexEVSDataServiceHolder.instance().getStandardService();
 		DataServiceHandle handle = new DataServiceHandle(svc);
 		
 		CQLQuery query = new CQLQuery();	
 		Object target = new Object();
 				
-		target.setName("org.LexGrid.concepts.Concept");
+		target.setName("org.LexGrid.concepts.Entity");
 		
 		Attribute at = new Attribute();
 		at.setName("_entityCodeNamespace");
@@ -273,7 +265,7 @@ public class CQLConcept extends ServiceTestCase
 		boolean foundResults = false;
 		while (results.hasNext()){
 			foundResults = true;
-			Concept concept = (Concept)results.next();
+			Entity concept = (Entity)results.next();
 			assertTrue(concept.getEntityDescription().getContent().equals("hypochord"));
 		}
 		assertTrue(foundResults);
@@ -281,14 +273,14 @@ public class CQLConcept extends ServiceTestCase
 	
 	
 	
-	public void testGetConceptByPresentationAndCodingSchemeNamespaceWildCard() throws Exception {
+	public void testGetEntityByPresentationAndCodingSchemeNamespaceWildCard() throws Exception {
 		DataServiceClient svc = LexEVSDataServiceHolder.instance().getStandardService();
 		DataServiceHandle handle = new DataServiceHandle(svc);
 		
 		CQLQuery query = new CQLQuery();	
 		Object target = new Object();
 				
-		target.setName("org.LexGrid.concepts.Concept");
+		target.setName("org.LexGrid.concepts.Entity");
 	
 		Attribute at = new Attribute();
 		at.setName("_entityCodeNamespace");
@@ -319,7 +311,7 @@ public class CQLConcept extends ServiceTestCase
 		boolean foundResults = false;
 		while (results.hasNext()){
 			foundResults = true;
-			Concept concept = (Concept)results.next();
+			Entity concept = (Entity)results.next();
 			assertTrue(concept.getEntityCode().equals("285079000"));
 			assertTrue(concept.getEntityCodeNamespace().equals(ServiceTestCase.SNOMED_SCHEME));
 		}

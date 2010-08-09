@@ -1,16 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-xmlns:lgCommon="http://LexGrid.org/schema/2009/01/LexGrid/commonTypes" 
-xmlns:lgBuiltin="http://LexGrid.org/schema/2009/01/LexGrid/builtins" 
-xmlns:lgCS="http://LexGrid.org/schema/2009/01/LexGrid/codingSchemes" 
-xmlns:lgVer="http://LexGrid.org/schema/2009/01/LexGrid/versions"
-xmlns="http://LexGrid.org/schema/2009/01/LexGrid/versions" 
-targetNamespace="http://LexGrid.org/schema/2009/01/LexGrid/versions" 
-elementFormDefault="qualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:lgCommon="http://LexGrid.org/schema/2010/01/LexGrid/commonTypes" xmlns:lgBuiltin="http://LexGrid.org/schema/2010/01/LexGrid/builtins" xmlns:lgCS="http://LexGrid.org/schema/2010/01/LexGrid/codingSchemes" xmlns:lgVD="http://LexGrid.org/schema/2010/01/LexGrid/valueSets" xmlns="http://LexGrid.org/schema/2010/01/LexGrid/versions" targetNamespace="http://LexGrid.org/schema/2010/01/LexGrid/versions" elementFormDefault="qualified">
 
-        <xs:import namespace="http://LexGrid.org/schema/2009/01/LexGrid/builtins" schemaLocation="builtins.xsd"/>
-        <xs:import namespace="http://LexGrid.org/schema/2009/01/LexGrid/codingSchemes" schemaLocation="codingSchemes.xsd"/>
-        <xs:import namespace="http://LexGrid.org/schema/2009/01/LexGrid/commonTypes" schemaLocation="commonTypes.xsd"/>
+        <xs:import namespace="http://LexGrid.org/schema/2010/01/LexGrid/builtins" schemaLocation="builtins.xsd"/>
+        <xs:import namespace="http://LexGrid.org/schema/2010/01/LexGrid/codingSchemes" schemaLocation="codingSchemes.xsd"/>
+        <xs:import namespace="http://LexGrid.org/schema/2010/01/LexGrid/valueSets" schemaLocation="valueSets.xsd"/>
+        <xs:import namespace="http://LexGrid.org/schema/2010/01/LexGrid/commonTypes" schemaLocation="commonTypes.xsd"/>
 
         <!-- ================================================= -->
         <!-- Package: <<XSDschema>> versions  -->
@@ -24,10 +18,10 @@ elementFormDefault="qualified">
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <!-- Class: <<EntryPoint>> systemRelease  -->
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-        <xs:element name="systemRelease" type="lgVer:systemRelease"/>
+        <xs:element name="systemRelease" type="systemRelease"/>
         <xs:complexType name="systemRelease">
                 <xs:annotation>
-                        <xs:documentation>A collection of coding schemes, value domains, pick lists and/or revision records that are distributed as a unit.</xs:documentation>
+                        <xs:documentation>A collection of coding schemes, value set definitions, pick list definitions and/or revision records that are distributed as a unit.</xs:documentation>
                 </xs:annotation>
                 <xs:complexContent>
                         <xs:extension base="lgCommon:describable">
@@ -37,19 +31,17 @@ elementFormDefault="qualified">
                                                         <xs:documentation>A collection of coding schemes that are included in this release. Each entry in this collection is a complete representation of a coding scheme at a given revision.</xs:documentation>
                                                 </xs:annotation>
                                         </xs:element>
-                                        <!--  
-                                        <xs:element name="valueDomains" type="lgVD:valueDomains" minOccurs="0" maxOccurs="1">
+                                        <xs:element name="valueSetDefinitions" type="lgVD:valueSetDefinitions" minOccurs="0" maxOccurs="1">
                                                 <xs:annotation>
-                                                        <xs:documentation>A collection of value domain definitions that are included in this release. </xs:documentation>
+                                                        <xs:documentation>A collection of value set definitions that are included in this release. </xs:documentation>
                                                 </xs:annotation>
                                         </xs:element>
-                                        <xs:element name="pickLists" type="lgVD:pickLists" minOccurs="0" maxOccurs="1">
+                                        <xs:element name="pickListDefinitions" type="lgVD:pickListDefinitions" minOccurs="0" maxOccurs="1">
                                                 <xs:annotation>
                                                         <xs:documentation>A collection of pick list definitions that are included in this release. Each entry in this collection is a complete representation of a pick list definition at a given revision.</xs:documentation>
                                                 </xs:annotation>
                                         </xs:element>
-                                        -->
-                                        <xs:element name="editHistory" type="lgVer:editHistory" minOccurs="0" maxOccurs="1">
+                                        <xs:element name="editHistory" type="editHistory" minOccurs="0" maxOccurs="1">
                                                 <xs:annotation>
                                                         <xs:documentation>An ordered collection of revisions that describe the transformations that were applied to create this release</xs:documentation>
                                                 </xs:annotation>
@@ -86,7 +78,6 @@ elementFormDefault="qualified">
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <!-- Class:  revision  -->
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-        <xs:element name="editHistory" type="lgVer:editHistory"/>
         <xs:complexType name="editHistory">
                 <xs:annotation>
                         <xs:documentation>An ordered collection of revisions</xs:documentation>
@@ -98,7 +89,7 @@ elementFormDefault="qualified">
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <!-- Class:  revision  -->
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-        <xs:element name="revision" type="lgVer:revision"/>
+        <xs:element name="revision" type="revision"/>
         <xs:complexType name="revision">
                 <xs:annotation>
                         <xs:documentation>An ordered collection of state changes that define the transformation of a set of resources from one consistent state to another.</xs:documentation>
@@ -106,7 +97,7 @@ elementFormDefault="qualified">
                 <xs:complexContent>
                         <xs:extension base="lgCommon:describable">
                                 <xs:sequence>
-                                        <xs:element name="changeAgent" type="lgCommon:source" minOccurs="0">
+                                        <xs:element name="changeAgent" type="lgBuiltin:tsCaseIgnoreIA5String" minOccurs="0">
                                                 <xs:annotation>
                                                         <xs:documentation>The local identifiers of the source(s) that participated in this particular change. changeAgent must match a local id of a supportedSource in the corresponding mappings section.</xs:documentation>
                                                 </xs:annotation>
@@ -117,7 +108,7 @@ elementFormDefault="qualified">
                                                 </xs:annotation>
                                         </xs:element>
                                         <!-- XML Schema won't handle the parent class abstraction, so we have to make the changedEntry types explicit -->
-                                        <xs:element name="changedEntry" type="lgVer:changedEntry" minOccurs="1" maxOccurs="unbounded">
+                                        <xs:element name="changedEntry" type="changedEntry" minOccurs="1" maxOccurs="unbounded">
                                                 <xs:annotation>
                                                         <xs:documentation>An ordered list of top level versionable elements.</xs:documentation>
                                                 </xs:annotation>
@@ -145,20 +136,10 @@ elementFormDefault="qualified">
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <!-- Class: entryState  -->
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-        <xs:element name="entryState" type="lgVer:entryState"/>
         <xs:complexType name="entryState">
                 <xs:annotation>
                         <xs:documentation>Represents a change that occurred between the current state of the versionable entry and an immediately preceeding state of the same entry.</xs:documentation>
                 </xs:annotation>
-                <xs:sequence>
-                <!-- 
-                 <xs:element name="changeType" type="lgVerTypes:changeType">
-                        <xs:annotation>
-                                <xs:documentation>The activity being recorded (create, modify, split, merge, retire)</xs:documentation>
-                        </xs:annotation>
-                </xs:element>
-                 -->
-                </xs:sequence>
                 <xs:attribute name="containingRevision" type="lgCommon:revisionId" use="required">
                         <xs:annotation>
                                 <xs:documentation>The revision that contains this particular entry state change.</xs:documentation>
@@ -169,7 +150,11 @@ elementFormDefault="qualified">
                                 <xs:documentation>The relative order that this state change should be applied within the context of the containing revision.</xs:documentation>
                         </xs:annotation>
                 </xs:attribute>
-                
+                <xs:attribute name="changeType" type="changeType" use="required">
+                        <xs:annotation>
+                                <xs:documentation>The type of change that occurred between this state and the previous.</xs:documentation>
+                        </xs:annotation>
+                </xs:attribute>
                 <xs:attribute name="prevRevision" type="lgCommon:revisionId">
                         <xs:annotation>
                                 <xs:documentation>The unique identifir of the state of this entry was at prior to this change.</xs:documentation>
@@ -180,23 +165,56 @@ elementFormDefault="qualified">
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <!-- Class: changedEntry  -->
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-        <xs:element name="changedEntry" type="lgVer:changedEntry"/>
         <xs:complexType name="changedEntry">
                 <xs:annotation>
                         <xs:documentation>A top level versionable entry. A fix because XML schema doesn't deal with inheritence.</xs:documentation>
                 </xs:annotation>
                 <xs:choice>
                         <xs:element name="changedCodingSchemeEntry" type="lgCS:codingScheme" minOccurs="1" maxOccurs="1"/>
-                        <!--  
-                        <xs:element name="changedPickListEntry" type="lgVD:pickListDefinition" minOccurs="1" maxOccurs="1"/>
-                        -->
+                        <xs:element name="changedPickListDefinitionEntry" type="lgVD:pickListDefinition" minOccurs="1" maxOccurs="1"/>
+                        <xs:element name="changedValueSetDefinitionEntry" type="lgVD:valueSetDefinition" minOccurs="1" maxOccurs="1"/>
                 </xs:choice>
         </xs:complexType>
 
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- Class: changeType  -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <xs:simpleType name="changeType">
+                <xs:annotation>
+                        <xs:documentation>The type of state change between the current versionable entry and the previous.</xs:documentation>
+                </xs:annotation>
+                <xs:restriction base="xs:string">
+                        <xs:enumeration value="NEW">
+                                <xs:annotation>
+                                        <xs:documentation>Versionable entry is new in this revision. No previous state is available.</xs:documentation>
+                                </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="MODIFY">
+                                <xs:annotation>
+                                        <xs:documentation>Entry has been modified between this state and the previous.</xs:documentation>
+                                </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="VERSIONABLE">
+                                <xs:annotation>
+                                        <xs:documentation>Versionable attribute has changed since prior version. Versionable attributes include: isActive, status, owner, effectiveDate or expirationDate.</xs:documentation>
+                                </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="DEPENDENT">
+                                <xs:annotation>
+                                        <xs:documentation>The status of a dependent entry has changed since the last version. Dependent entities include properties, codedEntries for codingSchemes, associationInstances, etc.</xs:documentation>
+                                </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="REMOVE">
+                                <xs:annotation>
+                                        <xs:documentation>Versionable entry was removed as of this version. This is not the same as deprecated, as the entity ceases to exist in future versions</xs:documentation>
+                                </xs:annotation>
+                        </xs:enumeration>
+                </xs:restriction>
+        </xs:simpleType>
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <!-- Class: entityVersion  -->
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-        <xs:element name="entityVersion" type="lgVer:entityVersion"/>
         <xs:complexType name="entityVersion">
                 <xs:annotation>
                         <xs:documentation>A static snapshot of the given entity.</xs:documentation>
@@ -250,14 +268,13 @@ elementFormDefault="qualified">
                 </xs:complexContent>
         </xs:complexType>
 
-		<xs:element name="codingSchemeVersion" type="lgVer:codingSchemeVersion"/>
         <xs:complexType name="codingSchemeVersion">
                 <xs:annotation>
                         <xs:documentation> A static snapshot of a coding scheme at a point in time. May be either a complete </xs:documentation>
                         <xs:documentation>NOTE: This type is here for backwards compatbility with the LexBIG API, and is not otherwise used in the current LexGrid model.  Do not reference or use!</xs:documentation>
                 </xs:annotation>
                 <xs:complexContent>
-                        <xs:extension base="lgVer:entityVersion"> </xs:extension>
+                        <xs:extension base="entityVersion"> </xs:extension>
                 </xs:complexContent>
         </xs:complexType>
 </xs:schema>

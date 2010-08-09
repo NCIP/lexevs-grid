@@ -1,6 +1,5 @@
 package org.LexGrid.LexBIG.cagrid.dataService.client;
 
-import java.io.FileReader;
 import java.io.InputStream;
 import java.rmi.RemoteException;
 
@@ -20,10 +19,6 @@ import org.globus.gsi.GlobusCredential;
 import org.LexGrid.LexBIG.cagrid.dataService.stubs.LexEVSDataServicePortType;
 import org.LexGrid.LexBIG.cagrid.dataService.stubs.service.LexEVSDataServiceAddressingLocator;
 import org.LexGrid.LexBIG.cagrid.dataService.common.LexEVSDataServiceI;
-
-import gov.nih.nci.cagrid.common.Utils;
-import gov.nih.nci.cagrid.cqlquery.CQLQuery;
-import gov.nih.nci.cagrid.cqlresultset.CQLQueryResults;
 import gov.nih.nci.cagrid.introduce.security.client.ServiceSecurityClient;
 
 /**
@@ -35,7 +30,7 @@ import gov.nih.nci.cagrid.introduce.security.client.ServiceSecurityClient;
  * On construction the class instance will contact the remote service and retrieve it's security
  * metadata description which it will use to configure the Stub specifically for each method call.
  * 
- * @created by Introduce Toolkit version 1.2
+ * @created by Introduce Toolkit version 1.3
  */
 public class LexEVSDataServiceClient extends LexEVSDataServiceClientBase implements LexEVSDataServiceI {	
 
@@ -60,29 +55,38 @@ public class LexEVSDataServiceClient extends LexEVSDataServiceClientBase impleme
 	}
 	
 	public static void main(String [] args){
-		System.out.println("Running the Grid Service Client");
+	    System.out.println("Running the Grid Service Client");
 		try{
-			if(!(args.length < 2)){
-				if(args[0].equals("-url")){
-					LexEVSDataServiceClient client = new LexEVSDataServiceClient(args[1]);
-
-					CQLQuery query = (CQLQuery)Utils.deserializeObject(new FileReader("queries/testQueries"), CQLQuery.class);
-
-					CQLQueryResults results = client.query(query);
-					System.out.println(results.toString());
-				} else {
-					usage();
-					System.exit(1);
-				}
+		if(!(args.length < 2)){
+			if(args[0].equals("-url")){
+			  LexEVSDataServiceClient client = new LexEVSDataServiceClient(args[1]);
+			  // place client calls here if you want to use this main as a
+			  // test....
 			} else {
 				usage();
 				System.exit(1);
 			}
+		} else {
+			usage();
+			System.exit(1);
+		}
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.exit(1);
 		}
 	}
+
+  public gov.nih.nci.cagrid.cqlresultset.CQLQueryResults query(gov.nih.nci.cagrid.cqlquery.CQLQuery cqlQuery) throws RemoteException, gov.nih.nci.cagrid.data.faults.QueryProcessingExceptionType, gov.nih.nci.cagrid.data.faults.MalformedQueryExceptionType {
+    synchronized(portTypeMutex){
+      configureStubSecurity((Stub)portType,"query");
+    gov.nih.nci.cagrid.data.QueryRequest params = new gov.nih.nci.cagrid.data.QueryRequest();
+    gov.nih.nci.cagrid.data.QueryRequestCqlQuery cqlQueryContainer = new gov.nih.nci.cagrid.data.QueryRequestCqlQuery();
+    cqlQueryContainer.setCQLQuery(cqlQuery);
+    params.setCqlQuery(cqlQueryContainer);
+    gov.nih.nci.cagrid.data.QueryResponse boxedResult = portType.query(params);
+    return boxedResult.getCQLQueryResultCollection();
+    }
+  }
 
   public org.oasis.wsrf.properties.GetMultipleResourcePropertiesResponse getMultipleResourceProperties(org.oasis.wsrf.properties.GetMultipleResourceProperties_Element params) throws RemoteException {
     synchronized(portTypeMutex){
@@ -105,29 +109,17 @@ public class LexEVSDataServiceClient extends LexEVSDataServiceClientBase impleme
     }
   }
 
-  public gov.nih.nci.cagrid.cqlresultset.CQLQueryResults query(gov.nih.nci.cagrid.cqlquery.CQLQuery cqlQuery) throws RemoteException, gov.nih.nci.cagrid.data.faults.QueryProcessingExceptionType, gov.nih.nci.cagrid.data.faults.MalformedQueryExceptionType {
-    synchronized(portTypeMutex){
-      configureStubSecurity((Stub)portType,"query");
-    gov.nih.nci.cagrid.data.QueryRequest params = new gov.nih.nci.cagrid.data.QueryRequest();
-    gov.nih.nci.cagrid.data.QueryRequestCqlQuery cqlQueryContainer = new gov.nih.nci.cagrid.data.QueryRequestCqlQuery();
-    cqlQueryContainer.setCQLQuery(cqlQuery);
-    params.setCqlQuery(cqlQueryContainer);
-    gov.nih.nci.cagrid.data.QueryResponse boxedResult = portType.query(params);
-    return boxedResult.getCQLQueryResultCollection();
-    }
-  }
-
-  public org.LexGrid.LexBIG.cagrid.dataService.client.LexEVSDataServiceClient registerSecurityToken(java.lang.String codingSchemeURN,gov.nih.nci.evs.security.SecurityToken securityToken) throws RemoteException, org.apache.axis.types.URI.MalformedURIException {
+  public org.LexGrid.LexBIG.cagrid.dataService.client.LexEVSDataServiceClient registerSecurityToken(java.lang.String string,gov.nih.nci.evs.security.SecurityToken securityToken) throws RemoteException, org.apache.axis.types.URI.MalformedURIException {
     synchronized(portTypeMutex){
       configureStubSecurity((Stub)portType,"registerSecurityToken");
     org.LexGrid.LexBIG.cagrid.dataService.stubs.RegisterSecurityTokenRequest params = new org.LexGrid.LexBIG.cagrid.dataService.stubs.RegisterSecurityTokenRequest();
-    params.setCodingSchemeURN(codingSchemeURN);
+    params.setString(string);
     org.LexGrid.LexBIG.cagrid.dataService.stubs.RegisterSecurityTokenRequestSecurityToken securityTokenContainer = new org.LexGrid.LexBIG.cagrid.dataService.stubs.RegisterSecurityTokenRequestSecurityToken();
     securityTokenContainer.setSecurityToken(securityToken);
     params.setSecurityToken(securityTokenContainer);
     org.LexGrid.LexBIG.cagrid.dataService.stubs.RegisterSecurityTokenResponse boxedResult = portType.registerSecurityToken(params);
     EndpointReferenceType ref = boxedResult.getLexEVSDataServiceReference().getEndpointReference();
-    return new org.LexGrid.LexBIG.cagrid.dataService.client.LexEVSDataServiceClient(ref);
+    return new org.LexGrid.LexBIG.cagrid.dataService.client.LexEVSDataServiceClient(ref,getProxy());
     }
   }
 

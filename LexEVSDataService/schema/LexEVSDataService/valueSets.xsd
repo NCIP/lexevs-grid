@@ -1,31 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns="http://LexGrid.org/schema/2009/01/LexGrid/valueDomains" 
-        xmlns:lgBuiltin="http://LexGrid.org/schema/2009/01/LexGrid/builtins" 
-        xmlns:lgCommon="http://LexGrid.org/schema/2009/01/LexGrid/commonTypes" 
-        xmlns:lgNaming="http://LexGrid.org/schema/2009/01/LexGrid/naming" 
-        xmlns:lgVD="http://LexGrid.org/schema/2009/01/LexGrid/valueDomains" 
-        xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://LexGrid.org/schema/2009/01/LexGrid/valueDomains">
+<xs:schema xmlns="http://LexGrid.org/schema/2010/01/LexGrid/valueSets" 
+        xmlns:lgBuiltin="http://LexGrid.org/schema/2010/01/LexGrid/builtins" 
+        xmlns:lgCommon="http://LexGrid.org/schema/2010/01/LexGrid/commonTypes" 
+        xmlns:lgNaming="http://LexGrid.org/schema/2010/01/LexGrid/naming" 
+        xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://LexGrid.org/schema/2010/01/LexGrid/valueSets">
         
-        <xs:import namespace="http://LexGrid.org/schema/2009/01/LexGrid/builtins" schemaLocation="builtins.xsd"/>
-        <xs:import namespace="http://LexGrid.org/schema/2009/01/LexGrid/commonTypes" schemaLocation="commonTypes.xsd"/>
-        <xs:import namespace="http://LexGrid.org/schema/2009/01/LexGrid/naming" schemaLocation="naming.xsd"/>
+        <xs:import namespace="http://LexGrid.org/schema/2010/01/LexGrid/builtins" schemaLocation="builtins.xsd"/>
+        <xs:import namespace="http://LexGrid.org/schema/2010/01/LexGrid/commonTypes" schemaLocation="commonTypes.xsd"/>
+        <xs:import namespace="http://LexGrid.org/schema/2010/01/LexGrid/naming" schemaLocation="naming.xsd"/>
 
         <!-- ================================================= -->
-        <!-- Package: <<XSDschema>> valueDomains  -->
+        <!-- Package: <<XSDschema>> valueSets  -->
         <!-- ================================================= -->
         <xs:annotation>
                 <xs:documentation>
-                        <h2>Value domains and pick list packages</h2>
+                        <h2>Value Set Definition and pick list Definition packages</h2>
                 </xs:documentation>
-                <xs:documentation>The LexGrid model of value domains and associated pick lists.</xs:documentation>
+                <xs:documentation>The LexGrid model of value set and associated pick list definitions.</xs:documentation>
         </xs:annotation>
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-        <!-- Class: valueDomains  -->
+        <!-- Class: <<EntryPoint>> valueSetDefinitions  -->
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-        <xs:element name="valueDomains" type="lgVD:valueDomains"/>
-        <xs:complexType name="valueDomains">
+        <xs:element name="valueSetDefinitions" type="valueSetDefinitions"/>
+        <xs:complexType name="valueSetDefinitions">
                 <xs:annotation>
-                        <xs:documentation>A collection of value domain definitions.</xs:documentation>
+                        <xs:documentation>A collection of value set definitions.</xs:documentation>
                 </xs:annotation>
                 <xs:sequence>
                         <xs:element name="mappings" type="lgNaming:mappings" minOccurs="1" maxOccurs="1">
@@ -33,26 +32,30 @@
                                         <xs:documentation>The local names and corresponding URIs used in this collection</xs:documentation>
                                 </xs:annotation>
                         </xs:element>
-                        <xs:element  name="valueDomainDefinition" type="valueDomainDefinition" minOccurs="1" maxOccurs="unbounded" >
+                        <xs:element  name="valueSetDefinition" type="valueSetDefinition" minOccurs="1" maxOccurs="unbounded" >
                                 <xs:annotation>
-                                        <xs:documentation>A value domain definition</xs:documentation>
+                                        <xs:documentation>A value set definition</xs:documentation>
                                 </xs:annotation>
                         </xs:element>
                 </xs:sequence>
         </xs:complexType>
 
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-        <!-- Class:  valueDomainDefinition  -->
+        <!-- Class:  <<EntryPoint>> valueSetDefinition  -->
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-        <xs:element name="valueDomainDefinition" type="lgVD:valueDomainDefinition"/>
-        <xs:complexType name="valueDomainDefinition">
+        <xs:element name="valueSetDefinition" type="valueSetDefinition"/>
+        <xs:complexType name="valueSetDefinition">
                 <xs:annotation>
-                        <xs:documentation>A definition of a given value domain. A value domain can be a simple description with no associated value domain entries, or it can consist of one or more definitionEntries that resolve to an enumerated list of entityCodes when applied to one or more codingScheme versions.</xs:documentation>
-                        <xs:documentation>NOTE: Value domain definitions aren't versionable - changing the definition of the domain changes its identity.</xs:documentation>
+                        <xs:documentation>A definition of a given value set. A value set definition can be a simple description with no associated value set entries, or it can consist of one or more definitionEntries that resolve to an enumerated list of entityCodes when applied to one or more codingScheme versions.</xs:documentation>
                 </xs:annotation>
                 <xs:complexContent>
-                        <xs:extension base="lgCommon:describable">
+                        <xs:extension base="lgCommon:versionableAndDescribable">
                                 <xs:sequence>
+                                        <xs:element name="mappings" type="lgNaming:mappings" minOccurs="0" maxOccurs="1">
+                                                <xs:annotation>
+                                                        <xs:documentation>The mappings that are specific to this value set definition.  This set of mappings must be supplied when a value set definition is included in a changedEntry and must be empty when it is included in a valueSets collection, as the collection itself carries the mappings</xs:documentation>
+                                                </xs:annotation>
+                                        </xs:element>
                                         <xs:element name="source" type="lgCommon:source" minOccurs="0" maxOccurs="unbounded">
                                                 <xs:annotation>
                                                         <xs:documentation>The local identifiers of the source(s) of this property. Must match a local id of a supportedSource in the corresponding mappings section.</xs:documentation>
@@ -60,35 +63,35 @@
                                         </xs:element>
                                         <xs:element name="representsRealmOrContext" type="lgCommon:context" minOccurs="0" maxOccurs="unbounded">
                                                 <xs:annotation>
-                                                        <xs:documentation>The local identifiers of the context(s) in which this value domain applies. Must match a local id of a supportedContext in the corresponding mappings section.</xs:documentation>
+                                                        <xs:documentation>The local identifiers of the context(s) in which this value set definition applies. Must match a local id of a supportedContext in the corresponding mappings section.</xs:documentation>
                                                 </xs:annotation>
                                         </xs:element>
                                         <xs:element name="properties" type="lgCommon:properties" minOccurs="0" maxOccurs="1" >
                                                 <xs:annotation>
-                                                        <xs:documentation>A list of propeties used in the description of this value domain.</xs:documentation>
+                                                        <xs:documentation>A list of properties used in the description of this value set definition.</xs:documentation>
                                                 </xs:annotation>
                                         </xs:element>
                                         <xs:element name="definitionEntry" type="definitionEntry" minOccurs="0" maxOccurs="unbounded">
                                                 <xs:annotation>
-                                                        <xs:documentation>A portion of the value domain definition. Definition entries are ordered.</xs:documentation>
+                                                        <xs:documentation>A portion of the value set definition. Definition entries are ordered.</xs:documentation>
                                                 </xs:annotation>
-                                        </xs:element>
+                                        </xs:element>                                        
                                 </xs:sequence>
-                                <xs:attribute name="valueDomainURI" type="lgCommon:URI" use="required">
+                                <xs:attribute name="valueSetDefinitionURI" type="lgCommon:URI" use="required">
                                         <xs:annotation>
-                                                <xs:documentation>The URI of this value domain.</xs:documentation>
+                                                <xs:documentation>The URI of this value set definition.</xs:documentation>
                                         </xs:annotation>
                                 </xs:attribute>
-                                <xs:attribute name="valueDomainName" type="lgBuiltin:tsCaseIgnoreIA5String">
+                                <xs:attribute name="valueSetDefinitionName" type="lgBuiltin:tsCaseIgnoreIA5String">
                                         <xs:annotation>
-                                                <xs:documentation>The name of this domain, if any.</xs:documentation>
+                                                <xs:documentation>The name of this value set definition, if any.</xs:documentation>
                                         </xs:annotation>
                                 </xs:attribute>
                                 <xs:attribute name="defaultCodingScheme" type="lgCommon:codingSchemeName">
                                         <xs:annotation>
-                                                <xs:documentation>Local name of the primary coding scheme from which the domain is drawn. defaultCodingScheme must match a local id of a supportedCodingScheme in the mappings section.</xs:documentation>
-                                        </xs:annotation>
-                                </xs:attribute>
+                                                <xs:documentation>Local name of the primary coding scheme from which the value set is drawn. defaultCodingScheme must match a local id of a supportedCodingScheme in the mappings section.</xs:documentation>
+                                        </xs:annotation> 
+                                </xs:attribute>        
                         </xs:extension>
                 </xs:complexContent>
         </xs:complexType>
@@ -96,7 +99,6 @@
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <!-- Class: <<Enumeration>> definitionOperator -->
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-        <xs:element name="definitionOperator" type="lgVD:definitionOperator"/>
         <xs:simpleType name="definitionOperator">
                 <xs:annotation>
                         <xs:documentation>The description of how a given definition entry is applied</xs:documentation>
@@ -104,17 +106,17 @@
                 <xs:restriction base="xs:string">
                         <xs:enumeration value="OR">
                                 <xs:annotation>
-                                        <xs:documentation>Add the set of entityCodes described by the currentEntity to the value domain. (logical OR)</xs:documentation>
+                                        <xs:documentation>Add the set of entityCodes described by the currentEntity to the value set. (logical OR)</xs:documentation>
                                 </xs:annotation>
                         </xs:enumeration>
                         <xs:enumeration value="SUBTRACT">
                                 <xs:annotation>
-                                        <xs:documentation>Subtract (remove) the set of entityCodes described by the currentEntity to the value domain. (logical NAND)</xs:documentation>
+                                        <xs:documentation>Subtract (remove) the set of entityCodes described by the currentEntity to the value set. (logical NAND)</xs:documentation>
                                 </xs:annotation>
                         </xs:enumeration>
                         <xs:enumeration value="AND">
                                 <xs:annotation>
-                                        <xs:documentation>Only include the entity codes that are both in the value domain and the definition entry. (logical AND)</xs:documentation>
+                                        <xs:documentation>Only include the entity codes that are both in the value set and the definition entry. (logical AND)</xs:documentation>
                                 </xs:annotation>
                         </xs:enumeration>
                 </xs:restriction>
@@ -123,31 +125,34 @@
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <!-- Class: <<Choice>> definitionEntry  -->
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-        <xs:element name="definitionEntry" type="lgVD:definitionEntry"/>
         <xs:complexType name="definitionEntry">
                 <xs:annotation>
-                        <xs:documentation>A reference to an entry code, a coding scheme or another value domain along with the instructions about how the reference is applied. Definition entrys are applied in entryOrder, with each successive entry either adding to or subtracting from the final set of entity codes.</xs:documentation>
+                        <xs:documentation>A reference to an entry code, a coding scheme or another value set definition along with the instructions about how the reference is applied. Definition entrys are applied in entryOrder, with each successive entry either adding to or subtracting from the final set of entity codes.</xs:documentation>
                 </xs:annotation>
-                <xs:choice>
-                        <xs:element name="entityReference" type="entityReference" minOccurs="1" maxOccurs="1"/>
-                        <xs:element name="valueDomainReference" type="valueDomainReference" minOccurs="1" maxOccurs="1"/>
-                        <xs:element name="codingSchemeReference" type="codingSchemeReference" maxOccurs="1" minOccurs="1"/>
-                </xs:choice>
-                <xs:attribute name="ruleOrder" type="lgCommon:entryOrder" use="required">
-                        <xs:annotation>
-                                <xs:documentation>The unique identifier of the definition entry within the definition as well as the relative order in which this entry should be applied</xs:documentation>
-                        </xs:annotation>
-                </xs:attribute>
-                <xs:attribute name="operator" type="definitionOperator" use="optional">
-                        <xs:annotation>
-                                <xs:documentation>How this entry is to be applied to the value domain</xs:documentation>
-                        </xs:annotation>
-                </xs:attribute>
+                <xs:complexContent>
+                        <xs:extension base="lgCommon:versionable">
+                                <xs:choice>
+                                        <xs:element name="entityReference" type="entityReference" minOccurs="1" maxOccurs="1"/>
+                                        <xs:element name="valueSetDefinitionReference" type="valueSetDefinitionReference" minOccurs="1" maxOccurs="1"/>
+                                        <xs:element name="codingSchemeReference" type="codingSchemeReference" maxOccurs="1" minOccurs="1"/>
+                                        <xs:element name="propertyReference" type="propertyReference" maxOccurs="1" minOccurs="1"/>
+                                </xs:choice>
+                                <xs:attribute name="ruleOrder" type="lgCommon:entryOrder" use="required">
+                                        <xs:annotation>
+                                                <xs:documentation>The unique identifier of the definition entry within the definition as well as the relative order in which this entry should be applied</xs:documentation>
+                                        </xs:annotation>
+                                </xs:attribute>
+                                <xs:attribute name="operator" type="definitionOperator" use="optional">
+                                        <xs:annotation>
+                                                <xs:documentation>How this entry is to be applied to the value set definition</xs:documentation>
+                                        </xs:annotation>
+                                </xs:attribute>
+                        </xs:extension>
+                </xs:complexContent>
         </xs:complexType>
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <!-- Class: entityReference  -->
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-        <xs:element name="entityReference" type="lgVD:entityReference"/>
         <xs:complexType name="entityReference">
                 <xs:annotation>
                         <xs:documentation>A reference to an entityCode and/or one or more entityCodes that have a relationship to the specified entity code.</xs:documentation>
@@ -185,16 +190,15 @@
         </xs:complexType>
 
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-        <!-- Class: valueDomainReference  -->
+        <!-- Class: valueSetDefinitionReference  -->
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-        <xs:element name="valueDomainReference" type="lgVD:valueDomainReference"/>
-        <xs:complexType name="valueDomainReference">
+        <xs:complexType name="valueSetDefinitionReference">
                 <xs:annotation>
-                        <xs:documentation>A reference to the set of codes defined in another value domain. </xs:documentation>
+                        <xs:documentation>A reference to the set of codes defined in another value set definition.</xs:documentation>
                 </xs:annotation>
-                <xs:attribute name="valueDomainURI" type="lgCommon:URI" use="required">
+                <xs:attribute name="valueSetDefinitionURI" type="lgCommon:URI" use="required">
                         <xs:annotation>
-                                <xs:documentation>The URI of the value domain to apply the operator to. This value domain may be contained within the local service or may need to be resolved externally.</xs:documentation>
+                                <xs:documentation>The URI of the value set definition to apply the operator to. This value set definition may be contained within the local service or may need to be resolved externally.</xs:documentation>
                         </xs:annotation>
                 </xs:attribute>
         </xs:complexType>
@@ -202,7 +206,6 @@
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <!-- Class: codingSchemeReference  -->
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-        <xs:element name="codingSchemeReference" type="lgVD:codingSchemeReference"/>
         <xs:complexType name="codingSchemeReference">
                 <xs:annotation>
                         <xs:documentation>A reference to all of the entity codes in a given coding scheme. </xs:documentation>
@@ -215,10 +218,53 @@
         </xs:complexType>
         
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-        <!-- Class: pickLists  -->
+        <!-- Class: propertyReference  -->
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-        <xs:element name="pickLists" type="lgVD:pickLists"/>
-        <xs:complexType name="pickLists">
+        <xs:complexType name="propertyReference">
+                <xs:annotation>
+                        <xs:documentation>A reference to a propertyName or propertyValue and matchAlgoritm to use.</xs:documentation>
+                </xs:annotation>  
+                <xs:sequence>
+                        <xs:element name="propertyMatchValue" type="propertyMatchValue">
+                                <xs:annotation>
+                                        <xs:documentation>Value to be used to restrict entity property. matchAlgorithm can be used in conjunction to get matching entity properties.</xs:documentation>
+                                </xs:annotation>
+                        </xs:element>                          
+                 </xs:sequence>
+                <xs:attribute name="codingScheme" type="lgCommon:codingSchemeName" use="required">
+                        <xs:annotation>
+                                <xs:documentation>The local identifier of the codingScheme that this propertyreference will be resolved against. codingScheme must match a local id of a supportedCodingscheme in the corresponding mappings section.</xs:documentation>
+                        </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="propertyName" type="lgCommon:propertyName">
+                        <xs:annotation>
+                                <xs:documentation>The local identifier to be used to restrict the entities to have property with this name. Must match a local id of a supportedProperty in the corresponding mappings section.</xs:documentation>
+                        </xs:annotation>
+                </xs:attribute>
+        </xs:complexType>        
+        
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- Class: <<EntryPoint>> propertyMatchValue  -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <xs:complexType name="propertyMatchValue">
+                <xs:complexContent>
+                        <xs:extension base = "lgCommon:text">
+                                <xs:annotation>
+                                        <xs:documentation>Property matching value to be used to restrict entity property. matchAlgorithm can be used in conjunction to get matching entity properties.</xs:documentation>
+                                </xs:annotation>
+                                <xs:attribute name="matchAlgorithm" type="lgBuiltin:tsCaseIgnoreIA5String">
+                                        <xs:annotation>
+                                                <xs:documentation>Algorithm to be used in conjunction with propertyValue.</xs:documentation>
+                                        </xs:annotation>
+                                </xs:attribute>                                
+                        </xs:extension>                        
+                </xs:complexContent>
+        </xs:complexType>        
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- Class: <<EntryPoint>> pickListDefinitions  -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <xs:element name="pickListDefinitions" type="pickListDefinitions"/>
+        <xs:complexType name="pickListDefinitions">
                 <xs:annotation>
                         <xs:documentation>A collection of pick list definitions.</xs:documentation>
                 </xs:annotation>
@@ -237,16 +283,24 @@
         </xs:complexType>
 
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- Class: <<EntryPoint>> pickListDefinition  -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <xs:element name="pickListDefinition" type="pickListDefinition"/>
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <!-- Class: pickListDefinition -->
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-        <xs:element name="pickListDefinition" type="lgVD:pickListDefinition"/>
         <xs:complexType name="pickListDefinition">
                 <xs:annotation>
-                        <xs:documentation>An ordered list of entity codes and corresponding presentations drawn from a value domain.</xs:documentation>
+                        <xs:documentation>An ordered list of entity codes and corresponding presentations drawn from a value set definition.</xs:documentation>
                 </xs:annotation>
                 <xs:complexContent>
                         <xs:extension base="lgCommon:versionableAndDescribable">
                                 <xs:sequence>
+                                        <xs:element name="mappings" type="lgNaming:mappings" minOccurs="0" maxOccurs="1">
+                                                <xs:annotation>
+                                                        <xs:documentation>The mappings that are specific to this pick list definition.  This set of mappings must be supplied when a pick list definition is included in a changedEntry and must be empty when it is included in a pickLists collection, as the collection itself carries the mappings</xs:documentation>
+                                                </xs:annotation>
+                                        </xs:element>
                                         <xs:element name="pickListEntryNode" minOccurs="0" maxOccurs="unbounded" type="pickListEntryNode">
                                                 <xs:annotation>
                                                         <xs:documentation>An entry in the list</xs:documentation>
@@ -273,9 +327,9 @@
                                                 <xs:documentation>An identifier that uniquely names this list within the context of the collection.</xs:documentation>
                                         </xs:annotation>
                                 </xs:attribute>
-                                <xs:attribute name="representsValueDomain" type="lgCommon:URI" use="required">
+                                <xs:attribute name="representsValueSetDefinition" type="lgCommon:URI" use="required">
                                         <xs:annotation>
-                                                <xs:documentation>The URI of the value domain definition that is represented by this pick list</xs:documentation>
+                                                <xs:documentation>The URI of the value set definition that is represented by this pick list</xs:documentation>
                                         </xs:annotation>
                                 </xs:attribute>
                                 <xs:attribute name="defaultEntityCodeNamespace" type="lgCommon:namespaceName">
@@ -293,9 +347,9 @@
                                                 <xs:documentation>The local identifier of a sort order that is used as the default in the definition of the pick list</xs:documentation>
                                         </xs:annotation>
                                 </xs:attribute>
-                                <xs:attribute name="completeDomain" type="lgBuiltin:tsBoolean">
+                                <xs:attribute name="completeSet" type="lgBuiltin:tsBoolean">
                                         <xs:annotation>
-                                                <xs:documentation>True means that this pick list should represent all of the entries in the domain. Any active entity codes that aren't in the specific pick list entries are added to the end, using the designations identified by the defaultLanguage, defaultSortOrder and defaultPickContext. Default: false</xs:documentation>
+                                                <xs:documentation>True means that this pick list should represent all of the entries in the value set definition. Any active entity codes that aren't in the specific pick list entries are added to the end, using the designations identified by the defaultLanguage, defaultSortOrder and defaultPickContext. Default: false</xs:documentation>
                                         </xs:annotation>
                                 </xs:attribute>
                         </xs:extension>
@@ -305,7 +359,6 @@
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <!-- Class: <<Choice>> pickListEntryNode  -->
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-        <xs:element name="pickListEntryNode" type="lgVD:pickListEntryNode"/>
         <xs:complexType name="pickListEntryNode">
                 <xs:annotation>
                         <xs:documentation>An inclusion (pickListEntry) or exclusion (pickListEntryExclusion) in a pick list definition</xs:documentation>
@@ -335,7 +388,6 @@
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <!-- Class: pickListEntryExclusion  -->
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-        <xs:element name="pickListEntryExclusion" type="lgVD:pickListEntryExclusion"/>
         <xs:complexType name="pickListEntryExclusion">
                 <xs:annotation>
                         <xs:documentation>An entity code that is explicitly excluded from a pick list.</xs:documentation>
@@ -355,13 +407,12 @@
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <!-- Class: pickListEntry  -->
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-        <xs:element name="pickListEntry" type="lgVD:pickListEntry"/>
         <xs:complexType name="pickListEntry">
                 <xs:annotation>
                         <xs:documentation>An entity code and corresponding textual representation. </xs:documentation>
                 </xs:annotation>
                 <xs:sequence>
-                        <xs:element name="pickText" type="lgBuiltin:tsCaseSensitiveDirectoryString" minOccurs="0" maxOccurs="1">
+                        <xs:element name="pickText" type="lgBuiltin:tsCaseSensitiveDirectoryString" minOccurs="1">
                                 <xs:annotation>
                                         <xs:documentation>The text that represents this node in the pick list. Some business rules may require that this string match a presentation associated with the entityCode</xs:documentation>
                                 </xs:annotation>
@@ -377,9 +428,9 @@
                                 <xs:documentation>Relative order of this entry in the list. pickListEntries without a supplied order follow the all entries with an order, and the order is not defined.</xs:documentation>
                         </xs:annotation>
                 </xs:attribute>
-                <xs:attribute name="entityCode" type="lgCommon:entityCode">
+                <xs:attribute name="entityCode" type="lgCommon:entityCode" use="required">
                         <xs:annotation>
-                                <xs:documentation>Entity code associated with this entry. If absent, this entry can't be selected.</xs:documentation>
+                                <xs:documentation>Entity code associated with this entry. </xs:documentation>
                         </xs:annotation>
                 </xs:attribute>
                 <xs:attribute name="entityCodeNamespace" type="lgCommon:namespaceName">
@@ -389,7 +440,7 @@
                 </xs:attribute>
                 <xs:attribute name="propertyId" type="lgCommon:propertyId">
                         <xs:annotation>
-                                <xs:documentation>The property identifier associated with the entityCode and entityCodeNamespace that the pickText was derived from. propertyId cannot be present unless entityCode is also present, even in the case where the propertyId and entityCodeNamespace uniquely determine the entityCode. If absent, the pick text can be anything. Some terminologies may have business rules requiring this attribute to be present.</xs:documentation>
+                                <xs:documentation>The property identifier associated with the entityCode and entityCodeNamespace that the pickText was derived from.  If absent, the pick text can be anything. Some terminologies may have business rules requiring this attribute to be present.</xs:documentation>
                         </xs:annotation>
                 </xs:attribute>
                 <xs:attribute name="isDefault" type="lgBuiltin:tsBoolean">

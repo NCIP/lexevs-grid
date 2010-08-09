@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<xs:schema xmlns:lbCore="http://LexGrid.org/schema/LexBIG/2009/01/Core" 
-xmlns:lbCoreTypes="http://LexGrid.org/schema/2009/01/LexGrid/Coretypes" 
-xmlns:lbColl="http://LexGrid.org/schema/LexBIG/2009/01/Collections" 
-xmlns:lgBuiltin="http://LexGrid.org/schema/2009/01/LexGrid/builtins" 
-xmlns:lgCommon="http://LexGrid.org/schema/2009/01/LexGrid/commonTypes" 
-xmlns:lgNaming="http://LexGrid.org/schema/2009/01/LexGrid/naming" 
-xmlns:lgCon="http://LexGrid.org/schema/2009/01/LexGrid/concepts" 
-xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-targetNamespace="http://LexGrid.org/schema/LexBIG/2009/01/Core" 
-elementFormDefault="qualified">
-
-	<xs:import namespace="http://LexGrid.org/schema/LexBIG/2009/01/Collections" schemaLocation="Collections.xsd"/>
-	<xs:import namespace="http://LexGrid.org/schema/2009/01/LexGrid/builtins" schemaLocation="builtins.xsd"/>
-	<xs:import namespace="http://LexGrid.org/schema/2009/01/LexGrid/commonTypes" schemaLocation="commonTypes.xsd"/>
-	<xs:import namespace="http://LexGrid.org/schema/2009/01/LexGrid/concepts" schemaLocation="concepts.xsd"/>
-	<xs:import namespace="http://LexGrid.org/schema/2009/01/LexGrid/naming" schemaLocation="naming.xsd"/>
-	<xs:import namespace="http://LexGrid.org/schema/2009/01/LexGrid/Coretypes" schemaLocation="CoreTypes.xsd"/>
+<xs:schema xmlns:lbCore="http://LexGrid.org/schema/LexBIG/2010/01/Core" 
+	xmlns:lbColl="http://LexGrid.org/schema/LexBIG/2010/01/Collections" 
+	xmlns:lgBuiltin="http://LexGrid.org/schema/2010/01/LexGrid/builtins" 
+	xmlns:lgCommon="http://LexGrid.org/schema/2010/01/LexGrid/commonTypes" 
+	xmlns:lgNaming="http://LexGrid.org/schema/2010/01/LexGrid/naming" 
+	xmlns:lgCon="http://LexGrid.org/schema/2010/01/LexGrid/concepts" 
+	xmlns:lgValueDomains="http://LexGrid.org/schema/2010/01/LexGrid/valueSets" 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	targetNamespace="http://LexGrid.org/schema/LexBIG/2010/01/Core" elementFormDefault="qualified">
+	<xs:import namespace="http://LexGrid.org/schema/LexBIG/2010/01/Collections" schemaLocation="Collections.xsd"/>
+	<xs:import namespace="http://LexGrid.org/schema/2010/01/LexGrid/builtins" schemaLocation="http://LexGrid.org/schema/2010/01/LexGrid/builtins.xsd"/>
+	<xs:import namespace="http://LexGrid.org/schema/2010/01/LexGrid/commonTypes" schemaLocation="http://LexGrid.org/schema/2010/01/LexGrid/commonTypes.xsd"/>
+	<xs:import namespace="http://LexGrid.org/schema/2010/01/LexGrid/concepts" schemaLocation="http://LexGrid.org/schema/2010/01/LexGrid/concepts.xsd"/>
+	<xs:import namespace="http://LexGrid.org/schema/2010/01/LexGrid/naming" schemaLocation="http://LexGrid.org/schema/2010/01/LexGrid/naming.xsd"/>
+	<xs:import namespace="http://LexGrid.org/schema/2010/01/LexGrid/valueSetss" schemaLocation="http://LexGrid.org/schema/2010/01/LexGrid/valueSets.xsd"/>
 	<!-- ================================================= -->
 	<!-- Package: <<XSDschema>> Core	   				   -->
 	<!-- ================================================= -->
@@ -43,7 +41,7 @@ elementFormDefault="qualified">
 		</xs:sequence>
 		<xs:attribute name="codingSchemeURI" type="lgCommon:URI">
 			<xs:annotation>
-				<xs:documentation>The official URN of the coding scheme</xs:documentation>
+				<xs:documentation>The official URI of the coding scheme</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="representsVersion" type="lgCommon:version">
@@ -215,7 +213,7 @@ elementFormDefault="qualified">
 		<xs:complexContent>
 			<xs:extension base="lbCore:ResolvedCodedNodeReference">
 				<xs:sequence>
-					<xs:element name="referencedEntry" type="lgCon:concept" minOccurs="0">
+					<xs:element name="referencedEntry" type="lgCon:entity" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>The resolved concept, if present.
 							Alias for ResolvedCodedNodeReference:entity</xs:documentation>
@@ -313,6 +311,11 @@ elementFormDefault="qualified">
 				<xs:documentation>The local name of the association</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
+		<xs:attribute name="relationsContainerName" type="lgBuiltin:tsLocalId">
+			<xs:annotation>
+				<xs:documentation>The local name of the relations container</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
 		<xs:attribute name="directionalName" type="lgBuiltin:tsCaseIgnoreIA5String">
 			<xs:annotation>
 				<xs:documentation>The name assigned to the association so that it can be read
@@ -393,7 +396,40 @@ elementFormDefault="qualified">
 		</xs:attribute>
 		<xs:attribute name="codingSchemeVersion" type="lgCommon:version"/>
 	</xs:complexType>
-	
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<!-- Class: LogLevel								   -->
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<xs:simpleType name="LogLevel">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="debug">
+				<xs:annotation>
+					<xs:documentation>The entry represents a debug message.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="info">
+				<xs:annotation>
+					<xs:documentation>The entry represents an informational
+					message.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="warn">
+				<xs:annotation>
+					<xs:documentation>The entry represents a warning message.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="error">
+				<xs:annotation>
+					<xs:documentation>The entry represents a processing error.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="fatal">
+				<xs:annotation>
+					<xs:documentation>The entry represents an unrecoverable
+					error.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<!-- Class: LogEntry								   -->
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -417,13 +453,7 @@ elementFormDefault="qualified">
 					<xs:documentation>Text of message</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="entryLevel" type="lbCoreTypes:LogLevel">
-		        <xs:annotation>
-					<xs:documentation>Level (error, warn, info, ...)</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 		</xs:sequence>
-
 		<xs:attribute name="associatedURL" type="xs:anyURI">
 			<xs:annotation>
 				<xs:documentation>The URL associated with the log entry. Used for retrieving
@@ -435,7 +465,12 @@ elementFormDefault="qualified">
 				<xs:documentation>The time that the entry was made. Time is local to originator
 					location.</xs:documentation>
 			</xs:annotation>
-		</xs:attribute>	
+		</xs:attribute>
+		<xs:attribute name="entryLevel" type="lbCore:LogLevel">
+			<xs:annotation>
+				<xs:documentation>Level (error, warn, info, ...)</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
 		<xs:attribute name="messageNumber" type="xs:int">
 			<xs:annotation>
 				<xs:documentation>Number that uniquely identifies the message within the error
@@ -443,7 +478,19 @@ elementFormDefault="qualified">
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
-	
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<!-- Class: CodingSchemeVersionStatus				   -->
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<xs:simpleType name="CodingSchemeVersionStatus">
+		<xs:annotation>
+			<xs:documentation>This class provides a series of set values for the version status of a given coding scheme.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="pending"/>
+			<xs:enumeration value="active"/>
+			<xs:enumeration value="inactive"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<!-- Class: CodingSchemeTag							   -->
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -519,7 +566,7 @@ elementFormDefault="qualified">
 		</xs:attribute>
 		<xs:attribute name="codingSchemeURI" type="lgBuiltin:tsURI">
 			<xs:annotation>
-				<xs:documentation>The registered URN of the associated coding scheme.</xs:documentation>
+				<xs:documentation>The registered URI of the associated coding scheme.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="codingSchemeVersion" type="lgCommon:version">

@@ -28,7 +28,7 @@ public class LexEVSDataServiceProviderImpl{
 
     public org.LexGrid.LexBIG.cagrid.dataService.stubs.RegisterSecurityTokenResponse registerSecurityToken(org.LexGrid.LexBIG.cagrid.dataService.stubs.RegisterSecurityTokenRequest params) throws RemoteException {
     org.LexGrid.LexBIG.cagrid.dataService.stubs.RegisterSecurityTokenResponse boxedResult = new org.LexGrid.LexBIG.cagrid.dataService.stubs.RegisterSecurityTokenResponse();
-    boxedResult.setLexEVSDataServiceReference(impl.registerSecurityToken(params.getCodingSchemeURN(),params.getSecurityToken().getSecurityToken()));
+    boxedResult.setLexEVSDataServiceReference(impl.registerSecurityToken(params.getString(),params.getSecurityToken().getSecurityToken()));
     return boxedResult;
   }
 

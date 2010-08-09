@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://dataService.cagrid.LexBIG.LexGrid.org/LexEVSDataService" xmlns:wsrp="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties-1.2-draft-01.xsd" xmlns:wsrlw="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceLifetime-1.2-draft-01.wsdl" xmlns:wsdlpp="http://www.globus.org/namespaces/2004/10/WSDLPreprocessor" xmlns:gtwsdl1="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ServiceGroup-1.2-draft-01.wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/03/addressing" xmlns:wsntw="http://docs.oasis-open.org/wsn/2004/06/wsn-WS-BaseNotification-1.2-draft-01.wsdl" xmlns:wsrbfw="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-BaseFaults-1.2-draft-01.wsdl" xmlns:wsrpw="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties-1.2-draft-01.wsdl" xmlns:wns2="http://gov.nih.nci.cagrid.data/DataService" xmlns:wns0="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties-1.2-draft-01.wsdl" xmlns:wns1="http://security.introduce.cagrid.nci.nih.gov/ServiceSecurity" xmlns:ns5="http://LexGrid.org/schema/2009/01/LexGrid/codingSchemes" xmlns:ns4="http://LexGrid.org/schema/2009/01/LexGrid/builtins" xmlns:ns14="http://dataService.cagrid.LexBIG.LexGrid.org/LexEVSDataService/CQLResultTypes" xmlns:ns17="http://LexGrid.org/schema/2009/01/LexGrid/lbInterfacetypes" xmlns:ns22="http://LexGrid.org/schema/LexBIG/2009/01/InterfaceElements" xmlns:ns7="http://LexGrid.org/schema/2009/01/LexGrid/commonTypes" xmlns:ns3="http://LexGrid.org/schema/2009/01/LexGrid/naming" xmlns:ns0="http://LexGrid.org/schema/2009/01/LexGrid/commonTypesTypes" xmlns:ns24="http://LexGrid.org/schema/LexBIG/2009/01/caGrid" xmlns:ns8="gme://caCORE.caCORE/3.2/gov.nih.nci.evs.security" xmlns:ns13="http://CQL.caBIG/1/gov.nih.nci.cagrid.CQLResultSet" xmlns:ns9="http://dataService.cagrid.LexBIG.LexGrid.org/LexEVSDataService/types" xmlns:ns12="http://CQL.caBIG/1/gov.nih.nci.cagrid.CQLQuery" xmlns:ns21="http://LexGrid.org/schema/2009/01/LexGrid/Coretypes" xmlns:ns11="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata" xmlns:ns16="http://gov.nih.nci.cagrid.data/DataServiceExceptions" xmlns:ns15="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.dataservice" xmlns:ns23="http://LexGrid.org/schema/2009/01/LexGrid/NCIHistory" xmlns:ns25="http://LexGrid.org/schema/LexBIG/2009/01/enums" xmlns:ns6="http://LexGrid.org/schema/2009/01/LexGrid/relations" xmlns:ns10="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.security" xmlns:ns20="http://LexGrid.org/schema/LexBIG/2009/01/Core" xmlns:ns2="http://LexGrid.org/schema/2009/01/LexGrid/versions" xmlns:ns1="http://LexGrid.org/schema/2009/01/LexGrid/concepts" xmlns:ns19="http://LexGrid.org/schema/2009/01/LexGrid/NCIHistorytypes" xmlns:ns18="http://LexGrid.org/schema/LexBIG/2009/01/Collections" name="LexEVSDataService" targetNamespace="http://dataService.cagrid.LexBIG.LexGrid.org/LexEVSDataService">
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://dataService.cagrid.LexBIG.LexGrid.org/LexEVSDataService" xmlns:wsrp="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties-1.2-draft-01.xsd" xmlns:wsrlw="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceLifetime-1.2-draft-01.wsdl" xmlns:wsdlpp="http://www.globus.org/namespaces/2004/10/WSDLPreprocessor" xmlns:gtwsdl1="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ServiceGroup-1.2-draft-01.wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/03/addressing" xmlns:wsntw="http://docs.oasis-open.org/wsn/2004/06/wsn-WS-BaseNotification-1.2-draft-01.wsdl" xmlns:wsrbfw="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-BaseFaults-1.2-draft-01.wsdl" xmlns:wsrpw="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties-1.2-draft-01.wsdl" xmlns:wns1="http://gov.nih.nci.cagrid.data/DataService" xmlns:wns0="http://security.introduce.cagrid.nci.nih.gov/ServiceSecurity" xmlns:wns2="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties-1.2-draft-01.wsdl" xmlns:ns7="gme://caCORE.caCORE/3.2/gov.nih.nci.evs.security" xmlns:ns14="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.dataservice" xmlns:ns13="http://dataService.cagrid.LexBIG.LexGrid.org/LexEVSDataService/CQLResultTypes" xmlns:ns9="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.security" xmlns:ns1="http://LexGrid.org/schema/2010/01/LexGrid/versions" xmlns:ns15="http://gov.nih.nci.cagrid.data/DataServiceExceptions" xmlns:ns5="http://LexGrid.org/schema/2010/01/LexGrid/relations" xmlns:ns6="http://LexGrid.org/schema/2010/01/LexGrid/commonTypes" xmlns:ns0="http://LexGrid.org/schema/2010/01/LexGrid/concepts" xmlns:ns10="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata" xmlns:ns2="http://LexGrid.org/schema/2010/01/LexGrid/naming" xmlns:ns12="http://CQL.caBIG/1/gov.nih.nci.cagrid.CQLResultSet" xmlns:ns4="http://LexGrid.org/schema/2010/01/LexGrid/codingSchemes" xmlns:ns3="http://LexGrid.org/schema/2010/01/LexGrid/builtins" xmlns:ns8="http://dataService.cagrid.LexBIG.LexGrid.org/LexEVSDataService/types" xmlns:ns11="http://CQL.caBIG/1/gov.nih.nci.cagrid.CQLQuery" name="LexEVSDataService" targetNamespace="http://dataService.cagrid.LexBIG.LexGrid.org/LexEVSDataService">
   <import namespace="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties-1.2-draft-01.wsdl" location="../wsrf/properties/WS-ResourceProperties.wsdl" />
   <import namespace="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-BaseFaults-1.2-draft-01.wsdl" location="../wsrf/faults/WS-BaseFaults.wsdl" />
   <import namespace="http://docs.oasis-open.org/wsn/2004/06/wsn-WS-BaseNotification-1.2-draft-01.wsdl" location="../wsrf/notification/WS-BaseN.wsdl" />
   <import namespace="http://gov.nih.nci.cagrid.data/DataService" location="./DataService.wsdl" />
-  <import namespace="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties-1.2-draft-01.wsdl" location="./../wsrf/properties/WS-ResourceProperties.wsdl" />
   <import namespace="http://security.introduce.cagrid.nci.nih.gov/ServiceSecurity" location="./ServiceSecurity.wsdl" />
+  <import namespace="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties-1.2-draft-01.wsdl" location="./../wsrf/properties/WS-ResourceProperties.wsdl" />
   <!--============================================================
 
                       T Y P E S
@@ -14,40 +14,30 @@
   <types>
     <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsrbf="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-BaseFaults-1.2-draft-01.xsd" targetNamespace="http://dataService.cagrid.LexBIG.LexGrid.org/LexEVSDataService" elementFormDefault="qualified" attributeFormDefault="unqualified">
       <import namespace="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-BaseFaults-1.2-draft-01.xsd" schemaLocation="../wsrf/faults/WS-BaseFaults.xsd" />
-      <import namespace="http://LexGrid.org/schema/2009/01/LexGrid/codingSchemes" schemaLocation="./codingSchemes.xsd" />
-      <import namespace="http://LexGrid.org/schema/2009/01/LexGrid/builtins" schemaLocation="./builtins.xsd" />
-      <import namespace="http://dataService.cagrid.LexBIG.LexGrid.org/LexEVSDataService/CQLResultTypes" schemaLocation="./LexEVSDataService_CQLResultTypes.xsd" />
-      <import namespace="http://LexGrid.org/schema/2009/01/LexGrid/lbInterfacetypes" schemaLocation="./InterfaceElementstypes.xsd" />
-      <import namespace="http://LexGrid.org/schema/LexBIG/2009/01/InterfaceElements" schemaLocation="./InterfaceElements.xsd" />
-      <import namespace="http://LexGrid.org/schema/2009/01/LexGrid/commonTypes" schemaLocation="./commonTypes.xsd" />
-      <import namespace="http://LexGrid.org/schema/2009/01/LexGrid/naming" schemaLocation="./naming.xsd" />
-      <import namespace="http://LexGrid.org/schema/2009/01/LexGrid/commonTypesTypes" schemaLocation="./commonTypesTypes.xsd" />
-      <import namespace="http://LexGrid.org/schema/LexBIG/2009/01/caGrid" schemaLocation="./cagrid.xsd" />
       <import namespace="gme://caCORE.caCORE/3.2/gov.nih.nci.evs.security" schemaLocation="./caCORE.caCORE-3.2_gov.nih.nci.evs.security.xsd" />
+      <import namespace="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.dataservice" schemaLocation="./xsd/cagrid/types/data/data.xsd" />
+      <import namespace="http://dataService.cagrid.LexBIG.LexGrid.org/LexEVSDataService/CQLResultTypes" schemaLocation="./LexEVSDataService_CQLResultTypes.xsd" />
+      <import namespace="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.security" schemaLocation="./xsd/cagrid/types/security/security.xsd" />
+      <import namespace="http://LexGrid.org/schema/2010/01/LexGrid/versions" schemaLocation="./versions.xsd" />
+      <import namespace="http://gov.nih.nci.cagrid.data/DataServiceExceptions" schemaLocation="./DataServiceExceptions.xsd" />
+      <import namespace="http://LexGrid.org/schema/2010/01/LexGrid/relations" schemaLocation="./relations.xsd" />
+      <import namespace="http://LexGrid.org/schema/2010/01/LexGrid/commonTypes" schemaLocation="./commonTypes.xsd" />
+      <import namespace="http://LexGrid.org/schema/2010/01/LexGrid/concepts" schemaLocation="./concepts.xsd" />
+      <import namespace="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata" schemaLocation="./xsd/cagrid/types/caGridMetadata.xsd" />
+      <import namespace="http://LexGrid.org/schema/2010/01/LexGrid/naming" schemaLocation="./naming.xsd" />
       <import namespace="http://CQL.caBIG/1/gov.nih.nci.cagrid.CQLResultSet" schemaLocation="./1_gov.nih.nci.cagrid.CQLResultSet.xsd" />
+      <import namespace="http://LexGrid.org/schema/2010/01/LexGrid/codingSchemes" schemaLocation="./codingSchemes.xsd" />
+      <import namespace="http://LexGrid.org/schema/2010/01/LexGrid/builtins" schemaLocation="./builtins.xsd" />
       <import namespace="http://dataService.cagrid.LexBIG.LexGrid.org/LexEVSDataService/types" schemaLocation="./LexEVSDataServiceTypes.xsd" />
       <import namespace="http://CQL.caBIG/1/gov.nih.nci.cagrid.CQLQuery" schemaLocation="./1_gov.nih.nci.cagrid.CQLQuery.xsd" />
-      <import namespace="http://LexGrid.org/schema/2009/01/LexGrid/Coretypes" schemaLocation="./CoreTypes.xsd" />
-      <import namespace="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata" schemaLocation="./xsd/cagrid/types/caGridMetadata.xsd" />
-      <import namespace="http://gov.nih.nci.cagrid.data/DataServiceExceptions" schemaLocation="./DataServiceExceptions.xsd" />
-      <import namespace="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.dataservice" schemaLocation="./xsd/cagrid/types/data/data.xsd" />
-      <import namespace="http://LexGrid.org/schema/2009/01/LexGrid/NCIHistory" schemaLocation="./NCIHistory.xsd" />
-      <import namespace="http://LexGrid.org/schema/LexBIG/2009/01/enums" schemaLocation="./enums.xsd" />
-      <import namespace="http://LexGrid.org/schema/2009/01/LexGrid/relations" schemaLocation="./relations.xsd" />
-      <import namespace="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.security" schemaLocation="./xsd/cagrid/types/security/security.xsd" />
-      <import namespace="http://LexGrid.org/schema/LexBIG/2009/01/Core" schemaLocation="./Core.xsd" />
-      <import namespace="http://LexGrid.org/schema/2009/01/LexGrid/versions" schemaLocation="./versions.xsd" />
-      <import namespace="http://LexGrid.org/schema/2009/01/LexGrid/concepts" schemaLocation="./concepts.xsd" />
-      <import namespace="http://LexGrid.org/schema/2009/01/LexGrid/NCIHistorytypes" schemaLocation="./NCIHistorytypes.xsd" />
-      <import namespace="http://LexGrid.org/schema/LexBIG/2009/01/Collections" schemaLocation="./Collections.xsd" />
       <element name="RegisterSecurityTokenRequest">
         <complexType>
           <sequence>
-            <element name="codingSchemeURN" type="xs:string" minOccurs="1" maxOccurs="1" />
+            <element name="string" type="xs:string" minOccurs="1" maxOccurs="1" />
             <element name="securityToken">
               <complexType>
                 <sequence>
-                  <element ref="ns8:SecurityToken" minOccurs="1" maxOccurs="1" />
+                  <element ref="ns7:SecurityToken" minOccurs="1" maxOccurs="1" />
                 </sequence>
               </complexType>
             </element>
@@ -57,15 +47,15 @@
       <element name="RegisterSecurityTokenResponse">
         <complexType>
           <sequence>
-            <element ref="ns9:LexEVSDataServiceReference" minOccurs="1" maxOccurs="1" />
+            <element ref="ns8:LexEVSDataServiceReference" minOccurs="1" maxOccurs="1" />
           </sequence>
         </complexType>
       </element>
       <element name="LexEVSDataServiceResourceProperties">
         <complexType>
           <sequence>
-            <element ref="ns11:ServiceMetadata" />
-            <element ref="ns15:DomainModel" />
+            <element ref="ns10:ServiceMetadata" />
+            <element ref="ns14:DomainModel" />
           </sequence>
         </complexType>
       </element>
@@ -88,6 +78,16 @@
       <input message="tns:RegisterSecurityTokenRequest" wsa:Action="http://dataService.cagrid.LexBIG.LexGrid.org/LexEVSDataService/RegisterSecurityTokenRequest" />
       <output message="tns:RegisterSecurityTokenResponse" wsa:Action="http://dataService.cagrid.LexBIG.LexGrid.org/LexEVSDataService/RegisterSecurityTokenResponse" />
     </operation>
+    <operation name="getServiceSecurityMetadata">
+      <input message="wns0:GetServiceSecurityMetadataRequest" wsa:Action="http://security.introduce.cagrid.nci.nih.gov/ServiceSecurity/GetServiceSecurityMetadataRequest" />
+      <output message="wns0:GetServiceSecurityMetadataResponse" wsa:Action="http://security.introduce.cagrid.nci.nih.gov/ServiceSecurity/GetServiceSecurityMetadataResponse" />
+    </operation>
+    <operation name="query">
+      <input message="wns1:QueryRequest" wsa:Action="http://data.cagrid.nci.nih.gov/DataService/QueryRequest" />
+      <output message="wns1:QueryResponse" wsa:Action="http://data.cagrid.nci.nih.gov/DataService/QueryResponse" />
+      <fault name="QueryProcessingException" message="wns1:QueryProcessingExceptionFaultMessage" wsa:Action="http://gov.nih.nci.cagrid.data/DataService/QueryProcessingExceptionFaultMessage" />
+      <fault name="MalformedQueryException" message="wns1:MalformedQueryExceptionFaultMessage" wsa:Action="http://gov.nih.nci.cagrid.data/DataService/MalformedQueryExceptionFaultMessage" />
+    </operation>
     <wsdl:operation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="GetMultipleResourceProperties">
       <wsdl:input name="GetMultipleResourcePropertiesRequest" message="wsrpw:GetMultipleResourcePropertiesRequest" wsa:Action="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties/GetMultipleResourceProperties" />
       <wsdl:output name="GetMultipleResourcePropertiesResponse" message="wsrpw:GetMultipleResourcePropertiesResponse" wsa:Action="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties/GetMultipleResourcePropertiesResponse" />
@@ -109,16 +109,6 @@
       <wsdl:fault name="InvalidQueryExpressionFault" message="wsrpw:InvalidQueryExpressionFault" />
       <wsdl:fault name="QueryEvaluationErrorFault" message="wsrpw:QueryEvaluationErrorFault" />
     </wsdl:operation>
-    <operation name="getServiceSecurityMetadata">
-      <input message="wns1:GetServiceSecurityMetadataRequest" wsa:Action="http://security.introduce.cagrid.nci.nih.gov/ServiceSecurity/GetServiceSecurityMetadataRequest" />
-      <output message="wns1:GetServiceSecurityMetadataResponse" wsa:Action="http://security.introduce.cagrid.nci.nih.gov/ServiceSecurity/GetServiceSecurityMetadataResponse" />
-    </operation>
-    <operation name="query">
-      <input message="wns2:QueryRequest" wsa:Action="http://data.cagrid.nci.nih.gov/DataService/QueryRequest" />
-      <output message="wns2:QueryResponse" wsa:Action="http://data.cagrid.nci.nih.gov/DataService/QueryResponse" />
-      <fault name="QueryProcessingException" message="wns2:QueryProcessingExceptionFaultMessage" wsa:Action="http://gov.nih.nci.cagrid.data/DataService/QueryProcessingExceptionFaultMessage" />
-      <fault name="MalformedQueryException" message="wns2:MalformedQueryExceptionFaultMessage" wsa:Action="http://gov.nih.nci.cagrid.data/DataService/MalformedQueryExceptionFaultMessage" />
-    </operation>
   </portType>
 </definitions>
 

@@ -12,12 +12,6 @@ import java.rmi.RemoteException;
  */
 public interface LexEVSDataServiceI {
 
-  public org.oasis.wsrf.properties.GetMultipleResourcePropertiesResponse getMultipleResourceProperties(org.oasis.wsrf.properties.GetMultipleResourceProperties_Element params) throws RemoteException ;
-
-  public org.oasis.wsrf.properties.GetResourcePropertyResponse getResourceProperty(javax.xml.namespace.QName params) throws RemoteException ;
-
-  public org.oasis.wsrf.properties.QueryResourcePropertiesResponse queryResourceProperties(org.oasis.wsrf.properties.QueryResourceProperties_Element params) throws RemoteException ;
-
   /**
    * The standard caGrid Data Service query method.
    *
@@ -31,7 +25,19 @@ public interface LexEVSDataServiceI {
    */
   public gov.nih.nci.cagrid.cqlresultset.CQLQueryResults query(gov.nih.nci.cagrid.cqlquery.CQLQuery cqlQuery) throws RemoteException, gov.nih.nci.cagrid.data.faults.QueryProcessingExceptionType, gov.nih.nci.cagrid.data.faults.MalformedQueryExceptionType ;
 
-  public org.LexGrid.LexBIG.cagrid.dataService.client.LexEVSDataServiceClient registerSecurityToken(java.lang.String codingSchemeURN,gov.nih.nci.evs.security.SecurityToken securityToken) throws RemoteException, org.apache.axis.types.URI.MalformedURIException ;
+  public org.oasis.wsrf.properties.GetMultipleResourcePropertiesResponse getMultipleResourceProperties(org.oasis.wsrf.properties.GetMultipleResourceProperties_Element params) throws RemoteException ;
+
+  public org.oasis.wsrf.properties.GetResourcePropertyResponse getResourceProperty(javax.xml.namespace.QName params) throws RemoteException ;
+
+  public org.oasis.wsrf.properties.QueryResourcePropertiesResponse queryResourceProperties(org.oasis.wsrf.properties.QueryResourceProperties_Element params) throws RemoteException ;
+
+  /**
+   * codingSchemeUri
+   *
+   * @param string
+   * @param securityToken
+   */
+  public org.LexGrid.LexBIG.cagrid.dataService.client.LexEVSDataServiceClient registerSecurityToken(java.lang.String string,gov.nih.nci.evs.security.SecurityToken securityToken) throws RemoteException, org.apache.axis.types.URI.MalformedURIException ;
 
 }
 

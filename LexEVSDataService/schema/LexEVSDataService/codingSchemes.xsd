@@ -1,21 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-xmlns="http://LexGrid.org/schema/2009/01/LexGrid/codingSchemes" 
-xmlns:lgBuiltin="http://LexGrid.org/schema/2009/01/LexGrid/builtins" 
-xmlns:lgCon="http://LexGrid.org/schema/2009/01/LexGrid/concepts" 
-xmlns:lgCommon="http://LexGrid.org/schema/2009/01/LexGrid/commonTypes" 
-xmlns:lgNaming="http://LexGrid.org/schema/2009/01/LexGrid/naming" 
-xmlns:xs="http://www.w3.org/2001/XMLSchema"
-xmlns:lgRel="http://LexGrid.org/schema/2009/01/LexGrid/relations" 
-xmlns:lgCS="http://LexGrid.org/schema/2009/01/LexGrid/codingSchemes"
-targetNamespace="http://LexGrid.org/schema/2009/01/LexGrid/codingSchemes" 
-elementFormDefault="qualified">
+<xs:schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://LexGrid.org/schema/2010/01/LexGrid/codingSchemes" xmlns:lgBuiltin="http://LexGrid.org/schema/2010/01/LexGrid/builtins" xmlns:lgCon="http://LexGrid.org/schema/2010/01/LexGrid/concepts" xmlns:lgCommon="http://LexGrid.org/schema/2010/01/LexGrid/commonTypes" xmlns:lgNaming="http://LexGrid.org/schema/2010/01/LexGrid/naming" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        xmlns:lgRel="http://LexGrid.org/schema/2010/01/LexGrid/relations" targetNamespace="http://LexGrid.org/schema/2010/01/LexGrid/codingSchemes" elementFormDefault="qualified">
 
-        <xs:import namespace="http://LexGrid.org/schema/2009/01/LexGrid/builtins" schemaLocation="builtins.xsd"/>
-        <xs:import namespace="http://LexGrid.org/schema/2009/01/LexGrid/commonTypes" schemaLocation="commonTypes.xsd"/>
-        <xs:import namespace="http://LexGrid.org/schema/2009/01/LexGrid/concepts" schemaLocation="concepts.xsd"/>
-        <xs:import namespace="http://LexGrid.org/schema/2009/01/LexGrid/relations" schemaLocation="relations.xsd"/>
-        <xs:import namespace="http://LexGrid.org/schema/2009/01/LexGrid/naming" schemaLocation="naming.xsd"/>
+        <xs:import namespace="http://LexGrid.org/schema/2010/01/LexGrid/builtins" schemaLocation="builtins.xsd"/>
+        <xs:import namespace="http://LexGrid.org/schema/2010/01/LexGrid/commonTypes" schemaLocation="commonTypes.xsd"/>
+        <xs:import namespace="http://LexGrid.org/schema/2010/01/LexGrid/concepts" schemaLocation="concepts.xsd"/>
+        <xs:import namespace="http://LexGrid.org/schema/2010/01/LexGrid/relations" schemaLocation="relations.xsd"/>
+        <xs:import namespace="http://LexGrid.org/schema/2010/01/LexGrid/naming" schemaLocation="naming.xsd"/>
         <!-- ================================================= -->
         <!-- Package: <<XSDschema>> codingSchemes  -->
         <!-- ================================================= -->
@@ -28,13 +19,13 @@ elementFormDefault="qualified">
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <!-- Class:  <<EntryPoint>> codingSchemes  -->
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-        <xs:element name="codingSchemes" type="lgCS:codingSchemes"/>
+        <xs:element name="codingSchemes" type="codingSchemes"/>
         <xs:complexType name="codingSchemes">
                 <xs:annotation>
                         <xs:documentation>A collection of one or more coding schemes.</xs:documentation>
                 </xs:annotation>
                 <xs:sequence>
-                        <xs:element name="codingScheme" type="lgCS:codingScheme" minOccurs="1" maxOccurs="unbounded">
+                        <xs:element name="codingScheme" type="codingScheme" minOccurs="1" maxOccurs="unbounded">
                                 <xs:annotation>
                                         <xs:documentation>An individual coding scheme in the collection.</xs:documentation>
                                 </xs:annotation>
@@ -45,7 +36,7 @@ elementFormDefault="qualified">
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <!-- Class: <<EntryPoint>> codingScheme  -->
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-        <xs:element name="codingScheme" type="lgCS:codingScheme"/>
+        <xs:element name="codingScheme" type="codingScheme"/>
         <xs:complexType name="codingScheme">
                 <xs:annotation>
                         <xs:documentation>A resource that makes assertions about a collection of terminological entities.</xs:documentation>
@@ -114,7 +105,7 @@ elementFormDefault="qualified">
                                                 <xs:documentation>The approximate number of entries in the lexical portion of this scheme. This is used as a hint for browsers and services.</xs:documentation>
                                         </xs:annotation>
                                 </xs:attribute>
-                                <xs:attribute name="representsVersion" type="lgCommon:version">
+                                <xs:attribute name="representsVersion" type="lgCommon:version" use="required">
                                         <xs:annotation>
                                                 <xs:documentation>The specific version of the resource represented by this coding scheme.</xs:documentation>
                                         </xs:annotation>

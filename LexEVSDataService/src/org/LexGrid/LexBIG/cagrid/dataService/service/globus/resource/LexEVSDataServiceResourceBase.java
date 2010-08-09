@@ -85,7 +85,7 @@ import org.oasis.wsrf.lifetime.TerminationNotification;
  * of these resource as well as code for registering any properties selected
  * to the index service.
  * 
- * @created by Introduce Toolkit version 1.2
+ * @created by Introduce Toolkit version 1.3
  * 
  */
 public abstract class LexEVSDataServiceResourceBase extends ReflectionResource implements Resource
@@ -341,7 +341,7 @@ public abstract class LexEVSDataServiceResourceBase extends ReflectionResource i
     
     
     
-    	private void populateResourceProperties() {
+    	protected void populateResourceProperties() {
 	
 		loadServiceMetadataFromFile();
 	

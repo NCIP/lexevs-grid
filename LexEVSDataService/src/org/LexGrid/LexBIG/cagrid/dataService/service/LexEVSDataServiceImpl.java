@@ -31,19 +31,18 @@ public class LexEVSDataServiceImpl extends LexEVSDataServiceImplBase {
 		}		
 	}
 	
-  public org.LexGrid.LexBIG.cagrid.dataService.stubs.types.LexEVSDataServiceReference registerSecurityToken(java.lang.String codingSchemeURN,gov.nih.nci.evs.security.SecurityToken securityToken) throws RemoteException {
+  public org.LexGrid.LexBIG.cagrid.dataService.stubs.types.LexEVSDataServiceReference registerSecurityToken(java.lang.String codingSchemeUri,gov.nih.nci.evs.security.SecurityToken securityToken) throws RemoteException {
 	  org.apache.axis.MessageContext messagectx = org.apache.axis.MessageContext
 	  .getCurrentContext();
 	  LexEVSDataServiceReference ref = new LexEVSDataServiceReference();
 	  
 	try {
-		EndpointReferenceType epr = manager.processSecurityToken(messagectx, codingSchemeURN, securityToken);
+		EndpointReferenceType epr = manager.processSecurityToken(messagectx, codingSchemeUri, securityToken);
 		ref.setEndpointReference(epr);
 		return ref;
 	} catch (Exception e) {
 		throw new RemoteException(e.getMessage());
 	}
   }
-
 }
 

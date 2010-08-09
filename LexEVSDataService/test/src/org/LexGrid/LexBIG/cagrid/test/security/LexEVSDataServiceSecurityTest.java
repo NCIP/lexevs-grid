@@ -1,36 +1,20 @@
 package org.LexGrid.LexBIG.cagrid.test.security;
 
-import java.rmi.RemoteException;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-
-import org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeIdentification;
-import org.LexGrid.LexBIG.LexBIGService.LexBIGService;
-import org.LexGrid.LexBIG.cagrid.dataService.client.LexEVSDataServiceClient;
-import org.LexGrid.LexBIG.cagrid.dataService.utils.LexEVSDataServiceHandle;
-import org.LexGrid.LexBIG.cagrid.test.setup.ServiceTestCase;
-import org.LexGrid.codingSchemes.CodingScheme;
-import org.LexGrid.commonTypes.Text;
-import org.LexGrid.concepts.Concept;
-import org.hibernate.criterion.DetachedCriteria;
-import org.hibernate.criterion.Example;
-import org.hibernate.criterion.Restrictions;
-
 import gov.nih.nci.cagrid.cqlquery.Attribute;
 import gov.nih.nci.cagrid.cqlquery.CQLQuery;
 import gov.nih.nci.cagrid.cqlquery.Object;
 import gov.nih.nci.cagrid.cqlquery.Predicate;
 import gov.nih.nci.cagrid.data.client.DataServiceClient;
-import gov.nih.nci.cagrid.data.faults.MalformedQueryExceptionType;
-import gov.nih.nci.cagrid.data.faults.QueryProcessingExceptionType;
 import gov.nih.nci.cagrid.data.utilities.DataServiceHandle;
 import gov.nih.nci.cagrid.data.utilities.DataServiceIterator;
 import gov.nih.nci.evs.security.SecurityToken;
-import gov.nih.nci.system.applicationservice.ApplicationException;
-import gov.nih.nci.system.client.ApplicationServiceProvider;
-import gov.nih.nci.system.query.hibernate.HQLCriteria;
-import junit.framework.TestCase;
+
+import java.util.Iterator;
+
+import org.LexGrid.LexBIG.cagrid.dataService.client.LexEVSDataServiceClient;
+import org.LexGrid.LexBIG.cagrid.dataService.utils.LexEVSDataServiceHandle;
+import org.LexGrid.LexBIG.cagrid.test.setup.ServiceTestCase;
+import org.LexGrid.codingSchemes.CodingScheme;
 
 public class LexEVSDataServiceSecurityTest extends ServiceTestCase {
 	String testId = "LexEVSDataServiceSecurityTest";
