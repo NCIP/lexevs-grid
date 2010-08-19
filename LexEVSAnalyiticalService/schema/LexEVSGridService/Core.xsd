@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<xs:schema xmlns:lbCore="http://LexGrid.org/schema/LexBIG/2009/01/Core" 
-xmlns:lbCoreTypes="http://LexGrid.org/schema/2009/01/LexGrid/Coretypes" 
-xmlns:lbColl="http://LexGrid.org/schema/LexBIG/2009/01/Collections" 
-xmlns:lgBuiltin="http://LexGrid.org/schema/2009/01/LexGrid/builtins" 
-xmlns:lgCommon="http://LexGrid.org/schema/2009/01/LexGrid/commonTypes" 
-xmlns:lgNaming="http://LexGrid.org/schema/2009/01/LexGrid/naming" 
-xmlns:lgCon="http://LexGrid.org/schema/2009/01/LexGrid/concepts" 
-xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-targetNamespace="http://LexGrid.org/schema/LexBIG/2009/01/Core" 
-elementFormDefault="qualified">
-
-	<xs:import namespace="http://LexGrid.org/schema/LexBIG/2009/01/Collections" schemaLocation="Collections.xsd"/>
-	<xs:import namespace="http://LexGrid.org/schema/2009/01/LexGrid/builtins" schemaLocation="builtins.xsd"/>
-	<xs:import namespace="http://LexGrid.org/schema/2009/01/LexGrid/commonTypes" schemaLocation="commonTypes.xsd"/>
-	<xs:import namespace="http://LexGrid.org/schema/2009/01/LexGrid/concepts" schemaLocation="concepts.xsd"/>
-	<xs:import namespace="http://LexGrid.org/schema/2009/01/LexGrid/naming" schemaLocation="naming.xsd"/>
-	<xs:import namespace="http://LexGrid.org/schema/2009/01/LexGrid/Coretypes" schemaLocation="CoreTypes.xsd"/>
+<xs:schema xmlns:lbCore="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Core" 
+	xmlns:iso21090="uri:iso.org:21090"
+	xmlns:lbColl="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Collections" 
+	xmlns:lgCommon="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/commonTypes" 
+	xmlns:lgNaming="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/naming" 
+	xmlns:lgCon="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/concepts" 
+	xmlns:lgValueDomains="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/valueSets" 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	targetNamespace="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Core" elementFormDefault="qualified">
+	<xs:import namespace="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Collections" schemaLocation="Collections.xsd"/>
+	<xs:import namespace="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/commonTypes" schemaLocation="commonTypes.xsd"/>
+	<xs:import namespace="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/concepts" schemaLocation="concepts.xsd"/>
+	<xs:import namespace="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/naming" schemaLocation="naming.xsd"/>
+	<xs:import namespace="uri:iso.org:21090" schemaLocation="ISO_extensions.xsd"/>
+	
 	<!-- ================================================= -->
 	<!-- Package: <<XSDschema>> Core	   				   -->
 	<!-- ================================================= -->
@@ -29,7 +27,7 @@ elementFormDefault="qualified">
 			scheme.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="formalName" type="lgBuiltin:tsCaseIgnoreIA5String">
+			<xs:element name="formalName" type="iso21090:ST">
 				<xs:annotation>
 					<xs:documentation>The official name of the coding scheme</xs:documentation>
 				</xs:annotation>
@@ -40,26 +38,27 @@ elementFormDefault="qualified">
 					contents.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+		
+			<xs:element name="codingSchemeURI" type="iso21090:ST">
+				<xs:annotation>
+					<xs:documentation>The official URI of the coding scheme</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="representsVersion" type="iso21090:ST">
+				<xs:annotation>
+					<xs:documentation>The version of the coding scheme that this entry represents, if
+						applicable and known. Note that that is the combination of the codingSchemeURN
+						*and* the version that uniquely represents a coding scheme in the
+					system.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="localName" type="iso21090:ST">
+				<xs:annotation>
+					<xs:documentation>The short, locally unique name for the coding
+					scheme.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
-		<xs:attribute name="codingSchemeURI" type="lgCommon:URI">
-			<xs:annotation>
-				<xs:documentation>The official URN of the coding scheme</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
-		<xs:attribute name="representsVersion" type="lgCommon:version">
-			<xs:annotation>
-				<xs:documentation>The version of the coding scheme that this entry represents, if
-					applicable and known. Note that that is the combination of the codingSchemeURN
-					*and* the version that uniquely represents a coding scheme in the
-				system.</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
-		<xs:attribute name="localName" type="lgBuiltin:tsLocalId">
-			<xs:annotation>
-				<xs:documentation>The short, locally unique name for the coding
-				scheme.</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
 	</xs:complexType>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<!-- Class: ServiceURL								   -->
@@ -93,31 +92,32 @@ elementFormDefault="qualified">
 			optionally qualified by namespace and type.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="entityType" type="lgCommon:entityType" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="entityType" type="iso21090:ST" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>Local identifiers of the types(s) defining the
 				referenced entity (e.g. 'concept', 'instance').</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+		
+			<xs:element name="codingSchemeName" type="iso21090:ST">
+				<xs:annotation>
+					<xs:documentation>The name of the coding scheme containing the
+					entity</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="code" type="iso21090:ST">
+				<xs:annotation>
+					<xs:documentation>The code uniquely identifying the entity within the
+					coding scheme.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="codeNamespace" type="iso21090:ST">
+				<xs:annotation>
+					<xs:documentation>Local identifier of the code namespace. If omitted,
+					namespace is implied from the URI of the coding scheme.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
-		<xs:attribute name="codingSchemeName" type="lbCore:CodingSchemeURNorName">
-			<xs:annotation>
-				<xs:documentation>The name of the coding scheme containing the
-				entity</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
-		<xs:attribute name="code" type="lgCommon:entityCode">
-			<xs:annotation>
-				<xs:documentation>The code uniquely identifying the entity within the
-				coding scheme.</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
-		<xs:attribute name="codeNamespace" type="lgCommon:namespaceName">
-			<xs:annotation>
-				<xs:documentation>Local identifier of the code namespace. If omitted,
-				namespace is implied from the URI of the coding scheme.</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
 	</xs:complexType>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<!-- Class: ConceptReference						   -->
@@ -132,7 +132,7 @@ elementFormDefault="qualified">
 		<xs:complexContent>
 			<xs:extension base="lbCore:CodedNodeReference">
 				<xs:sequence>
-					<xs:element name="conceptCode" type="lgCommon:entityCode" minOccurs="0">
+					<xs:element name="conceptCode" type="iso21090:ST" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>Uniquely identifies the concept within the coding scheme.
 							Alias for CodedNodeReference:code.</xs:documentation>
@@ -186,19 +186,20 @@ elementFormDefault="qualified">
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+				
+					<xs:element name="codingSchemeURI" type="iso21090:ST">
+						<xs:annotation>
+							<xs:documentation>The URI of the associated coding scheme, if
+							known.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="codingSchemeVersion" type="iso21090:ST">
+						<xs:annotation>
+							<xs:documentation>The version of the associated coding scheme,
+							if known.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
-				<xs:attribute name="codingSchemeURI" type="lgBuiltin:tsURI">
-					<xs:annotation>
-						<xs:documentation>The URI of the associated coding scheme, if
-						known.</xs:documentation>
-					</xs:annotation>
-				</xs:attribute>
-				<xs:attribute name="codingSchemeVersion" type="lgCommon:version">
-					<xs:annotation>
-						<xs:documentation>The version of the associated coding scheme,
-						if known.</xs:documentation>
-					</xs:annotation>
-				</xs:attribute>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -215,7 +216,7 @@ elementFormDefault="qualified">
 		<xs:complexContent>
 			<xs:extension base="lbCore:ResolvedCodedNodeReference">
 				<xs:sequence>
-					<xs:element name="referencedEntry" type="lgCon:concept" minOccurs="0">
+					<xs:element name="referencedEntry" type="lgCon:entity" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>The resolved concept, if present.
 							Alias for ResolvedCodedNodeReference:entity</xs:documentation>
@@ -307,19 +308,25 @@ elementFormDefault="qualified">
 						of this association.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+		
+			<xs:element name="associationName" type="iso21090:ST">
+				<xs:annotation>
+					<xs:documentation>The local name of the association</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="relationsContainerName" type="iso21090:ST">
+				<xs:annotation>
+					<xs:documentation>The local name of the relations container</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="directionalName" type="iso21090:ST">
+				<xs:annotation>
+					<xs:documentation>The name assigned to the association so that it can be read
+						correctly going from the containing concept to the contained concept.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
-		<xs:attribute name="associationName" type="lgBuiltin:tsLocalId">
-			<xs:annotation>
-				<xs:documentation>The local name of the association</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
-		<xs:attribute name="directionalName" type="lgBuiltin:tsCaseIgnoreIA5String">
-			<xs:annotation>
-				<xs:documentation>The name assigned to the association so that it can be read
-					correctly going from the containing concept to the contained concept.
-				</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
 	</xs:complexType>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<!-- Class: CodingSchemeVersionOrTag				   -->
@@ -333,7 +340,7 @@ elementFormDefault="qualified">
 				and another as "staging".</xs:documentation>
 		</xs:annotation>
 		<xs:choice>
-			<xs:element name="version" type="lgCommon:version">
+			<xs:element name="version" type="iso21090:ST">
 				<xs:annotation>
 					<xs:documentation>The specific version of the coding scheme.</xs:documentation>
 				</xs:annotation>
@@ -354,21 +361,21 @@ elementFormDefault="qualified">
 			<xs:documentation>A "dataProperty" - data that is the target of an
 			association.</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:any minOccurs="0" maxOccurs="unbounded"/>
+
+			<xs:sequence>
+			<xs:element name="dataType" type="iso21090:ST">
+				<xs:annotation>
+					<xs:documentation>The data type of the property. The data itself is the
+					value.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="id" type="iso21090:ST">
+				<xs:annotation>
+					<xs:documentation>An identifier that makes this chunk of data unique within an
+						association.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
-		<xs:attribute name="dataType" type="lgBuiltin:tsLocalId">
-			<xs:annotation>
-				<xs:documentation>The data type of the property. The data itself is the
-				value.</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
-		<xs:attribute name="id" type="lgCommon:URI">
-			<xs:annotation>
-				<xs:documentation>An identifier that makes this chunk of data unique within an
-					association.</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
 	</xs:complexType>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<!-- Class: GSH										   -->
@@ -386,64 +393,112 @@ elementFormDefault="qualified">
 				service independent, as it doesn't depend on local coding schemes names or virtual
 				tags. </xs:documentation>
 		</xs:annotation>
-		<xs:attribute name="codingSchemeURN" type="lgBuiltin:tsURI">
-			<xs:annotation>
-				<xs:documentation>The URN of the referenced coding scheme.</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
-		<xs:attribute name="codingSchemeVersion" type="lgCommon:version"/>
+		<xs:sequence>
+			<xs:element name="codingSchemeURN" type="iso21090:ST">
+				<xs:annotation>
+					<xs:documentation>The URN of the referenced coding scheme.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		
+			<xs:element name="codingSchemeVersion" type="iso21090:ST"/>
+		</xs:sequence>
 	</xs:complexType>
-	
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<!-- Class: LogLevel								   -->
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<xs:simpleType name="LogLevel">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="debug">
+				<xs:annotation>
+					<xs:documentation>The entry represents a debug message.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="info">
+				<xs:annotation>
+					<xs:documentation>The entry represents an informational
+					message.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="warn">
+				<xs:annotation>
+					<xs:documentation>The entry represents a warning message.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="error">
+				<xs:annotation>
+					<xs:documentation>The entry represents a processing error.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="fatal">
+				<xs:annotation>
+					<xs:documentation>The entry represents an unrecoverable
+					error.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<!-- Class: LogEntry								   -->
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<xs:element name="LogEntry" type="lbCore:LogEntry"/>
 	<xs:complexType name="LogEntry">
 		<xs:sequence>
-			<xs:element name="processUID" type="xs:string">
+			<xs:element name="processUID" type="iso21090:ST">
 				<xs:annotation>
 					<xs:documentation>Unique identifier of the process that generated the log
 					entry.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="programName" type="xs:string">
+			<xs:element name="programName" type="iso21090:ST">
 				<xs:annotation>
 					<xs:documentation>Name of program that generated the log
 					entry</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="message" type="lgBuiltin:tsCaseIgnoreIA5String">
+			<xs:element name="message" type="iso21090:ST">
 				<xs:annotation>
 					<xs:documentation>Text of message</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="entryLevel" type="lbCoreTypes:LogLevel">
-		        <xs:annotation>
+		
+			<xs:element name="associatedURL" type="iso21090:ST">
+				<xs:annotation>
+					<xs:documentation>The URL associated with the log entry. Used for retrieving
+						particular types of logs.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="entryTime" type="iso21090:TS">
+				<xs:annotation>
+					<xs:documentation>The time that the entry was made. Time is local to originator
+						location.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="entryLevel" type="lbCore:LogLevel">
+				<xs:annotation>
 					<xs:documentation>Level (error, warn, info, ...)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="messageNumber" type="iso21090:INT">
+				<xs:annotation>
+					<xs:documentation>Number that uniquely identifies the message within the error
+						system.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
-
-		<xs:attribute name="associatedURL" type="xs:anyURI">
-			<xs:annotation>
-				<xs:documentation>The URL associated with the log entry. Used for retrieving
-					particular types of logs.</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
-		<xs:attribute name="entryTime" type="lgBuiltin:tsTimestamp">
-			<xs:annotation>
-				<xs:documentation>The time that the entry was made. Time is local to originator
-					location.</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>	
-		<xs:attribute name="messageNumber" type="xs:int">
-			<xs:annotation>
-				<xs:documentation>Number that uniquely identifies the message within the error
-					system.</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
 	</xs:complexType>
-	
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<!-- Class: CodingSchemeVersionStatus				   -->
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<xs:simpleType name="CodingSchemeVersionStatus">
+		<xs:annotation>
+			<xs:documentation>This class provides a series of set values for the version status of a given coding scheme.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="pending"/>
+			<xs:enumeration value="active"/>
+			<xs:enumeration value="inactive"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<!-- Class: CodingSchemeTag							   -->
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -482,15 +537,15 @@ elementFormDefault="qualified">
 		<xs:annotation>
 			<xs:documentation>A simple name/value pair. </xs:documentation>
 		</xs:annotation>
-		<xs:simpleContent>
-			<xs:extension base="xs:string">
-				<xs:attribute name="name" type="lgBuiltin:tsLocalId">
+		<xs:sequence>
+				<xs:element name="name" type="iso21090:ST">
 					<xs:annotation>
 						<xs:documentation>A local name or other identifier</xs:documentation>
 					</xs:annotation>
-				</xs:attribute>
-			</xs:extension>
-		</xs:simpleContent>
+				</xs:element>
+				<xs:element name="value" type="iso21090:ST">
+				</xs:element>
+		</xs:sequence>
 	</xs:complexType>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<!-- Class: MetadataReference				   -->
@@ -506,26 +561,27 @@ elementFormDefault="qualified">
 					<xs:documentation>Defines 0 or more named contexts for the property .</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+		
+			<xs:element name="name" type="iso21090:ST">
+				<xs:annotation>
+					<xs:documentation>The metadata property name.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="value" type="iso21090:ST">
+				<xs:annotation>
+					<xs:documentation>The metadata property value.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="codingSchemeURI" type="iso21090:ST">
+				<xs:annotation>
+					<xs:documentation>The registered URI of the associated coding scheme.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="codingSchemeVersion" type="iso21090:ST">
+				<xs:annotation>
+					<xs:documentation>The version of the associated coding scheme.  Note that that is the combination of the codingSchemeURN *and* the version that uniquely represents a coding scheme in the system.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
-		<xs:attribute name="name" type="lgBuiltin:tsLocalId">
-			<xs:annotation>
-				<xs:documentation>The metadata property name.</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
-		<xs:attribute name="value" type="xs:string">
-			<xs:annotation>
-				<xs:documentation>The metadata property value.</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
-		<xs:attribute name="codingSchemeURI" type="lgBuiltin:tsURI">
-			<xs:annotation>
-				<xs:documentation>The registered URN of the associated coding scheme.</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
-		<xs:attribute name="codingSchemeVersion" type="lgCommon:version">
-			<xs:annotation>
-				<xs:documentation>The version of the associated coding scheme.  Note that that is the combination of the codingSchemeURN *and* the version that uniquely represents a coding scheme in the system.</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
 	</xs:complexType>
 </xs:schema>

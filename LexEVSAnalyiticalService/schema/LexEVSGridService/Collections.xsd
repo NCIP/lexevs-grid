@@ -1,29 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<xs:schema xmlns:lbColl="http://LexGrid.org/schema/LexBIG/2009/01/Collections" 
-xmlns:lbCore="http://LexGrid.org/schema/LexBIG/2009/01/Core" 
-xmlns:lbIfe="http://LexGrid.org/schema/LexBIG/2009/01/InterfaceElements" 
-xmlns:lgBuiltin="http://LexGrid.org/schema/2009/01/LexGrid/builtins" 
-xmlns:lgCS="http://LexGrid.org/schema/2009/01/LexGrid/codingSchemes" 
-xmlns:lgCommon="http://LexGrid.org/schema/2009/01/LexGrid/commonTypes" 
-xmlns:lgNCI="http://LexGrid.org/schema/2009/01/LexGrid/NCIHistory" 
-xmlns:lgVer="http://LexGrid.org/schema/2009/01/LexGrid/versions" 
-xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-xmlns:ns1="http://LexGrid.org/schema/LexBIG/2009/01/TerminologyServiceMetadata" 
-targetNamespace="http://LexGrid.org/schema/LexBIG/2009/01/Collections" 
-elementFormDefault="qualified">
+<xs:schema xmlns:lbColl="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Collections" 
+	xmlns:lbCore="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Core" 
+	xmlns:lbIfe="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/InterfaceElements" 
+	xmlns:lgCS="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/codingSchemes" 
+	xmlns:lgCommon="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/commonTypes" 
+	xmlns:lgNCI="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/NCIHistory" 
+	xmlns:lgVer="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/versions" 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	xmlns:iso21090="uri:iso.org:21090"
+	xmlns:ns1="http://LexGrid.org/schema/LexBIG/2009/01/TerminologyServiceMetadata" 
+	targetNamespace="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Collections" elementFormDefault="qualified">
+	
+	<xs:import namespace="uri:iso.org:21090" schemaLocation="ISO_extensions.xsd"/>
+	
 	<!-- ================================================= -->
 	<!-- Package: <<XSDschema>> Collections	   			   -->
 	<!-- ================================================= -->
 	<xs:annotation>
-		<xs:documentation>The collections schema contains named sets of things.  It doesn't really need to be displayed as a graphic, as it always follows the same pattern.  The only variation is the cardinatlity of the child.</xs:documentation>
+		<xs:documentation>The collections schema contains named sets of things.  It doesn't really need to be displayed as a graphic, as it always follows the same pattern.  The only variation is the cardinality of the child.</xs:documentation>
 	</xs:annotation>
-	<xs:import namespace="http://LexGrid.org/schema/LexBIG/2009/01/InterfaceElements" schemaLocation="InterfaceElements.xsd"/>
-	<xs:import namespace="http://LexGrid.org/schema/LexBIG/2009/01/Core" schemaLocation="Core.xsd"/>
-	<xs:import namespace="http://LexGrid.org/schema/2009/01/LexGrid/builtins" schemaLocation="builtins.xsd"/>
-	<xs:import namespace="http://LexGrid.org/schema/2009/01/LexGrid/commonTypes" schemaLocation="commonTypes.xsd"/>
-	<xs:import namespace="http://LexGrid.org/schema/2009/01/LexGrid/codingSchemes" schemaLocation="codingSchemes.xsd"/>
-	<xs:import namespace="http://LexGrid.org/schema/2009/01/LexGrid/versions" schemaLocation="versions.xsd"/>
-	<xs:import namespace="http://LexGrid.org/schema/2009/01/LexGrid/NCIHistory" schemaLocation="NCIHistory.xsd"/>
+	<xs:import namespace="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/InterfaceElements" schemaLocation="InterfaceElements.xsd"/>
+	<xs:import namespace="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Core" schemaLocation="Core.xsd"/>
+	<xs:import namespace="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/commonTypes" schemaLocation="commonTypes.xsd"/>
+	<xs:import namespace="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/codingSchemes" schemaLocation="codingSchemes.xsd"/>
+	<xs:import namespace="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/versions" schemaLocation="versions.xsd"/>
+	<xs:import namespace="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/NCIHistory" schemaLocation="NCIHistory.xsd"/>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<!-- Class: CodingSchemeSummary						   -->
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -39,7 +40,7 @@ elementFormDefault="qualified">
 	<xs:element name="LocalNameList" type="lbColl:LocalNameList"/>
 	<xs:complexType name="LocalNameList">
 		<xs:sequence>
-			<xs:element name="entry" type="xs:string" maxOccurs="unbounded"/>
+			<xs:element name="entry" type="iso21090:ST" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -84,7 +85,7 @@ elementFormDefault="qualified">
 	<xs:element name="ConceptCodes" type="lbColl:ConceptCodes"/>
 	<xs:complexType name="ConceptCodes">
 		<xs:sequence>
-			<xs:element name="entry" type="lgCommon:entityCode" maxOccurs="unbounded"/>
+			<xs:element name="entry" type="iso21090:ST" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -119,15 +120,7 @@ elementFormDefault="qualified">
 			<xs:element ref="lbIfe:CodingSchemeRendering" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
-	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-	<!-- Class: SystemReleaseList						   -->
-	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-	<xs:element name="SystemReleaseList" type="lbColl:SystemReleaseList"/>
-	<xs:complexType name="SystemReleaseList">
-		<xs:sequence>
-			<xs:element ref="lgVer:systemRelease" minOccurs="0" maxOccurs="unbounded"/>
-		</xs:sequence>
-	</xs:complexType>
+
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<!-- Class: CodingSchemeVersionList						   -->
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -137,6 +130,7 @@ elementFormDefault="qualified">
 			<xs:element name="entry" type="lgVer:codingSchemeVersion" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<!-- Class: ModuleDescriptionList					   -->
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -225,6 +219,16 @@ elementFormDefault="qualified">
 	<xs:complexType name="AbsoluteCodingSchemeVersionReferenceList">
 		<xs:sequence>
 			<xs:element ref="lbCore:AbsoluteCodingSchemeVersionReference" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<!-- Class: SystemReleaseList						   -->
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<xs:element name="SystemReleaseList" type="lbColl:SystemReleaseList"/>
+	<xs:complexType name="SystemReleaseList">
+		<xs:sequence>
+			<xs:element ref="lgVer:systemRelease" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 </xs:schema>

@@ -16,13 +16,14 @@ import org.globus.wsrf.Constants;
  * This class holds all service properties which were defined for the service to have
  * access to.
  * 
- * @created by Introduce Toolkit version 1.2
+ * @created by Introduce Toolkit version 1.3
  * 
  */
 public class LexEVSGridServiceConfiguration implements ServiceConfiguration {
 
 	public static LexEVSGridServiceConfiguration  configuration = null;
-
+    public String etcDirectoryPath;
+    	
 	public static LexEVSGridServiceConfiguration getConfiguration() throws Exception {
 		if (LexEVSGridServiceConfiguration.configuration != null) {
 			return LexEVSGridServiceConfiguration.configuration;
@@ -42,17 +43,17 @@ public class LexEVSGridServiceConfiguration implements ServiceConfiguration {
 		return LexEVSGridServiceConfiguration.configuration;
 	}
 	
-	private String etcDirectoryPath;
+
 	
 	
-	
-	public String getEtcDirectoryPath() {
+    public String getEtcDirectoryPath() {
 		return ContainerConfig.getBaseDirectory() + File.separator + etcDirectoryPath;
 	}
 	
 	public void setEtcDirectoryPath(String etcDirectoryPath) {
 		this.etcDirectoryPath = etcDirectoryPath;
 	}
+
 
 	
 }

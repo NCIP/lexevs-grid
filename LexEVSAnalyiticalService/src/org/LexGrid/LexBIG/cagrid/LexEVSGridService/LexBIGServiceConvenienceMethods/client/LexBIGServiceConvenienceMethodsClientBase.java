@@ -39,7 +39,7 @@ import gov.nih.nci.cagrid.introduce.security.client.ServiceSecurityClient;
  * On construction the class instance will contact the remote service and retrieve it's security
  * metadata description which it will use to configure the Stub specifically for each method call.
  * 
- * @created by Introduce Toolkit version 1.2
+ * @created by Introduce Toolkit version 1.3
  */
 public abstract class LexBIGServiceConvenienceMethodsClientBase extends ServiceSecurityClient {	
 	protected LexBIGServiceConvenienceMethodsPortType portType;
@@ -57,12 +57,12 @@ public abstract class LexBIGServiceConvenienceMethodsClientBase extends ServiceS
 		initialize();
 	}
 	
-	private void initialize() throws RemoteException {
+	protected void initialize() throws RemoteException {
 	    this.portTypeMutex = new Object();
 		this.portType = createPortType();
 	}
 
-	private LexBIGServiceConvenienceMethodsPortType createPortType() throws RemoteException {
+	protected LexBIGServiceConvenienceMethodsPortType createPortType() throws RemoteException {
 
 		LexBIGServiceConvenienceMethodsServiceAddressingLocator locator = new LexBIGServiceConvenienceMethodsServiceAddressingLocator();
 		// attempt to load our context sensitive wsdd file

@@ -19,6 +19,8 @@
  *******************************************************************************/
 package org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeGraph.service;
 
+import gov.nih.nci.iso21090.St;
+
 import java.rmi.RemoteException;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -64,6 +66,8 @@ public class CodedNodeGraphImpl extends CodedNodeGraphImplBase {
 			SortOptionList sortOptions = graphResolutionPolicy.getSortOptions();
 			int maxToReturn = graphResolutionPolicy.getMaximumToReturn();
 			
+			St st = new St();
+			
 			return getResourceHome().getAddressedResource().getCodedNodeGraph()
 					.resolveAsList(graphFocus, resolveForward, resolveBackward,
 							resolveCodedEntryDepth, resolveAssociationDepth,
@@ -81,6 +85,8 @@ public class CodedNodeGraphImpl extends CodedNodeGraphImplBase {
 	  ConceptReference targetCode = relationshipTypeBasedPolicy.getTargetConcept();
 	  boolean directOnly = relationshipTypeBasedPolicy.getDirectOnly();
 	  
+	  throw new UnsupportedOperationException();
+	  /*
 	  try {
 			return getResourceHome().getAddressedResource().getCodedNodeGraph()
 					.listCodeRelationships(sourceCode, targetCode, directOnly);
@@ -88,6 +94,7 @@ public class CodedNodeGraphImpl extends CodedNodeGraphImplBase {
 			Utils.processException(e);
 			return null;
 		} 
+		*/
 	}
 
   public void restrictToTargetCodeSystem(org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
@@ -337,7 +344,10 @@ public class CodedNodeGraphImpl extends CodedNodeGraphImplBase {
 	  ConceptReference sourceCode = relationshipDistanceBasedPolicy.getSourceConcept();
 	  ConceptReference targetCode = relationshipDistanceBasedPolicy.getTargetConcept();
 	  int distance = relationshipDistanceBasedPolicy.getDistance();
+	 
 	  
+	  throw new UnsupportedOperationException();
+	  /*
 	  try {
 			return getResourceHome().getAddressedResource().getCodedNodeGraph()
 					.listCodeRelationships(sourceCode, targetCode, distance);
@@ -345,6 +355,7 @@ public class CodedNodeGraphImpl extends CodedNodeGraphImplBase {
 			Utils.processException(e);
 			return null;
 		}
+		*/
 	}
 
 }

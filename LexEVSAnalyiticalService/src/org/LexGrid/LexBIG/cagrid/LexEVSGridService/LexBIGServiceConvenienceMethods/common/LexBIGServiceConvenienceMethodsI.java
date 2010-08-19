@@ -221,12 +221,6 @@ public interface LexBIGServiceConvenienceMethodsI {
    */
   public org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeSet.client.CodedNodeSetClient getHierarchyRootSet(org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag versionOrTag,org.LexGrid.LexBIG.DataModel.cagrid.HierarchyIdentification hierarchyIdentification) throws RemoteException, org.apache.axis.types.URI.MalformedURIException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException ;
 
-  public org.oasis.wsrf.properties.GetMultipleResourcePropertiesResponse getMultipleResourceProperties(org.oasis.wsrf.properties.GetMultipleResourceProperties_Element params) throws RemoteException ;
-
-  public org.oasis.wsrf.properties.GetResourcePropertyResponse getResourceProperty(javax.xml.namespace.QName params) throws RemoteException ;
-
-  public org.oasis.wsrf.properties.QueryResourcePropertiesResponse queryResourceProperties(org.oasis.wsrf.properties.QueryResourceProperties_Element params) throws RemoteException ;
-
   /**
    * Create a CodedNodeSet from a set of concept codes in a coding scheme.
    *
@@ -271,6 +265,12 @@ public interface LexBIGServiceConvenienceMethodsI {
   public org.LexGrid.LexBIG.DataModel.Core.Association getAssociationReverseOneLevel(org.LexGrid.LexBIG.DataModel.cagrid.ConceptIdentification conceptIdentification,org.LexGrid.LexBIG.DataModel.cagrid.RelationContainerIdentification relationContainerIdentification,org.LexGrid.LexBIG.DataModel.cagrid.AssociationIdentification associationIdentification,org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag versionOrTag,org.LexGrid.LexBIG.DataModel.cagrid.ResolveConcepts buildReferencedEntries,org.LexGrid.LexBIG.DataModel.Collections.NameAndValueList associationQualifiers) throws RemoteException ;
 
   public org.LexGrid.LexBIG.DataModel.Core.Association getAssociationForwardOneLevel(org.LexGrid.LexBIG.DataModel.cagrid.ConceptIdentification conceptIdentification,org.LexGrid.LexBIG.DataModel.cagrid.RelationContainerIdentification relationContainerIdentification,org.LexGrid.LexBIG.DataModel.cagrid.AssociationIdentification associationIdentification,org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag versionOrTag,org.LexGrid.LexBIG.DataModel.cagrid.ResolveConcepts buildReferencedEntries,org.LexGrid.LexBIG.DataModel.Collections.NameAndValueList associationQualifiers) throws RemoteException ;
+
+  public org.oasis.wsrf.properties.GetMultipleResourcePropertiesResponse getMultipleResourceProperties(org.oasis.wsrf.properties.GetMultipleResourceProperties_Element params) throws RemoteException ;
+
+  public org.oasis.wsrf.properties.GetResourcePropertyResponse getResourceProperty(javax.xml.namespace.QName params) throws RemoteException ;
+
+  public org.oasis.wsrf.properties.QueryResourcePropertiesResponse queryResourceProperties(org.oasis.wsrf.properties.QueryResourceProperties_Element params) throws RemoteException ;
 
 }
 

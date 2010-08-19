@@ -53,14 +53,14 @@ public interface CodedNodeSetI {
 
   public void restrictToMatchingProperties(org.LexGrid.LexBIG.DataModel.Collections.LocalNameList localNameList,org.LexGrid.LexBIG.DataModel.enums.PropertyType[] propertyType,org.LexGrid.LexBIG.DataModel.Collections.LocalNameList localNameList2,org.LexGrid.LexBIG.DataModel.Collections.LocalNameList localNameList3,org.LexGrid.LexBIG.DataModel.Collections.NameAndValueList nameAndValueList,org.LexGrid.LexBIG.DataModel.cagrid.MatchCriteria matchCriteria,org.LexGrid.LexBIG.DataModel.cagrid.ExtensionIdentification extensionIdentification,org.LexGrid.LexBIG.DataModel.cagrid.LanguageIdentification languageIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException ;
 
+  public org.oasis.wsrf.lifetime.DestroyResponse destroy(org.oasis.wsrf.lifetime.Destroy params) throws RemoteException ;
+
+  public org.oasis.wsrf.lifetime.SetTerminationTimeResponse setTerminationTime(org.oasis.wsrf.lifetime.SetTerminationTime params) throws RemoteException ;
+
   public org.oasis.wsrf.properties.GetMultipleResourcePropertiesResponse getMultipleResourceProperties(org.oasis.wsrf.properties.GetMultipleResourceProperties_Element params) throws RemoteException ;
 
   public org.oasis.wsrf.properties.GetResourcePropertyResponse getResourceProperty(javax.xml.namespace.QName params) throws RemoteException ;
 
   public org.oasis.wsrf.properties.QueryResourcePropertiesResponse queryResourceProperties(org.oasis.wsrf.properties.QueryResourceProperties_Element params) throws RemoteException ;
-
-  public org.oasis.wsrf.lifetime.DestroyResponse destroy(org.oasis.wsrf.lifetime.Destroy params) throws RemoteException ;
-
-  public org.oasis.wsrf.lifetime.SetTerminationTimeResponse setTerminationTime(org.oasis.wsrf.lifetime.SetTerminationTime params) throws RemoteException ;
 
 }

@@ -85,7 +85,7 @@ import org.oasis.wsrf.lifetime.TerminationNotification;
  * of these resource as well as code for registering any properties selected
  * to the index service.
  * 
- * @created by Introduce Toolkit version 1.2
+ * @created by Introduce Toolkit version 1.3
  * 
  */
 public abstract class SortResourceBase extends ReflectionResource implements Resource
@@ -129,9 +129,9 @@ public abstract class SortResourceBase extends ReflectionResource implements Res
 	 * 
 	 * @see org.globus.wsrf.ResourceLifetime#setTerminationTime(java.util.Calendar)
 	 */
-	public void setTerminationTime(Calendar time) {	
-        
-		super.setTerminationTime(time);
+	public void setTerminationTime(Calendar time) {
+	    super.setTerminationTime(time);	
+
 	}
 
 

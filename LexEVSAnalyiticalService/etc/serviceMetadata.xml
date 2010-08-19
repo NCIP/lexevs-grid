@@ -8,7 +8,7 @@
    <ns2:serviceContextCollection>
     <ns2:ServiceContext description="LexEVS Analytical Grid Service" name="LexEVSGridService">
      <ns2:operationCollection>
-      <ns2:Operation description="Get ServiceSecurityMetadata" name="getServiceSecurityMetadata">
+      <ns2:Operation description="" name="getServiceSecurityMetadata">
        <ns2:inputParameterCollection/>
        <ns2:Output qName="ns5:ServiceSecurityMetadata" dimensionality="1" isArray="false" xmlns:ns5="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.security"/>
        <ns2:faultCollection/>
@@ -20,7 +20,7 @@
         <ns2:Fault description="" name="LBInvocationException"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="Returns the set of all concepts in the specified coding scheme." name="getCodingSchemeConcepts">
+      <ns2:Operation description="Returns the set of all (or all active) concepts in the specified coding scheme." name="getCodingSchemeConcepts">
        <ns2:inputParameterCollection>
         <ns2:InputParameter qName="ns7:CodingSchemeIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns7="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
         <ns2:InputParameter qName="ns8:CodingSchemeVersionOrTag" dimensionality="1" index="1" isArray="false" isRequired="false" name="versionOrTag" xmlns:ns8="http://LexGrid.org/schema/LexBIG/2009/01/Core"/>
@@ -30,7 +30,7 @@
         <ns2:Fault description="" name="LBException"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="Return the last time that the content of this service was changed." name="getLastUpdateTime">
+      <ns2:Operation description="Return the last time that the content of this service was changed; null if no changes have occurred. Tag assignments do not count as service changes for this purpose." name="getLastUpdateTime">
        <ns2:inputParameterCollection/>
        <ns2:Output qName="xsd:date" dimensionality="1" isArray="false" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
        <ns2:faultCollection>
@@ -63,14 +63,14 @@
         <ns2:Fault description="" name="LBException"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="Returns an instance of the sort extension registered with the given name." name="getSortAlgorithms">
+      <ns2:Operation description="Returns a description of all registered extensions used to provide additional sorting of query results in the given context. Note: The returned list will include any 'built-in' sort algorithms in addition to extensions externally packaged and registered to the service." name="getSortAlgorithms">
        <ns2:inputParameterCollection>
         <ns2:InputParameter qName="xsd:string" dimensionality="1" index="0" isArray="false" isRequired="false" name="context" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
        </ns2:inputParameterCollection>
        <ns2:Output qName="ns18:SortDescriptionList" dimensionality="1" isArray="false" xmlns:ns18="http://LexGrid.org/schema/LexBIG/2009/01/Collections"/>
        <ns2:faultCollection/>
       </ns2:Operation>
-      <ns2:Operation description="Returns a description of all registered extensions used to implement application-specific behavior that is centrally accessible from a LexBIGService." name="getGenericExtensions">
+      <ns2:Operation description="Returns a description of all registered extensions used to implement application-specific behavior that is centrally accessible from a LexBIGService.  Note that only generic extensions (base class GenericExtension) will be listed here. All other classes are retrievable at the appropriate interface point (filter, sort, etc)." name="getGenericExtensions">
        <ns2:inputParameterCollection/>
        <ns2:Output qName="ns19:ExtensionDescriptionList" dimensionality="1" isArray="false" xmlns:ns19="http://LexGrid.org/schema/LexBIG/2009/01/Collections"/>
        <ns2:faultCollection/>
@@ -84,19 +84,7 @@
         <ns2:Fault description="" name="LBException"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="GetMultipleResourceProperties" name="GetMultipleResourceProperties">
-       <ns2:inputParameterCollection/>
-       <ns2:faultCollection/>
-      </ns2:Operation>
-      <ns2:Operation description="GetResourceProperty" name="GetResourceProperty">
-       <ns2:inputParameterCollection/>
-       <ns2:faultCollection/>
-      </ns2:Operation>
-      <ns2:Operation description="QueryResourceProperties" name="QueryResourceProperties">
-       <ns2:inputParameterCollection/>
-       <ns2:faultCollection/>
-      </ns2:Operation>
-      <ns2:Operation description="Returns a description of all registered extensions used to provide additional filtering of query results." name="getFilterExtensions">
+      <ns2:Operation description=" Returns a description of all registered extensions used to provide additional filtering of query results." name="getFilterExtensions">
        <ns2:inputParameterCollection/>
        <ns2:Output qName="ns22:ExtensionDescriptionList" dimensionality="1" isArray="false" xmlns:ns22="http://LexGrid.org/schema/LexBIG/2009/01/Collections"/>
        <ns2:faultCollection/>
@@ -135,7 +123,7 @@
         <ns2:Fault description="" name="LBException"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="Return detailed coding scheme information given a specific tag or version identifier." name="resolveCodingSchemeCopyright">
+      <ns2:Operation description="Return coding scheme copyright given a specific tag or version identifier." name="resolveCodingSchemeCopyright">
        <ns2:inputParameterCollection>
         <ns2:InputParameter qName="ns30:CodingSchemeIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns30="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
         <ns2:InputParameter qName="ns31:CodingSchemeVersionOrTag" dimensionality="1" index="1" isArray="false" isRequired="false" name="versionOrTag" xmlns:ns31="http://LexGrid.org/schema/LexBIG/2009/01/Core"/>
@@ -145,7 +133,7 @@
         <ns2:Fault description="" name="LBException"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="Sets a Security Token for a Secured Vocabulary." name="setSecurityToken">
+      <ns2:Operation description="Sets the Security Token for the given Coding Scheme." name="setSecurityToken">
        <ns2:inputParameterCollection>
         <ns2:InputParameter qName="ns33:CodingSchemeIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns33="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
         <ns2:InputParameter qName="ns34:SecurityToken" dimensionality="1" index="1" isArray="false" isRequired="false" name="securityToken" xmlns:ns34="gme://caCORE.caCORE/3.2/gov.nih.nci.evs.security"/>
@@ -155,6 +143,18 @@
         <ns2:Fault description="" name="LBException"/>
        </ns2:faultCollection>
       </ns2:Operation>
+      <ns2:Operation description="" name="GetMultipleResourceProperties">
+       <ns2:inputParameterCollection/>
+       <ns2:faultCollection/>
+      </ns2:Operation>
+      <ns2:Operation description="" name="GetResourceProperty">
+       <ns2:inputParameterCollection/>
+       <ns2:faultCollection/>
+      </ns2:Operation>
+      <ns2:Operation description="" name="QueryResourceProperties">
+       <ns2:inputParameterCollection/>
+       <ns2:faultCollection/>
+      </ns2:Operation>
      </ns2:operationCollection>
      <ns2:contextPropertyCollection>
       <ns2:ContextProperty description="" name="{gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata}ServiceMetadata"/>
@@ -162,7 +162,7 @@
     </ns2:ServiceContext>
     <ns2:ServiceContext description="A coded node set represents a flat list of coded entries." name="CodedNodeSet">
      <ns2:operationCollection>
-      <ns2:Operation description="Resolve the set to a list of nodes sorted by the supplied parameters, resolving all of the properties named in the list." name="resolveToList">
+      <ns2:Operation description="" name="resolveToList">
        <ns2:inputParameterCollection>
         <ns2:InputParameter qName="ns36:SetResolutionPolicy" dimensionality="1" index="0" isArray="false" isRequired="false" name="setResolutionPolicy" xmlns:ns36="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
        </ns2:inputParameterCollection>
@@ -173,12 +173,12 @@
         <ns2:Fault description="" name="LBParameterException"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="Get ServiceSecurityMetadata" name="getServiceSecurityMetadata">
+      <ns2:Operation description="" name="getServiceSecurityMetadata">
        <ns2:inputParameterCollection/>
        <ns2:Output qName="ns38:ServiceSecurityMetadata" dimensionality="1" isArray="false" xmlns:ns38="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.security"/>
        <ns2:faultCollection/>
       </ns2:Operation>
-      <ns2:Operation description="Restrict the set to the list of codes in the supplied reference list." name="restrictToCodes">
+      <ns2:Operation description="" name="restrictToCodes">
        <ns2:inputParameterCollection>
         <ns2:InputParameter qName="ns39:ConceptReferenceList" dimensionality="1" index="0" isArray="false" isRequired="false" name="codeList" xmlns:ns39="http://LexGrid.org/schema/LexBIG/2009/01/Collections"/>
        </ns2:inputParameterCollection>
@@ -188,7 +188,7 @@
         <ns2:Fault description="" name="LBParameterException"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="Return true if the supplied code reference is contained within this coded node set." name="isCodeInSet">
+      <ns2:Operation description="" name="isCodeInSet">
        <ns2:inputParameterCollection>
         <ns2:InputParameter qName="ns40:ConceptReference" dimensionality="1" index="0" isArray="false" isRequired="false" name="code" xmlns:ns40="http://LexGrid.org/schema/LexBIG/2009/01/Core"/>
        </ns2:inputParameterCollection>
@@ -199,7 +199,7 @@
         <ns2:Fault description="" name="LBParameterException"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="Restrict the list to the set of nodes with designations matching the supplied text, interpreted using the supplied matching algorithm and language." name="restrictToMatchingDesignations">
+      <ns2:Operation description="" name="restrictToMatchingDesignations">
        <ns2:inputParameterCollection>
         <ns2:InputParameter qName="ns42:MatchCriteria" dimensionality="1" index="0" isArray="false" isRequired="false" name="matchCriteria" xmlns:ns42="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
         <ns2:InputParameter qName="ns43:SearchDesignationOption" dimensionality="1" index="1" isArray="false" isRequired="false" name="searchDesignationOption" xmlns:ns43="http://LexGrid.org/schema/LexBIG/2009/01/enums"/>
@@ -212,7 +212,7 @@
         <ns2:Fault description="" name="LBParameterException"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="Resolve an iterator over nodes matching the given criteria. " name="resolve">
+      <ns2:Operation description="" name="resolve">
        <ns2:inputParameterCollection>
         <ns2:InputParameter qName="ns46:SetResolutionPolicy" dimensionality="1" index="0" isArray="false" isRequired="false" name="setResolutionPolicy" xmlns:ns46="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
        </ns2:inputParameterCollection>
@@ -223,7 +223,7 @@
         <ns2:Fault description="" name="LBParameterException"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="Restrict the set to nodes matching the given status criteria." name="restrictToStatus">
+      <ns2:Operation description="" name="restrictToStatus">
        <ns2:inputParameterCollection>
         <ns2:InputParameter qName="ns48:ActiveOption" dimensionality="1" index="0" isArray="false" isRequired="false" name="activeOption" xmlns:ns48="http://LexGrid.org/schema/LexBIG/2009/01/enums"/>
         <ns2:InputParameter qName="ns49:Status" dimensionality="1" index="1" isArray="true" isRequired="false" name="status" xmlns:ns49="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
@@ -234,7 +234,7 @@
         <ns2:Fault description="" name="LBParameterException"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="Return a coded node set that represents the set of nodes this set and the provided node set have in common." name="intersect">
+      <ns2:Operation description="" name="intersect">
        <ns2:inputParameterCollection>
         <ns2:InputParameter qName="ns50:CodedNodeSetReference" dimensionality="1" index="0" isArray="false" isRequired="false" name="codes" xmlns:ns50="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/CodedNodeSet/types"/>
        </ns2:inputParameterCollection>
@@ -244,7 +244,7 @@
         <ns2:Fault description="" name="LBParameterException"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="Return the set union of all of the codes in the containing or the referenced set." name="union">
+      <ns2:Operation description="" name="union">
        <ns2:inputParameterCollection>
         <ns2:InputParameter qName="ns51:CodedNodeSetReference" dimensionality="1" index="0" isArray="false" isRequired="false" name="codes" xmlns:ns51="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/CodedNodeSet/types"/>
        </ns2:inputParameterCollection>
@@ -254,7 +254,7 @@
         <ns2:Fault description="" name="LBParameterException"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="Return a coded node set that represents the set of nodes in this set that are not included by the given set." name="difference">
+      <ns2:Operation description="" name="difference">
        <ns2:inputParameterCollection>
         <ns2:InputParameter qName="ns52:CodedNodeSetReference" dimensionality="1" index="0" isArray="false" isRequired="false" name="codes" xmlns:ns52="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/CodedNodeSet/types"/>
        </ns2:inputParameterCollection>
@@ -264,7 +264,7 @@
         <ns2:Fault description="" name="LBParameterException"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="Remove all elements from the set that do not have one or more properties that match the supplied property list." name="restrictToProperties">
+      <ns2:Operation description="" name="restrictToProperties">
        <ns2:inputParameterCollection>
         <ns2:InputParameter qName="ns53:LocalNameList" dimensionality="1" index="0" isArray="false" isRequired="false" name="propertyList" xmlns:ns53="http://LexGrid.org/schema/LexBIG/2009/01/Collections"/>
         <ns2:InputParameter qName="ns54:PropertyType" dimensionality="1" index="1" isArray="true" isRequired="false" name="propertyType" xmlns:ns54="http://LexGrid.org/schema/LexBIG/2009/01/enums"/>
@@ -278,7 +278,7 @@
         <ns2:Fault description="" name="LBParameterException"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="Remove all elements from the set that do not have one or more properties that match the supplied property names, type, and text." name="restrictToMatchingProperties">
+      <ns2:Operation description="" name="restrictToMatchingProperties">
        <ns2:inputParameterCollection>
         <ns2:InputParameter qName="ns58:LocalNameList" dimensionality="1" index="0" isArray="false" isRequired="false" name="localNameList" xmlns:ns58="http://LexGrid.org/schema/LexBIG/2009/01/Collections"/>
         <ns2:InputParameter qName="ns59:PropertyType" dimensionality="1" index="1" isArray="true" isRequired="false" name="propertyType" xmlns:ns59="http://LexGrid.org/schema/LexBIG/2009/01/enums"/>
@@ -295,23 +295,23 @@
         <ns2:Fault description="" name="LBParameterException"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="GetMultipleResourceProperties" name="GetMultipleResourceProperties">
+      <ns2:Operation description="" name="Destroy">
        <ns2:inputParameterCollection/>
        <ns2:faultCollection/>
       </ns2:Operation>
-      <ns2:Operation description="GetResourceProperty" name="GetResourceProperty">
+      <ns2:Operation description="" name="SetTerminationTime">
        <ns2:inputParameterCollection/>
        <ns2:faultCollection/>
       </ns2:Operation>
-      <ns2:Operation description="QueryResourceProperties" name="QueryResourceProperties">
+      <ns2:Operation description="" name="GetMultipleResourceProperties">
        <ns2:inputParameterCollection/>
        <ns2:faultCollection/>
       </ns2:Operation>
-      <ns2:Operation description="Destroy" name="Destroy">
+      <ns2:Operation description="" name="GetResourceProperty">
        <ns2:inputParameterCollection/>
        <ns2:faultCollection/>
       </ns2:Operation>
-      <ns2:Operation description="SetTerminationTime" name="SetTerminationTime">
+      <ns2:Operation description="" name="QueryResourceProperties">
        <ns2:inputParameterCollection/>
        <ns2:faultCollection/>
       </ns2:Operation>
@@ -323,7 +323,7 @@
     </ns2:ServiceContext>
     <ns2:ServiceContext description="A virtual graph where the edges represent associations and the nodes represent coded entries." name="CodedNodeGraph">
      <ns2:operationCollection>
-      <ns2:Operation description="Resolve all of the coded nodes in the list." name="resolveAsList">
+      <ns2:Operation description="Resolve all of the coded nodes in the list, sorting by the supplied property (if any), resolving the supplied properties, resolving coded entries to the supplied depth and resolving associations to the supplied   * depth." name="resolveAsList">
        <ns2:inputParameterCollection>
         <ns2:InputParameter qName="ns66:GraphResolutionPolicy" dimensionality="1" index="0" isArray="false" isRequired="false" name="graphResolutionPolicy" xmlns:ns66="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
        </ns2:inputParameterCollection>
@@ -334,12 +334,12 @@
         <ns2:Fault description="" name="LBParameterException"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="Get ServiceSecurityMetadata" name="getServiceSecurityMetadata">
+      <ns2:Operation description="" name="getServiceSecurityMetadata">
        <ns2:inputParameterCollection/>
        <ns2:Output qName="ns68:ServiceSecurityMetadata" dimensionality="1" isArray="false" xmlns:ns68="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.security"/>
        <ns2:faultCollection/>
       </ns2:Operation>
-      <ns2:Operation description="Return a list of all of the associations in the graph that have the supplied source and target codes based on distance between them." name="listCodeRelationships">
+      <ns2:Operation description="Return a list of all of the associations in the graph that have the supplied source and target concepts or, if directOnly is false, all associations whose transitive closure has the supplied associations." name="listCodeRelationships">
        <ns2:inputParameterCollection>
         <ns2:InputParameter qName="ns69:RelationshipTypeBasedPolicy" dimensionality="1" index="0" isArray="false" isRequired="false" name="relationshipTypeBasedPolicy" xmlns:ns69="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
        </ns2:inputParameterCollection>
@@ -350,7 +350,7 @@
         <ns2:Fault description="" name="LBParameterException"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="" name="restrictToSourceCodeSystem">
+      <ns2:Operation description="Restrict the graph to concept codes (source and target) that originate from the supplied code system. Note: edges defined by other code systems will still be resolved if associated with both source and target nodes for the restricted code system." name="restrictToSourceCodeSystem">
        <ns2:inputParameterCollection>
         <ns2:InputParameter qName="ns71:CodingSchemeIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns71="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
        </ns2:inputParameterCollection>
@@ -360,7 +360,7 @@
         <ns2:Fault description="" name="LBParameterException"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="Restrict the graph to edges that have codes from the specified code system as a source." name="restrictToTargetCodeSystem">
+      <ns2:Operation description="Restrict the graph to edges that have concepts derived from the supplied code system as a target." name="restrictToTargetCodeSystem">
        <ns2:inputParameterCollection>
         <ns2:InputParameter qName="ns72:CodingSchemeIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns72="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
        </ns2:inputParameterCollection>
@@ -370,7 +370,7 @@
         <ns2:Fault description="" name="LBParameterException"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="Restrict the graph to codes (source and target) that originate from the supplied code system." name="restrictToCodeSystem">
+      <ns2:Operation description="Restrict the graph to concept codes (source and target) that originate from the supplied code system. Note: edges defined by other code systems will still be resolved if associated with both source and target nodes for the restricted code system." name="restrictToCodeSystem">
        <ns2:inputParameterCollection>
         <ns2:InputParameter qName="ns73:CodingSchemeIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns73="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
        </ns2:inputParameterCollection>
@@ -400,7 +400,7 @@
         <ns2:Fault description="" name="LBParameterException"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="Restrict the graph to the nodes that participate as a source or target of an association whose directional name matches the one provided." name="restrictToDirectionalNames">
+      <ns2:Operation description="Restrict the graph to the nodes that participate as a source or target of an association whose directional name matches the one provided and, if supplied,    * the named association qualifiers.   * A directional name is considered to be either the forward or reverse label     * registered to an association defined by the ontology.  Forward and reverse names     * are optionally assigned to each association.  For example, an association 'lineage' may have a forward name 'ancestorOf' and reverse name 'descendentOf'." name="restrictToDirectionalNames">
        <ns2:inputParameterCollection>
         <ns2:InputParameter qName="ns76:NameAndValueList" dimensionality="1" index="0" isArray="false" isRequired="false" name="directionalNames" xmlns:ns76="http://LexGrid.org/schema/LexBIG/2009/01/Collections"/>
         <ns2:InputParameter qName="ns77:NameAndValueList" dimensionality="1" index="1" isArray="false" isRequired="false" name="associationQualifiers" xmlns:ns77="http://LexGrid.org/schema/LexBIG/2009/01/Collections"/>
@@ -432,7 +432,7 @@
         <ns2:Fault description="" name="LBParameterException"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="Return the set of nodes and associations that are present in both graphs." name="intersect">
+      <ns2:Operation description=" Return the set of concepts and associations that are present in both graphs." name="intersect">
        <ns2:inputParameterCollection>
         <ns2:InputParameter qName="ns81:CodedNodeGraphReference" dimensionality="1" index="0" isArray="false" isRequired="false" name="graph" xmlns:ns81="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/CodedNodeGraph/types"/>
        </ns2:inputParameterCollection>
@@ -442,7 +442,7 @@
         <ns2:Fault description="" name="LBParameterException"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="Return the union of the two graphs." name="union">
+      <ns2:Operation description=" Return the union of the two graphs. Union, in this context, means that the resulting graph contains the unique set of coded entries (String independent) that are present in one or both of the graphs, and the unique combination of edges (associations) present in one or both of the graphs." name="union">
        <ns2:inputParameterCollection>
         <ns2:InputParameter qName="ns82:CodedNodeGraphReference" dimensionality="1" index="0" isArray="false" isRequired="false" name="graph" xmlns:ns82="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/CodedNodeGraph/types"/>
        </ns2:inputParameterCollection>
@@ -452,7 +452,7 @@
         <ns2:Fault description="" name="LBParameterException"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="Determine whether the supplied code is in the graph." name="isCodeInGraph">
+      <ns2:Operation description="Determine whether the supplied concept code is in the graph." name="isCodeInGraph">
        <ns2:inputParameterCollection>
         <ns2:InputParameter qName="ns83:ConceptReference" dimensionality="1" index="0" isArray="false" isRequired="false" name="code" xmlns:ns83="http://LexGrid.org/schema/LexBIG/2009/01/Core"/>
        </ns2:inputParameterCollection>
@@ -463,7 +463,7 @@
         <ns2:Fault description="" name="LBParameterException"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="Transform the graph into a simple of list of code references, removing all association information." name="toNodeList">
+      <ns2:Operation description="Transform the graph into a simple of list of concept codes, removing all association information." name="toNodeList">
        <ns2:inputParameterCollection>
         <ns2:InputParameter qName="ns85:NodeListPolicy" dimensionality="1" index="0" isArray="false" isRequired="false" name="nodeListPolicy" xmlns:ns85="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
        </ns2:inputParameterCollection>
@@ -474,7 +474,7 @@
         <ns2:Fault description="" name="LBParameterException"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="Determine whether there is an directed edge (or transitive closure of an edge) from the source code to the target code in this graph." name="areCodesRelated">
+      <ns2:Operation description="Determine whether there is an directed edge (or transitive closure of an edge) from the source code to the target code in this graph. The last parameter determines whether only direct associations are considered or  whether the transitive closure of the edge is used." name="areCodesRelated">
        <ns2:inputParameterCollection>
         <ns2:InputParameter qName="ns87:RelationshipTypeBasedPolicy" dimensionality="1" index="0" isArray="false" isRequired="false" name="relationshipTypeBasedPolicy" xmlns:ns87="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
         <ns2:InputParameter qName="ns88:NameAndValue" dimensionality="1" index="1" isArray="false" isRequired="false" name="nameAndValue" xmlns:ns88="http://LexGrid.org/schema/LexBIG/2009/01/Core"/>
@@ -486,7 +486,7 @@
         <ns2:Fault description="" name="LBParameterException"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="Return a list of all of the associations in the graph that have the supplied source and target codes based on distance between them." name="listCodeRelationships2">
+      <ns2:Operation description="Return a list of all of the associations in the graph that have the supplied source and target concepts based on distance between them. Distance (or the No. of edges) for a direct association between a source and target codes is 1. Values if distance should be equal or greater than 1, otherwise exception is thrown. Resulting list is not based on associations source &amp; target have, but on distance only." name="listCodeRelationships2">
        <ns2:inputParameterCollection>
         <ns2:InputParameter qName="ns90:RelationshipDistanceBasedPolicy" dimensionality="1" index="0" isArray="false" isRequired="false" name="relationshipDistanceBasedPolicy" xmlns:ns90="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
        </ns2:inputParameterCollection>
@@ -497,23 +497,23 @@
         <ns2:Fault description="" name="LBParameterException"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="GetMultipleResourceProperties" name="GetMultipleResourceProperties">
+      <ns2:Operation description="" name="Destroy">
        <ns2:inputParameterCollection/>
        <ns2:faultCollection/>
       </ns2:Operation>
-      <ns2:Operation description="GetResourceProperty" name="GetResourceProperty">
+      <ns2:Operation description="" name="SetTerminationTime">
        <ns2:inputParameterCollection/>
        <ns2:faultCollection/>
       </ns2:Operation>
-      <ns2:Operation description="QueryResourceProperties" name="QueryResourceProperties">
+      <ns2:Operation description="" name="GetMultipleResourceProperties">
        <ns2:inputParameterCollection/>
        <ns2:faultCollection/>
       </ns2:Operation>
-      <ns2:Operation description="Destroy" name="Destroy">
+      <ns2:Operation description="" name="GetResourceProperty">
        <ns2:inputParameterCollection/>
        <ns2:faultCollection/>
       </ns2:Operation>
-      <ns2:Operation description="SetTerminationTime" name="SetTerminationTime">
+      <ns2:Operation description="" name="QueryResourceProperties">
        <ns2:inputParameterCollection/>
        <ns2:faultCollection/>
       </ns2:Operation>
@@ -525,12 +525,12 @@
     </ns2:ServiceContext>
     <ns2:ServiceContext description="Convenience methods to be implemented as a generic extension of the LexBIG API." name="LexBIGServiceConvenienceMethods">
      <ns2:operationCollection>
-      <ns2:Operation description="Get ServiceSecurityMetadata" name="getServiceSecurityMetadata">
+      <ns2:Operation description="" name="getServiceSecurityMetadata">
        <ns2:inputParameterCollection/>
        <ns2:Output qName="ns92:ServiceSecurityMetadata" dimensionality="1" isArray="false" xmlns:ns92="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.security"/>
        <ns2:faultCollection/>
       </ns2:Operation>
-      <ns2:Operation description="Return detailed rendering information (including coding scheme summary, version and status information, reference links, etc) for the given coding scheme." name="getRenderingDetail">
+      <ns2:Operation description="Return detailed rendering information (including coding scheme summary, version and status information, reference links, etc) for the given coding scheme; null if not available." name="getRenderingDetail">
        <ns2:inputParameterCollection>
         <ns2:InputParameter qName="ns93:CodingSchemeIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns93="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
         <ns2:InputParameter qName="ns94:CodingSchemeVersionOrTag" dimensionality="1" index="1" isArray="false" isRequired="false" name="versionOrTag" xmlns:ns94="http://LexGrid.org/schema/LexBIG/2009/01/Core"/>
@@ -541,7 +541,7 @@
         <ns2:Fault description="" name="LBException"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="Return the coding schemes who supported association matching with associationName. The search is performed only for loaded coding schemes." name="getCodingSchemesWithSupportedAssociation">
+      <ns2:Operation description="Return the coding schemes who supported association matching with associationName.  The search is performed only for loaded coding schemes.   * " name="getCodingSchemesWithSupportedAssociation">
        <ns2:inputParameterCollection>
         <ns2:InputParameter qName="ns96:AssociationIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="associationIdentification" xmlns:ns96="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
        </ns2:inputParameterCollection>
@@ -551,7 +551,7 @@
         <ns2:Fault description="" name="LBException"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="Returns the identifiers for hierarchical relationships available for navigation within a coding scheme." name="getHierarchyIDs">
+      <ns2:Operation description="Returns the identifiers for hierarchical relationships available for navigation within a coding scheme.  These identifiers can be submitted to the getHierarchyBroader() or getHierarchyNarrower() methods to navigate corresponding tree structures. Possible return values are defined by the LexBIG model (see http://informatics.mayo.edu/LexGrid/downloads/LexGrid%20Model/schemas/2009/01/EAwebpublish/index.htm)." name="getHierarchyIDs">
        <ns2:inputParameterCollection>
         <ns2:InputParameter qName="ns98:CodingSchemeIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns98="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
         <ns2:InputParameter qName="ns99:CodingSchemeVersionOrTag" dimensionality="1" index="1" isArray="false" isRequired="false" name="versionOrTag" xmlns:ns99="http://LexGrid.org/schema/LexBIG/2009/01/Core"/>
@@ -574,7 +574,7 @@
         <ns2:Fault description="" name="LBException"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="" name="getAssociationForwardName">
+      <ns2:Operation description="Return the forward name for the identified association." name="getAssociationForwardName">
        <ns2:inputParameterCollection>
         <ns2:InputParameter qName="ns105:AssociationIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="associationIdentification" xmlns:ns105="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
         <ns2:InputParameter qName="ns106:CodingSchemeIdentification" dimensionality="1" index="1" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns106="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
@@ -586,7 +586,7 @@
         <ns2:Fault description="" name="LBException"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="Return the forward name for the identified association." name="getAssociationForwardNames">
+      <ns2:Operation description="Return all the association forward name for the coding scheme." name="getAssociationForwardNames">
        <ns2:inputParameterCollection>
         <ns2:InputParameter qName="ns109:CodingSchemeIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns109="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
         <ns2:InputParameter qName="ns110:CodingSchemeVersionOrTag" dimensionality="1" index="1" isArray="false" isRequired="false" name="versionOrTag" xmlns:ns110="http://LexGrid.org/schema/LexBIG/2009/01/Core"/>
@@ -644,7 +644,7 @@
         <ns2:Fault description="" name="LBException"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="Return a representation of associations between a concept and its immediate descendants." name="getHierarchyLevelNext">
+      <ns2:Operation description="Return a representation of associations between a concept and its immediate decendents.  The resolved association list represents the next branch of the hierarchy when visualized in a top (root) to bottom (leaf) representation." name="getHierarchyLevelNext">
        <ns2:inputParameterCollection>
         <ns2:InputParameter qName="ns127:HierarchyResolutionPolicy" dimensionality="1" index="0" isArray="false" isRequired="false" name="hierarchyResolutionPolicy" xmlns:ns127="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
         <ns2:InputParameter qName="ns128:CodingSchemeIdentification" dimensionality="1" index="1" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns128="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
@@ -656,7 +656,7 @@
         <ns2:Fault description="" name="LBException"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="Return a representation of associations between a concept and its immediate ancestor(s)." name="getHierarchyLevelPrev">
+      <ns2:Operation description="Return a representation of associations between a concept and its immediate ancestor(s).  The resolved association list represents the previous level of the hierarchy when visualized in a top (root) to bottom (leaf) representation." name="getHierarchyLevelPrev">
        <ns2:inputParameterCollection>
         <ns2:InputParameter qName="ns131:HierarchyResolutionPolicy" dimensionality="1" index="0" isArray="false" isRequired="false" name="hierarchyResolutionPolicy" xmlns:ns131="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
         <ns2:InputParameter qName="ns132:CodingSchemeIdentification" dimensionality="1" index="1" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns132="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
@@ -668,7 +668,7 @@
         <ns2:Fault description="" name="LBException"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="Return a representation of associations between a concept and hierarchical root node(s)." name="getHierarchyPathToRoot">
+      <ns2:Operation description="Return a representation of associations between a concept and hierarchical root node(s).  The resolved association list represents the path within the hierarchy from traversed from bottom (leaf) to top (root)." name="getHierarchyPathToRoot">
        <ns2:inputParameterCollection>
         <ns2:InputParameter qName="ns135:HierarchyResolutionPolicy" dimensionality="1" index="0" isArray="false" isRequired="false" name="hierarchyResolutionPolicy" xmlns:ns135="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
         <ns2:InputParameter qName="ns136:CodingSchemeIdentification" dimensionality="1" index="1" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns136="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
@@ -681,7 +681,7 @@
         <ns2:Fault description="" name="LBException"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="Returns all root nodes for the given hierarchy and coding scheme." name="getHierarchyRoots">
+      <ns2:Operation description="Returns all root nodes for the given hierarchy and coding scheme.  Each root concept represents the conceptual start or narrowest point of a tree when visualizing the hierarchy. " name="getHierarchyRoots">
        <ns2:inputParameterCollection>
         <ns2:InputParameter qName="ns140:CodingSchemeIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns140="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
         <ns2:InputParameter qName="ns141:CodingSchemeVersionOrTag" dimensionality="1" index="1" isArray="false" isRequired="false" name="versionOrTag" xmlns:ns141="http://LexGrid.org/schema/LexBIG/2009/01/Core"/>
@@ -693,7 +693,7 @@
         <ns2:Fault description="" name="LBException"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="Returns all root nodes for the given hierarchy as a CodeNodeSet, which can be further restricted." name="getHierarchyRootSet">
+      <ns2:Operation description="Returns all root nodes for the given hierarchy as a CodeNodeSet, which can be further restricted.  Each root concept represents the conceptual start or narrowest point of a tree when visualizing the hierarchy. " name="getHierarchyRootSet">
        <ns2:inputParameterCollection>
         <ns2:InputParameter qName="ns144:CodingSchemeIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns144="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
         <ns2:InputParameter qName="ns145:CodingSchemeVersionOrTag" dimensionality="1" index="1" isArray="false" isRequired="false" name="versionOrTag" xmlns:ns145="http://LexGrid.org/schema/LexBIG/2009/01/Core"/>
@@ -705,19 +705,7 @@
         <ns2:Fault description="" name="LBException"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="GetMultipleResourceProperties" name="GetMultipleResourceProperties">
-       <ns2:inputParameterCollection/>
-       <ns2:faultCollection/>
-      </ns2:Operation>
-      <ns2:Operation description="GetResourceProperty" name="GetResourceProperty">
-       <ns2:inputParameterCollection/>
-       <ns2:faultCollection/>
-      </ns2:Operation>
-      <ns2:Operation description="QueryResourceProperties" name="QueryResourceProperties">
-       <ns2:inputParameterCollection/>
-       <ns2:faultCollection/>
-      </ns2:Operation>
-      <ns2:Operation description="Creates a CodedNodeSet" name="createCodeNodeSet">
+      <ns2:Operation description="Create a CodedNodeSet from a set of concept codes in a coding scheme." name="createCodeNodeSet">
        <ns2:inputParameterCollection>
         <ns2:InputParameter qName="ns148:ConceptIdentification" dimensionality="1" index="0" isArray="true" isRequired="false" name="conceptIdentification" xmlns:ns148="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
         <ns2:InputParameter qName="ns149:CodingSchemeIdentification" dimensionality="1" index="1" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns149="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
@@ -740,11 +728,11 @@
         <ns2:Fault description="" name="LBException"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="Destroy" name="Destroy">
+      <ns2:Operation description="" name="Destroy">
        <ns2:inputParameterCollection/>
        <ns2:faultCollection/>
       </ns2:Operation>
-      <ns2:Operation description="SetTerminationTime" name="SetTerminationTime">
+      <ns2:Operation description="" name="SetTerminationTime">
        <ns2:inputParameterCollection/>
        <ns2:faultCollection/>
       </ns2:Operation>
@@ -759,7 +747,7 @@
         <ns2:Fault description="" name="LBException"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="Return a representation of the association between the concepts with the given code in the reverse direction of the association in the specified relation containerName." name="getAssociationReverseOneLevel">
+      <ns2:Operation description="" name="getAssociationReverseOneLevel">
        <ns2:inputParameterCollection>
         <ns2:InputParameter qName="ns158:ConceptIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="conceptIdentification" xmlns:ns158="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
         <ns2:InputParameter qName="ns159:RelationContainerIdentification" dimensionality="1" index="1" isArray="false" isRequired="false" name="relationContainerIdentification" xmlns:ns159="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
@@ -772,7 +760,7 @@
        <ns2:Output qName="ns165:Association" dimensionality="1" isArray="false" xmlns:ns165="http://LexGrid.org/schema/LexBIG/2009/01/Core"/>
        <ns2:faultCollection/>
       </ns2:Operation>
-      <ns2:Operation description="Return a representation of the association between the concepts with the given code in the forward direction of the association in the specified relation containerName." name="getAssociationForwardOneLevel">
+      <ns2:Operation description="" name="getAssociationForwardOneLevel">
        <ns2:inputParameterCollection>
         <ns2:InputParameter qName="ns166:ConceptIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="conceptIdentification" xmlns:ns166="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
         <ns2:InputParameter qName="ns167:RelationContainerIdentification" dimensionality="1" index="1" isArray="false" isRequired="false" name="relationContainerIdentification" xmlns:ns167="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
@@ -785,6 +773,18 @@
        <ns2:Output qName="ns173:Association" dimensionality="1" isArray="false" xmlns:ns173="http://LexGrid.org/schema/LexBIG/2009/01/Core"/>
        <ns2:faultCollection/>
       </ns2:Operation>
+      <ns2:Operation description="" name="GetMultipleResourceProperties">
+       <ns2:inputParameterCollection/>
+       <ns2:faultCollection/>
+      </ns2:Operation>
+      <ns2:Operation description="" name="GetResourceProperty">
+       <ns2:inputParameterCollection/>
+       <ns2:faultCollection/>
+      </ns2:Operation>
+      <ns2:Operation description="" name="QueryResourceProperties">
+       <ns2:inputParameterCollection/>
+       <ns2:faultCollection/>
+      </ns2:Operation>
      </ns2:operationCollection>
      <ns2:contextPropertyCollection>
       <ns2:ContextProperty description="" name="{http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceLifetime-1.2-draft-01.xsd}CurrentTime"/>
@@ -793,7 +793,7 @@
     </ns2:ServiceContext>
     <ns2:ServiceContext description="An iterator for retrieving Resolved coding scheme references." name="ResolvedConceptReferencesIterator">
      <ns2:operationCollection>
-      <ns2:Operation description="Return the next available concept reference, in order, from the underlying list." name="next">
+      <ns2:Operation description="Return the next available concept reference, in order, from the underlying list. Note: This is effectively the same as performing next(1), but eliminates the need to continually unwrap the concept reference from the resolved list." name="next">
        <ns2:inputParameterCollection/>
        <ns2:Output qName="ns174:ResolvedConceptReference" dimensionality="1" isArray="false" xmlns:ns174="http://LexGrid.org/schema/LexBIG/2009/01/Core"/>
        <ns2:faultCollection>
@@ -813,7 +813,7 @@
         <ns2:Fault description="" name="LBInvocationException"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="Return concept references from the underlying list." name="get">
+      <ns2:Operation description="Return concept references from the underlying list, from the start point (inclusive) to the end point (exclusive). Calling this method has no effect on the next() calls - next() will still iterate      * through the results in the same sequential order regardless of if this method has      * been used.      *       * the result of numberRemaining() is not affected by calls to this method.         *       * Note: This method may return fewer results than requested  even if there are still more results after the last result returned by the service. Note: The method is optional, and may not be implemented by all implementations. Note: Using this method in combination with Filters may cause significant performance reductions." name="get">
        <ns2:inputParameterCollection>
         <ns2:InputParameter qName="xsd:int" dimensionality="1" index="0" isArray="false" isRequired="false" name="start" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
         <ns2:InputParameter qName="xsd:int" dimensionality="1" index="1" isArray="false" isRequired="false" name="end" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
@@ -836,7 +836,7 @@
         <ns2:Fault description="" name="LBInvocationException"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="Return a list containing the items specified in the last scroll call." name="getNext">
+      <ns2:Operation description="" name="getNext">
        <ns2:inputParameterCollection/>
        <ns2:Output qName="ns177:ResolvedConceptReferenceList" dimensionality="1" isArray="false" xmlns:ns177="http://LexGrid.org/schema/LexBIG/2009/01/Collections"/>
        <ns2:faultCollection>
@@ -845,12 +845,12 @@
         <ns2:Fault description="" name="LBInvocationException"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="Get ServiceSecurityMetadata" name="getServiceSecurityMetadata">
+      <ns2:Operation description="" name="getServiceSecurityMetadata">
        <ns2:inputParameterCollection/>
        <ns2:Output qName="ns178:ServiceSecurityMetadata" dimensionality="1" isArray="false" xmlns:ns178="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.security"/>
        <ns2:faultCollection/>
       </ns2:Operation>
-      <ns2:Operation description="True means that there still values that can be returned." name="hasNext">
+      <ns2:Operation description="True means that there still values that can be returned. False means all values have already been returned.  " name="hasNext">
        <ns2:inputParameterCollection/>
        <ns2:Output qName="xsd:boolean" dimensionality="1" isArray="false" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
        <ns2:faultCollection>
@@ -858,19 +858,7 @@
         <ns2:Fault description="" name="LBResourceUnavailableException"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="GetMultipleResourceProperties" name="GetMultipleResourceProperties">
-       <ns2:inputParameterCollection/>
-       <ns2:faultCollection/>
-      </ns2:Operation>
-      <ns2:Operation description="GetResourceProperty" name="GetResourceProperty">
-       <ns2:inputParameterCollection/>
-       <ns2:faultCollection/>
-      </ns2:Operation>
-      <ns2:Operation description="QueryResourceProperties" name="QueryResourceProperties">
-       <ns2:inputParameterCollection/>
-       <ns2:faultCollection/>
-      </ns2:Operation>
-      <ns2:Operation description="Returns a count of the number of items remaining in the iterator." name="numberRemaining">
+      <ns2:Operation description="Returns a count of the number of items remaining in the iterator. This is optional, and may only be an estimate.  Implementations should  return -1 if they cannot count or estimate the number remaining. Note: This method is not affected by calls to get(int, int).  It only returns counts with respect to calls to next() or next(int)." name="numberRemaining">
        <ns2:inputParameterCollection/>
        <ns2:Output qName="xsd:int" dimensionality="1" isArray="false" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
        <ns2:faultCollection>
@@ -878,11 +866,23 @@
         <ns2:Fault description="" name="LBResourceUnavailableException"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="Destroy" name="Destroy">
+      <ns2:Operation description="" name="Destroy">
        <ns2:inputParameterCollection/>
        <ns2:faultCollection/>
       </ns2:Operation>
-      <ns2:Operation description="SetTerminationTime" name="SetTerminationTime">
+      <ns2:Operation description="" name="SetTerminationTime">
+       <ns2:inputParameterCollection/>
+       <ns2:faultCollection/>
+      </ns2:Operation>
+      <ns2:Operation description="" name="GetMultipleResourceProperties">
+       <ns2:inputParameterCollection/>
+       <ns2:faultCollection/>
+      </ns2:Operation>
+      <ns2:Operation description="" name="GetResourceProperty">
+       <ns2:inputParameterCollection/>
+       <ns2:faultCollection/>
+      </ns2:Operation>
+      <ns2:Operation description="" name="QueryResourceProperties">
        <ns2:inputParameterCollection/>
        <ns2:faultCollection/>
       </ns2:Operation>
@@ -894,21 +894,9 @@
     </ns2:ServiceContext>
     <ns2:ServiceContext description="The history service returns information about the change history of a coding scheme." name="HistoryService">
      <ns2:operationCollection>
-      <ns2:Operation description="Get ServiceSecurityMetadata" name="getServiceSecurityMetadata">
+      <ns2:Operation description="" name="getServiceSecurityMetadata">
        <ns2:inputParameterCollection/>
        <ns2:Output qName="ns179:ServiceSecurityMetadata" dimensionality="1" isArray="false" xmlns:ns179="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.security"/>
-       <ns2:faultCollection/>
-      </ns2:Operation>
-      <ns2:Operation description="GetMultipleResourceProperties" name="GetMultipleResourceProperties">
-       <ns2:inputParameterCollection/>
-       <ns2:faultCollection/>
-      </ns2:Operation>
-      <ns2:Operation description="GetResourceProperty" name="GetResourceProperty">
-       <ns2:inputParameterCollection/>
-       <ns2:faultCollection/>
-      </ns2:Operation>
-      <ns2:Operation description="QueryResourceProperties" name="QueryResourceProperties">
-       <ns2:inputParameterCollection/>
        <ns2:faultCollection/>
       </ns2:Operation>
       <ns2:Operation description="Return the list of change events identifying the immediate ancestors of the given concept reference." name="getAncestors">
@@ -922,7 +910,7 @@
         <ns2:Fault description="" name="LBInvocationException"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="Return a list of baselines supported by this service." name="getBaselines">
+      <ns2:Operation description="Return a list of baselines supported by this service that were released on or after the first supplied date and were released on or before the second date. Returned baselines are arranged in sequential order, from earliest to latest." name="getBaselines">
        <ns2:inputParameterCollection>
         <ns2:InputParameter qName="xsd:date" dimensionality="1" index="0" isArray="false" isRequired="false" name="releasedAfter" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
         <ns2:InputParameter qName="xsd:date" dimensionality="1" index="1" isArray="false" isRequired="false" name="releasedBefore" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
@@ -989,7 +977,7 @@
         <ns2:Fault description="" name="LBInvocationException"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="Return the list of available NCI-defined change events for the given concept and coding scheme version." name="getEditActionList2">
+      <ns2:Operation description="Return the list of available NCI-defined change events for the given concept and date range." name="getEditActionList2">
        <ns2:inputParameterCollection>
         <ns2:InputParameter qName="ns192:ConceptReference" dimensionality="1" index="0" isArray="false" isRequired="false" name="conceptReference" xmlns:ns192="http://LexGrid.org/schema/LexBIG/2009/01/Core"/>
         <ns2:InputParameter qName="ns193:codingSchemeVersion" dimensionality="1" index="1" isArray="false" isRequired="false" name="codingSchemeVersion" xmlns:ns193="http://LexGrid.org/schema/2009/01/LexGrid/versions"/>
@@ -1001,7 +989,7 @@
         <ns2:Fault description="" name="LBInvocationException"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="Return the list of available NCI-defined change events for the given concept and coding scheme version." name="getEditActionList3">
+      <ns2:Operation description="Return the list of NCI-defined change events for the given concept and release; empty if not applicable." name="getEditActionList3">
        <ns2:inputParameterCollection>
         <ns2:InputParameter qName="ns195:ConceptReference" dimensionality="1" index="0" isArray="false" isRequired="false" name="conceptReference" xmlns:ns195="http://LexGrid.org/schema/LexBIG/2009/01/Core"/>
         <ns2:InputParameter qName="xsd:date" dimensionality="1" index="1" isArray="false" isRequired="false" name="beginDate" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
@@ -1033,11 +1021,23 @@
         <ns2:Fault description="" name="LBInvocationException"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="Destroy" name="Destroy">
+      <ns2:Operation description="" name="Destroy">
        <ns2:inputParameterCollection/>
        <ns2:faultCollection/>
       </ns2:Operation>
-      <ns2:Operation description="SetTerminationTime" name="SetTerminationTime">
+      <ns2:Operation description="" name="SetTerminationTime">
+       <ns2:inputParameterCollection/>
+       <ns2:faultCollection/>
+      </ns2:Operation>
+      <ns2:Operation description="" name="GetMultipleResourceProperties">
+       <ns2:inputParameterCollection/>
+       <ns2:faultCollection/>
+      </ns2:Operation>
+      <ns2:Operation description="" name="GetResourceProperty">
+       <ns2:inputParameterCollection/>
+       <ns2:faultCollection/>
+      </ns2:Operation>
+      <ns2:Operation description="" name="QueryResourceProperties">
        <ns2:inputParameterCollection/>
        <ns2:faultCollection/>
       </ns2:Operation>
@@ -1049,21 +1049,9 @@
     </ns2:ServiceContext>
     <ns2:ServiceContext description="Interface to perform system-wide query over metadata for loaded code systems and providers." name="LexBIGServiceMetadata">
      <ns2:operationCollection>
-      <ns2:Operation description="Get ServiceSecurityMetadata" name="getServiceSecurityMetadata">
+      <ns2:Operation description="" name="getServiceSecurityMetadata">
        <ns2:inputParameterCollection/>
        <ns2:Output qName="ns199:ServiceSecurityMetadata" dimensionality="1" isArray="false" xmlns:ns199="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.security"/>
-       <ns2:faultCollection/>
-      </ns2:Operation>
-      <ns2:Operation description="GetMultipleResourceProperties" name="GetMultipleResourceProperties">
-       <ns2:inputParameterCollection/>
-       <ns2:faultCollection/>
-      </ns2:Operation>
-      <ns2:Operation description="GetResourceProperty" name="GetResourceProperty">
-       <ns2:inputParameterCollection/>
-       <ns2:faultCollection/>
-      </ns2:Operation>
-      <ns2:Operation description="QueryResourceProperties" name="QueryResourceProperties">
-       <ns2:inputParameterCollection/>
        <ns2:faultCollection/>
       </ns2:Operation>
       <ns2:Operation description="List the coding schemes that are represented in the metadata index." name="listCodingSchemes">
@@ -1083,7 +1071,7 @@
         <ns2:Fault description="" name="LBParameterException"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="Restrict the search to a particular property." name="restrictToProperties">
+      <ns2:Operation description="Restrict the search to a particular property.  Currently, this can be any element or attribute name from the OBO metadata schema.  When we move to the 2006 version of the schema, there will be a method to get the available properties." name="restrictToProperties">
        <ns2:inputParameterCollection>
         <ns2:InputParameter qName="ns202:PropertyIdentification" dimensionality="1" index="0" isArray="true" isRequired="false" name="propertyIdentification" xmlns:ns202="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
        </ns2:inputParameterCollection>
@@ -1092,7 +1080,7 @@
         <ns2:Fault description="" name="LBParameterException"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="Restrict the search by the parents of the metadata elements." name="restrictToPropertyParents">
+      <ns2:Operation description="Restrict the search by the parents of the metadata elements. The OBO MetaData format is hierarchial - if you wish to restrict your search to properties that are under another property, provide the required property containers here.  " name="restrictToPropertyParents">
        <ns2:inputParameterCollection>
         <ns2:InputParameter qName="ns203:PropertyIdentification" dimensionality="1" index="0" isArray="true" isRequired="false" name="propertyIdentification" xmlns:ns203="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
        </ns2:inputParameterCollection>
@@ -1101,7 +1089,7 @@
         <ns2:Fault description="" name="LBParameterException"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="Restrict the result to the metadata elements that match the supplied string, using the supplied matching algorithm." name="restrictToValue">
+      <ns2:Operation description="Restrict the result to the metadata elements that match the supplied string, using the supplied matching algorithm " name="restrictToValue">
        <ns2:inputParameterCollection>
         <ns2:InputParameter qName="ns204:MatchCriteria" dimensionality="1" index="0" isArray="false" isRequired="false" name="matchCriteria" xmlns:ns204="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
         <ns2:InputParameter qName="ns205:ExtensionIdentification" dimensionality="1" index="1" isArray="false" isRequired="false" name="extensionIdentification" xmlns:ns205="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
@@ -1120,11 +1108,23 @@
         <ns2:Fault description="" name="LBInvocationException"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="Destroy" name="Destroy">
+      <ns2:Operation description="" name="Destroy">
        <ns2:inputParameterCollection/>
        <ns2:faultCollection/>
       </ns2:Operation>
-      <ns2:Operation description="SetTerminationTime" name="SetTerminationTime">
+      <ns2:Operation description="" name="SetTerminationTime">
+       <ns2:inputParameterCollection/>
+       <ns2:faultCollection/>
+      </ns2:Operation>
+      <ns2:Operation description="" name="GetMultipleResourceProperties">
+       <ns2:inputParameterCollection/>
+       <ns2:faultCollection/>
+      </ns2:Operation>
+      <ns2:Operation description="" name="GetResourceProperty">
+       <ns2:inputParameterCollection/>
+       <ns2:faultCollection/>
+      </ns2:Operation>
+      <ns2:Operation description="" name="QueryResourceProperties">
        <ns2:inputParameterCollection/>
        <ns2:faultCollection/>
       </ns2:Operation>
@@ -1136,58 +1136,58 @@
     </ns2:ServiceContext>
     <ns2:ServiceContext description="Allows for unique sorting of query results." name="Sort">
      <ns2:operationCollection>
-      <ns2:Operation description="Get ServiceSecurityMetadata" name="getServiceSecurityMetadata">
+      <ns2:Operation description="" name="getServiceSecurityMetadata">
        <ns2:inputParameterCollection/>
        <ns2:Output qName="ns207:ServiceSecurityMetadata" dimensionality="1" isArray="false" xmlns:ns207="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.security"/>
        <ns2:faultCollection/>
       </ns2:Operation>
-      <ns2:Operation description="Destroy" name="Destroy">
+      <ns2:Operation description="" name="Destroy">
        <ns2:inputParameterCollection/>
        <ns2:faultCollection/>
       </ns2:Operation>
-      <ns2:Operation description="SetTerminationTime" name="SetTerminationTime">
+      <ns2:Operation description="" name="SetTerminationTime">
        <ns2:inputParameterCollection/>
        <ns2:faultCollection/>
       </ns2:Operation>
-      <ns2:Operation description="GetMultipleResourceProperties" name="GetMultipleResourceProperties">
-       <ns2:inputParameterCollection/>
-       <ns2:faultCollection/>
-      </ns2:Operation>
-      <ns2:Operation description="GetResourceProperty" name="GetResourceProperty">
-       <ns2:inputParameterCollection/>
-       <ns2:faultCollection/>
-      </ns2:Operation>
-      <ns2:Operation description="QueryResourceProperties" name="QueryResourceProperties">
-       <ns2:inputParameterCollection/>
-       <ns2:faultCollection/>
-      </ns2:Operation>
-      <ns2:Operation description="The name of the Sort" name="getName">
+      <ns2:Operation description="Return the name assigned to this service extension. This name must be unique within context of the installed node and is used to register and lookup the extension through a LexBIGService." name="getName">
        <ns2:inputParameterCollection/>
        <ns2:Output qName="xsd:string" dimensionality="1" isArray="false" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="The Description of the Sort" name="getDescription">
+      <ns2:Operation description="Return a description of the extension." name="getDescription">
        <ns2:inputParameterCollection/>
        <ns2:Output qName="xsd:string" dimensionality="1" isArray="false" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="The Provider of the Sort" name="getProvider">
+      <ns2:Operation description="Return an identifier for the extension provider." name="getProvider">
        <ns2:inputParameterCollection/>
        <ns2:Output qName="xsd:string" dimensionality="1" isArray="false" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="The Version of the Sort" name="getVersion">
+      <ns2:Operation description="Return version information about the extension." name="getVersion">
        <ns2:inputParameterCollection/>
        <ns2:Output qName="xsd:string" dimensionality="1" isArray="false" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
        </ns2:faultCollection>
+      </ns2:Operation>
+      <ns2:Operation description="" name="GetMultipleResourceProperties">
+       <ns2:inputParameterCollection/>
+       <ns2:faultCollection/>
+      </ns2:Operation>
+      <ns2:Operation description="" name="GetResourceProperty">
+       <ns2:inputParameterCollection/>
+       <ns2:faultCollection/>
+      </ns2:Operation>
+      <ns2:Operation description="" name="QueryResourceProperties">
+       <ns2:inputParameterCollection/>
+       <ns2:faultCollection/>
       </ns2:Operation>
      </ns2:operationCollection>
      <ns2:contextPropertyCollection>
@@ -1197,32 +1197,20 @@
     </ns2:ServiceContext>
     <ns2:ServiceContext description="Allows for additional filtering of query results. " name="Filter">
      <ns2:operationCollection>
-      <ns2:Operation description="Get ServiceSecurityMetadata" name="getServiceSecurityMetadata">
+      <ns2:Operation description="" name="getServiceSecurityMetadata">
        <ns2:inputParameterCollection/>
        <ns2:Output qName="ns208:ServiceSecurityMetadata" dimensionality="1" isArray="false" xmlns:ns208="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.security"/>
        <ns2:faultCollection/>
       </ns2:Operation>
-      <ns2:Operation description="Destroy" name="Destroy">
+      <ns2:Operation description="" name="Destroy">
        <ns2:inputParameterCollection/>
        <ns2:faultCollection/>
       </ns2:Operation>
-      <ns2:Operation description="SetTerminationTime" name="SetTerminationTime">
+      <ns2:Operation description="" name="SetTerminationTime">
        <ns2:inputParameterCollection/>
        <ns2:faultCollection/>
       </ns2:Operation>
-      <ns2:Operation description="GetMultipleResourceProperties" name="GetMultipleResourceProperties">
-       <ns2:inputParameterCollection/>
-       <ns2:faultCollection/>
-      </ns2:Operation>
-      <ns2:Operation description="GetResourceProperty" name="GetResourceProperty">
-       <ns2:inputParameterCollection/>
-       <ns2:faultCollection/>
-      </ns2:Operation>
-      <ns2:Operation description="QueryResourceProperties" name="QueryResourceProperties">
-       <ns2:inputParameterCollection/>
-       <ns2:faultCollection/>
-      </ns2:Operation>
-      <ns2:Operation description="Indicates whether or not the given reference satisfies criteria for this filter." name="match">
+      <ns2:Operation description="Indicates whether or not the given reference satisfies criteria for this filter. Filters should _NOT_ be used for search criteria that can be done with built in restrictions.  Filters are very inefficient." name="match">
        <ns2:inputParameterCollection>
         <ns2:InputParameter qName="ns209:ResolvedConceptReference" dimensionality="1" index="0" isArray="false" isRequired="false" name="ref" xmlns:ns209="http://LexGrid.org/schema/LexBIG/2009/01/Core"/>
        </ns2:inputParameterCollection>
@@ -1231,33 +1219,45 @@
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="The Name of the Filter" name="getName">
+      <ns2:Operation description="Return the name assigned to this service extension. This name must be unique within context of the installed node and is used to register and lookup the extension through a LexBIGService." name="getName">
        <ns2:inputParameterCollection/>
        <ns2:Output qName="xsd:string" dimensionality="1" isArray="false" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="The Description of the Filter" name="getDescription">
+      <ns2:Operation description="Return a description of the extension." name="getDescription">
        <ns2:inputParameterCollection/>
        <ns2:Output qName="xsd:string" dimensionality="1" isArray="false" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="The Provider of the Filter" name="getProvider">
+      <ns2:Operation description="Return an identifier for the extension provider." name="getProvider">
        <ns2:inputParameterCollection/>
        <ns2:Output qName="xsd:string" dimensionality="1" isArray="false" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="The Version of the Filter" name="getVersion">
+      <ns2:Operation description="Return version information about the extension." name="getVersion">
        <ns2:inputParameterCollection/>
        <ns2:Output qName="xsd:string" dimensionality="1" isArray="false" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
        </ns2:faultCollection>
+      </ns2:Operation>
+      <ns2:Operation description="" name="GetMultipleResourceProperties">
+       <ns2:inputParameterCollection/>
+       <ns2:faultCollection/>
+      </ns2:Operation>
+      <ns2:Operation description="" name="GetResourceProperty">
+       <ns2:inputParameterCollection/>
+       <ns2:faultCollection/>
+      </ns2:Operation>
+      <ns2:Operation description="" name="QueryResourceProperties">
+       <ns2:inputParameterCollection/>
+       <ns2:faultCollection/>
       </ns2:Operation>
      </ns2:operationCollection>
      <ns2:contextPropertyCollection>

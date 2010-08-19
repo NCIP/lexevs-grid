@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns="http://LexGrid.org/schema/2009/01/LexGrid/concepts" 
-xmlns:lgBuiltin="http://LexGrid.org/schema/2009/01/LexGrid/builtins" 
-xmlns:lgCommon="http://LexGrid.org/schema/2009/01/LexGrid/commonTypes" 
-xmlns:lgCon="http://LexGrid.org/schema/2009/01/LexGrid/concepts"
-xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-elementFormDefault="qualified" 
-targetNamespace="http://LexGrid.org/schema/2009/01/LexGrid/concepts">
-
-        <xs:import namespace="http://LexGrid.org/schema/2009/01/LexGrid/builtins" schemaLocation="builtins.xsd"/>
-        <xs:import namespace="http://LexGrid.org/schema/2009/01/LexGrid/commonTypes" schemaLocation="commonTypes.xsd"/>
-
+<xs:schema xmlns="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/concepts" 
+		xmlns:lgRel="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/relations"
+        xmlns:lgCommon="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/commonTypes" 
+        xmlns:iso21090="uri:iso.org:21090" 
+        xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" 
+        targetNamespace="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/concepts">
+        <xs:import namespace="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/commonTypes" schemaLocation="commonTypes.xsd"/>
+        <xs:import namespace="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/relations" schemaLocation="relations.xsd"/>
+        <xs:import namespace="uri:iso.org:21090" schemaLocation="ISO_extensions.xsd"/>
+        
         <!-- ================================================= -->
         <!-- Package: <<XSDschema>> concepts  -->
         <!-- ================================================= -->
@@ -22,7 +21,6 @@ targetNamespace="http://LexGrid.org/schema/2009/01/LexGrid/concepts">
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <!-- Class:  entity  -->
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-        <xs:element name="entity" type="lgCon:entity"/>
         <xs:complexType name="entity">
                 <xs:annotation>
                         <xs:documentation>A set of lexical assertions about the intended meaning of a particular entity code.</xs:documentation>
@@ -30,7 +28,7 @@ targetNamespace="http://LexGrid.org/schema/2009/01/LexGrid/concepts">
                 <xs:complexContent>
                         <xs:extension base="lgCommon:versionableAndDescribable">
                                 <xs:sequence>
-                                        <xs:element name="entityType" type="lgCommon:entityType" minOccurs="0" maxOccurs="unbounded">
+                                        <xs:element name="entityType" type="iso21090:ST" minOccurs="0" maxOccurs="unbounded">
                                                 <xs:annotation>
                                                         <xs:documentation>The local identifiers of the entity types(s) represented by this entity code. Must match a local id of a supportedEntityType in the corresponding mappings section.</xs:documentation>
                                                 </xs:annotation>
@@ -60,27 +58,27 @@ targetNamespace="http://LexGrid.org/schema/2009/01/LexGrid/concepts">
                                                         <xs:documentation>A link between two properties for the same coded entry. Example: literal translation of, acronym of</xs:documentation>
                                                 </xs:annotation>
                                         </xs:element>
-                                </xs:sequence>
-                                <xs:attribute name="entityCode" type="lgCommon:entityCode" use="required">
-                                        <xs:annotation>
-                                                <xs:documentation>The entity code being defined. </xs:documentation>
-                                        </xs:annotation>
-                                </xs:attribute>
-                                <xs:attribute name="entityCodeNamespace" type="lgCommon:namespaceName">
-                                        <xs:annotation>
-                                                <xs:documentation>Local identifier of the namespace of the entityCode. entityCodeNamespace must match a local id of a supportedNamespace in the corresponding mappings section.  If omitted, the URI of the defaultCodingScheme will be used as the namespace for the entity code.</xs:documentation>
-                                        </xs:annotation>
-                                </xs:attribute>
-                                <xs:attribute name="isAnonymous" type="lgBuiltin:tsBoolean">
-                                        <xs:annotation>
-                                                <xs:documentation>True means that the entityCode is synthetic, and doesn't actually exist in the namespace.  isAnonymous is used for synthetic top and bottom nodes as well as blank or anonymous inner class definitions.  Default: False</xs:documentation>
-                                        </xs:annotation>
-                                </xs:attribute>
-                                <xs:attribute name="isDefined" type="lgBuiltin:tsBoolean">
-                                        <xs:annotation>
-                                                <xs:documentation>True means that this entityCode is considered to be completely defined (i.e. necessary and sufficient) within the context of the containing code system. False means that only the necessary components are present.  If omitted, the state of the entityCode definition is not known.</xs:documentation>
-                                        </xs:annotation>
-                                </xs:attribute>
+                                        <xs:element name="entityCode" type="iso21090:ST">
+	                                        <xs:annotation>
+	                                                <xs:documentation>The entity code being defined. </xs:documentation>
+	                                        </xs:annotation>
+                                		</xs:element>
+		                                <xs:element name="entityCodeNamespace" type="iso21090:ST">
+		                                        <xs:annotation>
+		                                                <xs:documentation>Local identifier of the namespace of the entityCode. entityCodeNamespace must match a local id of a supportedNamespace in the corresponding mappings section.  If omitted, the URI of the defaultCodingScheme will be used as the namespace for the entity code.</xs:documentation>
+		                                        </xs:annotation>
+		                                </xs:element>
+		                                <xs:element name="isAnonymous" type="iso21090:BL">
+		                                        <xs:annotation>
+		                                                <xs:documentation>True means that the entityCode is synthetic, and doesn't actually exist in the namespace.  isAnonymous is used for synthetic top and bottom nodes as well as blank or anonymous inner class definitions.  Default: False</xs:documentation>
+		                                        </xs:annotation>
+		                                </xs:element>
+		                                <xs:element name="isDefined" type="iso21090:BL">
+		                                        <xs:annotation>
+		                                                <xs:documentation>True means that this entityCode is considered to be completely defined (i.e. necessary and sufficient) within the context of the containing code system. False means that only the necessary components are present.  If omitted, the state of the entityCode definition is not known.</xs:documentation>
+		                                        </xs:annotation>
+		                                </xs:element>
+		                        </xs:sequence>
                         </xs:extension>
                 </xs:complexContent>
         </xs:complexType>
@@ -88,55 +86,20 @@ targetNamespace="http://LexGrid.org/schema/2009/01/LexGrid/concepts">
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <!-- Class: entities  -->
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-        <xs:element name="entities" type="lgCon:entities"/>
         <xs:complexType name="entities">
                 <xs:annotation>
                         <xs:documentation>A set of entity codes and their lexical descriptions</xs:documentation>
                 </xs:annotation>
                 <xs:sequence>
-                        <xs:element maxOccurs="unbounded" name="entity" type="entity">
-                                <xs:annotation>
-                                        <xs:documentation>An individual entity within the set</xs:documentation>
-                                </xs:annotation>
-                        </xs:element>
+                	<xs:element name="entity" type="entity" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element name="associationEntity" type="lgRel:associationEntity" minOccurs="0" maxOccurs="unbounded"/>
                 </xs:sequence>
         </xs:complexType>
-
-
-        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-        <!-- Class: concept  -->
-        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-        <xs:element name="concept" type="lgCon:concept"/>
-        <xs:complexType name="concept">
-                <xs:annotation>
-                        <xs:documentation>An entity that represents a class or category. The entityType for the class concept must be "concept".</xs:documentation>
-                </xs:annotation>
-                <xs:complexContent>
-                        <xs:extension base="entity"/>
-                </xs:complexContent>
-        </xs:complexType>
-
-
-
-        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-        <!-- Class: instance  -->
-        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-        <xs:element name="instance" type="lgCon:instance"/>
-        <xs:complexType name="instance">
-                <xs:annotation>
-                        <xs:documentation>An entity that represents an instance or an individual. The entityType for the class concept must be "instance".</xs:documentation>
-                </xs:annotation>
-                <xs:complexContent>
-                        <xs:extension base="entity"/>
-                </xs:complexContent>
-        </xs:complexType>
-
-
+        
 
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <!-- Class:  comment  -->
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-        <xs:element name="comment" type="lgCon:comment"/>
         <xs:complexType name="comment">
                 <xs:annotation>
                         <xs:documentation>A property that  is used as an annotation or other note about the state or usage of the entity. The propertyType of comment must be "comment"</xs:documentation>
@@ -150,18 +113,19 @@ targetNamespace="http://LexGrid.org/schema/2009/01/LexGrid/concepts">
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <!-- Class: definition  -->
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-        <xs:element name="definition" type="lgCon:definition"/>
         <xs:complexType name="definition">
                 <xs:annotation>
                         <xs:documentation>A property that defines the entity in a particular langage or context.. The propertyType of definition must be "definition"</xs:documentation>
                 </xs:annotation>
                 <xs:complexContent>
                         <xs:extension base="lgCommon:property">
-                                <xs:attribute name="isPreferred" type="lgBuiltin:tsBoolean">
+                        	<xs:sequence>
+                                <xs:element name="isPreferred" type="iso21090:BL">
                                         <xs:annotation>
                                                 <xs:documentation>True means this is the preferred definition for the given language and context.</xs:documentation>
                                         </xs:annotation>
-                                </xs:attribute>
+                                </xs:element>
+                            </xs:sequence>
                         </xs:extension>
                 </xs:complexContent>
         </xs:complexType>
@@ -169,33 +133,34 @@ targetNamespace="http://LexGrid.org/schema/2009/01/LexGrid/concepts">
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <!-- Class: presentation  -->
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-        <xs:element name="presentation" type="lgCon:presentation"/>
         <xs:complexType name="presentation">
                 <xs:annotation>
                         <xs:documentation>A property ths represents or designates the meaning of the entityCode. The propertyType of presentation must be "presentation"</xs:documentation>
                 </xs:annotation>
                 <xs:complexContent>
                         <xs:extension base="lgCommon:property">
-                                <xs:attribute name="isPreferred" type="lgBuiltin:tsBoolean">
+                        	<xs:sequence>
+                                <xs:element name="isPreferred" type="iso21090:BL">
                                         <xs:annotation>
                                                 <xs:documentation>True means that, *if* the text meets the selection criteria, it should be the preferred form. For a given language there should be only one preferred presentation. </xs:documentation>
                                         </xs:annotation>
-                                </xs:attribute>
-                                <xs:attribute name="degreeOfFidelity" type="lgCommon:degreeOfFidelity">
+                                </xs:element>
+                                <xs:element name="degreeOfFidelity" type="iso21090:ST">
                                         <xs:annotation>
                                                 <xs:documentation>A local identifier that states how closely a term approximates the intended meaning of an entry code. degreeOfFidelity must match a local id of a supportedDegreeOfFidelity in the corresponding mappings section. </xs:documentation>
                                         </xs:annotation>
-                                </xs:attribute>
-                                <xs:attribute name="matchIfNoContext" type="lgBuiltin:tsBoolean">
+                                </xs:element>
+                                <xs:element name="matchIfNoContext" type="iso21090:BL">
                                         <xs:annotation>
                                                 <xs:documentation>True means that this presentation is valid in a acontextual setting - that it is always valid in the given language.  Default: true  if there are no property usageContexts, false otherwise.</xs:documentation>
                                         </xs:annotation>
-                                </xs:attribute>
-                                <xs:attribute name="representationalForm" type="lgCommon:representationalForm">
+                                </xs:element>
+                                <xs:element name="representationalForm" type="iso21090:ST">
                                         <xs:annotation>
                                                 <xs:documentation>A local identifier that states how the term represents the concept (abbrev, acronym, etc.) representationalForm must match a local id of a representationalForm in the corresponding mappings section.</xs:documentation>
                                         </xs:annotation>
-                                </xs:attribute>
+                                </xs:element>
+                            </xs:sequence>
                         </xs:extension>
                 </xs:complexContent>
         </xs:complexType>
@@ -204,26 +169,27 @@ targetNamespace="http://LexGrid.org/schema/2009/01/LexGrid/concepts">
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <!-- Class:  propertyLink  -->
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-        <xs:element name="propertyLink" type="lgCon:propertyLink"/>
         <xs:complexType name="propertyLink">
                 <xs:annotation>
                         <xs:documentation>A link between two properties for an entity.. Examples include acronymFor, abbreviationOf, spellingVariantOf, etc. Must be in supportedPropertyLink.</xs:documentation>
                 </xs:annotation>
-                <xs:attribute name="sourceProperty" type="lgCommon:propertyId" use="required">
-                        <xs:annotation>
-                                <xs:documentation>The identifier of the first property in the link.</xs:documentation>
-                        </xs:annotation>
-                </xs:attribute>
-                <xs:attribute name="propertyLink" type="lgCommon:propertyLinkName" use="required">
-                        <xs:annotation>
-                                <xs:documentation>The local name of the type of linke between properties.  propertyLink must match a local id of a supportedPropertyLink in the corresponding mappings section</xs:documentation>
-                        </xs:annotation>
-                </xs:attribute>
-                <xs:attribute name="targetProperty" type="lgCommon:propertyId" use="required">
-                        <xs:annotation>
-                                <xs:documentation>The identifier of the second property in the link.</xs:documentation>
-                        </xs:annotation>
-                </xs:attribute>
+                <xs:sequence>
+	                <xs:element name="sourceProperty" type="iso21090:ST">
+	                        <xs:annotation>
+	                                <xs:documentation>The identifier of the first property in the link.</xs:documentation>
+	                        </xs:annotation>
+	                </xs:element>
+	                <xs:element name="propertyLink" type="iso21090:ST">
+	                        <xs:annotation>
+	                                <xs:documentation>The local name of the type of linke between properties.  propertyLink must match a local id of a supportedPropertyLink in the corresponding mappings section</xs:documentation>
+	                        </xs:annotation>
+	                </xs:element>
+	                <xs:element name="targetProperty" type="iso21090:ST">
+	                        <xs:annotation>
+	                                <xs:documentation>The identifier of the second property in the link.</xs:documentation>
+	                        </xs:annotation>
+	                </xs:element>
+                </xs:sequence>
         </xs:complexType>
 
 

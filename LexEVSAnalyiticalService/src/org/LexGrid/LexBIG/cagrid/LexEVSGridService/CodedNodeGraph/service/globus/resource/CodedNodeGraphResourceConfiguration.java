@@ -7,7 +7,7 @@ package org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeGraph.service.globu
  * This class is used by the resource to get configuration information about the 
  * resource.
  * 
- * @created by Introduce Toolkit version 1.2
+ * @created by Introduce Toolkit version 1.3
  * 
  */
 public class CodedNodeGraphResourceConfiguration {
