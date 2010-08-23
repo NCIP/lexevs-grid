@@ -31,6 +31,7 @@ import org.LexGrid.LexBIG.Exceptions.LBInvocationException;
 import org.LexGrid.LexBIG.LexBIGService.LexBIGService;
 import org.LexGrid.LexBIG.caCore.interfaces.LexEVSDistributed;
 import org.LexGrid.LexBIG.cagrid.Utils;
+import org.LexGrid.LexBIG.cagrid.iso21090.converter.ConvertUtils;
 import org.LexGrid.LexBIG.cagrid.security.connection.SecureConnectionManager;
 import org.LexGrid.LexBIG.cagrid.security.connection.SecureConnectionManagerFactory;
 import org.apache.axis.Message;
@@ -63,7 +64,7 @@ public class LexEVSGridServiceImpl extends LexEVSGridServiceImplBase {
 		}
 	}
 
-  public org.LexGrid.LexBIG.DataModel.Collections.CodingSchemeRenderingList getSupportedCodingSchemes() throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException {
+  public org.LexGrid.LexBIG.iso21090.DataModel.Collections.CodingSchemeRenderingList getSupportedCodingSchemes() throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException {
 		try {
 			return getLexBIGServiceFromCache()
 					.getSupportedCodingSchemes();
@@ -78,7 +79,7 @@ public class LexEVSGridServiceImpl extends LexEVSGridServiceImplBase {
 		 }
 	}
 
-  public org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeSet.stubs.types.CodedNodeSetReference getCodingSchemeConcepts(org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag versionOrTag) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
+  public org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeSet.stubs.types.CodedNodeSetReference getCodingSchemeConcepts(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag versionOrTag) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
 		org.apache.axis.message.addressing.EndpointReferenceType epr = new org.apache.axis.message.addressing.EndpointReferenceType();
 		org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeSet.service.globus.resource.CodedNodeSetResourceHome home = null;
 		org.globus.wsrf.ResourceKey resourceKey = null;
@@ -146,27 +147,30 @@ public class LexEVSGridServiceImpl extends LexEVSGridServiceImplBase {
 		}
 	}
 
-  public org.LexGrid.codingSchemes.CodingScheme resolveCodingScheme(org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag versionOrTag) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
+  public org.LexGrid.iso21090.codingSchemes.CodingScheme resolveCodingScheme(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag versionOrTag) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
 		try {
-			return getLexBIGServiceFromCache()
-					.resolveCodingScheme(codingSchemeIdentification.getName(), versionOrTag);
+			return ConvertUtils.convert(getLexBIGServiceFromCache()
+					.resolveCodingScheme(
+							codingSchemeIdentification.getName(), 
+							ConvertUtils.convert(versionOrTag, org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag.class)), 
+							org.LexGrid.iso21090.codingSchemes.CodingScheme.class);
 		} catch (Exception e) {
 			Utils.processException(e);
 			return null;
 		}
 	}
 
-  public org.LexGrid.LexBIG.DataModel.Collections.ModuleDescriptionList getMatchAlgorithms() throws RemoteException {
+  public org.LexGrid.LexBIG.iso21090.DataModel.Collections.ModuleDescriptionList getMatchAlgorithms() throws RemoteException {
 		try {
-			return getLexBIGServiceFromCache()
-					.getMatchAlgorithms();
+			return ConvertUtils.convert(getLexBIGServiceFromCache()
+					.getMatchAlgorithms(), org.LexGrid.LexBIG.iso21090.DataModel.Collections.ModuleDescriptionList.class);
 		} catch (Exception e) {
 			Utils.processException(e);
 			return null;
 		}
 	}
 
-  public org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeGraph.stubs.types.CodedNodeGraphReference getNodeGraph(org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag versionOrTag,org.LexGrid.LexBIG.DataModel.cagrid.RelationContainerIdentification relationContainerIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
+  public org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeGraph.stubs.types.CodedNodeGraphReference getNodeGraph(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag versionOrTag,org.LexGrid.LexBIG.iso21090.DataModel.cagrid.RelationContainerIdentification relationContainerIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
 		org.apache.axis.message.addressing.EndpointReferenceType epr = new org.apache.axis.message.addressing.EndpointReferenceType();
 		org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeGraph.service.globus.resource.CodedNodeGraphResourceHome home = null;
 		org.globus.wsrf.ResourceKey resourceKey = null;
@@ -224,27 +228,30 @@ public class LexEVSGridServiceImpl extends LexEVSGridServiceImplBase {
 		return ref;
 	}
 
-  public org.LexGrid.LexBIG.DataModel.Collections.SortDescriptionList getSortAlgorithms(java.lang.String context) throws RemoteException {
+  public org.LexGrid.LexBIG.iso21090.DataModel.Collections.SortDescriptionList getSortAlgorithms(java.lang.String context) throws RemoteException {
 		try {
-			return getLexBIGServiceFromCache()
-					.getSortAlgorithms(SortContext.valueOf(context));
+			return ConvertUtils.convert(
+				getLexBIGServiceFromCache()
+					.getSortAlgorithms(SortContext.valueOf(context)),
+							org.LexGrid.LexBIG.iso21090.DataModel.Collections.SortDescriptionList.class		);
 		} catch (Exception e) {
 			Utils.processException(e);
 			return null;
 		}
 	}
 
-  public org.LexGrid.LexBIG.DataModel.Collections.ExtensionDescriptionList getGenericExtensions() throws RemoteException {
+  public org.LexGrid.LexBIG.iso21090.DataModel.Collections.ExtensionDescriptionList getGenericExtensions() throws RemoteException {
 		try {
-			return getLexBIGServiceFromCache()
-					.getGenericExtensions();
+			return ConvertUtils.convert(getLexBIGServiceFromCache()
+					.getGenericExtensions(),
+					org.LexGrid.LexBIG.iso21090.DataModel.Collections.ExtensionDescriptionList.class);
 		} catch (Exception e) {
 			Utils.processException(e);
 			return null;
 		}
 	}
 
-  public org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceConvenienceMethods.stubs.types.LexBIGServiceConvenienceMethodsReference getGenericExtension(org.LexGrid.LexBIG.DataModel.cagrid.ExtensionIdentification extensionIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
+  public org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceConvenienceMethods.stubs.types.LexBIGServiceConvenienceMethodsReference getGenericExtension(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.ExtensionIdentification extensionIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
 		org.apache.axis.message.addressing.EndpointReferenceType epr = new org.apache.axis.message.addressing.EndpointReferenceType();
 		org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceConvenienceMethods.service.globus.resource.LexBIGServiceConvenienceMethodsResourceHome home = null;
 		org.globus.wsrf.ResourceKey resourceKey = null;
@@ -306,17 +313,18 @@ public class LexEVSGridServiceImpl extends LexEVSGridServiceImplBase {
 		return ref;
 	}
 
-  public org.LexGrid.LexBIG.DataModel.Collections.ExtensionDescriptionList getFilterExtensions() throws RemoteException {
+  public org.LexGrid.LexBIG.iso21090.DataModel.Collections.ExtensionDescriptionList getFilterExtensions() throws RemoteException {
 		try {
-			return getLexBIGServiceFromCache()
-					.getFilterExtensions();
+			return ConvertUtils.convert(getLexBIGServiceFromCache()
+					.getFilterExtensions(),
+					org.LexGrid.LexBIG.iso21090.DataModel.Collections.ExtensionDescriptionList.class);
 		 } catch (Exception e) {
 				Utils.processException(e);
 				return null;
 		 }
 	}
 
-  public org.LexGrid.LexBIG.cagrid.LexEVSGridService.HistoryService.stubs.types.HistoryServiceReference getHistoryService(org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
+  public org.LexGrid.LexBIG.cagrid.LexEVSGridService.HistoryService.stubs.types.HistoryServiceReference getHistoryService(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
 		org.apache.axis.message.addressing.EndpointReferenceType epr = new org.apache.axis.message.addressing.EndpointReferenceType();
 		org.LexGrid.LexBIG.cagrid.LexEVSGridService.HistoryService.service.globus.resource.HistoryServiceResourceHome home = null;
 		org.globus.wsrf.ResourceKey resourceKey = null;
@@ -431,7 +439,7 @@ public class LexEVSGridServiceImpl extends LexEVSGridServiceImplBase {
 		return ref;
 	}
 
-  public org.LexGrid.LexBIG.cagrid.LexEVSGridService.Sort.stubs.types.SortReference getSortAlgorithm(org.LexGrid.LexBIG.DataModel.cagrid.ExtensionIdentification extensionIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
+  public org.LexGrid.LexBIG.cagrid.LexEVSGridService.Sort.stubs.types.SortReference getSortAlgorithm(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.ExtensionIdentification extensionIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
 		org.apache.axis.message.addressing.EndpointReferenceType epr = new org.apache.axis.message.addressing.EndpointReferenceType();
 		org.LexGrid.LexBIG.cagrid.LexEVSGridService.Sort.service.globus.resource.SortResourceHome home = null;
 		org.globus.wsrf.ResourceKey resourceKey = null;
@@ -488,7 +496,7 @@ public class LexEVSGridServiceImpl extends LexEVSGridServiceImplBase {
 		return ref;
 	}
 
-  public org.LexGrid.LexBIG.cagrid.LexEVSGridService.Filter.stubs.types.FilterReference getFilter(org.LexGrid.LexBIG.DataModel.cagrid.ExtensionIdentification extensionIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
+  public org.LexGrid.LexBIG.cagrid.LexEVSGridService.Filter.stubs.types.FilterReference getFilter(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.ExtensionIdentification extensionIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
 		org.apache.axis.message.addressing.EndpointReferenceType epr = new org.apache.axis.message.addressing.EndpointReferenceType();
 		org.LexGrid.LexBIG.cagrid.LexEVSGridService.Filter.service.globus.resource.FilterResourceHome home = null;
 		org.globus.wsrf.ResourceKey resourceKey = null;
@@ -545,7 +553,7 @@ public class LexEVSGridServiceImpl extends LexEVSGridServiceImplBase {
 		return ref;
   }
 
-  public org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeCopyRight resolveCodingSchemeCopyright(org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag versionOrTag) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
+  public org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeCopyRight resolveCodingSchemeCopyright(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag versionOrTag) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
 	  try {
 		  String copyright = getLexBIGServiceFromCache()
 		  		.resolveCodingSchemeCopyright(codingSchemeIdentification.getName(), versionOrTag);					
@@ -556,7 +564,7 @@ public class LexEVSGridServiceImpl extends LexEVSGridServiceImplBase {
 	 }
   }
 
-  public org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LexEVSGridServiceReference setSecurityToken(org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,gov.nih.nci.evs.security.SecurityToken securityToken) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {  
+  public org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LexEVSGridServiceReference setSecurityToken(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,gov.nih.nci.evs.security.SecurityToken securityToken) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {  
 	  String csName = codingSchemeIdentification.getName();
 	  try{
 		  EndpointReferenceType eprt =  connectionManager.processSecurityToken(getMessageContext(), csName, securityToken);

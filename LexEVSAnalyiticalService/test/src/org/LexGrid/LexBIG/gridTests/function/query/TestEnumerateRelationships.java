@@ -24,6 +24,8 @@ package org.LexGrid.LexBIG.gridTests.function.query;
 
 // LexBIG Test ID: T1_FNC_31	TestEnumerateRelationships
 
+import java.util.List;
+
 import org.LexGrid.LexBIG.DataModel.Core.ConceptReference;
 import org.LexGrid.LexBIG.Exceptions.LBException;
 import org.LexGrid.LexBIG.gridTests.LexBIGServiceTestCase;
@@ -60,33 +62,8 @@ public class TestEnumerateRelationships extends LexBIGServiceTestCase
         
         ConceptReference ref5 = ConvenienceMethods.createConceptReference("GO:0015203", GO_SCHEME);
 
-        ConceptReference[] cr = cng.listCodeRelationships(ref4, ref5, true).getConceptReference();
+        List<String> cr = cng.listCodeRelationships(ref4, ref5, true);
 
-        assertTrue("1",contains(cr, new String[] {"is_a"}));       
-    }
-
-    private boolean contains(ConceptReference[] cr, String[] associations)
-    {
-        if (cr.length != associations.length)
-        {
-            return false;
-        }
-        for (int i = 0; i < cr.length; i++)
-        {
-            boolean found = false;
-            for (int j = 0; j < associations.length; j++)
-            {
-                if (cr[i].getConceptCode().equals(associations[j]))
-                {
-                    found = true;
-                    break;
-                }
-            }
-            if (!found)
-            {
-                return false;
-            }
-        }
-        return true;
+        assertTrue(cr.contains("is_a"));       
     }
 }

@@ -10,55 +10,55 @@
      <ns2:operationCollection>
       <ns2:Operation description="" name="getServiceSecurityMetadata">
        <ns2:inputParameterCollection/>
-       <ns2:Output qName="ns5:ServiceSecurityMetadata" dimensionality="1" isArray="false" xmlns:ns5="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.security"/>
+       <ns2:Output qName="ns5:ServiceSecurityMetadata" dimensionality="1" isArray="false" xmlns:ns5="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.security">
+        <ns6:UMLClass className="ServiceSecurityMetadata" description="An instance of the Security Service Metadata." id="8E7A74B9-D300-646D-E040-BB89AD43706D" packageName="gov.nih.nci.cagrid.metadata.security" projectName="caGrid_Metadata_Models" projectVersion="1" xmlns:ns6="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.common">
+         <ns6:umlAttributeCollection/>
+         <ns6:SemanticMetadata conceptCode="C80736" conceptDefinition="A software system providing a public need." conceptName="Software Service" order="2"/>
+         <ns6:SemanticMetadata conceptCode="C25669" conceptDefinition="Security; freedom from anxiety or fear." conceptName="Security" order="1"/>
+         <ns6:SemanticMetadata conceptCode="C52095" conceptDefinition="Data about data; information that describes another set of data." conceptName="Metadata" order="0"/>
+        </ns6:UMLClass>
+       </ns2:Output>
        <ns2:faultCollection/>
       </ns2:Operation>
       <ns2:Operation description="Return a list of coding schemes and versions that are supported by this service, along with their status." name="getSupportedCodingSchemes">
        <ns2:inputParameterCollection/>
-       <ns2:Output qName="ns6:CodingSchemeRenderingList" dimensionality="1" isArray="false" xmlns:ns6="http://LexGrid.org/schema/LexBIG/2009/01/Collections"/>
+       <ns2:Output qName="ns7:CodingSchemeRenderingList" dimensionality="1" isArray="false" xmlns:ns7="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Collections"/>
        <ns2:faultCollection>
         <ns2:Fault description="" name="LBInvocationException"/>
        </ns2:faultCollection>
       </ns2:Operation>
       <ns2:Operation description="Returns the set of all (or all active) concepts in the specified coding scheme." name="getCodingSchemeConcepts">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns7:CodingSchemeIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns7="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
-        <ns2:InputParameter qName="ns8:CodingSchemeVersionOrTag" dimensionality="1" index="1" isArray="false" isRequired="false" name="versionOrTag" xmlns:ns8="http://LexGrid.org/schema/LexBIG/2009/01/Core"/>
+        <ns2:InputParameter qName="ns8:CodingSchemeIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns8="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
+        <ns2:InputParameter qName="ns9:CodingSchemeVersionOrTag" dimensionality="1" index="1" isArray="false" isRequired="false" name="versionOrTag" xmlns:ns9="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Core"/>
        </ns2:inputParameterCollection>
-       <ns2:Output qName="ns9:CodedNodeSetReference" dimensionality="1" isArray="false" xmlns:ns9="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/CodedNodeSet/types"/>
+       <ns2:Output qName="ns10:CodedNodeSetReference" dimensionality="1" isArray="false" xmlns:ns10="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/CodedNodeSet/types"/>
        <ns2:faultCollection>
         <ns2:Fault description="" name="LBException"/>
        </ns2:faultCollection>
       </ns2:Operation>
-      <ns2:Operation description="Return the last time that the content of this service was changed; null if no changes have occurred. Tag assignments do not count as service changes for this purpose." name="getLastUpdateTime">
-       <ns2:inputParameterCollection/>
-       <ns2:Output qName="xsd:date" dimensionality="1" isArray="false" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
-       <ns2:faultCollection>
-        <ns2:Fault description="" name="LBInvocationException"/>
-       </ns2:faultCollection>
-      </ns2:Operation>
       <ns2:Operation description="Return detailed coding scheme information given a specific tag or version identifier." name="resolveCodingScheme">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns10:CodingSchemeIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns10="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
-        <ns2:InputParameter qName="ns11:CodingSchemeVersionOrTag" dimensionality="1" index="1" isArray="false" isRequired="false" name="versionOrTag" xmlns:ns11="http://LexGrid.org/schema/LexBIG/2009/01/Core"/>
+        <ns2:InputParameter qName="ns11:CodingSchemeIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns11="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
+        <ns2:InputParameter qName="ns12:CodingSchemeVersionOrTag" dimensionality="1" index="1" isArray="false" isRequired="false" name="versionOrTag" xmlns:ns12="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Core"/>
        </ns2:inputParameterCollection>
-       <ns2:Output qName="ns12:codingScheme" dimensionality="1" isArray="false" xmlns:ns12="http://LexGrid.org/schema/2009/01/LexGrid/codingSchemes"/>
+       <ns2:Output qName="ns13:codingScheme" dimensionality="1" isArray="false" xmlns:ns13="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/codingSchemes"/>
        <ns2:faultCollection>
         <ns2:Fault description="" name="LBException"/>
        </ns2:faultCollection>
       </ns2:Operation>
       <ns2:Operation description="Returns the full description of all supported match algorithms." name="getMatchAlgorithms">
        <ns2:inputParameterCollection/>
-       <ns2:Output qName="ns13:ModuleDescriptionList" dimensionality="1" isArray="false" xmlns:ns13="http://LexGrid.org/schema/LexBIG/2009/01/Collections"/>
+       <ns2:Output qName="ns14:ModuleDescriptionList" dimensionality="1" isArray="false" xmlns:ns14="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Collections"/>
        <ns2:faultCollection/>
       </ns2:Operation>
       <ns2:Operation description="Returns the node graph as represented in the particular relationship set in the coding scheme." name="getNodeGraph">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns14:CodingSchemeIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns14="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
-        <ns2:InputParameter qName="ns15:CodingSchemeVersionOrTag" dimensionality="1" index="1" isArray="false" isRequired="false" name="versionOrTag" xmlns:ns15="http://LexGrid.org/schema/LexBIG/2009/01/Core"/>
-        <ns2:InputParameter qName="ns16:RelationContainerIdentification" dimensionality="1" index="2" isArray="false" isRequired="false" name="relationContainerIdentification" xmlns:ns16="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
+        <ns2:InputParameter qName="ns15:CodingSchemeIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns15="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
+        <ns2:InputParameter qName="ns16:CodingSchemeVersionOrTag" dimensionality="1" index="1" isArray="false" isRequired="false" name="versionOrTag" xmlns:ns16="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Core"/>
+        <ns2:InputParameter qName="ns17:RelationContainerIdentification" dimensionality="1" index="2" isArray="false" isRequired="false" name="relationContainerIdentification" xmlns:ns17="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
        </ns2:inputParameterCollection>
-       <ns2:Output qName="ns17:CodedNodeGraphReference" dimensionality="1" isArray="false" xmlns:ns17="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/CodedNodeGraph/types"/>
+       <ns2:Output qName="ns18:CodedNodeGraphReference" dimensionality="1" isArray="false" xmlns:ns18="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/CodedNodeGraph/types"/>
        <ns2:faultCollection>
         <ns2:Fault description="" name="LBException"/>
        </ns2:faultCollection>
@@ -67,78 +67,78 @@
        <ns2:inputParameterCollection>
         <ns2:InputParameter qName="xsd:string" dimensionality="1" index="0" isArray="false" isRequired="false" name="context" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
        </ns2:inputParameterCollection>
-       <ns2:Output qName="ns18:SortDescriptionList" dimensionality="1" isArray="false" xmlns:ns18="http://LexGrid.org/schema/LexBIG/2009/01/Collections"/>
+       <ns2:Output qName="ns19:SortDescriptionList" dimensionality="1" isArray="false" xmlns:ns19="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Collections"/>
        <ns2:faultCollection/>
       </ns2:Operation>
       <ns2:Operation description="Returns a description of all registered extensions used to implement application-specific behavior that is centrally accessible from a LexBIGService.  Note that only generic extensions (base class GenericExtension) will be listed here. All other classes are retrievable at the appropriate interface point (filter, sort, etc)." name="getGenericExtensions">
        <ns2:inputParameterCollection/>
-       <ns2:Output qName="ns19:ExtensionDescriptionList" dimensionality="1" isArray="false" xmlns:ns19="http://LexGrid.org/schema/LexBIG/2009/01/Collections"/>
+       <ns2:Output qName="ns20:ExtensionDescriptionList" dimensionality="1" isArray="false" xmlns:ns20="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Collections"/>
        <ns2:faultCollection/>
       </ns2:Operation>
       <ns2:Operation description="Returns an instance of the application-specific extension registered with the given name." name="getGenericExtension">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns20:ExtensionIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="extensionIdentification" xmlns:ns20="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
+        <ns2:InputParameter qName="ns21:ExtensionIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="extensionIdentification" xmlns:ns21="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
        </ns2:inputParameterCollection>
-       <ns2:Output qName="ns21:LexBIGServiceConvenienceMethodsReference" dimensionality="1" isArray="false" xmlns:ns21="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/types"/>
+       <ns2:Output qName="ns22:LexBIGServiceConvenienceMethodsReference" dimensionality="1" isArray="false" xmlns:ns22="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/types"/>
        <ns2:faultCollection>
         <ns2:Fault description="" name="LBException"/>
        </ns2:faultCollection>
       </ns2:Operation>
       <ns2:Operation description=" Returns a description of all registered extensions used to provide additional filtering of query results." name="getFilterExtensions">
        <ns2:inputParameterCollection/>
-       <ns2:Output qName="ns22:ExtensionDescriptionList" dimensionality="1" isArray="false" xmlns:ns22="http://LexGrid.org/schema/LexBIG/2009/01/Collections"/>
+       <ns2:Output qName="ns23:ExtensionDescriptionList" dimensionality="1" isArray="false" xmlns:ns23="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Collections"/>
        <ns2:faultCollection/>
       </ns2:Operation>
       <ns2:Operation description="Resolve a reference to the history api servicing the given coding scheme." name="getHistoryService">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns23:CodingSchemeIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns23="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
+        <ns2:InputParameter qName="ns24:CodingSchemeIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns24="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
        </ns2:inputParameterCollection>
-       <ns2:Output qName="ns24:HistoryServiceReference" dimensionality="1" isArray="false" xmlns:ns24="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/HistoryService/types"/>
+       <ns2:Output qName="ns25:HistoryServiceReference" dimensionality="1" isArray="false" xmlns:ns25="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/HistoryService/types"/>
        <ns2:faultCollection>
         <ns2:Fault description="" name="LBException"/>
        </ns2:faultCollection>
       </ns2:Operation>
       <ns2:Operation description="Return an interface to perform system-wide query over metadata for loaded code systems and providers." name="getServiceMetadata">
        <ns2:inputParameterCollection/>
-       <ns2:Output qName="ns25:LexBIGServiceMetadataReference" dimensionality="1" isArray="false" xmlns:ns25="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceMetadata/types"/>
+       <ns2:Output qName="ns26:LexBIGServiceMetadataReference" dimensionality="1" isArray="false" xmlns:ns26="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceMetadata/types"/>
        <ns2:faultCollection>
         <ns2:Fault description="" name="LBException"/>
        </ns2:faultCollection>
       </ns2:Operation>
       <ns2:Operation description="Returns an instance of the sort extension registered with the given name." name="getSortAlgorithm">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns26:ExtensionIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="extensionIdentification" xmlns:ns26="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
+        <ns2:InputParameter qName="ns27:ExtensionIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="extensionIdentification" xmlns:ns27="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
        </ns2:inputParameterCollection>
-       <ns2:Output qName="ns27:SortReference" dimensionality="1" isArray="false" xmlns:ns27="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/Sort/types"/>
+       <ns2:Output qName="ns28:SortReference" dimensionality="1" isArray="false" xmlns:ns28="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/Sort/types"/>
        <ns2:faultCollection>
         <ns2:Fault description="" name="LBException"/>
        </ns2:faultCollection>
       </ns2:Operation>
       <ns2:Operation description="Returns an instance of the filter extension registered with the given name." name="getFilter">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns28:ExtensionIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="extensionIdentification" xmlns:ns28="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
+        <ns2:InputParameter qName="ns29:ExtensionIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="extensionIdentification" xmlns:ns29="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
        </ns2:inputParameterCollection>
-       <ns2:Output qName="ns29:FilterReference" dimensionality="1" isArray="false" xmlns:ns29="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/Filter/types"/>
+       <ns2:Output qName="ns30:FilterReference" dimensionality="1" isArray="false" xmlns:ns30="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/Filter/types"/>
        <ns2:faultCollection>
         <ns2:Fault description="" name="LBException"/>
        </ns2:faultCollection>
       </ns2:Operation>
       <ns2:Operation description="Return coding scheme copyright given a specific tag or version identifier." name="resolveCodingSchemeCopyright">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns30:CodingSchemeIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns30="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
-        <ns2:InputParameter qName="ns31:CodingSchemeVersionOrTag" dimensionality="1" index="1" isArray="false" isRequired="false" name="versionOrTag" xmlns:ns31="http://LexGrid.org/schema/LexBIG/2009/01/Core"/>
+        <ns2:InputParameter qName="ns31:CodingSchemeIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns31="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
+        <ns2:InputParameter qName="ns32:CodingSchemeVersionOrTag" dimensionality="1" index="1" isArray="false" isRequired="false" name="versionOrTag" xmlns:ns32="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Core"/>
        </ns2:inputParameterCollection>
-       <ns2:Output qName="ns32:CodingSchemeCopyRight" dimensionality="1" isArray="false" xmlns:ns32="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
+       <ns2:Output qName="ns33:CodingSchemeCopyRight" dimensionality="1" isArray="false" xmlns:ns33="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
        <ns2:faultCollection>
         <ns2:Fault description="" name="LBException"/>
        </ns2:faultCollection>
       </ns2:Operation>
       <ns2:Operation description="Sets the Security Token for the given Coding Scheme." name="setSecurityToken">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns33:CodingSchemeIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns33="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
-        <ns2:InputParameter qName="ns34:SecurityToken" dimensionality="1" index="1" isArray="false" isRequired="false" name="securityToken" xmlns:ns34="gme://caCORE.caCORE/3.2/gov.nih.nci.evs.security"/>
+        <ns2:InputParameter qName="ns34:CodingSchemeIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns34="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
+        <ns2:InputParameter qName="ns35:SecurityToken" dimensionality="1" index="1" isArray="false" isRequired="false" name="securityToken" xmlns:ns35="gme://caCORE.caCORE/3.2/gov.nih.nci.evs.security"/>
        </ns2:inputParameterCollection>
-       <ns2:Output qName="ns35:LexEVSGridServiceReference" dimensionality="1" isArray="false" xmlns:ns35="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/types"/>
+       <ns2:Output qName="ns36:LexEVSGridServiceReference" dimensionality="1" isArray="false" xmlns:ns36="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/types"/>
        <ns2:faultCollection>
         <ns2:Fault description="" name="LBException"/>
        </ns2:faultCollection>
@@ -164,9 +164,9 @@
      <ns2:operationCollection>
       <ns2:Operation description="" name="resolveToList">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns36:SetResolutionPolicy" dimensionality="1" index="0" isArray="false" isRequired="false" name="setResolutionPolicy" xmlns:ns36="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
+        <ns2:InputParameter qName="ns37:SetResolutionPolicy" dimensionality="1" index="0" isArray="false" isRequired="false" name="setResolutionPolicy" xmlns:ns37="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
        </ns2:inputParameterCollection>
-       <ns2:Output qName="ns37:ResolvedConceptReferenceList" dimensionality="1" isArray="false" xmlns:ns37="http://LexGrid.org/schema/LexBIG/2009/01/Collections"/>
+       <ns2:Output qName="ns38:ResolvedConceptReferenceList" dimensionality="1" isArray="false" xmlns:ns38="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Collections"/>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
         <ns2:Fault description="" name="LBInvocationException"/>
@@ -175,12 +175,19 @@
       </ns2:Operation>
       <ns2:Operation description="" name="getServiceSecurityMetadata">
        <ns2:inputParameterCollection/>
-       <ns2:Output qName="ns38:ServiceSecurityMetadata" dimensionality="1" isArray="false" xmlns:ns38="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.security"/>
+       <ns2:Output qName="ns39:ServiceSecurityMetadata" dimensionality="1" isArray="false" xmlns:ns39="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.security">
+        <ns40:UMLClass className="ServiceSecurityMetadata" description="An instance of the Security Service Metadata." id="8E7A74B9-D300-646D-E040-BB89AD43706D" packageName="gov.nih.nci.cagrid.metadata.security" projectName="caGrid_Metadata_Models" projectVersion="1" xmlns:ns40="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.common">
+         <ns40:umlAttributeCollection/>
+         <ns40:SemanticMetadata conceptCode="C80736" conceptDefinition="A software system providing a public need." conceptName="Software Service" order="2"/>
+         <ns40:SemanticMetadata conceptCode="C25669" conceptDefinition="Security; freedom from anxiety or fear." conceptName="Security" order="1"/>
+         <ns40:SemanticMetadata conceptCode="C52095" conceptDefinition="Data about data; information that describes another set of data." conceptName="Metadata" order="0"/>
+        </ns40:UMLClass>
+       </ns2:Output>
        <ns2:faultCollection/>
       </ns2:Operation>
       <ns2:Operation description="" name="restrictToCodes">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns39:ConceptReferenceList" dimensionality="1" index="0" isArray="false" isRequired="false" name="codeList" xmlns:ns39="http://LexGrid.org/schema/LexBIG/2009/01/Collections"/>
+        <ns2:InputParameter qName="ns41:ConceptReferenceList" dimensionality="1" index="0" isArray="false" isRequired="false" name="codeList" xmlns:ns41="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Collections"/>
        </ns2:inputParameterCollection>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
@@ -190,9 +197,9 @@
       </ns2:Operation>
       <ns2:Operation description="" name="isCodeInSet">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns40:ConceptReference" dimensionality="1" index="0" isArray="false" isRequired="false" name="code" xmlns:ns40="http://LexGrid.org/schema/LexBIG/2009/01/Core"/>
+        <ns2:InputParameter qName="ns42:ConceptReference" dimensionality="1" index="0" isArray="false" isRequired="false" name="code" xmlns:ns42="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Core"/>
        </ns2:inputParameterCollection>
-       <ns2:Output qName="ns41:CodeExistence" dimensionality="1" isArray="false" xmlns:ns41="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
+       <ns2:Output qName="ns43:CodeExistence" dimensionality="1" isArray="false" xmlns:ns43="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
         <ns2:Fault description="" name="LBInvocationException"/>
@@ -201,10 +208,10 @@
       </ns2:Operation>
       <ns2:Operation description="" name="restrictToMatchingDesignations">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns42:MatchCriteria" dimensionality="1" index="0" isArray="false" isRequired="false" name="matchCriteria" xmlns:ns42="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
-        <ns2:InputParameter qName="ns43:SearchDesignationOption" dimensionality="1" index="1" isArray="false" isRequired="false" name="searchDesignationOption" xmlns:ns43="http://LexGrid.org/schema/LexBIG/2009/01/enums"/>
-        <ns2:InputParameter qName="ns44:ExtensionIdentification" dimensionality="1" index="2" isArray="false" isRequired="false" name="extensionIdentification" xmlns:ns44="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
-        <ns2:InputParameter qName="ns45:LanguageIdentification" dimensionality="1" index="3" isArray="false" isRequired="false" name="languageIdentification" xmlns:ns45="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
+        <ns2:InputParameter qName="ns44:MatchCriteria" dimensionality="1" index="0" isArray="false" isRequired="false" name="matchCriteria" xmlns:ns44="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
+        <ns2:InputParameter qName="ns45:SearchDesignationOption" dimensionality="1" index="1" isArray="false" isRequired="false" name="searchDesignationOption" xmlns:ns45="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/enums"/>
+        <ns2:InputParameter qName="ns46:ExtensionIdentification" dimensionality="1" index="2" isArray="false" isRequired="false" name="extensionIdentification" xmlns:ns46="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
+        <ns2:InputParameter qName="ns47:LanguageIdentification" dimensionality="1" index="3" isArray="false" isRequired="false" name="languageIdentification" xmlns:ns47="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
        </ns2:inputParameterCollection>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
@@ -214,9 +221,9 @@
       </ns2:Operation>
       <ns2:Operation description="" name="resolve">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns46:SetResolutionPolicy" dimensionality="1" index="0" isArray="false" isRequired="false" name="setResolutionPolicy" xmlns:ns46="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
+        <ns2:InputParameter qName="ns48:SetResolutionPolicy" dimensionality="1" index="0" isArray="false" isRequired="false" name="setResolutionPolicy" xmlns:ns48="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
        </ns2:inputParameterCollection>
-       <ns2:Output qName="ns47:ResolvedConceptReferencesIteratorReference" dimensionality="1" isArray="false" xmlns:ns47="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/ResolvedConceptReferencesIterator/types"/>
+       <ns2:Output qName="ns49:ResolvedConceptReferencesIteratorReference" dimensionality="1" isArray="false" xmlns:ns49="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/ResolvedConceptReferencesIterator/types"/>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
         <ns2:Fault description="" name="LBInvocationException"/>
@@ -225,8 +232,8 @@
       </ns2:Operation>
       <ns2:Operation description="" name="restrictToStatus">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns48:ActiveOption" dimensionality="1" index="0" isArray="false" isRequired="false" name="activeOption" xmlns:ns48="http://LexGrid.org/schema/LexBIG/2009/01/enums"/>
-        <ns2:InputParameter qName="ns49:Status" dimensionality="1" index="1" isArray="true" isRequired="false" name="status" xmlns:ns49="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
+        <ns2:InputParameter qName="ns50:ActiveOption" dimensionality="1" index="0" isArray="false" isRequired="false" name="activeOption" xmlns:ns50="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/enums"/>
+        <ns2:InputParameter qName="ns51:Status" dimensionality="1" index="1" isArray="true" isRequired="false" name="status" xmlns:ns51="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
        </ns2:inputParameterCollection>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
@@ -236,7 +243,7 @@
       </ns2:Operation>
       <ns2:Operation description="" name="intersect">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns50:CodedNodeSetReference" dimensionality="1" index="0" isArray="false" isRequired="false" name="codes" xmlns:ns50="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/CodedNodeSet/types"/>
+        <ns2:InputParameter qName="ns52:CodedNodeSetReference" dimensionality="1" index="0" isArray="false" isRequired="false" name="codes" xmlns:ns52="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/CodedNodeSet/types"/>
        </ns2:inputParameterCollection>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
@@ -246,7 +253,7 @@
       </ns2:Operation>
       <ns2:Operation description="" name="union">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns51:CodedNodeSetReference" dimensionality="1" index="0" isArray="false" isRequired="false" name="codes" xmlns:ns51="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/CodedNodeSet/types"/>
+        <ns2:InputParameter qName="ns53:CodedNodeSetReference" dimensionality="1" index="0" isArray="false" isRequired="false" name="codes" xmlns:ns53="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/CodedNodeSet/types"/>
        </ns2:inputParameterCollection>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
@@ -256,7 +263,7 @@
       </ns2:Operation>
       <ns2:Operation description="" name="difference">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns52:CodedNodeSetReference" dimensionality="1" index="0" isArray="false" isRequired="false" name="codes" xmlns:ns52="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/CodedNodeSet/types"/>
+        <ns2:InputParameter qName="ns54:CodedNodeSetReference" dimensionality="1" index="0" isArray="false" isRequired="false" name="codes" xmlns:ns54="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/CodedNodeSet/types"/>
        </ns2:inputParameterCollection>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
@@ -266,11 +273,11 @@
       </ns2:Operation>
       <ns2:Operation description="" name="restrictToProperties">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns53:LocalNameList" dimensionality="1" index="0" isArray="false" isRequired="false" name="propertyList" xmlns:ns53="http://LexGrid.org/schema/LexBIG/2009/01/Collections"/>
-        <ns2:InputParameter qName="ns54:PropertyType" dimensionality="1" index="1" isArray="true" isRequired="false" name="propertyType" xmlns:ns54="http://LexGrid.org/schema/LexBIG/2009/01/enums"/>
-        <ns2:InputParameter qName="ns55:LocalNameList" dimensionality="1" index="2" isArray="false" isRequired="false" name="localNameList2" xmlns:ns55="http://LexGrid.org/schema/LexBIG/2009/01/Collections"/>
-        <ns2:InputParameter qName="ns56:LocalNameList" dimensionality="1" index="3" isArray="false" isRequired="false" name="localNameList3" xmlns:ns56="http://LexGrid.org/schema/LexBIG/2009/01/Collections"/>
-        <ns2:InputParameter qName="ns57:NameAndValueList" dimensionality="1" index="4" isArray="false" isRequired="false" name="nameAndValueList" xmlns:ns57="http://LexGrid.org/schema/LexBIG/2009/01/Collections"/>
+        <ns2:InputParameter qName="ns55:LocalNameList" dimensionality="1" index="0" isArray="false" isRequired="false" name="propertyList" xmlns:ns55="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Collections"/>
+        <ns2:InputParameter qName="ns56:PropertyType" dimensionality="1" index="1" isArray="true" isRequired="false" name="propertyType" xmlns:ns56="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/enums"/>
+        <ns2:InputParameter qName="ns57:LocalNameList" dimensionality="1" index="2" isArray="false" isRequired="false" name="localNameList2" xmlns:ns57="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Collections"/>
+        <ns2:InputParameter qName="ns58:LocalNameList" dimensionality="1" index="3" isArray="false" isRequired="false" name="localNameList3" xmlns:ns58="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Collections"/>
+        <ns2:InputParameter qName="ns59:NameAndValueList" dimensionality="1" index="4" isArray="false" isRequired="false" name="nameAndValueList" xmlns:ns59="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Collections"/>
        </ns2:inputParameterCollection>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
@@ -280,14 +287,14 @@
       </ns2:Operation>
       <ns2:Operation description="" name="restrictToMatchingProperties">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns58:LocalNameList" dimensionality="1" index="0" isArray="false" isRequired="false" name="localNameList" xmlns:ns58="http://LexGrid.org/schema/LexBIG/2009/01/Collections"/>
-        <ns2:InputParameter qName="ns59:PropertyType" dimensionality="1" index="1" isArray="true" isRequired="false" name="propertyType" xmlns:ns59="http://LexGrid.org/schema/LexBIG/2009/01/enums"/>
-        <ns2:InputParameter qName="ns60:LocalNameList" dimensionality="1" index="2" isArray="false" isRequired="false" name="localNameList2" xmlns:ns60="http://LexGrid.org/schema/LexBIG/2009/01/Collections"/>
-        <ns2:InputParameter qName="ns61:LocalNameList" dimensionality="1" index="3" isArray="false" isRequired="false" name="localNameList3" xmlns:ns61="http://LexGrid.org/schema/LexBIG/2009/01/Collections"/>
-        <ns2:InputParameter qName="ns62:NameAndValueList" dimensionality="1" index="4" isArray="false" isRequired="false" name="nameAndValueList" xmlns:ns62="http://LexGrid.org/schema/LexBIG/2009/01/Collections"/>
-        <ns2:InputParameter qName="ns63:MatchCriteria" dimensionality="1" index="5" isArray="false" isRequired="false" name="matchCriteria" xmlns:ns63="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
-        <ns2:InputParameter qName="ns64:ExtensionIdentification" dimensionality="1" index="6" isArray="false" isRequired="false" name="extensionIdentification" xmlns:ns64="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
-        <ns2:InputParameter qName="ns65:LanguageIdentification" dimensionality="1" index="7" isArray="false" isRequired="false" name="languageIdentification" xmlns:ns65="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
+        <ns2:InputParameter qName="ns60:LocalNameList" dimensionality="1" index="0" isArray="false" isRequired="false" name="localNameList" xmlns:ns60="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Collections"/>
+        <ns2:InputParameter qName="ns61:PropertyType" dimensionality="1" index="1" isArray="true" isRequired="false" name="propertyType" xmlns:ns61="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/enums"/>
+        <ns2:InputParameter qName="ns62:LocalNameList" dimensionality="1" index="2" isArray="false" isRequired="false" name="localNameList2" xmlns:ns62="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Collections"/>
+        <ns2:InputParameter qName="ns63:LocalNameList" dimensionality="1" index="3" isArray="false" isRequired="false" name="localNameList3" xmlns:ns63="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Collections"/>
+        <ns2:InputParameter qName="ns64:NameAndValueList" dimensionality="1" index="4" isArray="false" isRequired="false" name="nameAndValueList" xmlns:ns64="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Collections"/>
+        <ns2:InputParameter qName="ns65:MatchCriteria" dimensionality="1" index="5" isArray="false" isRequired="false" name="matchCriteria" xmlns:ns65="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
+        <ns2:InputParameter qName="ns66:ExtensionIdentification" dimensionality="1" index="6" isArray="false" isRequired="false" name="extensionIdentification" xmlns:ns66="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
+        <ns2:InputParameter qName="ns67:LanguageIdentification" dimensionality="1" index="7" isArray="false" isRequired="false" name="languageIdentification" xmlns:ns67="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
        </ns2:inputParameterCollection>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
@@ -325,9 +332,9 @@
      <ns2:operationCollection>
       <ns2:Operation description="Resolve all of the coded nodes in the list, sorting by the supplied property (if any), resolving the supplied properties, resolving coded entries to the supplied depth and resolving associations to the supplied   * depth." name="resolveAsList">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns66:GraphResolutionPolicy" dimensionality="1" index="0" isArray="false" isRequired="false" name="graphResolutionPolicy" xmlns:ns66="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
+        <ns2:InputParameter qName="ns68:GraphResolutionPolicy" dimensionality="1" index="0" isArray="false" isRequired="false" name="graphResolutionPolicy" xmlns:ns68="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
        </ns2:inputParameterCollection>
-       <ns2:Output qName="ns67:ResolvedConceptReferenceList" dimensionality="1" isArray="false" xmlns:ns67="http://LexGrid.org/schema/LexBIG/2009/01/Collections"/>
+       <ns2:Output qName="ns69:ResolvedConceptReferenceList" dimensionality="1" isArray="false" xmlns:ns69="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Collections"/>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
         <ns2:Fault description="" name="LBInvocationException"/>
@@ -336,23 +343,19 @@
       </ns2:Operation>
       <ns2:Operation description="" name="getServiceSecurityMetadata">
        <ns2:inputParameterCollection/>
-       <ns2:Output qName="ns68:ServiceSecurityMetadata" dimensionality="1" isArray="false" xmlns:ns68="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.security"/>
+       <ns2:Output qName="ns70:ServiceSecurityMetadata" dimensionality="1" isArray="false" xmlns:ns70="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.security">
+        <ns71:UMLClass className="ServiceSecurityMetadata" description="An instance of the Security Service Metadata." id="8E7A74B9-D300-646D-E040-BB89AD43706D" packageName="gov.nih.nci.cagrid.metadata.security" projectName="caGrid_Metadata_Models" projectVersion="1" xmlns:ns71="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.common">
+         <ns71:umlAttributeCollection/>
+         <ns71:SemanticMetadata conceptCode="C80736" conceptDefinition="A software system providing a public need." conceptName="Software Service" order="2"/>
+         <ns71:SemanticMetadata conceptCode="C25669" conceptDefinition="Security; freedom from anxiety or fear." conceptName="Security" order="1"/>
+         <ns71:SemanticMetadata conceptCode="C52095" conceptDefinition="Data about data; information that describes another set of data." conceptName="Metadata" order="0"/>
+        </ns71:UMLClass>
+       </ns2:Output>
        <ns2:faultCollection/>
-      </ns2:Operation>
-      <ns2:Operation description="Return a list of all of the associations in the graph that have the supplied source and target concepts or, if directOnly is false, all associations whose transitive closure has the supplied associations." name="listCodeRelationships">
-       <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns69:RelationshipTypeBasedPolicy" dimensionality="1" index="0" isArray="false" isRequired="false" name="relationshipTypeBasedPolicy" xmlns:ns69="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
-       </ns2:inputParameterCollection>
-       <ns2:Output qName="ns70:ConceptReferenceList" dimensionality="1" isArray="false" xmlns:ns70="http://LexGrid.org/schema/LexBIG/2009/01/Collections"/>
-       <ns2:faultCollection>
-        <ns2:Fault description="" name="InvalidServiceContextAccess"/>
-        <ns2:Fault description="" name="LBInvocationException"/>
-        <ns2:Fault description="" name="LBParameterException"/>
-       </ns2:faultCollection>
       </ns2:Operation>
       <ns2:Operation description="Restrict the graph to concept codes (source and target) that originate from the supplied code system. Note: edges defined by other code systems will still be resolved if associated with both source and target nodes for the restricted code system." name="restrictToSourceCodeSystem">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns71:CodingSchemeIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns71="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
+        <ns2:InputParameter qName="ns72:CodingSchemeIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns72="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
        </ns2:inputParameterCollection>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
@@ -362,7 +365,7 @@
       </ns2:Operation>
       <ns2:Operation description="Restrict the graph to edges that have concepts derived from the supplied code system as a target." name="restrictToTargetCodeSystem">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns72:CodingSchemeIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns72="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
+        <ns2:InputParameter qName="ns73:CodingSchemeIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns73="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
        </ns2:inputParameterCollection>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
@@ -372,7 +375,7 @@
       </ns2:Operation>
       <ns2:Operation description="Restrict the graph to concept codes (source and target) that originate from the supplied code system. Note: edges defined by other code systems will still be resolved if associated with both source and target nodes for the restricted code system." name="restrictToCodeSystem">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns73:CodingSchemeIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns73="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
+        <ns2:InputParameter qName="ns74:CodingSchemeIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns74="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
        </ns2:inputParameterCollection>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
@@ -382,7 +385,7 @@
       </ns2:Operation>
       <ns2:Operation description="Restrict the graph to associations that have one of the codes in the supplied list as target codes." name="restrictToTargetCodes">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns74:CodedNodeSetReference" dimensionality="1" index="0" isArray="false" isRequired="false" name="codes" xmlns:ns74="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/CodedNodeSet/types"/>
+        <ns2:InputParameter qName="ns75:CodedNodeSetReference" dimensionality="1" index="0" isArray="false" isRequired="false" name="codes" xmlns:ns75="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/CodedNodeSet/types"/>
        </ns2:inputParameterCollection>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
@@ -392,7 +395,7 @@
       </ns2:Operation>
       <ns2:Operation description="Restrict the graph to associations that have one of the codes in the supplied list as source codes." name="restrictToSourceCodes">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns75:CodedNodeSetReference" dimensionality="1" index="0" isArray="false" isRequired="false" name="codes" xmlns:ns75="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/CodedNodeSet/types"/>
+        <ns2:InputParameter qName="ns76:CodedNodeSetReference" dimensionality="1" index="0" isArray="false" isRequired="false" name="codes" xmlns:ns76="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/CodedNodeSet/types"/>
        </ns2:inputParameterCollection>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
@@ -402,8 +405,8 @@
       </ns2:Operation>
       <ns2:Operation description="Restrict the graph to the nodes that participate as a source or target of an association whose directional name matches the one provided and, if supplied,    * the named association qualifiers.   * A directional name is considered to be either the forward or reverse label     * registered to an association defined by the ontology.  Forward and reverse names     * are optionally assigned to each association.  For example, an association 'lineage' may have a forward name 'ancestorOf' and reverse name 'descendentOf'." name="restrictToDirectionalNames">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns76:NameAndValueList" dimensionality="1" index="0" isArray="false" isRequired="false" name="directionalNames" xmlns:ns76="http://LexGrid.org/schema/LexBIG/2009/01/Collections"/>
-        <ns2:InputParameter qName="ns77:NameAndValueList" dimensionality="1" index="1" isArray="false" isRequired="false" name="associationQualifiers" xmlns:ns77="http://LexGrid.org/schema/LexBIG/2009/01/Collections"/>
+        <ns2:InputParameter qName="ns77:NameAndValueList" dimensionality="1" index="0" isArray="false" isRequired="false" name="directionalNames" xmlns:ns77="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Collections"/>
+        <ns2:InputParameter qName="ns78:NameAndValueList" dimensionality="1" index="1" isArray="false" isRequired="false" name="associationQualifiers" xmlns:ns78="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Collections"/>
        </ns2:inputParameterCollection>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
@@ -413,8 +416,8 @@
       </ns2:Operation>
       <ns2:Operation description="Restrict the graph to the nodes that participate as a source or target of the named association and, if supplied, the named association qualifiers." name="restrictToAssociations">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns78:NameAndValueList" dimensionality="1" index="0" isArray="false" isRequired="false" name="associations" xmlns:ns78="http://LexGrid.org/schema/LexBIG/2009/01/Collections"/>
-        <ns2:InputParameter qName="ns79:NameAndValueList" dimensionality="1" index="1" isArray="false" isRequired="false" name="associationQualifiers" xmlns:ns79="http://LexGrid.org/schema/LexBIG/2009/01/Collections"/>
+        <ns2:InputParameter qName="ns79:NameAndValueList" dimensionality="1" index="0" isArray="false" isRequired="false" name="associations" xmlns:ns79="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Collections"/>
+        <ns2:InputParameter qName="ns80:NameAndValueList" dimensionality="1" index="1" isArray="false" isRequired="false" name="associationQualifiers" xmlns:ns80="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Collections"/>
        </ns2:inputParameterCollection>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
@@ -424,7 +427,7 @@
       </ns2:Operation>
       <ns2:Operation description="Return a graph that contains only the codes that are present in the supplied list, and all edges that still have a source and target code remaining." name="restrictToCodes">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns80:CodedNodeSetReference" dimensionality="1" index="0" isArray="false" isRequired="false" name="codes" xmlns:ns80="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/CodedNodeSet/types"/>
+        <ns2:InputParameter qName="ns81:CodedNodeSetReference" dimensionality="1" index="0" isArray="false" isRequired="false" name="codes" xmlns:ns81="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/CodedNodeSet/types"/>
        </ns2:inputParameterCollection>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
@@ -434,7 +437,7 @@
       </ns2:Operation>
       <ns2:Operation description=" Return the set of concepts and associations that are present in both graphs." name="intersect">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns81:CodedNodeGraphReference" dimensionality="1" index="0" isArray="false" isRequired="false" name="graph" xmlns:ns81="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/CodedNodeGraph/types"/>
+        <ns2:InputParameter qName="ns82:CodedNodeGraphReference" dimensionality="1" index="0" isArray="false" isRequired="false" name="graph" xmlns:ns82="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/CodedNodeGraph/types"/>
        </ns2:inputParameterCollection>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
@@ -444,7 +447,7 @@
       </ns2:Operation>
       <ns2:Operation description=" Return the union of the two graphs. Union, in this context, means that the resulting graph contains the unique set of coded entries (String independent) that are present in one or both of the graphs, and the unique combination of edges (associations) present in one or both of the graphs." name="union">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns82:CodedNodeGraphReference" dimensionality="1" index="0" isArray="false" isRequired="false" name="graph" xmlns:ns82="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/CodedNodeGraph/types"/>
+        <ns2:InputParameter qName="ns83:CodedNodeGraphReference" dimensionality="1" index="0" isArray="false" isRequired="false" name="graph" xmlns:ns83="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/CodedNodeGraph/types"/>
        </ns2:inputParameterCollection>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
@@ -454,9 +457,9 @@
       </ns2:Operation>
       <ns2:Operation description="Determine whether the supplied concept code is in the graph." name="isCodeInGraph">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns83:ConceptReference" dimensionality="1" index="0" isArray="false" isRequired="false" name="code" xmlns:ns83="http://LexGrid.org/schema/LexBIG/2009/01/Core"/>
+        <ns2:InputParameter qName="ns84:ConceptReference" dimensionality="1" index="0" isArray="false" isRequired="false" name="code" xmlns:ns84="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Core"/>
        </ns2:inputParameterCollection>
-       <ns2:Output qName="ns84:CodeExistence" dimensionality="1" isArray="false" xmlns:ns84="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
+       <ns2:Output qName="ns85:CodeExistence" dimensionality="1" isArray="false" xmlns:ns85="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
         <ns2:Fault description="" name="LBInvocationException"/>
@@ -465,9 +468,9 @@
       </ns2:Operation>
       <ns2:Operation description="Transform the graph into a simple of list of concept codes, removing all association information." name="toNodeList">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns85:NodeListPolicy" dimensionality="1" index="0" isArray="false" isRequired="false" name="nodeListPolicy" xmlns:ns85="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
+        <ns2:InputParameter qName="ns86:NodeListPolicy" dimensionality="1" index="0" isArray="false" isRequired="false" name="nodeListPolicy" xmlns:ns86="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
        </ns2:inputParameterCollection>
-       <ns2:Output qName="ns86:CodedNodeSetReference" dimensionality="1" isArray="false" xmlns:ns86="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/CodedNodeSet/types"/>
+       <ns2:Output qName="ns87:CodedNodeSetReference" dimensionality="1" isArray="false" xmlns:ns87="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/CodedNodeSet/types"/>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
         <ns2:Fault description="" name="LBInvocationException"/>
@@ -476,21 +479,10 @@
       </ns2:Operation>
       <ns2:Operation description="Determine whether there is an directed edge (or transitive closure of an edge) from the source code to the target code in this graph. The last parameter determines whether only direct associations are considered or  whether the transitive closure of the edge is used." name="areCodesRelated">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns87:RelationshipTypeBasedPolicy" dimensionality="1" index="0" isArray="false" isRequired="false" name="relationshipTypeBasedPolicy" xmlns:ns87="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
-        <ns2:InputParameter qName="ns88:NameAndValue" dimensionality="1" index="1" isArray="false" isRequired="false" name="nameAndValue" xmlns:ns88="http://LexGrid.org/schema/LexBIG/2009/01/Core"/>
+        <ns2:InputParameter qName="ns88:RelationshipTypeBasedPolicy" dimensionality="1" index="0" isArray="false" isRequired="false" name="relationshipTypeBasedPolicy" xmlns:ns88="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
+        <ns2:InputParameter qName="ns89:NameAndValue" dimensionality="1" index="1" isArray="false" isRequired="false" name="nameAndValue" xmlns:ns89="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Core"/>
        </ns2:inputParameterCollection>
-       <ns2:Output qName="ns89:CodeRelationship" dimensionality="1" isArray="false" xmlns:ns89="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
-       <ns2:faultCollection>
-        <ns2:Fault description="" name="InvalidServiceContextAccess"/>
-        <ns2:Fault description="" name="LBInvocationException"/>
-        <ns2:Fault description="" name="LBParameterException"/>
-       </ns2:faultCollection>
-      </ns2:Operation>
-      <ns2:Operation description="Return a list of all of the associations in the graph that have the supplied source and target concepts based on distance between them. Distance (or the No. of edges) for a direct association between a source and target codes is 1. Values if distance should be equal or greater than 1, otherwise exception is thrown. Resulting list is not based on associations source &amp; target have, but on distance only." name="listCodeRelationships2">
-       <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns90:RelationshipDistanceBasedPolicy" dimensionality="1" index="0" isArray="false" isRequired="false" name="relationshipDistanceBasedPolicy" xmlns:ns90="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
-       </ns2:inputParameterCollection>
-       <ns2:Output qName="ns91:ConceptReferenceList" dimensionality="1" isArray="false" xmlns:ns91="http://LexGrid.org/schema/LexBIG/2009/01/Collections"/>
+       <ns2:Output qName="ns90:CodeRelationship" dimensionality="1" isArray="false" xmlns:ns90="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
         <ns2:Fault description="" name="LBInvocationException"/>
@@ -527,15 +519,22 @@
      <ns2:operationCollection>
       <ns2:Operation description="" name="getServiceSecurityMetadata">
        <ns2:inputParameterCollection/>
-       <ns2:Output qName="ns92:ServiceSecurityMetadata" dimensionality="1" isArray="false" xmlns:ns92="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.security"/>
+       <ns2:Output qName="ns91:ServiceSecurityMetadata" dimensionality="1" isArray="false" xmlns:ns91="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.security">
+        <ns92:UMLClass className="ServiceSecurityMetadata" description="An instance of the Security Service Metadata." id="8E7A74B9-D300-646D-E040-BB89AD43706D" packageName="gov.nih.nci.cagrid.metadata.security" projectName="caGrid_Metadata_Models" projectVersion="1" xmlns:ns92="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.common">
+         <ns92:umlAttributeCollection/>
+         <ns92:SemanticMetadata conceptCode="C80736" conceptDefinition="A software system providing a public need." conceptName="Software Service" order="2"/>
+         <ns92:SemanticMetadata conceptCode="C25669" conceptDefinition="Security; freedom from anxiety or fear." conceptName="Security" order="1"/>
+         <ns92:SemanticMetadata conceptCode="C52095" conceptDefinition="Data about data; information that describes another set of data." conceptName="Metadata" order="0"/>
+        </ns92:UMLClass>
+       </ns2:Output>
        <ns2:faultCollection/>
       </ns2:Operation>
       <ns2:Operation description="Return detailed rendering information (including coding scheme summary, version and status information, reference links, etc) for the given coding scheme; null if not available." name="getRenderingDetail">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns93:CodingSchemeIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns93="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
-        <ns2:InputParameter qName="ns94:CodingSchemeVersionOrTag" dimensionality="1" index="1" isArray="false" isRequired="false" name="versionOrTag" xmlns:ns94="http://LexGrid.org/schema/LexBIG/2009/01/Core"/>
+        <ns2:InputParameter qName="ns93:CodingSchemeIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns93="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
+        <ns2:InputParameter qName="ns94:CodingSchemeVersionOrTag" dimensionality="1" index="1" isArray="false" isRequired="false" name="versionOrTag" xmlns:ns94="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Core"/>
        </ns2:inputParameterCollection>
-       <ns2:Output qName="ns95:CodingSchemeRendering" dimensionality="1" isArray="false" xmlns:ns95="http://LexGrid.org/schema/LexBIG/2009/01/InterfaceElements"/>
+       <ns2:Output qName="ns95:CodingSchemeRendering" dimensionality="1" isArray="false" xmlns:ns95="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/InterfaceElements"/>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
         <ns2:Fault description="" name="LBException"/>
@@ -543,9 +542,9 @@
       </ns2:Operation>
       <ns2:Operation description="Return the coding schemes who supported association matching with associationName.  The search is performed only for loaded coding schemes.   * " name="getCodingSchemesWithSupportedAssociation">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns96:AssociationIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="associationIdentification" xmlns:ns96="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
+        <ns2:InputParameter qName="ns96:AssociationIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="associationIdentification" xmlns:ns96="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
        </ns2:inputParameterCollection>
-       <ns2:Output qName="ns97:CodingSchemeRenderingList" dimensionality="1" isArray="false" xmlns:ns97="http://LexGrid.org/schema/LexBIG/2009/01/Collections"/>
+       <ns2:Output qName="ns97:CodingSchemeRenderingList" dimensionality="1" isArray="false" xmlns:ns97="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Collections"/>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
         <ns2:Fault description="" name="LBException"/>
@@ -553,10 +552,10 @@
       </ns2:Operation>
       <ns2:Operation description="Returns the identifiers for hierarchical relationships available for navigation within a coding scheme.  These identifiers can be submitted to the getHierarchyBroader() or getHierarchyNarrower() methods to navigate corresponding tree structures. Possible return values are defined by the LexBIG model (see http://informatics.mayo.edu/LexGrid/downloads/LexGrid%20Model/schemas/2009/01/EAwebpublish/index.htm)." name="getHierarchyIDs">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns98:CodingSchemeIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns98="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
-        <ns2:InputParameter qName="ns99:CodingSchemeVersionOrTag" dimensionality="1" index="1" isArray="false" isRequired="false" name="versionOrTag" xmlns:ns99="http://LexGrid.org/schema/LexBIG/2009/01/Core"/>
+        <ns2:InputParameter qName="ns98:CodingSchemeIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns98="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
+        <ns2:InputParameter qName="ns99:CodingSchemeVersionOrTag" dimensionality="1" index="1" isArray="false" isRequired="false" name="versionOrTag" xmlns:ns99="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Core"/>
        </ns2:inputParameterCollection>
-       <ns2:Output qName="ns100:HierarchyIdentification" dimensionality="1" isArray="true" xmlns:ns100="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
+       <ns2:Output qName="ns100:HierarchyIdentification" dimensionality="1" isArray="true" xmlns:ns100="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
         <ns2:Fault description="" name="LBException"/>
@@ -564,11 +563,11 @@
       </ns2:Operation>
       <ns2:Operation description="Indicates if the given code is considered retired or inactive within context of the provided scheme." name="isCodeRetired">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns101:ConceptIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="conceptIdentification" xmlns:ns101="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
-        <ns2:InputParameter qName="ns102:CodingSchemeIdentification" dimensionality="1" index="1" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns102="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
-        <ns2:InputParameter qName="ns103:CodingSchemeVersionOrTag" dimensionality="1" index="2" isArray="false" isRequired="false" name="versionOrTag" xmlns:ns103="http://LexGrid.org/schema/LexBIG/2009/01/Core"/>
+        <ns2:InputParameter qName="ns101:ConceptIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="conceptIdentification" xmlns:ns101="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
+        <ns2:InputParameter qName="ns102:CodingSchemeIdentification" dimensionality="1" index="1" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns102="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
+        <ns2:InputParameter qName="ns103:CodingSchemeVersionOrTag" dimensionality="1" index="2" isArray="false" isRequired="false" name="versionOrTag" xmlns:ns103="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Core"/>
        </ns2:inputParameterCollection>
-       <ns2:Output qName="ns104:CodeState" dimensionality="1" isArray="false" xmlns:ns104="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
+       <ns2:Output qName="ns104:CodeState" dimensionality="1" isArray="false" xmlns:ns104="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
         <ns2:Fault description="" name="LBException"/>
@@ -576,11 +575,11 @@
       </ns2:Operation>
       <ns2:Operation description="Return the forward name for the identified association." name="getAssociationForwardName">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns105:AssociationIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="associationIdentification" xmlns:ns105="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
-        <ns2:InputParameter qName="ns106:CodingSchemeIdentification" dimensionality="1" index="1" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns106="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
-        <ns2:InputParameter qName="ns107:CodingSchemeVersionOrTag" dimensionality="1" index="2" isArray="false" isRequired="false" name="versionOrTag" xmlns:ns107="http://LexGrid.org/schema/LexBIG/2009/01/Core"/>
+        <ns2:InputParameter qName="ns105:AssociationIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="associationIdentification" xmlns:ns105="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
+        <ns2:InputParameter qName="ns106:CodingSchemeIdentification" dimensionality="1" index="1" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns106="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
+        <ns2:InputParameter qName="ns107:CodingSchemeVersionOrTag" dimensionality="1" index="2" isArray="false" isRequired="false" name="versionOrTag" xmlns:ns107="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Core"/>
        </ns2:inputParameterCollection>
-       <ns2:Output qName="ns108:DirectionalAssociationIdentification" dimensionality="1" isArray="false" xmlns:ns108="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
+       <ns2:Output qName="ns108:DirectionalAssociationIdentification" dimensionality="1" isArray="false" xmlns:ns108="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
         <ns2:Fault description="" name="LBException"/>
@@ -588,10 +587,10 @@
       </ns2:Operation>
       <ns2:Operation description="Return all the association forward name for the coding scheme." name="getAssociationForwardNames">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns109:CodingSchemeIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns109="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
-        <ns2:InputParameter qName="ns110:CodingSchemeVersionOrTag" dimensionality="1" index="1" isArray="false" isRequired="false" name="versionOrTag" xmlns:ns110="http://LexGrid.org/schema/LexBIG/2009/01/Core"/>
+        <ns2:InputParameter qName="ns109:CodingSchemeIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns109="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
+        <ns2:InputParameter qName="ns110:CodingSchemeVersionOrTag" dimensionality="1" index="1" isArray="false" isRequired="false" name="versionOrTag" xmlns:ns110="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Core"/>
        </ns2:inputParameterCollection>
-       <ns2:Output qName="ns111:DirectionalAssociationIdentification" dimensionality="1" isArray="true" xmlns:ns111="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
+       <ns2:Output qName="ns111:DirectionalAssociationIdentification" dimensionality="1" isArray="true" xmlns:ns111="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
         <ns2:Fault description="" name="LBException"/>
@@ -599,11 +598,11 @@
       </ns2:Operation>
       <ns2:Operation description="Return the reverse name for the identified association." name="getAssociationReverseName">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns112:AssociationIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="associationIdentification" xmlns:ns112="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
-        <ns2:InputParameter qName="ns113:CodingSchemeIdentification" dimensionality="1" index="1" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns113="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
-        <ns2:InputParameter qName="ns114:CodingSchemeVersionOrTag" dimensionality="1" index="2" isArray="false" isRequired="false" name="versionOrTag" xmlns:ns114="http://LexGrid.org/schema/LexBIG/2009/01/Core"/>
+        <ns2:InputParameter qName="ns112:AssociationIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="associationIdentification" xmlns:ns112="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
+        <ns2:InputParameter qName="ns113:CodingSchemeIdentification" dimensionality="1" index="1" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns113="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
+        <ns2:InputParameter qName="ns114:CodingSchemeVersionOrTag" dimensionality="1" index="2" isArray="false" isRequired="false" name="versionOrTag" xmlns:ns114="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Core"/>
        </ns2:inputParameterCollection>
-       <ns2:Output qName="ns115:DirectionalAssociationIdentification" dimensionality="1" isArray="false" xmlns:ns115="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
+       <ns2:Output qName="ns115:DirectionalAssociationIdentification" dimensionality="1" isArray="false" xmlns:ns115="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
         <ns2:Fault description="" name="LBException"/>
@@ -611,10 +610,10 @@
       </ns2:Operation>
       <ns2:Operation description="Return all the association reverse name for the coding scheme." name="getAssociationReverseNames">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns116:CodingSchemeIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns116="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
-        <ns2:InputParameter qName="ns117:CodingSchemeVersionOrTag" dimensionality="1" index="1" isArray="false" isRequired="false" name="versionOrTag" xmlns:ns117="http://LexGrid.org/schema/LexBIG/2009/01/Core"/>
+        <ns2:InputParameter qName="ns116:CodingSchemeIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns116="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
+        <ns2:InputParameter qName="ns117:CodingSchemeVersionOrTag" dimensionality="1" index="1" isArray="false" isRequired="false" name="versionOrTag" xmlns:ns117="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Core"/>
        </ns2:inputParameterCollection>
-       <ns2:Output qName="ns118:DirectionalAssociationIdentification" dimensionality="1" isArray="true" xmlns:ns118="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
+       <ns2:Output qName="ns118:DirectionalAssociationIdentification" dimensionality="1" isArray="true" xmlns:ns118="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
         <ns2:Fault description="" name="LBException"/>
@@ -622,11 +621,11 @@
       </ns2:Operation>
       <ns2:Operation description="Return true if directionalName is the forward name of an association for the coding scheme." name="isForwardName">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns119:CodingSchemeIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns119="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
-        <ns2:InputParameter qName="ns120:CodingSchemeVersionOrTag" dimensionality="1" index="1" isArray="false" isRequired="false" name="versionOrTag" xmlns:ns120="http://LexGrid.org/schema/LexBIG/2009/01/Core"/>
-        <ns2:InputParameter qName="ns121:AssociationIdentification" dimensionality="1" index="2" isArray="false" isRequired="false" name="associationIdentification" xmlns:ns121="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
+        <ns2:InputParameter qName="ns119:CodingSchemeIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns119="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
+        <ns2:InputParameter qName="ns120:CodingSchemeVersionOrTag" dimensionality="1" index="1" isArray="false" isRequired="false" name="versionOrTag" xmlns:ns120="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Core"/>
+        <ns2:InputParameter qName="ns121:AssociationIdentification" dimensionality="1" index="2" isArray="false" isRequired="false" name="associationIdentification" xmlns:ns121="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
        </ns2:inputParameterCollection>
-       <ns2:Output qName="ns122:Direction" dimensionality="1" isArray="false" xmlns:ns122="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
+       <ns2:Output qName="ns122:Direction" dimensionality="1" isArray="false" xmlns:ns122="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
         <ns2:Fault description="" name="LBException"/>
@@ -634,11 +633,11 @@
       </ns2:Operation>
       <ns2:Operation description="Return true if directionalName is the reverse name of an association for the coding scheme." name="isReverseName">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns123:CodingSchemeIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns123="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
-        <ns2:InputParameter qName="ns124:CodingSchemeVersionOrTag" dimensionality="1" index="1" isArray="false" isRequired="false" name="versionOrTag" xmlns:ns124="http://LexGrid.org/schema/LexBIG/2009/01/Core"/>
-        <ns2:InputParameter qName="ns125:AssociationIdentification" dimensionality="1" index="2" isArray="false" isRequired="false" name="associationIdentification" xmlns:ns125="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
+        <ns2:InputParameter qName="ns123:CodingSchemeIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns123="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
+        <ns2:InputParameter qName="ns124:CodingSchemeVersionOrTag" dimensionality="1" index="1" isArray="false" isRequired="false" name="versionOrTag" xmlns:ns124="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Core"/>
+        <ns2:InputParameter qName="ns125:AssociationIdentification" dimensionality="1" index="2" isArray="false" isRequired="false" name="associationIdentification" xmlns:ns125="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
        </ns2:inputParameterCollection>
-       <ns2:Output qName="ns126:Direction" dimensionality="1" isArray="false" xmlns:ns126="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
+       <ns2:Output qName="ns126:Direction" dimensionality="1" isArray="false" xmlns:ns126="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
         <ns2:Fault description="" name="LBException"/>
@@ -646,11 +645,11 @@
       </ns2:Operation>
       <ns2:Operation description="Return a representation of associations between a concept and its immediate decendents.  The resolved association list represents the next branch of the hierarchy when visualized in a top (root) to bottom (leaf) representation." name="getHierarchyLevelNext">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns127:HierarchyResolutionPolicy" dimensionality="1" index="0" isArray="false" isRequired="false" name="hierarchyResolutionPolicy" xmlns:ns127="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
-        <ns2:InputParameter qName="ns128:CodingSchemeIdentification" dimensionality="1" index="1" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns128="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
-        <ns2:InputParameter qName="ns129:CodingSchemeVersionOrTag" dimensionality="1" index="2" isArray="false" isRequired="false" name="versionOrTag" xmlns:ns129="http://LexGrid.org/schema/LexBIG/2009/01/Core"/>
+        <ns2:InputParameter qName="ns127:HierarchyResolutionPolicy" dimensionality="1" index="0" isArray="false" isRequired="false" name="hierarchyResolutionPolicy" xmlns:ns127="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
+        <ns2:InputParameter qName="ns128:CodingSchemeIdentification" dimensionality="1" index="1" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns128="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
+        <ns2:InputParameter qName="ns129:CodingSchemeVersionOrTag" dimensionality="1" index="2" isArray="false" isRequired="false" name="versionOrTag" xmlns:ns129="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Core"/>
        </ns2:inputParameterCollection>
-       <ns2:Output qName="ns130:AssociationList" dimensionality="1" isArray="false" xmlns:ns130="http://LexGrid.org/schema/LexBIG/2009/01/Collections"/>
+       <ns2:Output qName="ns130:AssociationList" dimensionality="1" isArray="false" xmlns:ns130="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Collections"/>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
         <ns2:Fault description="" name="LBException"/>
@@ -658,11 +657,11 @@
       </ns2:Operation>
       <ns2:Operation description="Return a representation of associations between a concept and its immediate ancestor(s).  The resolved association list represents the previous level of the hierarchy when visualized in a top (root) to bottom (leaf) representation." name="getHierarchyLevelPrev">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns131:HierarchyResolutionPolicy" dimensionality="1" index="0" isArray="false" isRequired="false" name="hierarchyResolutionPolicy" xmlns:ns131="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
-        <ns2:InputParameter qName="ns132:CodingSchemeIdentification" dimensionality="1" index="1" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns132="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
-        <ns2:InputParameter qName="ns133:CodingSchemeVersionOrTag" dimensionality="1" index="2" isArray="false" isRequired="false" name="versionOrTag" xmlns:ns133="http://LexGrid.org/schema/LexBIG/2009/01/Core"/>
+        <ns2:InputParameter qName="ns131:HierarchyResolutionPolicy" dimensionality="1" index="0" isArray="false" isRequired="false" name="hierarchyResolutionPolicy" xmlns:ns131="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
+        <ns2:InputParameter qName="ns132:CodingSchemeIdentification" dimensionality="1" index="1" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns132="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
+        <ns2:InputParameter qName="ns133:CodingSchemeVersionOrTag" dimensionality="1" index="2" isArray="false" isRequired="false" name="versionOrTag" xmlns:ns133="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Core"/>
        </ns2:inputParameterCollection>
-       <ns2:Output qName="ns134:AssociationList" dimensionality="1" isArray="false" xmlns:ns134="http://LexGrid.org/schema/LexBIG/2009/01/Collections"/>
+       <ns2:Output qName="ns134:AssociationList" dimensionality="1" isArray="false" xmlns:ns134="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Collections"/>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
         <ns2:Fault description="" name="LBException"/>
@@ -670,12 +669,12 @@
       </ns2:Operation>
       <ns2:Operation description="Return a representation of associations between a concept and hierarchical root node(s).  The resolved association list represents the path within the hierarchy from traversed from bottom (leaf) to top (root)." name="getHierarchyPathToRoot">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns135:HierarchyResolutionPolicy" dimensionality="1" index="0" isArray="false" isRequired="false" name="hierarchyResolutionPolicy" xmlns:ns135="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
-        <ns2:InputParameter qName="ns136:CodingSchemeIdentification" dimensionality="1" index="1" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns136="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
-        <ns2:InputParameter qName="ns137:CodingSchemeVersionOrTag" dimensionality="1" index="2" isArray="false" isRequired="false" name="versionOrTag" xmlns:ns137="http://LexGrid.org/schema/LexBIG/2009/01/Core"/>
-        <ns2:InputParameter qName="ns138:HierarchyPathResolveOption" dimensionality="1" index="3" isArray="false" isRequired="false" name="hierarchyPathResolveOption" xmlns:ns138="http://LexGrid.org/schema/LexBIG/2009/01/enums"/>
+        <ns2:InputParameter qName="ns135:HierarchyResolutionPolicy" dimensionality="1" index="0" isArray="false" isRequired="false" name="hierarchyResolutionPolicy" xmlns:ns135="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
+        <ns2:InputParameter qName="ns136:CodingSchemeIdentification" dimensionality="1" index="1" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns136="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
+        <ns2:InputParameter qName="ns137:CodingSchemeVersionOrTag" dimensionality="1" index="2" isArray="false" isRequired="false" name="versionOrTag" xmlns:ns137="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Core"/>
+        <ns2:InputParameter qName="ns138:HierarchyPathResolveOption" dimensionality="1" index="3" isArray="false" isRequired="false" name="hierarchyPathResolveOption" xmlns:ns138="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/enums"/>
        </ns2:inputParameterCollection>
-       <ns2:Output qName="ns139:AssociationList" dimensionality="1" isArray="false" xmlns:ns139="http://LexGrid.org/schema/LexBIG/2009/01/Collections"/>
+       <ns2:Output qName="ns139:AssociationList" dimensionality="1" isArray="false" xmlns:ns139="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Collections"/>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
         <ns2:Fault description="" name="LBException"/>
@@ -683,11 +682,11 @@
       </ns2:Operation>
       <ns2:Operation description="Returns all root nodes for the given hierarchy and coding scheme.  Each root concept represents the conceptual start or narrowest point of a tree when visualizing the hierarchy. " name="getHierarchyRoots">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns140:CodingSchemeIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns140="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
-        <ns2:InputParameter qName="ns141:CodingSchemeVersionOrTag" dimensionality="1" index="1" isArray="false" isRequired="false" name="versionOrTag" xmlns:ns141="http://LexGrid.org/schema/LexBIG/2009/01/Core"/>
-        <ns2:InputParameter qName="ns142:HierarchyIdentification" dimensionality="1" index="2" isArray="false" isRequired="false" name="hierarchyIdentification" xmlns:ns142="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
+        <ns2:InputParameter qName="ns140:CodingSchemeIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns140="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
+        <ns2:InputParameter qName="ns141:CodingSchemeVersionOrTag" dimensionality="1" index="1" isArray="false" isRequired="false" name="versionOrTag" xmlns:ns141="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Core"/>
+        <ns2:InputParameter qName="ns142:HierarchyIdentification" dimensionality="1" index="2" isArray="false" isRequired="false" name="hierarchyIdentification" xmlns:ns142="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
        </ns2:inputParameterCollection>
-       <ns2:Output qName="ns143:ResolvedConceptReferenceList" dimensionality="1" isArray="false" xmlns:ns143="http://LexGrid.org/schema/LexBIG/2009/01/Collections"/>
+       <ns2:Output qName="ns143:ResolvedConceptReferenceList" dimensionality="1" isArray="false" xmlns:ns143="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Collections"/>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
         <ns2:Fault description="" name="LBException"/>
@@ -695,9 +694,9 @@
       </ns2:Operation>
       <ns2:Operation description="Returns all root nodes for the given hierarchy as a CodeNodeSet, which can be further restricted.  Each root concept represents the conceptual start or narrowest point of a tree when visualizing the hierarchy. " name="getHierarchyRootSet">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns144:CodingSchemeIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns144="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
-        <ns2:InputParameter qName="ns145:CodingSchemeVersionOrTag" dimensionality="1" index="1" isArray="false" isRequired="false" name="versionOrTag" xmlns:ns145="http://LexGrid.org/schema/LexBIG/2009/01/Core"/>
-        <ns2:InputParameter qName="ns146:HierarchyIdentification" dimensionality="1" index="2" isArray="false" isRequired="false" name="hierarchyIdentification" xmlns:ns146="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
+        <ns2:InputParameter qName="ns144:CodingSchemeIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns144="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
+        <ns2:InputParameter qName="ns145:CodingSchemeVersionOrTag" dimensionality="1" index="1" isArray="false" isRequired="false" name="versionOrTag" xmlns:ns145="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Core"/>
+        <ns2:InputParameter qName="ns146:HierarchyIdentification" dimensionality="1" index="2" isArray="false" isRequired="false" name="hierarchyIdentification" xmlns:ns146="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
        </ns2:inputParameterCollection>
        <ns2:Output qName="ns147:CodedNodeSetReference" dimensionality="1" isArray="false" xmlns:ns147="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/CodedNodeSet/types"/>
        <ns2:faultCollection>
@@ -707,9 +706,9 @@
       </ns2:Operation>
       <ns2:Operation description="Create a CodedNodeSet from a set of concept codes in a coding scheme." name="createCodeNodeSet">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns148:ConceptIdentification" dimensionality="1" index="0" isArray="true" isRequired="false" name="conceptIdentification" xmlns:ns148="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
-        <ns2:InputParameter qName="ns149:CodingSchemeIdentification" dimensionality="1" index="1" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns149="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
-        <ns2:InputParameter qName="ns150:CodingSchemeVersionOrTag" dimensionality="1" index="2" isArray="false" isRequired="false" name="versionOrTag" xmlns:ns150="http://LexGrid.org/schema/LexBIG/2009/01/Core"/>
+        <ns2:InputParameter qName="ns148:ConceptIdentification" dimensionality="1" index="0" isArray="true" isRequired="false" name="conceptIdentification" xmlns:ns148="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
+        <ns2:InputParameter qName="ns149:CodingSchemeIdentification" dimensionality="1" index="1" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns149="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
+        <ns2:InputParameter qName="ns150:CodingSchemeVersionOrTag" dimensionality="1" index="2" isArray="false" isRequired="false" name="versionOrTag" xmlns:ns150="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Core"/>
        </ns2:inputParameterCollection>
        <ns2:Output qName="ns151:CodedNodeSetReference" dimensionality="1" isArray="false" xmlns:ns151="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/CodedNodeSet/types"/>
        <ns2:faultCollection>
@@ -719,10 +718,10 @@
       </ns2:Operation>
       <ns2:Operation description="Return all the association forward name and reverse name for the coding scheme." name="getAssociationForwardAndReverseNames">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns152:CodingSchemeIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns152="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
-        <ns2:InputParameter qName="ns153:CodingSchemeVersionOrTag" dimensionality="1" index="1" isArray="false" isRequired="false" name="versionOrTag" xmlns:ns153="http://LexGrid.org/schema/LexBIG/2009/01/Core"/>
+        <ns2:InputParameter qName="ns152:CodingSchemeIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns152="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
+        <ns2:InputParameter qName="ns153:CodingSchemeVersionOrTag" dimensionality="1" index="1" isArray="false" isRequired="false" name="versionOrTag" xmlns:ns153="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Core"/>
        </ns2:inputParameterCollection>
-       <ns2:Output qName="ns154:AssociationIdentification" dimensionality="1" isArray="true" xmlns:ns154="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
+       <ns2:Output qName="ns154:AssociationIdentification" dimensionality="1" isArray="true" xmlns:ns154="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
         <ns2:Fault description="" name="LBException"/>
@@ -738,10 +737,10 @@
       </ns2:Operation>
       <ns2:Operation description="Return the copyright text for the coding scheme." name="getCodingSchemeCopyright">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns155:CodingSchemeIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns155="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
-        <ns2:InputParameter qName="ns156:CodingSchemeVersionOrTag" dimensionality="1" index="1" isArray="false" isRequired="false" name="versionOrTag" xmlns:ns156="http://LexGrid.org/schema/LexBIG/2009/01/Core"/>
+        <ns2:InputParameter qName="ns155:CodingSchemeIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns155="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
+        <ns2:InputParameter qName="ns156:CodingSchemeVersionOrTag" dimensionality="1" index="1" isArray="false" isRequired="false" name="versionOrTag" xmlns:ns156="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Core"/>
        </ns2:inputParameterCollection>
-       <ns2:Output qName="ns157:CodingSchemeCopyRight" dimensionality="1" isArray="false" xmlns:ns157="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
+       <ns2:Output qName="ns157:CodingSchemeCopyRight" dimensionality="1" isArray="false" xmlns:ns157="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
         <ns2:Fault description="" name="LBException"/>
@@ -749,28 +748,28 @@
       </ns2:Operation>
       <ns2:Operation description="" name="getAssociationReverseOneLevel">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns158:ConceptIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="conceptIdentification" xmlns:ns158="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
-        <ns2:InputParameter qName="ns159:RelationContainerIdentification" dimensionality="1" index="1" isArray="false" isRequired="false" name="relationContainerIdentification" xmlns:ns159="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
-        <ns2:InputParameter qName="ns160:AssociationIdentification" dimensionality="1" index="2" isArray="false" isRequired="false" name="associationIdentification" xmlns:ns160="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
-        <ns2:InputParameter qName="ns161:CodingSchemeIdentification" dimensionality="1" index="3" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns161="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
-        <ns2:InputParameter qName="ns162:CodingSchemeVersionOrTag" dimensionality="1" index="4" isArray="false" isRequired="false" name="versionOrTag" xmlns:ns162="http://LexGrid.org/schema/LexBIG/2009/01/Core"/>
-        <ns2:InputParameter qName="ns163:ResolveConcepts" dimensionality="1" index="5" isArray="false" isRequired="false" name="buildReferencedEntries" xmlns:ns163="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
-        <ns2:InputParameter qName="ns164:NameAndValueList" dimensionality="1" index="6" isArray="false" isRequired="false" name="associationQualifiers" xmlns:ns164="http://LexGrid.org/schema/LexBIG/2009/01/Collections"/>
+        <ns2:InputParameter qName="ns158:ConceptIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="conceptIdentification" xmlns:ns158="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
+        <ns2:InputParameter qName="ns159:RelationContainerIdentification" dimensionality="1" index="1" isArray="false" isRequired="false" name="relationContainerIdentification" xmlns:ns159="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
+        <ns2:InputParameter qName="ns160:AssociationIdentification" dimensionality="1" index="2" isArray="false" isRequired="false" name="associationIdentification" xmlns:ns160="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
+        <ns2:InputParameter qName="ns161:CodingSchemeIdentification" dimensionality="1" index="3" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns161="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
+        <ns2:InputParameter qName="ns162:CodingSchemeVersionOrTag" dimensionality="1" index="4" isArray="false" isRequired="false" name="versionOrTag" xmlns:ns162="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Core"/>
+        <ns2:InputParameter qName="ns163:ResolveConcepts" dimensionality="1" index="5" isArray="false" isRequired="false" name="buildReferencedEntries" xmlns:ns163="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
+        <ns2:InputParameter qName="ns164:NameAndValueList" dimensionality="1" index="6" isArray="false" isRequired="false" name="associationQualifiers" xmlns:ns164="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Collections"/>
        </ns2:inputParameterCollection>
-       <ns2:Output qName="ns165:Association" dimensionality="1" isArray="false" xmlns:ns165="http://LexGrid.org/schema/LexBIG/2009/01/Core"/>
+       <ns2:Output qName="ns165:Association" dimensionality="1" isArray="false" xmlns:ns165="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Core"/>
        <ns2:faultCollection/>
       </ns2:Operation>
       <ns2:Operation description="" name="getAssociationForwardOneLevel">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns166:ConceptIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="conceptIdentification" xmlns:ns166="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
-        <ns2:InputParameter qName="ns167:RelationContainerIdentification" dimensionality="1" index="1" isArray="false" isRequired="false" name="relationContainerIdentification" xmlns:ns167="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
-        <ns2:InputParameter qName="ns168:AssociationIdentification" dimensionality="1" index="2" isArray="false" isRequired="false" name="associationIdentification" xmlns:ns168="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
-        <ns2:InputParameter qName="ns169:CodingSchemeIdentification" dimensionality="1" index="3" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns169="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
-        <ns2:InputParameter qName="ns170:CodingSchemeVersionOrTag" dimensionality="1" index="4" isArray="false" isRequired="false" name="versionOrTag" xmlns:ns170="http://LexGrid.org/schema/LexBIG/2009/01/Core"/>
-        <ns2:InputParameter qName="ns171:ResolveConcepts" dimensionality="1" index="5" isArray="false" isRequired="false" name="buildReferencedEntries" xmlns:ns171="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
-        <ns2:InputParameter qName="ns172:NameAndValueList" dimensionality="1" index="6" isArray="false" isRequired="false" name="associationQualifiers" xmlns:ns172="http://LexGrid.org/schema/LexBIG/2009/01/Collections"/>
+        <ns2:InputParameter qName="ns166:ConceptIdentification" dimensionality="1" index="0" isArray="false" isRequired="false" name="conceptIdentification" xmlns:ns166="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
+        <ns2:InputParameter qName="ns167:RelationContainerIdentification" dimensionality="1" index="1" isArray="false" isRequired="false" name="relationContainerIdentification" xmlns:ns167="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
+        <ns2:InputParameter qName="ns168:AssociationIdentification" dimensionality="1" index="2" isArray="false" isRequired="false" name="associationIdentification" xmlns:ns168="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
+        <ns2:InputParameter qName="ns169:CodingSchemeIdentification" dimensionality="1" index="3" isArray="false" isRequired="false" name="codingSchemeIdentification" xmlns:ns169="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
+        <ns2:InputParameter qName="ns170:CodingSchemeVersionOrTag" dimensionality="1" index="4" isArray="false" isRequired="false" name="versionOrTag" xmlns:ns170="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Core"/>
+        <ns2:InputParameter qName="ns171:ResolveConcepts" dimensionality="1" index="5" isArray="false" isRequired="false" name="buildReferencedEntries" xmlns:ns171="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
+        <ns2:InputParameter qName="ns172:NameAndValueList" dimensionality="1" index="6" isArray="false" isRequired="false" name="associationQualifiers" xmlns:ns172="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Collections"/>
        </ns2:inputParameterCollection>
-       <ns2:Output qName="ns173:Association" dimensionality="1" isArray="false" xmlns:ns173="http://LexGrid.org/schema/LexBIG/2009/01/Core"/>
+       <ns2:Output qName="ns173:Association" dimensionality="1" isArray="false" xmlns:ns173="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Core"/>
        <ns2:faultCollection/>
       </ns2:Operation>
       <ns2:Operation description="" name="GetMultipleResourceProperties">
@@ -795,7 +794,7 @@
      <ns2:operationCollection>
       <ns2:Operation description="Return the next available concept reference, in order, from the underlying list. Note: This is effectively the same as performing next(1), but eliminates the need to continually unwrap the concept reference from the resolved list." name="next">
        <ns2:inputParameterCollection/>
-       <ns2:Output qName="ns174:ResolvedConceptReference" dimensionality="1" isArray="false" xmlns:ns174="http://LexGrid.org/schema/LexBIG/2009/01/Core"/>
+       <ns2:Output qName="ns174:ResolvedConceptReference" dimensionality="1" isArray="false" xmlns:ns174="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Core"/>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
         <ns2:Fault description="" name="LBResourceUnavailableException"/>
@@ -806,7 +805,7 @@
        <ns2:inputParameterCollection>
         <ns2:InputParameter qName="xsd:int" dimensionality="1" index="0" isArray="false" isRequired="false" name="maxToReturn" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
        </ns2:inputParameterCollection>
-       <ns2:Output qName="ns175:ResolvedConceptReferenceList" dimensionality="1" isArray="false" xmlns:ns175="http://LexGrid.org/schema/LexBIG/2009/01/Collections"/>
+       <ns2:Output qName="ns175:ResolvedConceptReferenceList" dimensionality="1" isArray="false" xmlns:ns175="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Collections"/>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
         <ns2:Fault description="" name="LBResourceUnavailableException"/>
@@ -818,7 +817,7 @@
         <ns2:InputParameter qName="xsd:int" dimensionality="1" index="0" isArray="false" isRequired="false" name="start" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
         <ns2:InputParameter qName="xsd:int" dimensionality="1" index="1" isArray="false" isRequired="false" name="end" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
        </ns2:inputParameterCollection>
-       <ns2:Output qName="ns176:ResolvedConceptReferenceList" dimensionality="1" isArray="false" xmlns:ns176="http://LexGrid.org/schema/LexBIG/2009/01/Collections"/>
+       <ns2:Output qName="ns176:ResolvedConceptReferenceList" dimensionality="1" isArray="false" xmlns:ns176="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Collections"/>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
         <ns2:Fault description="" name="LBResourceUnavailableException"/>
@@ -838,7 +837,7 @@
       </ns2:Operation>
       <ns2:Operation description="" name="getNext">
        <ns2:inputParameterCollection/>
-       <ns2:Output qName="ns177:ResolvedConceptReferenceList" dimensionality="1" isArray="false" xmlns:ns177="http://LexGrid.org/schema/LexBIG/2009/01/Collections"/>
+       <ns2:Output qName="ns177:ResolvedConceptReferenceList" dimensionality="1" isArray="false" xmlns:ns177="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Collections"/>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
         <ns2:Fault description="" name="LBResourceUnavailableException"/>
@@ -847,7 +846,14 @@
       </ns2:Operation>
       <ns2:Operation description="" name="getServiceSecurityMetadata">
        <ns2:inputParameterCollection/>
-       <ns2:Output qName="ns178:ServiceSecurityMetadata" dimensionality="1" isArray="false" xmlns:ns178="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.security"/>
+       <ns2:Output qName="ns178:ServiceSecurityMetadata" dimensionality="1" isArray="false" xmlns:ns178="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.security">
+        <ns179:UMLClass className="ServiceSecurityMetadata" description="An instance of the Security Service Metadata." id="8E7A74B9-D300-646D-E040-BB89AD43706D" packageName="gov.nih.nci.cagrid.metadata.security" projectName="caGrid_Metadata_Models" projectVersion="1" xmlns:ns179="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.common">
+         <ns179:umlAttributeCollection/>
+         <ns179:SemanticMetadata conceptCode="C80736" conceptDefinition="A software system providing a public need." conceptName="Software Service" order="2"/>
+         <ns179:SemanticMetadata conceptCode="C25669" conceptDefinition="Security; freedom from anxiety or fear." conceptName="Security" order="1"/>
+         <ns179:SemanticMetadata conceptCode="C52095" conceptDefinition="Data about data; information that describes another set of data." conceptName="Metadata" order="0"/>
+        </ns179:UMLClass>
+       </ns2:Output>
        <ns2:faultCollection/>
       </ns2:Operation>
       <ns2:Operation description="True means that there still values that can be returned. False means all values have already been returned.  " name="hasNext">
@@ -896,14 +902,21 @@
      <ns2:operationCollection>
       <ns2:Operation description="" name="getServiceSecurityMetadata">
        <ns2:inputParameterCollection/>
-       <ns2:Output qName="ns179:ServiceSecurityMetadata" dimensionality="1" isArray="false" xmlns:ns179="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.security"/>
+       <ns2:Output qName="ns180:ServiceSecurityMetadata" dimensionality="1" isArray="false" xmlns:ns180="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.security">
+        <ns181:UMLClass className="ServiceSecurityMetadata" description="An instance of the Security Service Metadata." id="8E7A74B9-D300-646D-E040-BB89AD43706D" packageName="gov.nih.nci.cagrid.metadata.security" projectName="caGrid_Metadata_Models" projectVersion="1" xmlns:ns181="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.common">
+         <ns181:umlAttributeCollection/>
+         <ns181:SemanticMetadata conceptCode="C80736" conceptDefinition="A software system providing a public need." conceptName="Software Service" order="2"/>
+         <ns181:SemanticMetadata conceptCode="C25669" conceptDefinition="Security; freedom from anxiety or fear." conceptName="Security" order="1"/>
+         <ns181:SemanticMetadata conceptCode="C52095" conceptDefinition="Data about data; information that describes another set of data." conceptName="Metadata" order="0"/>
+        </ns181:UMLClass>
+       </ns2:Output>
        <ns2:faultCollection/>
       </ns2:Operation>
       <ns2:Operation description="Return the list of change events identifying the immediate ancestors of the given concept reference." name="getAncestors">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns180:ConceptReference" dimensionality="1" index="0" isArray="false" isRequired="false" name="conceptReference" xmlns:ns180="http://LexGrid.org/schema/LexBIG/2009/01/Core"/>
+        <ns2:InputParameter qName="ns182:ConceptReference" dimensionality="1" index="0" isArray="false" isRequired="false" name="conceptReference" xmlns:ns182="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Core"/>
        </ns2:inputParameterCollection>
-       <ns2:Output qName="ns181:NCIChangeEventList" dimensionality="1" isArray="false" xmlns:ns181="http://LexGrid.org/schema/LexBIG/2009/01/Collections"/>
+       <ns2:Output qName="ns183:NCIChangeEventList" dimensionality="1" isArray="false" xmlns:ns183="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Collections"/>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
         <ns2:Fault description="" name="LBParameterException"/>
@@ -915,7 +928,7 @@
         <ns2:InputParameter qName="xsd:date" dimensionality="1" index="0" isArray="false" isRequired="false" name="releasedAfter" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
         <ns2:InputParameter qName="xsd:date" dimensionality="1" index="1" isArray="false" isRequired="false" name="releasedBefore" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
        </ns2:inputParameterCollection>
-       <ns2:Output qName="ns182:SystemReleaseList" dimensionality="1" isArray="false" xmlns:ns182="http://LexGrid.org/schema/LexBIG/2009/01/Collections"/>
+       <ns2:Output qName="ns184:SystemReleaseList" dimensionality="1" isArray="false" xmlns:ns184="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Collections"/>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
         <ns2:Fault description="" name="LBParameterException"/>
@@ -924,11 +937,11 @@
       </ns2:Operation>
       <ns2:Operation description="Return a list of all of the coding scheme versions in which the supplied concept changed between the two supplied times (inclusive)." name="getConceptChangeVersions">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns183:ConceptReference" dimensionality="1" index="0" isArray="false" isRequired="false" name="conceptReference" xmlns:ns183="http://LexGrid.org/schema/LexBIG/2009/01/Core"/>
+        <ns2:InputParameter qName="ns185:ConceptReference" dimensionality="1" index="0" isArray="false" isRequired="false" name="conceptReference" xmlns:ns185="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Core"/>
         <ns2:InputParameter qName="xsd:date" dimensionality="1" index="1" isArray="false" isRequired="false" name="beginDate" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
         <ns2:InputParameter qName="xsd:date" dimensionality="1" index="2" isArray="false" isRequired="false" name="endDate" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
        </ns2:inputParameterCollection>
-       <ns2:Output qName="ns184:CodingSchemeVersionList" dimensionality="1" isArray="false" xmlns:ns184="http://LexGrid.org/schema/LexBIG/2009/01/Collections"/>
+       <ns2:Output qName="ns186:CodingSchemeVersionList" dimensionality="1" isArray="false" xmlns:ns186="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Collections"/>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
         <ns2:Fault description="" name="LBParameterException"/>
@@ -937,9 +950,9 @@
       </ns2:Operation>
       <ns2:Operation description="Return the coding scheme version in which the supplied concept was created." name="getConceptCreationVersion">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns185:ConceptReference" dimensionality="1" index="0" isArray="false" isRequired="false" name="conceptReference" xmlns:ns185="http://LexGrid.org/schema/LexBIG/2009/01/Core"/>
+        <ns2:InputParameter qName="ns187:ConceptReference" dimensionality="1" index="0" isArray="false" isRequired="false" name="conceptReference" xmlns:ns187="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Core"/>
        </ns2:inputParameterCollection>
-       <ns2:Output qName="ns186:codingSchemeVersion" dimensionality="1" isArray="false" xmlns:ns186="http://LexGrid.org/schema/2009/01/LexGrid/versions"/>
+       <ns2:Output qName="ns188:codingSchemeVersion" dimensionality="1" isArray="false" xmlns:ns188="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/versions"/>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
         <ns2:Fault description="" name="LBParameterException"/>
@@ -948,9 +961,9 @@
       </ns2:Operation>
       <ns2:Operation description="Return the list of change events identifying the immediate descendants of the given concept reference." name="getDescendents">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns187:ConceptReference" dimensionality="1" index="0" isArray="false" isRequired="false" name="conceptReference" xmlns:ns187="http://LexGrid.org/schema/LexBIG/2009/01/Core"/>
+        <ns2:InputParameter qName="ns189:ConceptReference" dimensionality="1" index="0" isArray="false" isRequired="false" name="conceptReference" xmlns:ns189="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Core"/>
        </ns2:inputParameterCollection>
-       <ns2:Output qName="ns188:NCIChangeEventList" dimensionality="1" isArray="false" xmlns:ns188="http://LexGrid.org/schema/LexBIG/2009/01/Collections"/>
+       <ns2:Output qName="ns190:NCIChangeEventList" dimensionality="1" isArray="false" xmlns:ns190="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Collections"/>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
         <ns2:Fault description="" name="LBParameterException"/>
@@ -959,7 +972,7 @@
       </ns2:Operation>
       <ns2:Operation description="Return the earliest baseline version in the list." name="getEarliestBaseline">
        <ns2:inputParameterCollection/>
-       <ns2:Output qName="ns189:systemRelease" dimensionality="1" isArray="false" xmlns:ns189="http://LexGrid.org/schema/2009/01/LexGrid/versions"/>
+       <ns2:Output qName="ns191:systemRelease" dimensionality="1" isArray="false" xmlns:ns191="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/versions"/>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
         <ns2:Fault description="" name="LBInvocationException"/>
@@ -967,10 +980,10 @@
       </ns2:Operation>
       <ns2:Operation description="Return the list of available NCI-defined change events for the given concept and coding scheme version." name="getEditActionList">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns190:ConceptReference" dimensionality="1" index="0" isArray="false" isRequired="false" name="conceptReference" xmlns:ns190="http://LexGrid.org/schema/LexBIG/2009/01/Core"/>
+        <ns2:InputParameter qName="ns192:ConceptReference" dimensionality="1" index="0" isArray="false" isRequired="false" name="conceptReference" xmlns:ns192="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Core"/>
         <ns2:InputParameter qName="xsd:anyURI" dimensionality="1" index="1" isArray="false" isRequired="false" name="releaseURN" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
        </ns2:inputParameterCollection>
-       <ns2:Output qName="ns191:NCIChangeEventList" dimensionality="1" isArray="false" xmlns:ns191="http://LexGrid.org/schema/LexBIG/2009/01/Collections"/>
+       <ns2:Output qName="ns193:NCIChangeEventList" dimensionality="1" isArray="false" xmlns:ns193="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Collections"/>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
         <ns2:Fault description="" name="LBParameterException"/>
@@ -979,10 +992,10 @@
       </ns2:Operation>
       <ns2:Operation description="Return the list of available NCI-defined change events for the given concept and date range." name="getEditActionList2">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns192:ConceptReference" dimensionality="1" index="0" isArray="false" isRequired="false" name="conceptReference" xmlns:ns192="http://LexGrid.org/schema/LexBIG/2009/01/Core"/>
-        <ns2:InputParameter qName="ns193:codingSchemeVersion" dimensionality="1" index="1" isArray="false" isRequired="false" name="codingSchemeVersion" xmlns:ns193="http://LexGrid.org/schema/2009/01/LexGrid/versions"/>
+        <ns2:InputParameter qName="ns194:ConceptReference" dimensionality="1" index="0" isArray="false" isRequired="false" name="conceptReference" xmlns:ns194="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Core"/>
+        <ns2:InputParameter qName="ns195:codingSchemeVersion" dimensionality="1" index="1" isArray="false" isRequired="false" name="codingSchemeVersion" xmlns:ns195="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/versions"/>
        </ns2:inputParameterCollection>
-       <ns2:Output qName="ns194:NCIChangeEventList" dimensionality="1" isArray="false" xmlns:ns194="http://LexGrid.org/schema/LexBIG/2009/01/Collections"/>
+       <ns2:Output qName="ns196:NCIChangeEventList" dimensionality="1" isArray="false" xmlns:ns196="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Collections"/>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
         <ns2:Fault description="" name="LBParameterException"/>
@@ -991,11 +1004,11 @@
       </ns2:Operation>
       <ns2:Operation description="Return the list of NCI-defined change events for the given concept and release; empty if not applicable." name="getEditActionList3">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns195:ConceptReference" dimensionality="1" index="0" isArray="false" isRequired="false" name="conceptReference" xmlns:ns195="http://LexGrid.org/schema/LexBIG/2009/01/Core"/>
+        <ns2:InputParameter qName="ns197:ConceptReference" dimensionality="1" index="0" isArray="false" isRequired="false" name="conceptReference" xmlns:ns197="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Core"/>
         <ns2:InputParameter qName="xsd:date" dimensionality="1" index="1" isArray="false" isRequired="false" name="beginDate" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
         <ns2:InputParameter qName="xsd:date" dimensionality="1" index="2" isArray="false" isRequired="false" name="endDate" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
        </ns2:inputParameterCollection>
-       <ns2:Output qName="ns196:NCIChangeEventList" dimensionality="1" isArray="false" xmlns:ns196="http://LexGrid.org/schema/LexBIG/2009/01/Collections"/>
+       <ns2:Output qName="ns198:NCIChangeEventList" dimensionality="1" isArray="false" xmlns:ns198="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Collections"/>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
         <ns2:Fault description="" name="LBParameterException"/>
@@ -1004,7 +1017,7 @@
       </ns2:Operation>
       <ns2:Operation description="Get the latest baseline in the list." name="getLatestBaseline">
        <ns2:inputParameterCollection/>
-       <ns2:Output qName="ns197:systemRelease" dimensionality="1" isArray="false" xmlns:ns197="http://LexGrid.org/schema/2009/01/LexGrid/versions"/>
+       <ns2:Output qName="ns199:systemRelease" dimensionality="1" isArray="false" xmlns:ns199="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/versions"/>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
         <ns2:Fault description="" name="LBInvocationException"/>
@@ -1014,7 +1027,7 @@
        <ns2:inputParameterCollection>
         <ns2:InputParameter qName="xsd:anyURI" dimensionality="1" index="0" isArray="false" isRequired="false" name="releaseURN" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
        </ns2:inputParameterCollection>
-       <ns2:Output qName="ns198:SystemReleaseDetail" dimensionality="1" isArray="false" xmlns:ns198="http://LexGrid.org/schema/LexBIG/2009/01/InterfaceElements"/>
+       <ns2:Output qName="ns200:SystemReleaseDetail" dimensionality="1" isArray="false" xmlns:ns200="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/InterfaceElements"/>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
         <ns2:Fault description="" name="LBParameterException"/>
@@ -1051,12 +1064,19 @@
      <ns2:operationCollection>
       <ns2:Operation description="" name="getServiceSecurityMetadata">
        <ns2:inputParameterCollection/>
-       <ns2:Output qName="ns199:ServiceSecurityMetadata" dimensionality="1" isArray="false" xmlns:ns199="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.security"/>
+       <ns2:Output qName="ns201:ServiceSecurityMetadata" dimensionality="1" isArray="false" xmlns:ns201="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.security">
+        <ns202:UMLClass className="ServiceSecurityMetadata" description="An instance of the Security Service Metadata." id="8E7A74B9-D300-646D-E040-BB89AD43706D" packageName="gov.nih.nci.cagrid.metadata.security" projectName="caGrid_Metadata_Models" projectVersion="1" xmlns:ns202="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.common">
+         <ns202:umlAttributeCollection/>
+         <ns202:SemanticMetadata conceptCode="C80736" conceptDefinition="A software system providing a public need." conceptName="Software Service" order="2"/>
+         <ns202:SemanticMetadata conceptCode="C25669" conceptDefinition="Security; freedom from anxiety or fear." conceptName="Security" order="1"/>
+         <ns202:SemanticMetadata conceptCode="C52095" conceptDefinition="Data about data; information that describes another set of data." conceptName="Metadata" order="0"/>
+        </ns202:UMLClass>
+       </ns2:Output>
        <ns2:faultCollection/>
       </ns2:Operation>
       <ns2:Operation description="List the coding schemes that are represented in the metadata index." name="listCodingSchemes">
        <ns2:inputParameterCollection/>
-       <ns2:Output qName="ns200:AbsoluteCodingSchemeVersionReferenceList" dimensionality="1" isArray="false" xmlns:ns200="http://LexGrid.org/schema/LexBIG/2009/01/Collections"/>
+       <ns2:Output qName="ns203:AbsoluteCodingSchemeVersionReferenceList" dimensionality="1" isArray="false" xmlns:ns203="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Collections"/>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
         <ns2:Fault description="" name="LBInvocationException"/>
@@ -1064,7 +1084,7 @@
       </ns2:Operation>
       <ns2:Operation description="Restrict the search to a particular coding scheme." name="restrictToCodingScheme">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns201:AbsoluteCodingSchemeVersionReference" dimensionality="1" index="0" isArray="false" isRequired="false" name="acsvr" xmlns:ns201="http://LexGrid.org/schema/LexBIG/2009/01/Core"/>
+        <ns2:InputParameter qName="ns204:AbsoluteCodingSchemeVersionReference" dimensionality="1" index="0" isArray="false" isRequired="false" name="acsvr" xmlns:ns204="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Core"/>
        </ns2:inputParameterCollection>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
@@ -1073,7 +1093,7 @@
       </ns2:Operation>
       <ns2:Operation description="Restrict the search to a particular property.  Currently, this can be any element or attribute name from the OBO metadata schema.  When we move to the 2006 version of the schema, there will be a method to get the available properties." name="restrictToProperties">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns202:PropertyIdentification" dimensionality="1" index="0" isArray="true" isRequired="false" name="propertyIdentification" xmlns:ns202="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
+        <ns2:InputParameter qName="ns205:PropertyIdentification" dimensionality="1" index="0" isArray="true" isRequired="false" name="propertyIdentification" xmlns:ns205="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
        </ns2:inputParameterCollection>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
@@ -1082,7 +1102,7 @@
       </ns2:Operation>
       <ns2:Operation description="Restrict the search by the parents of the metadata elements. The OBO MetaData format is hierarchial - if you wish to restrict your search to properties that are under another property, provide the required property containers here.  " name="restrictToPropertyParents">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns203:PropertyIdentification" dimensionality="1" index="0" isArray="true" isRequired="false" name="propertyIdentification" xmlns:ns203="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
+        <ns2:InputParameter qName="ns206:PropertyIdentification" dimensionality="1" index="0" isArray="true" isRequired="false" name="propertyIdentification" xmlns:ns206="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
        </ns2:inputParameterCollection>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
@@ -1091,8 +1111,8 @@
       </ns2:Operation>
       <ns2:Operation description="Restrict the result to the metadata elements that match the supplied string, using the supplied matching algorithm " name="restrictToValue">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns204:MatchCriteria" dimensionality="1" index="0" isArray="false" isRequired="false" name="matchCriteria" xmlns:ns204="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
-        <ns2:InputParameter qName="ns205:ExtensionIdentification" dimensionality="1" index="1" isArray="false" isRequired="false" name="extensionIdentification" xmlns:ns205="http://LexGrid.org/schema/LexBIG/2009/01/caGrid"/>
+        <ns2:InputParameter qName="ns207:MatchCriteria" dimensionality="1" index="0" isArray="false" isRequired="false" name="matchCriteria" xmlns:ns207="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
+        <ns2:InputParameter qName="ns208:ExtensionIdentification" dimensionality="1" index="1" isArray="false" isRequired="false" name="extensionIdentification" xmlns:ns208="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid"/>
        </ns2:inputParameterCollection>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
@@ -1101,7 +1121,7 @@
       </ns2:Operation>
       <ns2:Operation description="Apply all of the restrictions, and return the result." name="resolve">
        <ns2:inputParameterCollection/>
-       <ns2:Output qName="ns206:MetadataPropertyList" dimensionality="1" isArray="false" xmlns:ns206="http://LexGrid.org/schema/LexBIG/2009/01/Collections"/>
+       <ns2:Output qName="ns209:MetadataPropertyList" dimensionality="1" isArray="false" xmlns:ns209="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Collections"/>
        <ns2:faultCollection>
         <ns2:Fault description="" name="InvalidServiceContextAccess"/>
         <ns2:Fault description="" name="LBParameterException"/>
@@ -1138,7 +1158,14 @@
      <ns2:operationCollection>
       <ns2:Operation description="" name="getServiceSecurityMetadata">
        <ns2:inputParameterCollection/>
-       <ns2:Output qName="ns207:ServiceSecurityMetadata" dimensionality="1" isArray="false" xmlns:ns207="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.security"/>
+       <ns2:Output qName="ns210:ServiceSecurityMetadata" dimensionality="1" isArray="false" xmlns:ns210="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.security">
+        <ns211:UMLClass className="ServiceSecurityMetadata" description="An instance of the Security Service Metadata." id="8E7A74B9-D300-646D-E040-BB89AD43706D" packageName="gov.nih.nci.cagrid.metadata.security" projectName="caGrid_Metadata_Models" projectVersion="1" xmlns:ns211="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.common">
+         <ns211:umlAttributeCollection/>
+         <ns211:SemanticMetadata conceptCode="C80736" conceptDefinition="A software system providing a public need." conceptName="Software Service" order="2"/>
+         <ns211:SemanticMetadata conceptCode="C25669" conceptDefinition="Security; freedom from anxiety or fear." conceptName="Security" order="1"/>
+         <ns211:SemanticMetadata conceptCode="C52095" conceptDefinition="Data about data; information that describes another set of data." conceptName="Metadata" order="0"/>
+        </ns211:UMLClass>
+       </ns2:Output>
        <ns2:faultCollection/>
       </ns2:Operation>
       <ns2:Operation description="" name="Destroy">
@@ -1199,7 +1226,14 @@
      <ns2:operationCollection>
       <ns2:Operation description="" name="getServiceSecurityMetadata">
        <ns2:inputParameterCollection/>
-       <ns2:Output qName="ns208:ServiceSecurityMetadata" dimensionality="1" isArray="false" xmlns:ns208="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.security"/>
+       <ns2:Output qName="ns212:ServiceSecurityMetadata" dimensionality="1" isArray="false" xmlns:ns212="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.security">
+        <ns213:UMLClass className="ServiceSecurityMetadata" description="An instance of the Security Service Metadata." id="8E7A74B9-D300-646D-E040-BB89AD43706D" packageName="gov.nih.nci.cagrid.metadata.security" projectName="caGrid_Metadata_Models" projectVersion="1" xmlns:ns213="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.common">
+         <ns213:umlAttributeCollection/>
+         <ns213:SemanticMetadata conceptCode="C80736" conceptDefinition="A software system providing a public need." conceptName="Software Service" order="2"/>
+         <ns213:SemanticMetadata conceptCode="C25669" conceptDefinition="Security; freedom from anxiety or fear." conceptName="Security" order="1"/>
+         <ns213:SemanticMetadata conceptCode="C52095" conceptDefinition="Data about data; information that describes another set of data." conceptName="Metadata" order="0"/>
+        </ns213:UMLClass>
+       </ns2:Output>
        <ns2:faultCollection/>
       </ns2:Operation>
       <ns2:Operation description="" name="Destroy">
@@ -1212,7 +1246,7 @@
       </ns2:Operation>
       <ns2:Operation description="Indicates whether or not the given reference satisfies criteria for this filter. Filters should _NOT_ be used for search criteria that can be done with built in restrictions.  Filters are very inefficient." name="match">
        <ns2:inputParameterCollection>
-        <ns2:InputParameter qName="ns209:ResolvedConceptReference" dimensionality="1" index="0" isArray="false" isRequired="false" name="ref" xmlns:ns209="http://LexGrid.org/schema/LexBIG/2009/01/Core"/>
+        <ns2:InputParameter qName="ns214:ResolvedConceptReference" dimensionality="1" index="0" isArray="false" isRequired="false" name="ref" xmlns:ns214="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Core"/>
        </ns2:inputParameterCollection>
        <ns2:Output qName="xsd:boolean" dimensionality="1" isArray="false" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
        <ns2:faultCollection>
@@ -1266,17 +1300,17 @@
      </ns2:contextPropertyCollection>
     </ns2:ServiceContext>
    </ns2:serviceContextCollection>
-   <ns210:SemanticMetadata conceptCode="C63541" conceptDefinition="A service available on a system that coordinates resources that are not subject to central control, using open, general purpose protocols and interfaces to deliver nontrivial qualities of services." conceptName="Grid Service" order="0" xmlns:ns210="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.common"/>
-   <ns211:SemanticMetadata conceptCode="C63543" conceptDefinition="A published API which receives data in the form of objects, performs computations based upon the input data, and returns information to a client via caGrid in the form of one or more objects." conceptName="Analytical Grid Service" order="1" xmlns:ns211="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.common"/>
+   <ns215:SemanticMetadata conceptCode="C63541" conceptDefinition="A service available on a system that coordinates resources that are not subject to central control, using open, general purpose protocols and interfaces to deliver nontrivial qualities of services." conceptName="Grid Service" order="0" xmlns:ns215="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.common"/>
+   <ns216:SemanticMetadata conceptCode="C63543" conceptDefinition="A published API which receives data in the form of objects, performs computations based upon the input data, and returns information to a client via caGrid in the form of one or more objects." conceptName="Analytical Grid Service" order="1" xmlns:ns216="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.common"/>
   </ns2:Service>
  </ns1:serviceDescription>
  <ns1:hostingResearchCenter>
-  <ns212:ResearchCenter displayName="NCI Center for Biomedical Informatics and Information Technology" shortName="CBIIT" xmlns:ns212="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.common">
-   <ns212:Address country="US" locality="Rockville" postalCode="20852" stateProvince="MD" street1="2115 East Jefferson Street - Suite 5000 " street2=""/>
-   <ns212:ResearchCenterDescription description="" homepageURL="http://ncicb.nci.nih.gov/" imageURL="" rssNewsURL=""/>
-   <ns212:pointOfContactCollection>
-    <ns212:PointOfContact affiliation="" email="ncicbmb@mail.nih.gov " firstName="" lastName="NCICB Support Team" phoneNumber="888-478-4423" role="Maintainer"/>
-   </ns212:pointOfContactCollection>
-  </ns212:ResearchCenter>
+  <ns217:ResearchCenter displayName="NCI Center for Biomedical Informatics and Information Technology" shortName="CBIIT" xmlns:ns217="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.common">
+   <ns217:Address country="US" locality="Rockville" postalCode="20852" stateProvince="MD" street1="2115 East Jefferson Street - Suite 5000 " street2=""/>
+   <ns217:ResearchCenterDescription description="" homepageURL="http://ncicb.nci.nih.gov/" imageURL="" rssNewsURL=""/>
+   <ns217:pointOfContactCollection>
+    <ns217:PointOfContact affiliation="" email="ncicbmb@mail.nih.gov " firstName="" lastName="NCICB Support Team" phoneNumber="888-478-4423" role="Maintainer"/>
+   </ns217:pointOfContactCollection>
+  </ns217:ResearchCenter>
  </ns1:hostingResearchCenter>
 </ns1:ServiceMetadata>

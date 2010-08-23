@@ -43,7 +43,6 @@ public class CodedNodeSetProviderImpl{
 	public CodedNodeSetProviderImpl() throws RemoteException {
 		impl = new CodedNodeSetImpl();
 	}
-	
 
     public org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeSet.stubs.ResolveToListResponse resolveToList(org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeSet.stubs.ResolveToListRequest params) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
     org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeSet.stubs.ResolveToListResponse boxedResult = new org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeSet.stubs.ResolveToListResponse();

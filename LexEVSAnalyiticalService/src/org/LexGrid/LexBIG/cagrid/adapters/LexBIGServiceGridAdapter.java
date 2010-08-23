@@ -6,16 +6,16 @@ import java.net.ConnectException;
 import java.rmi.RemoteException;
 import java.util.Date;
 
-import org.LexGrid.LexBIG.DataModel.Collections.CodingSchemeRenderingList;
-import org.LexGrid.LexBIG.DataModel.Collections.ExtensionDescriptionList;
-import org.LexGrid.LexBIG.DataModel.Collections.ModuleDescriptionList;
-import org.LexGrid.LexBIG.DataModel.Collections.SortDescriptionList;
-import org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag;
-import org.LexGrid.LexBIG.DataModel.InterfaceElements.types.SortContext;
-import org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeCopyRight;
-import org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeIdentification;
-import org.LexGrid.LexBIG.DataModel.cagrid.ExtensionIdentification;
-import org.LexGrid.LexBIG.DataModel.cagrid.RelationContainerIdentification;
+import org.LexGrid.LexBIG.iso21090.DataModel.Collections.CodingSchemeRenderingList;
+import org.LexGrid.LexBIG.iso21090.DataModel.Collections.ExtensionDescriptionList;
+import org.LexGrid.LexBIG.iso21090.DataModel.Collections.ModuleDescriptionList;
+import org.LexGrid.LexBIG.iso21090.DataModel.Collections.SortDescriptionList;
+import org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag;
+import org.LexGrid.LexBIG.iso21090.DataModel.InterfaceElements.types.SortContext;
+import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeCopyRight;
+import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification;
+import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.ExtensionIdentification;
+import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.RelationContainerIdentification;
 import org.LexGrid.LexBIG.Extensions.Generic.GenericExtension;
 import org.LexGrid.LexBIG.Extensions.Query.Filter;
 import org.LexGrid.LexBIG.Extensions.Query.Sort;
@@ -34,7 +34,7 @@ import org.LexGrid.LexBIG.cagrid.interfaces.CodedNodeSetGrid;
 import org.LexGrid.LexBIG.cagrid.interfaces.HistoryServiceGrid;
 import org.LexGrid.LexBIG.cagrid.interfaces.LexBIGServiceGrid;
 import org.LexGrid.LexBIG.cagrid.interfaces.LexBIGServiceMetadataGrid;
-import org.LexGrid.codingSchemes.CodingScheme;
+import org.LexGrid.iso21090.codingSchemes.CodingScheme;
 import org.apache.axis.types.URI.MalformedURIException;
 
 public class LexBIGServiceGridAdapter implements LexBIGServiceGrid {
@@ -51,7 +51,6 @@ public class LexBIGServiceGridAdapter implements LexBIGServiceGrid {
 			//Test the service connection (this isn't done automatically).
 			try {
 				lbSvc = new LexEVSGridServiceClient(url);
-				lbSvc.getLastUpdateTime();
 			} catch (RemoteException e) {
 				if(e.getCause() instanceof ConnectException){
 					throw new ConnectException("Problem Connecting To The Grid Service -- Please Check The URL. " + e.getMessage());
@@ -194,7 +193,8 @@ public class LexBIGServiceGridAdapter implements LexBIGServiceGrid {
 	 * @see org.LexGrid.LexBIG.cagrid.interfaces.LexBIGServiceGrid#getLastUpdateTime()
 	 */
 	public Date getLastUpdateTime() throws LBInvocationException, RemoteException {
-			return lbSvc.getLastUpdateTime();
+			//
+		return null;
 	}
 
 	/* (non-Javadoc)

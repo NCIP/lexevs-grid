@@ -41,7 +41,7 @@ public interface ResolvedConceptReferencesIteratorI {
    * @throws LBInvocationException
    *	
    */
-  public org.LexGrid.LexBIG.DataModel.Core.ResolvedConceptReference next() throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBResourceUnavailableException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException ;
+  public org.LexGrid.LexBIG.iso21090.DataModel.Core.ResolvedConceptReference next() throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBResourceUnavailableException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException ;
 
   /**
    * Return concept references from the underlying list, in order and up to the specified maximum.
@@ -54,7 +54,7 @@ public interface ResolvedConceptReferencesIteratorI {
    * @throws LBInvocationException
    *	
    */
-  public org.LexGrid.LexBIG.DataModel.Collections.ResolvedConceptReferenceList nextInt(int maxToReturn) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBResourceUnavailableException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException ;
+  public org.LexGrid.LexBIG.iso21090.DataModel.Collections.ResolvedConceptReferenceList nextInt(int maxToReturn) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBResourceUnavailableException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException ;
 
   /**
    * Return concept references from the underlying list, from the start point (inclusive) to the end point (exclusive). Calling this method has no effect on the next() calls - next() will still iterate      * through the results in the same sequential order regardless of if this method has      * been used.      *       * the result of numberRemaining() is not affected by calls to this method.         *       * Note: This method may return fewer results than requested  even if there are still more results after the last result returned by the service. Note: The method is optional, and may not be implemented by all implementations. Note: Using this method in combination with Filters may cause significant performance reductions.
@@ -70,7 +70,7 @@ public interface ResolvedConceptReferencesIteratorI {
    * @throws LBParameterException
    *	
    */
-  public org.LexGrid.LexBIG.DataModel.Collections.ResolvedConceptReferenceList get(int start,int end) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBResourceUnavailableException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException ;
+  public org.LexGrid.LexBIG.iso21090.DataModel.Collections.ResolvedConceptReferenceList get(int start,int end) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBResourceUnavailableException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException ;
 
   /**
    * Return the next batch of resolved concept references.
@@ -85,7 +85,7 @@ public interface ResolvedConceptReferencesIteratorI {
    */
   public void scroll(int maxToReturn) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBResourceUnavailableException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException ;
 
-  public org.LexGrid.LexBIG.DataModel.Collections.ResolvedConceptReferenceList getNext() throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBResourceUnavailableException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException ;
+  public org.LexGrid.LexBIG.iso21090.DataModel.Collections.ResolvedConceptReferenceList getNext() throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBResourceUnavailableException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException ;
 
   /**
    * True means that there still values that can be returned. False means all values have already been returned.  

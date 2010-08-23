@@ -29,6 +29,7 @@ import org.LexGrid.LexBIG.Exceptions.LBResourceUnavailableException;
 import org.LexGrid.LexBIG.Utility.Iterators.ResolvedConceptReferencesIterator;
 import org.LexGrid.LexBIG.cagrid.LexEVSGridService.ResolvedConceptReferencesIterator.client.ResolvedConceptReferencesIteratorClient;
 import org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess;
+import org.LexGrid.LexBIG.cagrid.iso21090.converter.ConvertUtils;
 
 public class ResolvedConceptReferencesIteratorAdapter implements ResolvedConceptReferencesIterator{
 
@@ -48,7 +49,7 @@ private ResolvedConceptReferencesIteratorClient itr;
 			throws LBResourceUnavailableException, LBInvocationException,
 			LBParameterException {
 			try {
-				return itr.get(arg0, arg1);
+				return ConvertUtils.convert(itr.get(arg0, arg1), org.LexGrid.LexBIG.DataModel.Collections.ResolvedConceptReferenceList.class);
 			} catch (InvalidServiceContextAccess e) {
 				throw new LBResourceUnavailableException(e.getMessage(), e);
 			} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBResourceUnavailableException e) {
@@ -69,7 +70,7 @@ private ResolvedConceptReferencesIteratorClient itr;
 	 */
 	public ResolvedConceptReferenceList getNext() {
 		try {
-			return itr.getNext();
+			return ConvertUtils.convert(itr.getNext(), org.LexGrid.LexBIG.DataModel.Collections.ResolvedConceptReferenceList.class);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
@@ -84,7 +85,7 @@ private ResolvedConceptReferencesIteratorClient itr;
 	public ResolvedConceptReference next()
 			throws LBResourceUnavailableException, LBInvocationException {
 			try {
-				return itr.next();
+				return ConvertUtils.convert(itr.next(), org.LexGrid.LexBIG.DataModel.Core.ResolvedConceptReference.class);
 			} catch (InvalidServiceContextAccess e) {
 				throw new LBResourceUnavailableException(e.getMessage(), e);
 			} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBResourceUnavailableException e) {
@@ -105,7 +106,7 @@ private ResolvedConceptReferencesIteratorClient itr;
 	public ResolvedConceptReferenceList next(int arg0)
 			throws LBResourceUnavailableException, LBInvocationException {
 			try {
-				return itr.nextInt(arg0);
+				return ConvertUtils.convert(itr.nextInt(arg0), org.LexGrid.LexBIG.DataModel.Collections.ResolvedConceptReferenceList.class);
 			} catch (InvalidServiceContextAccess e) {
 				throw new LBResourceUnavailableException(e.getMessage(), e);
 			} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBResourceUnavailableException e) {

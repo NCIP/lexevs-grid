@@ -18,7 +18,6 @@
  */
 package org.LexGrid.LexBIG.cagrid.adapters;
 
-import gov.nih.nci.cagrid.metadata.common.ValueDomain;
 import gov.nih.nci.evs.security.SecurityToken;
 
 import java.net.ConnectException;
@@ -45,8 +44,8 @@ import org.LexGrid.LexBIG.LexBIGService.LexBIGService;
 import org.LexGrid.LexBIG.LexBIGService.LexBIGServiceManager;
 import org.LexGrid.LexBIG.LexBIGService.LexBIGServiceMetadata;
 import org.LexGrid.LexBIG.cagrid.Utils;
+import org.LexGrid.LexBIG.cagrid.iso21090.converter.ConvertUtils;
 import org.LexGrid.codingSchemes.CodingScheme;
-import org.LexGrid.valueDomains.ValueDomainDefinition;
 import org.apache.axis.types.URI.MalformedURIException;
 
 /**
@@ -97,7 +96,7 @@ public class LexBIGServiceAdapter implements LexBIGService {
 			
 			try {
 				CodedNodeSetGridAdapter adapter = (CodedNodeSetGridAdapter)lbSvc.getCodingSchemeConcepts(Utils.wrapCodingSchemeIdentifier(codingScheme),
-						versionOrTag);
+						ConvertUtils.convert(versionOrTag, org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag.class));
 				return adapter.getCodedNodeSetInterface();
 			} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException e) {
 				throw new LBException(e.getMessage(), e);
@@ -115,7 +114,9 @@ public class LexBIGServiceAdapter implements LexBIGService {
 			CodingSchemeVersionOrTag versionOrTag) throws LBException {
 		
 			try {
-				CodedNodeSetGridAdapter adapter = (CodedNodeSetGridAdapter)lbSvc.getCodingSchemeConcepts(Utils.wrapCodingSchemeIdentifier(codingScheme), versionOrTag);
+				CodedNodeSetGridAdapter adapter = (CodedNodeSetGridAdapter)lbSvc.getCodingSchemeConcepts(
+						Utils.wrapCodingSchemeIdentifier(codingScheme), 
+						ConvertUtils.convert(versionOrTag, org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag.class));
 				return adapter.getCodedNodeSetInterface();
 			} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException e) {
 				throw new LBException(e.getMessage(), e);
@@ -144,7 +145,7 @@ public class LexBIGServiceAdapter implements LexBIGService {
 	 * @see org.LexGrid.LexBIG.LexBIGService.LexBIGService#getFilterExtensions()
 	 */
 	public ExtensionDescriptionList getFilterExtensions() {
-			return lbSvc.getFilterExtensions();
+			return ConvertUtils.convert(lbSvc.getFilterExtensions(), org.LexGrid.LexBIG.DataModel.Collections.ExtensionDescriptionList.class);
 	}
 
 	/* (non-Javadoc)
@@ -169,7 +170,7 @@ public class LexBIGServiceAdapter implements LexBIGService {
 	 */
 	public ExtensionDescriptionList getGenericExtensions() {	
 			try {
-				return lbSvc.getGenericExtensions();
+				return ConvertUtils.convert(lbSvc.getGenericExtensions(), org.LexGrid.LexBIG.DataModel.Collections.ExtensionDescriptionList.class);
 			} catch (RemoteException e) {
 				e.printStackTrace();
 				return null;
@@ -213,7 +214,7 @@ public class LexBIGServiceAdapter implements LexBIGService {
 	public ModuleDescriptionList getMatchAlgorithms() {
 		
 			try {
-				return lbSvc.getMatchAlgorithms();
+				return ConvertUtils.convert(lbSvc.getMatchAlgorithms(), org.LexGrid.LexBIG.DataModel.Collections.ModuleDescriptionList.class);
 			} catch (RemoteException e) {
 				e.printStackTrace();
 				return null;
@@ -277,7 +278,10 @@ public class LexBIGServiceAdapter implements LexBIGService {
 
 	public SortDescriptionList getSortAlgorithms(SortContext context) {
 			try {
-				return lbSvc.getSortAlgorithms(context);
+				return ConvertUtils.convert(
+						lbSvc.getSortAlgorithms(
+								ConvertUtils.convert(context, org.LexGrid.LexBIG.iso21090.DataModel.InterfaceElements.types.SortContext.class)),
+								org.LexGrid.LexBIG.DataModel.Collections.SortDescriptionList.class);
 			} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException e) {
 				e.printStackTrace();
 				return null;
@@ -289,7 +293,7 @@ public class LexBIGServiceAdapter implements LexBIGService {
 	 */
 	public CodingSchemeRenderingList getSupportedCodingSchemes() throws LBInvocationException {
 			try {
-				return lbSvc.getSupportedCodingSchemes();
+				return ConvertUtils.convert(lbSvc.getSupportedCodingSchemes(), org.LexGrid.LexBIG.DataModel.Collections.CodingSchemeRenderingList.class);
 			} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException e) {
 				throw new LBInvocationException(e.getMessage(), null);
 			} catch (RemoteException e) {
@@ -304,7 +308,12 @@ public class LexBIGServiceAdapter implements LexBIGService {
 	public CodingScheme resolveCodingScheme(String codingScheme,
 			CodingSchemeVersionOrTag versionOrTag) throws LBException {
 			try {
-				return lbSvc.resolveCodingScheme(Utils.wrapCodingSchemeIdentifier(codingScheme), versionOrTag);
+				return ConvertUtils.convert(lbSvc.resolveCodingScheme(
+						
+						Utils.wrapCodingSchemeIdentifier(codingScheme), 
+						ConvertUtils.convert(versionOrTag, org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag.class)), 
+						
+						org.LexGrid.codingSchemes.CodingScheme.class);
 			} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException e) {
 				throw new LBException(e.getMessage(), e);
 			} catch (RemoteException e) {
@@ -318,7 +327,14 @@ public class LexBIGServiceAdapter implements LexBIGService {
 	public String resolveCodingSchemeCopyright(String codingScheme,
 			CodingSchemeVersionOrTag versionOrTag) throws LBException {
 			try {
-				CodingSchemeCopyRight copyright = lbSvc.resolveCodingSchemeCopyright(Utils.wrapCodingSchemeIdentifier(codingScheme), versionOrTag);
+				CodingSchemeCopyRight copyright = 
+					ConvertUtils.convert(
+					lbSvc.resolveCodingSchemeCopyright(
+						Utils.wrapCodingSchemeIdentifier(codingScheme), 
+						ConvertUtils.convert(versionOrTag, org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag.class)),
+					org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeCopyRight.class
+					);
+						
 				return copyright.getCopyrightTextOrURL();
 			} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException e) {
 				throw new LBException(e.getMessage(), e);

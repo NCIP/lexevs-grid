@@ -30,14 +30,13 @@ import org.LexGrid.LexBIG.DataModel.Collections.ModuleDescriptionList;
 import org.LexGrid.LexBIG.DataModel.Core.ResolvedConceptReference;
 import org.LexGrid.LexBIG.DataModel.InterfaceElements.ModuleDescription;
 import org.LexGrid.LexBIG.Exceptions.LBException;
-import org.LexGrid.LexBIG.gridTests.LexBIGServiceTestCase;
-import org.LexGrid.LexBIG.gridTests.testUtility.ServiceHolder;
-
 import org.LexGrid.LexBIG.LexBIGService.CodedNodeSet;
 import org.LexGrid.LexBIG.LexBIGService.LexBIGService;
 import org.LexGrid.LexBIG.LexBIGService.CodedNodeSet.PropertyType;
 import org.LexGrid.LexBIG.Utility.Constructors;
-import org.LexGrid.concepts.Concept;
+import org.LexGrid.LexBIG.gridTests.LexBIGServiceTestCase;
+import org.LexGrid.LexBIG.gridTests.testUtility.ServiceHolder;
+import org.LexGrid.concepts.Entity;
 import org.springframework.aop.framework.Advised;
 
 /**
@@ -179,7 +178,7 @@ public void testRestrictPropertyTypeReturns() throws LBException
         // no type restriction
         ResolvedConceptReference[] rcrs = cns.resolveToList(null, null, null, 0).getResolvedConceptReference();
         assertTrue(rcrs.length == 1);
-        Concept ce = rcrs[0].getReferencedEntry();
+        Entity ce = rcrs[0].getReferencedEntry();
 
         assertTrue("1",ce.getCommentCount() == 0);
         assertTrue("2",ce.getPropertyCount() == 5);

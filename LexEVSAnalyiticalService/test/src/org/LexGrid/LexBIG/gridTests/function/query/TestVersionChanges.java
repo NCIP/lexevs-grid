@@ -71,6 +71,6 @@ public class TestVersionChanges extends LexBIGServiceTestCase
         assertTrue(nce[0].getConceptName().equals(" "));
         assertTrue(nce[0].getEditDate().getTime() == Long.parseLong("1072760400000"));
         assertTrue(nce[0].getReferencecode() == null || nce[0].getReferencecode().equals("null"));
-        assertTrue(nce[0].getEditaction().getType() == ChangeType.MODIFY_TYPE);
+        assertTrue(nce[0].getEditaction().equals(ChangeType.MODIFY));
     }
 }

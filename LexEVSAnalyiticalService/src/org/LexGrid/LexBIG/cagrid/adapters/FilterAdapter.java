@@ -24,6 +24,7 @@ import java.rmi.RemoteException;
 import org.LexGrid.LexBIG.DataModel.Core.ResolvedConceptReference;
 import org.LexGrid.LexBIG.Extensions.Query.Filter;
 import org.LexGrid.LexBIG.cagrid.LexEVSGridService.Filter.client.FilterClient;
+import org.LexGrid.LexBIG.cagrid.iso21090.converter.ConvertUtils;
 
 public class FilterAdapter implements Filter {
 
@@ -86,7 +87,7 @@ public class FilterAdapter implements Filter {
 	 */
 	public boolean match(ResolvedConceptReference ref) {
 		try {
-			return filter.match(ref);
+			return filter.match(ConvertUtils.convert(ref, org.LexGrid.LexBIG.iso21090.DataModel.Core.ResolvedConceptReference.class));
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;

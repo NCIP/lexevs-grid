@@ -42,7 +42,7 @@ public interface HistoryServiceI {
    * @throws LBInvocationException
    *	
    */
-  public org.LexGrid.LexBIG.DataModel.Collections.NCIChangeEventList getAncestors(org.LexGrid.LexBIG.DataModel.Core.ConceptReference conceptReference) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException ;
+  public org.LexGrid.LexBIG.iso21090.DataModel.Collections.NCIChangeEventList getAncestors(org.LexGrid.LexBIG.iso21090.DataModel.Core.ConceptReference conceptReference) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException ;
 
   /**
    * Return a list of baselines supported by this service that were released on or after the first supplied date and were released on or before the second date. Returned baselines are arranged in sequential order, from earliest to latest.
@@ -56,7 +56,7 @@ public interface HistoryServiceI {
    * @throws LBInvocationException
    *	
    */
-  public org.LexGrid.LexBIG.DataModel.Collections.SystemReleaseList getBaselines(java.util.Date releasedAfter,java.util.Date releasedBefore) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException ;
+  public org.LexGrid.LexBIG.iso21090.DataModel.Collections.SystemReleaseList getBaselines(java.util.Date releasedAfter,java.util.Date releasedBefore) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException ;
 
   /**
    * Return a list of all of the coding scheme versions in which the supplied concept changed between the two supplied times (inclusive).
@@ -71,7 +71,7 @@ public interface HistoryServiceI {
    * @throws LBInvocationException
    *	
    */
-  public org.LexGrid.LexBIG.DataModel.Collections.CodingSchemeVersionList getConceptChangeVersions(org.LexGrid.LexBIG.DataModel.Core.ConceptReference conceptReference,java.util.Date beginDate,java.util.Date endDate) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException ;
+  public org.LexGrid.LexBIG.iso21090.DataModel.Collections.CodingSchemeVersionList getConceptChangeVersions(org.LexGrid.LexBIG.iso21090.DataModel.Core.ConceptReference conceptReference,java.util.Date beginDate,java.util.Date endDate) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException ;
 
   /**
    * Return the coding scheme version in which the supplied concept was created.
@@ -84,7 +84,7 @@ public interface HistoryServiceI {
    * @throws LBInvocationException
    *	
    */
-  public org.LexGrid.versions.CodingSchemeVersion getConceptCreationVersion(org.LexGrid.LexBIG.DataModel.Core.ConceptReference conceptReference) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException ;
+  public org.LexGrid.iso21090.versions.CodingSchemeVersion getConceptCreationVersion(org.LexGrid.LexBIG.iso21090.DataModel.Core.ConceptReference conceptReference) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException ;
 
   /**
    * Return the list of change events identifying the immediate descendants of the given concept reference.
@@ -97,7 +97,7 @@ public interface HistoryServiceI {
    * @throws LBInvocationException
    *	
    */
-  public org.LexGrid.LexBIG.DataModel.Collections.NCIChangeEventList getDescendents(org.LexGrid.LexBIG.DataModel.Core.ConceptReference conceptReference) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException ;
+  public org.LexGrid.LexBIG.iso21090.DataModel.Collections.NCIChangeEventList getDescendents(org.LexGrid.LexBIG.iso21090.DataModel.Core.ConceptReference conceptReference) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException ;
 
   /**
    * Return the earliest baseline version in the list.
@@ -107,7 +107,7 @@ public interface HistoryServiceI {
    * @throws LBInvocationException
    *	
    */
-  public org.LexGrid.versions.SystemRelease getEarliestBaseline() throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException ;
+  public org.LexGrid.iso21090.versions.SystemRelease getEarliestBaseline() throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException ;
 
   /**
    * Return the list of available NCI-defined change events for the given concept and coding scheme version.
@@ -121,7 +121,7 @@ public interface HistoryServiceI {
    * @throws LBInvocationException
    *	
    */
-  public org.LexGrid.LexBIG.DataModel.Collections.NCIChangeEventList getEditActionList(org.LexGrid.LexBIG.DataModel.Core.ConceptReference conceptReference,org.apache.axis.types.URI releaseURN) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException ;
+  public org.LexGrid.LexBIG.iso21090.DataModel.Collections.NCIChangeEventList getEditActionList(org.LexGrid.LexBIG.iso21090.DataModel.Core.ConceptReference conceptReference,org.apache.axis.types.URI releaseURN) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException ;
 
   /**
    * Return the list of available NCI-defined change events for the given concept and date range.
@@ -135,7 +135,7 @@ public interface HistoryServiceI {
    * @throws LBInvocationException
    *	
    */
-  public org.LexGrid.LexBIG.DataModel.Collections.NCIChangeEventList getEditActionList2(org.LexGrid.LexBIG.DataModel.Core.ConceptReference conceptReference,org.LexGrid.versions.CodingSchemeVersion codingSchemeVersion) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException ;
+  public org.LexGrid.LexBIG.iso21090.DataModel.Collections.NCIChangeEventList getEditActionList2(org.LexGrid.LexBIG.iso21090.DataModel.Core.ConceptReference conceptReference,org.LexGrid.iso21090.versions.CodingSchemeVersion codingSchemeVersion) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException ;
 
   /**
    * Return the list of NCI-defined change events for the given concept and release; empty if not applicable.
@@ -150,7 +150,7 @@ public interface HistoryServiceI {
    * @throws LBInvocationException
    *	
    */
-  public org.LexGrid.LexBIG.DataModel.Collections.NCIChangeEventList getEditActionList3(org.LexGrid.LexBIG.DataModel.Core.ConceptReference conceptReference,java.util.Date beginDate,java.util.Date endDate) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException ;
+  public org.LexGrid.LexBIG.iso21090.DataModel.Collections.NCIChangeEventList getEditActionList3(org.LexGrid.LexBIG.iso21090.DataModel.Core.ConceptReference conceptReference,java.util.Date beginDate,java.util.Date endDate) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException ;
 
   /**
    * Get the latest baseline in the list.
@@ -160,7 +160,7 @@ public interface HistoryServiceI {
    * @throws LBInvocationException
    *	
    */
-  public org.LexGrid.versions.SystemRelease getLatestBaseline() throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException ;
+  public org.LexGrid.iso21090.versions.SystemRelease getLatestBaseline() throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException ;
 
   /**
    * Return detailed information about the particular system release.
@@ -173,7 +173,7 @@ public interface HistoryServiceI {
    * @throws LBInvocationException
    *	
    */
-  public org.LexGrid.LexBIG.DataModel.InterfaceElements.SystemReleaseDetail getSystemRelease(org.apache.axis.types.URI releaseURN) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException ;
+  public org.LexGrid.LexBIG.iso21090.DataModel.InterfaceElements.SystemReleaseDetail getSystemRelease(org.apache.axis.types.URI releaseURN) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException ;
 
   public org.oasis.wsrf.lifetime.DestroyResponse destroy(org.oasis.wsrf.lifetime.Destroy params) throws RemoteException ;
 

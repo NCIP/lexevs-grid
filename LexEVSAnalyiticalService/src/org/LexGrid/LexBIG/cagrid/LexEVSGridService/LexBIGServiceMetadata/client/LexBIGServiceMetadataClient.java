@@ -76,7 +76,7 @@ public class LexBIGServiceMetadataClient extends LexBIGServiceMetadataClientBase
 		}
 	}
 
-  public org.LexGrid.LexBIG.DataModel.Collections.AbsoluteCodingSchemeVersionReferenceList listCodingSchemes() throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException {
+  public org.LexGrid.LexBIG.iso21090.DataModel.Collections.AbsoluteCodingSchemeVersionReferenceList listCodingSchemes() throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException {
     synchronized(portTypeMutex){
       configureStubSecurity((Stub)portType,"listCodingSchemes");
     org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceMetadata.stubs.ListCodingSchemesRequest params = new org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceMetadata.stubs.ListCodingSchemesRequest();
@@ -85,7 +85,7 @@ public class LexBIGServiceMetadataClient extends LexBIGServiceMetadataClientBase
     }
   }
 
-  public void restrictToCodingScheme(org.LexGrid.LexBIG.DataModel.Core.AbsoluteCodingSchemeVersionReference acsvr) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
+  public void restrictToCodingScheme(org.LexGrid.LexBIG.iso21090.DataModel.Core.AbsoluteCodingSchemeVersionReference acsvr) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
     synchronized(portTypeMutex){
       configureStubSecurity((Stub)portType,"restrictToCodingScheme");
     org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceMetadata.stubs.RestrictToCodingSchemeRequest params = new org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceMetadata.stubs.RestrictToCodingSchemeRequest();
@@ -96,7 +96,7 @@ public class LexBIGServiceMetadataClient extends LexBIGServiceMetadataClientBase
     }
   }
 
-  public void restrictToProperties(org.LexGrid.LexBIG.DataModel.cagrid.PropertyIdentification[] propertyIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
+  public void restrictToProperties(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.PropertyIdentification[] propertyIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
     synchronized(portTypeMutex){
       configureStubSecurity((Stub)portType,"restrictToProperties");
     org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceMetadata.stubs.RestrictToPropertiesRequest params = new org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceMetadata.stubs.RestrictToPropertiesRequest();
@@ -107,7 +107,7 @@ public class LexBIGServiceMetadataClient extends LexBIGServiceMetadataClientBase
     }
   }
 
-  public void restrictToPropertyParents(org.LexGrid.LexBIG.DataModel.cagrid.PropertyIdentification[] propertyIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
+  public void restrictToPropertyParents(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.PropertyIdentification[] propertyIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
     synchronized(portTypeMutex){
       configureStubSecurity((Stub)portType,"restrictToPropertyParents");
     org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceMetadata.stubs.RestrictToPropertyParentsRequest params = new org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceMetadata.stubs.RestrictToPropertyParentsRequest();
@@ -118,7 +118,7 @@ public class LexBIGServiceMetadataClient extends LexBIGServiceMetadataClientBase
     }
   }
 
-  public void restrictToValue(org.LexGrid.LexBIG.DataModel.cagrid.MatchCriteria matchCriteria,org.LexGrid.LexBIG.DataModel.cagrid.ExtensionIdentification extensionIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
+  public void restrictToValue(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.MatchCriteria matchCriteria,org.LexGrid.LexBIG.iso21090.DataModel.cagrid.ExtensionIdentification extensionIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
     synchronized(portTypeMutex){
       configureStubSecurity((Stub)portType,"restrictToValue");
     org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceMetadata.stubs.RestrictToValueRequest params = new org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceMetadata.stubs.RestrictToValueRequest();
@@ -132,7 +132,7 @@ public class LexBIGServiceMetadataClient extends LexBIGServiceMetadataClientBase
     }
   }
 
-  public org.LexGrid.LexBIG.DataModel.Collections.MetadataPropertyList resolve() throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException {
+  public org.LexGrid.LexBIG.iso21090.DataModel.Collections.MetadataPropertyList resolve() throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException {
     synchronized(portTypeMutex){
       configureStubSecurity((Stub)portType,"resolve");
     org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceMetadata.stubs.ResolveRequest params = new org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceMetadata.stubs.ResolveRequest();

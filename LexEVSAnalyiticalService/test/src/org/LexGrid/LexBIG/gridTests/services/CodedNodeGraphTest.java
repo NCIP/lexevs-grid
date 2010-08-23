@@ -113,22 +113,6 @@ public void testIntersection() throws LBException
     }
     
     /**
-     * Test list code relationships.
-     * 
-     * @throws LBException the LB exception
-     */
-    public void testListCodeRelationships() throws  LBException
-    {
-        LexBIGService lbsi = ServiceHolder.instance().getLexBIGService();
-        CodedNodeGraph cng = lbsi.getNodeGraph(LexBIGServiceTestCase.THES_SCHEME, null, null);
-
-        ConceptReference[] cr = cng.listCodeRelationships(Constructors.createConceptReference("C32770", LexBIGServiceTestCase.THES_SCHEME), Constructors.createConceptReference("C61410", LexBIGServiceTestCase.THES_SCHEME), false).getConceptReference();
-       assertTrue("1",cr.length == 1);
-        //Yes, has subtype should come back with the global oid for hasSubtype.
-        assertTrue("2",contains(cr, "A8", "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl"));
-    }
-    
-    /**
      * Test union.
      * 
      * @throws LBException the LB exception

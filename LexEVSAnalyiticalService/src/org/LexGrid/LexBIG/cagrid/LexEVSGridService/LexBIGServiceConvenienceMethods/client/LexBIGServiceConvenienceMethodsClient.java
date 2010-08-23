@@ -76,7 +76,7 @@ public class LexBIGServiceConvenienceMethodsClient extends LexBIGServiceConvenie
 		}
 	}
 
-  public org.LexGrid.LexBIG.DataModel.InterfaceElements.CodingSchemeRendering getRenderingDetail(org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag versionOrTag) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
+  public org.LexGrid.LexBIG.iso21090.DataModel.InterfaceElements.CodingSchemeRendering getRenderingDetail(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag versionOrTag) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
     synchronized(portTypeMutex){
       configureStubSecurity((Stub)portType,"getRenderingDetail");
     org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceConvenienceMethods.stubs.GetRenderingDetailRequest params = new org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceConvenienceMethods.stubs.GetRenderingDetailRequest();
@@ -91,7 +91,7 @@ public class LexBIGServiceConvenienceMethodsClient extends LexBIGServiceConvenie
     }
   }
 
-  public org.LexGrid.LexBIG.DataModel.Collections.CodingSchemeRenderingList getCodingSchemesWithSupportedAssociation(org.LexGrid.LexBIG.DataModel.cagrid.AssociationIdentification associationIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
+  public org.LexGrid.LexBIG.iso21090.DataModel.Collections.CodingSchemeRenderingList getCodingSchemesWithSupportedAssociation(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.AssociationIdentification associationIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
     synchronized(portTypeMutex){
       configureStubSecurity((Stub)portType,"getCodingSchemesWithSupportedAssociation");
     org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceConvenienceMethods.stubs.GetCodingSchemesWithSupportedAssociationRequest params = new org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceConvenienceMethods.stubs.GetCodingSchemesWithSupportedAssociationRequest();
@@ -103,7 +103,7 @@ public class LexBIGServiceConvenienceMethodsClient extends LexBIGServiceConvenie
     }
   }
 
-  public org.LexGrid.LexBIG.DataModel.cagrid.HierarchyIdentification[] getHierarchyIDs(org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag versionOrTag) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
+  public org.LexGrid.LexBIG.iso21090.DataModel.cagrid.HierarchyIdentification[] getHierarchyIDs(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag versionOrTag) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
     synchronized(portTypeMutex){
       configureStubSecurity((Stub)portType,"getHierarchyIDs");
     org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceConvenienceMethods.stubs.GetHierarchyIDsRequest params = new org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceConvenienceMethods.stubs.GetHierarchyIDsRequest();
@@ -118,7 +118,7 @@ public class LexBIGServiceConvenienceMethodsClient extends LexBIGServiceConvenie
     }
   }
 
-  public org.LexGrid.LexBIG.DataModel.cagrid.CodeState isCodeRetired(org.LexGrid.LexBIG.DataModel.cagrid.ConceptIdentification conceptIdentification,org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag versionOrTag) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
+  public org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodeState isCodeRetired(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.ConceptIdentification conceptIdentification,org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag versionOrTag) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
     synchronized(portTypeMutex){
       configureStubSecurity((Stub)portType,"isCodeRetired");
     org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceConvenienceMethods.stubs.IsCodeRetiredRequest params = new org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceConvenienceMethods.stubs.IsCodeRetiredRequest();
@@ -136,7 +136,7 @@ public class LexBIGServiceConvenienceMethodsClient extends LexBIGServiceConvenie
     }
   }
 
-  public org.LexGrid.LexBIG.DataModel.cagrid.DirectionalAssociationIdentification getAssociationForwardName(org.LexGrid.LexBIG.DataModel.cagrid.AssociationIdentification associationIdentification,org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag versionOrTag) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
+  public org.LexGrid.LexBIG.iso21090.DataModel.cagrid.DirectionalAssociationIdentification getAssociationForwardName(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.AssociationIdentification associationIdentification,org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag versionOrTag) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
     synchronized(portTypeMutex){
       configureStubSecurity((Stub)portType,"getAssociationForwardName");
     org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceConvenienceMethods.stubs.GetAssociationForwardNameRequest params = new org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceConvenienceMethods.stubs.GetAssociationForwardNameRequest();
@@ -154,7 +154,7 @@ public class LexBIGServiceConvenienceMethodsClient extends LexBIGServiceConvenie
     }
   }
 
-  public org.LexGrid.LexBIG.DataModel.cagrid.DirectionalAssociationIdentification[] getAssociationForwardNames(org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag versionOrTag) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
+  public org.LexGrid.LexBIG.iso21090.DataModel.cagrid.DirectionalAssociationIdentification[] getAssociationForwardNames(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag versionOrTag) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
     synchronized(portTypeMutex){
       configureStubSecurity((Stub)portType,"getAssociationForwardNames");
     org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceConvenienceMethods.stubs.GetAssociationForwardNamesRequest params = new org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceConvenienceMethods.stubs.GetAssociationForwardNamesRequest();
@@ -169,7 +169,7 @@ public class LexBIGServiceConvenienceMethodsClient extends LexBIGServiceConvenie
     }
   }
 
-  public org.LexGrid.LexBIG.DataModel.cagrid.DirectionalAssociationIdentification getAssociationReverseName(org.LexGrid.LexBIG.DataModel.cagrid.AssociationIdentification associationIdentification,org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag versionOrTag) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
+  public org.LexGrid.LexBIG.iso21090.DataModel.cagrid.DirectionalAssociationIdentification getAssociationReverseName(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.AssociationIdentification associationIdentification,org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag versionOrTag) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
     synchronized(portTypeMutex){
       configureStubSecurity((Stub)portType,"getAssociationReverseName");
     org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceConvenienceMethods.stubs.GetAssociationReverseNameRequest params = new org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceConvenienceMethods.stubs.GetAssociationReverseNameRequest();
@@ -187,7 +187,7 @@ public class LexBIGServiceConvenienceMethodsClient extends LexBIGServiceConvenie
     }
   }
 
-  public org.LexGrid.LexBIG.DataModel.cagrid.DirectionalAssociationIdentification[] getAssociationReverseNames(org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag versionOrTag) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
+  public org.LexGrid.LexBIG.iso21090.DataModel.cagrid.DirectionalAssociationIdentification[] getAssociationReverseNames(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag versionOrTag) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
     synchronized(portTypeMutex){
       configureStubSecurity((Stub)portType,"getAssociationReverseNames");
     org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceConvenienceMethods.stubs.GetAssociationReverseNamesRequest params = new org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceConvenienceMethods.stubs.GetAssociationReverseNamesRequest();
@@ -202,7 +202,7 @@ public class LexBIGServiceConvenienceMethodsClient extends LexBIGServiceConvenie
     }
   }
 
-  public org.LexGrid.LexBIG.DataModel.cagrid.Direction isForwardName(org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag versionOrTag,org.LexGrid.LexBIG.DataModel.cagrid.AssociationIdentification associationIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
+  public org.LexGrid.LexBIG.iso21090.DataModel.cagrid.Direction isForwardName(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag versionOrTag,org.LexGrid.LexBIG.iso21090.DataModel.cagrid.AssociationIdentification associationIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
     synchronized(portTypeMutex){
       configureStubSecurity((Stub)portType,"isForwardName");
     org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceConvenienceMethods.stubs.IsForwardNameRequest params = new org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceConvenienceMethods.stubs.IsForwardNameRequest();
@@ -220,7 +220,7 @@ public class LexBIGServiceConvenienceMethodsClient extends LexBIGServiceConvenie
     }
   }
 
-  public org.LexGrid.LexBIG.DataModel.cagrid.Direction isReverseName(org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag versionOrTag,org.LexGrid.LexBIG.DataModel.cagrid.AssociationIdentification associationIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
+  public org.LexGrid.LexBIG.iso21090.DataModel.cagrid.Direction isReverseName(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag versionOrTag,org.LexGrid.LexBIG.iso21090.DataModel.cagrid.AssociationIdentification associationIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
     synchronized(portTypeMutex){
       configureStubSecurity((Stub)portType,"isReverseName");
     org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceConvenienceMethods.stubs.IsReverseNameRequest params = new org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceConvenienceMethods.stubs.IsReverseNameRequest();
@@ -238,7 +238,7 @@ public class LexBIGServiceConvenienceMethodsClient extends LexBIGServiceConvenie
     }
   }
 
-  public org.LexGrid.LexBIG.DataModel.Collections.AssociationList getHierarchyLevelNext(org.LexGrid.LexBIG.DataModel.cagrid.HierarchyResolutionPolicy hierarchyResolutionPolicy,org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag versionOrTag) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
+  public org.LexGrid.LexBIG.iso21090.DataModel.Collections.AssociationList getHierarchyLevelNext(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.HierarchyResolutionPolicy hierarchyResolutionPolicy,org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag versionOrTag) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
     synchronized(portTypeMutex){
       configureStubSecurity((Stub)portType,"getHierarchyLevelNext");
     org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceConvenienceMethods.stubs.GetHierarchyLevelNextRequest params = new org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceConvenienceMethods.stubs.GetHierarchyLevelNextRequest();
@@ -256,7 +256,7 @@ public class LexBIGServiceConvenienceMethodsClient extends LexBIGServiceConvenie
     }
   }
 
-  public org.LexGrid.LexBIG.DataModel.Collections.AssociationList getHierarchyLevelPrev(org.LexGrid.LexBIG.DataModel.cagrid.HierarchyResolutionPolicy hierarchyResolutionPolicy,org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag versionOrTag) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
+  public org.LexGrid.LexBIG.iso21090.DataModel.Collections.AssociationList getHierarchyLevelPrev(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.HierarchyResolutionPolicy hierarchyResolutionPolicy,org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag versionOrTag) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
     synchronized(portTypeMutex){
       configureStubSecurity((Stub)portType,"getHierarchyLevelPrev");
     org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceConvenienceMethods.stubs.GetHierarchyLevelPrevRequest params = new org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceConvenienceMethods.stubs.GetHierarchyLevelPrevRequest();
@@ -274,7 +274,7 @@ public class LexBIGServiceConvenienceMethodsClient extends LexBIGServiceConvenie
     }
   }
 
-  public org.LexGrid.LexBIG.DataModel.Collections.AssociationList getHierarchyPathToRoot(org.LexGrid.LexBIG.DataModel.cagrid.HierarchyResolutionPolicy hierarchyResolutionPolicy,org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag versionOrTag,org.LexGrid.LexBIG.DataModel.enums.HierarchyPathResolveOption hierarchyPathResolveOption) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
+  public org.LexGrid.LexBIG.iso21090.DataModel.Collections.AssociationList getHierarchyPathToRoot(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.HierarchyResolutionPolicy hierarchyResolutionPolicy,org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag versionOrTag,org.LexGrid.LexBIG.DataModel.enums.HierarchyPathResolveOption hierarchyPathResolveOption) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
     synchronized(portTypeMutex){
       configureStubSecurity((Stub)portType,"getHierarchyPathToRoot");
     org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceConvenienceMethods.stubs.GetHierarchyPathToRootRequest params = new org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceConvenienceMethods.stubs.GetHierarchyPathToRootRequest();
@@ -295,7 +295,7 @@ public class LexBIGServiceConvenienceMethodsClient extends LexBIGServiceConvenie
     }
   }
 
-  public org.LexGrid.LexBIG.DataModel.Collections.ResolvedConceptReferenceList getHierarchyRoots(org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag versionOrTag,org.LexGrid.LexBIG.DataModel.cagrid.HierarchyIdentification hierarchyIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
+  public org.LexGrid.LexBIG.iso21090.DataModel.Collections.ResolvedConceptReferenceList getHierarchyRoots(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag versionOrTag,org.LexGrid.LexBIG.iso21090.DataModel.cagrid.HierarchyIdentification hierarchyIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
     synchronized(portTypeMutex){
       configureStubSecurity((Stub)portType,"getHierarchyRoots");
     org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceConvenienceMethods.stubs.GetHierarchyRootsRequest params = new org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceConvenienceMethods.stubs.GetHierarchyRootsRequest();
@@ -313,7 +313,7 @@ public class LexBIGServiceConvenienceMethodsClient extends LexBIGServiceConvenie
     }
   }
 
-  public org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeSet.client.CodedNodeSetClient getHierarchyRootSet(org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag versionOrTag,org.LexGrid.LexBIG.DataModel.cagrid.HierarchyIdentification hierarchyIdentification) throws RemoteException, org.apache.axis.types.URI.MalformedURIException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
+  public org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeSet.client.CodedNodeSetClient getHierarchyRootSet(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag versionOrTag,org.LexGrid.LexBIG.iso21090.DataModel.cagrid.HierarchyIdentification hierarchyIdentification) throws RemoteException, org.apache.axis.types.URI.MalformedURIException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
     synchronized(portTypeMutex){
       configureStubSecurity((Stub)portType,"getHierarchyRootSet");
     org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceConvenienceMethods.stubs.GetHierarchyRootSetRequest params = new org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceConvenienceMethods.stubs.GetHierarchyRootSetRequest();
@@ -332,7 +332,7 @@ public class LexBIGServiceConvenienceMethodsClient extends LexBIGServiceConvenie
     }
   }
 
-  public org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeSet.client.CodedNodeSetClient createCodeNodeSet(org.LexGrid.LexBIG.DataModel.cagrid.ConceptIdentification[] conceptIdentification,org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag versionOrTag) throws RemoteException, org.apache.axis.types.URI.MalformedURIException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
+  public org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeSet.client.CodedNodeSetClient createCodeNodeSet(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.ConceptIdentification[] conceptIdentification,org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag versionOrTag) throws RemoteException, org.apache.axis.types.URI.MalformedURIException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
     synchronized(portTypeMutex){
       configureStubSecurity((Stub)portType,"createCodeNodeSet");
     org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceConvenienceMethods.stubs.CreateCodeNodeSetRequest params = new org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceConvenienceMethods.stubs.CreateCodeNodeSetRequest();
@@ -351,7 +351,7 @@ public class LexBIGServiceConvenienceMethodsClient extends LexBIGServiceConvenie
     }
   }
 
-  public org.LexGrid.LexBIG.DataModel.cagrid.AssociationIdentification[] getAssociationForwardAndReverseNames(org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag versionOrTag) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
+  public org.LexGrid.LexBIG.iso21090.DataModel.cagrid.AssociationIdentification[] getAssociationForwardAndReverseNames(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag versionOrTag) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
     synchronized(portTypeMutex){
       configureStubSecurity((Stub)portType,"getAssociationForwardAndReverseNames");
     org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceConvenienceMethods.stubs.GetAssociationForwardAndReverseNamesRequest params = new org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceConvenienceMethods.stubs.GetAssociationForwardAndReverseNamesRequest();
@@ -380,7 +380,7 @@ public class LexBIGServiceConvenienceMethodsClient extends LexBIGServiceConvenie
     }
   }
 
-  public org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeCopyRight getCodingSchemeCopyright(org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag versionOrTag) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
+  public org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeCopyRight getCodingSchemeCopyright(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag versionOrTag) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
     synchronized(portTypeMutex){
       configureStubSecurity((Stub)portType,"getCodingSchemeCopyright");
     org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceConvenienceMethods.stubs.GetCodingSchemeCopyrightRequest params = new org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceConvenienceMethods.stubs.GetCodingSchemeCopyrightRequest();
@@ -395,7 +395,7 @@ public class LexBIGServiceConvenienceMethodsClient extends LexBIGServiceConvenie
     }
   }
 
-  public org.LexGrid.LexBIG.DataModel.Core.Association getAssociationReverseOneLevel(org.LexGrid.LexBIG.DataModel.cagrid.ConceptIdentification conceptIdentification,org.LexGrid.LexBIG.DataModel.cagrid.RelationContainerIdentification relationContainerIdentification,org.LexGrid.LexBIG.DataModel.cagrid.AssociationIdentification associationIdentification,org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag versionOrTag,org.LexGrid.LexBIG.DataModel.cagrid.ResolveConcepts buildReferencedEntries,org.LexGrid.LexBIG.DataModel.Collections.NameAndValueList associationQualifiers) throws RemoteException {
+  public org.LexGrid.LexBIG.iso21090.DataModel.Core.Association getAssociationReverseOneLevel(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.ConceptIdentification conceptIdentification,org.LexGrid.LexBIG.iso21090.DataModel.cagrid.RelationContainerIdentification relationContainerIdentification,org.LexGrid.LexBIG.iso21090.DataModel.cagrid.AssociationIdentification associationIdentification,org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag versionOrTag,org.LexGrid.LexBIG.iso21090.DataModel.cagrid.ResolveConcepts buildReferencedEntries,org.LexGrid.LexBIG.iso21090.DataModel.Collections.NameAndValueList associationQualifiers) throws RemoteException {
     synchronized(portTypeMutex){
       configureStubSecurity((Stub)portType,"getAssociationReverseOneLevel");
     org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceConvenienceMethods.stubs.GetAssociationReverseOneLevelRequest params = new org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceConvenienceMethods.stubs.GetAssociationReverseOneLevelRequest();
@@ -425,7 +425,7 @@ public class LexBIGServiceConvenienceMethodsClient extends LexBIGServiceConvenie
     }
   }
 
-  public org.LexGrid.LexBIG.DataModel.Core.Association getAssociationForwardOneLevel(org.LexGrid.LexBIG.DataModel.cagrid.ConceptIdentification conceptIdentification,org.LexGrid.LexBIG.DataModel.cagrid.RelationContainerIdentification relationContainerIdentification,org.LexGrid.LexBIG.DataModel.cagrid.AssociationIdentification associationIdentification,org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag versionOrTag,org.LexGrid.LexBIG.DataModel.cagrid.ResolveConcepts buildReferencedEntries,org.LexGrid.LexBIG.DataModel.Collections.NameAndValueList associationQualifiers) throws RemoteException {
+  public org.LexGrid.LexBIG.iso21090.DataModel.Core.Association getAssociationForwardOneLevel(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.ConceptIdentification conceptIdentification,org.LexGrid.LexBIG.iso21090.DataModel.cagrid.RelationContainerIdentification relationContainerIdentification,org.LexGrid.LexBIG.iso21090.DataModel.cagrid.AssociationIdentification associationIdentification,org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag versionOrTag,org.LexGrid.LexBIG.iso21090.DataModel.cagrid.ResolveConcepts buildReferencedEntries,org.LexGrid.LexBIG.iso21090.DataModel.Collections.NameAndValueList associationQualifiers) throws RemoteException {
     synchronized(portTypeMutex){
       configureStubSecurity((Stub)portType,"getAssociationForwardOneLevel");
     org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceConvenienceMethods.stubs.GetAssociationForwardOneLevelRequest params = new org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceConvenienceMethods.stubs.GetAssociationForwardOneLevelRequest();

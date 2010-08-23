@@ -21,12 +21,12 @@ package org.LexGrid.LexBIG.cagrid.adapters;
 
 import java.rmi.RemoteException;
 
-import org.LexGrid.LexBIG.DataModel.Collections.AbsoluteCodingSchemeVersionReferenceList;
-import org.LexGrid.LexBIG.DataModel.Collections.MetadataPropertyList;
-import org.LexGrid.LexBIG.DataModel.Core.AbsoluteCodingSchemeVersionReference;
-import org.LexGrid.LexBIG.DataModel.cagrid.ExtensionIdentification;
-import org.LexGrid.LexBIG.DataModel.cagrid.MatchCriteria;
-import org.LexGrid.LexBIG.DataModel.cagrid.PropertyIdentification;
+import org.LexGrid.LexBIG.iso21090.DataModel.Collections.AbsoluteCodingSchemeVersionReferenceList;
+import org.LexGrid.LexBIG.iso21090.DataModel.Collections.MetadataPropertyList;
+import org.LexGrid.LexBIG.iso21090.DataModel.Core.AbsoluteCodingSchemeVersionReference;
+import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.ExtensionIdentification;
+import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.MatchCriteria;
+import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.PropertyIdentification;
 import org.LexGrid.LexBIG.LexBIGService.LexBIGServiceMetadata;
 import org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceMetadata.client.LexBIGServiceMetadataClient;
 import org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess;

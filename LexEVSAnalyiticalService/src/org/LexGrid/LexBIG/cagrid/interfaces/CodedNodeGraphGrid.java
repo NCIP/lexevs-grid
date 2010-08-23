@@ -20,19 +20,20 @@ package org.LexGrid.LexBIG.cagrid.interfaces;
 
 import java.io.Serializable;
 import java.rmi.RemoteException;
+import java.util.List;
 
-import org.LexGrid.LexBIG.DataModel.Collections.ConceptReferenceList;
-import org.LexGrid.LexBIG.DataModel.Collections.NameAndValueList;
-import org.LexGrid.LexBIG.DataModel.Collections.ResolvedConceptReferenceList;
-import org.LexGrid.LexBIG.DataModel.Core.ConceptReference;
-import org.LexGrid.LexBIG.DataModel.Core.NameAndValue;
-import org.LexGrid.LexBIG.DataModel.cagrid.CodeExistence;
-import org.LexGrid.LexBIG.DataModel.cagrid.CodeRelationship;
-import org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeIdentification;
-import org.LexGrid.LexBIG.DataModel.cagrid.GraphResolutionPolicy;
-import org.LexGrid.LexBIG.DataModel.cagrid.NodeListPolicy;
-import org.LexGrid.LexBIG.DataModel.cagrid.RelationshipDistanceBasedPolicy;
-import org.LexGrid.LexBIG.DataModel.cagrid.RelationshipTypeBasedPolicy;
+import org.LexGrid.LexBIG.iso21090.DataModel.Collections.ConceptReferenceList;
+import org.LexGrid.LexBIG.iso21090.DataModel.Collections.NameAndValueList;
+import org.LexGrid.LexBIG.iso21090.DataModel.Collections.ResolvedConceptReferenceList;
+import org.LexGrid.LexBIG.iso21090.DataModel.Core.ConceptReference;
+import org.LexGrid.LexBIG.iso21090.DataModel.Core.NameAndValue;
+import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodeExistence;
+import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodeRelationship;
+import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification;
+import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.GraphResolutionPolicy;
+import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.NodeListPolicy;
+import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.RelationshipDistanceBasedPolicy;
+import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.RelationshipTypeBasedPolicy;
 import org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess;
 import org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException;
 import org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException;
@@ -99,7 +100,7 @@ public interface CodedNodeGraphGrid extends Serializable {
 	 * @return The list of concept references for matching associations.
 	 * @throws LBInvocationException,LBParameterException,InvalidServiceContextAccess,RemoteException
 	 */
-	ConceptReferenceList listCodeRelationships(
+	List<String> listCodeRelationships(
 			RelationshipTypeBasedPolicy policy) throws LBInvocationException,
 			LBParameterException, InvalidServiceContextAccess, RemoteException;
 	

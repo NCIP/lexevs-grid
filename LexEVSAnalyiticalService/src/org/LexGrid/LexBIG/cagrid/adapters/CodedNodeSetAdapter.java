@@ -27,8 +27,8 @@ import org.LexGrid.LexBIG.DataModel.Collections.NameAndValueList;
 import org.LexGrid.LexBIG.DataModel.Collections.ResolvedConceptReferenceList;
 import org.LexGrid.LexBIG.DataModel.Collections.SortOptionList;
 import org.LexGrid.LexBIG.DataModel.Core.ConceptReference;
-import org.LexGrid.LexBIG.DataModel.cagrid.CodeExistence;
-import org.LexGrid.LexBIG.DataModel.cagrid.SetResolutionPolicy;
+import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodeExistence;
+import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.SetResolutionPolicy;
 import org.LexGrid.LexBIG.Exceptions.LBInvocationException;
 import org.LexGrid.LexBIG.Exceptions.LBParameterException;
 import org.LexGrid.LexBIG.LexBIGService.CodedNodeSet;
@@ -36,6 +36,7 @@ import org.LexGrid.LexBIG.Utility.Iterators.ResolvedConceptReferencesIterator;
 import org.LexGrid.LexBIG.cagrid.Utils;
 import org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess;
 import org.LexGrid.LexBIG.cagrid.interfaces.CodedNodeSetGrid;
+import org.LexGrid.LexBIG.cagrid.iso21090.converter.ConvertUtils;
 import org.apache.axis.message.addressing.EndpointReferenceType;
 
 public class CodedNodeSetAdapter implements CodedNodeSet {
@@ -100,9 +101,10 @@ public class CodedNodeSetAdapter implements CodedNodeSet {
 	public Boolean isCodeInSet(ConceptReference code)
 	throws LBInvocationException, LBParameterException {
 		try {
-			CodeExistence codeExits = cns.isCodeInSet(Utils
-					.checkIfConceptReferencsIsResolved(code));
-			return codeExits.getIsPresent();
+			CodeExistence codeExits = cns.isCodeInSet(
+					Utils.checkIfConceptReferencsIsResolved(
+							ConvertUtils.convert(code, org.LexGrid.LexBIG.iso21090.DataModel.Core.ConceptReference.class)));
+			return codeExits.getIsPresent().getValue();
 		} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException e) {
 			throw new LBInvocationException(e.getMessage(), null);
 		} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException e) {
@@ -166,7 +168,7 @@ public class CodedNodeSetAdapter implements CodedNodeSet {
 	public CodedNodeSet restrictToCodes(ConceptReferenceList arg0)
 	throws LBInvocationException, LBParameterException {
 		try {
-			cns.restrictToCodes(arg0);
+			cns.restrictToCodes(ConvertUtils.convert(arg0, org.LexGrid.LexBIG.iso21090.DataModel.Collections.ConceptReferenceList.class));
 			return this;
 		} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException e) {
 			throw new LBInvocationException(e.getMessage(), null);
@@ -199,12 +201,17 @@ public class CodedNodeSetAdapter implements CodedNodeSet {
 	 *      org.LexGrid.LexBIG.LexBIGService.CodedNodeSet.SearchDesignationOption,
 	 *      java.lang.String, java.lang.String)
 	 */
-	public CodedNodeSet restrictToMatchingDesignations(String matchText,
-			SearchDesignationOption option, String matchAlgorithm, String language)
+	public CodedNodeSet restrictToMatchingDesignations(
+			String matchText,
+			SearchDesignationOption option, 
+			String matchAlgorithm, 
+			String language)
 	throws LBInvocationException, LBParameterException {
 		try {
-			cns.restrictToMatchingDesignations(Utils.wrapMatchCritia(matchText), 
-					Utils.convertSearchDesignationOption(option), Utils.wrapExtensionIdentification(matchAlgorithm), 
+			cns.restrictToMatchingDesignations(
+					Utils.wrapMatchCritia(matchText), 
+					Utils.convertSearchDesignationOption(option), 
+					Utils.wrapExtensionIdentification(matchAlgorithm), 
 					Utils.wrapLanguageIdentification(language));
 			return this;
 		} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException e) {
@@ -229,13 +236,23 @@ public class CodedNodeSetAdapter implements CodedNodeSet {
 	 *      java.lang.String, java.lang.String, java.lang.String)
 	 */
 	public CodedNodeSet restrictToMatchingProperties(
-			LocalNameList propertyNames, PropertyType[] propertyTypes,
-			LocalNameList sourceList, LocalNameList contextList, NameAndValueList qualifierList,
-			String matchText, String matchAlgorithm, String language)
+			LocalNameList propertyNames, 
+			PropertyType[] propertyTypes,
+			LocalNameList sourceList, 
+			LocalNameList contextList, 
+			NameAndValueList qualifierList,
+			String matchText, 
+			String matchAlgorithm, 
+			String language)
 	throws LBInvocationException, LBParameterException {
 		try {
-			cns.restrictToMatchingProperties(propertyNames, Utils.convertPropertyType(propertyTypes), 
-					sourceList, contextList, qualifierList, Utils.wrapMatchCritia(matchText),
+			cns.restrictToMatchingProperties(
+					ConvertUtils.convert(propertyNames, org.LexGrid.LexBIG.iso21090.DataModel.Collections.LocalNameList.class),
+					Utils.convertPropertyType(propertyTypes), 
+					ConvertUtils.convert(sourceList, org.LexGrid.LexBIG.iso21090.DataModel.Collections.LocalNameList.class),
+					ConvertUtils.convert(contextList, org.LexGrid.LexBIG.iso21090.DataModel.Collections.LocalNameList.class),
+					ConvertUtils.convert(qualifierList, org.LexGrid.LexBIG.iso21090.DataModel.Collections.NameAndValueList.class),
+					Utils.wrapMatchCritia(matchText),
 					Utils.wrapExtensionIdentification(matchAlgorithm), 
 					Utils.wrapLanguageIdentification(language));
 			return this;
@@ -275,13 +292,19 @@ public class CodedNodeSetAdapter implements CodedNodeSet {
 	 *      org.LexGrid.LexBIG.DataModel.Collections.NameAndValueList)
 	 */
 	public CodedNodeSet restrictToProperties(
-			LocalNameList propertyList, PropertyType[] propertyTypes,
-			LocalNameList sourceList, LocalNameList contextList,
+			LocalNameList propertyList, 
+			PropertyType[] propertyTypes,
+			LocalNameList sourceList, 
+			LocalNameList contextList,
 			NameAndValueList qualifierList) throws LBInvocationException,
 			LBParameterException {
 		try {
-			cns.restrictToProperties(propertyList, Utils.convertPropertyType(propertyTypes),
-					sourceList, contextList, qualifierList);
+			cns.restrictToProperties(
+					ConvertUtils.convert(propertyList, org.LexGrid.LexBIG.iso21090.DataModel.Collections.LocalNameList.class),
+					Utils.convertPropertyType(propertyTypes),
+					ConvertUtils.convert(sourceList, org.LexGrid.LexBIG.iso21090.DataModel.Collections.LocalNameList.class),
+					ConvertUtils.convert(contextList, org.LexGrid.LexBIG.iso21090.DataModel.Collections.LocalNameList.class),
+					ConvertUtils.convert(qualifierList, org.LexGrid.LexBIG.iso21090.DataModel.Collections.NameAndValueList.class));
 			return this;
 		} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException e) {
 			throw new LBInvocationException(e.getMessage(), null);
@@ -365,10 +388,16 @@ public class CodedNodeSetAdapter implements CodedNodeSet {
 			LocalNameList filterOptions, LocalNameList propertyNames,
 			PropertyType[] propertyTypes, boolean resolveConcepts, int maxToReturn)
 	throws LBInvocationException, LBParameterException {
-		SetResolutionPolicy policy = Utils.buildSetResolutionPolicy(sortOptions, filterOptions, propertyNames, 
-				propertyTypes, resolveConcepts, maxToReturn);
+		SetResolutionPolicy policy = Utils.buildSetResolutionPolicy(
+				sortOptions, 
+				filterOptions, 
+				propertyNames, 
+				propertyTypes,
+				resolveConcepts, 
+				maxToReturn);
 		try {
-			return cns.resolveToList(policy);
+			return ConvertUtils.convert(cns.resolveToList(policy), 
+					org.LexGrid.LexBIG.DataModel.Collections.ResolvedConceptReferenceList.class);
 		} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException e) {
 			throw new LBInvocationException(e.getMessage(), null);
 		} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException e) {
@@ -412,6 +441,13 @@ public class CodedNodeSetAdapter implements CodedNodeSet {
 			LBParameterException {
 		return this.resolveToList(sortOptions, filterOptions, propertyNames, propertyTypes, false, maxToReturn);
 	}
+	
+	@Override
+	public CodedNodeSet restrictToAnonymous(AnonymousOption arg0)
+			throws LBInvocationException, LBParameterException {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 	public CodedNodeSetGrid getCodedNodeSetGridInterface(){
 		return cns;
@@ -420,6 +456,7 @@ public class CodedNodeSetAdapter implements CodedNodeSet {
 	public EndpointReferenceType getEndpointReference(){
 		return cns.getEndpointReference();
 	}
+
 
 
 }

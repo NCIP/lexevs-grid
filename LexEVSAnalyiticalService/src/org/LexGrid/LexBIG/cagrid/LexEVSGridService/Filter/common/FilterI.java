@@ -23,7 +23,7 @@ public interface FilterI {
    * @throws InvalidServiceContextAccess
    *	
    */
-  public boolean match(org.LexGrid.LexBIG.DataModel.Core.ResolvedConceptReference ref) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess ;
+  public boolean match(org.LexGrid.LexBIG.iso21090.DataModel.Core.ResolvedConceptReference ref) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess ;
 
   /**
    * Return the name assigned to this service extension. This name must be unique within context of the installed node and is used to register and lookup the extension through a LexBIGService.

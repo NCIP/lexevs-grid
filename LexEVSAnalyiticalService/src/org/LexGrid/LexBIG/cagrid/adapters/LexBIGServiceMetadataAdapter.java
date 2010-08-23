@@ -29,6 +29,7 @@ import org.LexGrid.LexBIG.Exceptions.LBParameterException;
 import org.LexGrid.LexBIG.LexBIGService.LexBIGServiceMetadata;
 import org.LexGrid.LexBIG.cagrid.Utils;
 import org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess;
+import org.LexGrid.LexBIG.cagrid.iso21090.converter.ConvertUtils;
 
 public class LexBIGServiceMetadataAdapter implements LexBIGServiceMetadata {
 
@@ -45,7 +46,7 @@ public class LexBIGServiceMetadataAdapter implements LexBIGServiceMetadata {
 	public AbsoluteCodingSchemeVersionReferenceList listCodingSchemes()
 	throws LBInvocationException {
 		try {
-			return lbsm.listCodingSchemes();
+			return ConvertUtils.convert(lbsm.listCodingSchemes(), org.LexGrid.LexBIG.DataModel.Collections.AbsoluteCodingSchemeVersionReferenceList.class);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
@@ -60,7 +61,8 @@ public class LexBIGServiceMetadataAdapter implements LexBIGServiceMetadata {
 	public MetadataPropertyList resolve() throws LBParameterException,
 	LBInvocationException {
 		try {
-			return lbsm.resolve();
+			return ConvertUtils.convert(lbsm.resolve(),
+					org.LexGrid.LexBIG.DataModel.Collections.MetadataPropertyList.class);
 		} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException e) {
 			throw new LBParameterException(e.getMessage());
 		} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException e) {
@@ -81,7 +83,8 @@ public class LexBIGServiceMetadataAdapter implements LexBIGServiceMetadata {
 			AbsoluteCodingSchemeVersionReference acsvr)
 	throws LBParameterException {
 		try {
-			lbsm.restrictToCodingScheme(acsvr);
+			lbsm.restrictToCodingScheme(
+					ConvertUtils.convert(acsvr, org.LexGrid.LexBIG.iso21090.DataModel.Core.AbsoluteCodingSchemeVersionReference.class));
 			return this;
 		} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException e) {
 			throw new LBParameterException(e.getMessage());

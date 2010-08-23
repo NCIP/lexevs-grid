@@ -16,7 +16,7 @@ public class FilterImpl extends FilterImplBase {
 		super();
 	}
 
-  public boolean match(org.LexGrid.LexBIG.DataModel.Core.ResolvedConceptReference ref) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess {
+  public boolean match(org.LexGrid.LexBIG.iso21090.DataModel.Core.ResolvedConceptReference ref) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess {
 		try {
 			return this.getResourceHome().getAddressedResource().getFilter()
 					.match(ref);

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices" xmlns:wsrp="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties-1.2-draft-01.xsd" xmlns:wsrlw="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceLifetime-1.2-draft-01.wsdl" xmlns:wsdlpp="http://www.globus.org/namespaces/2004/10/WSDLPreprocessor" xmlns:gtwsdl1="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ServiceGroup-1.2-draft-01.wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/03/addressing" xmlns:wsntw="http://docs.oasis-open.org/wsn/2004/06/wsn-WS-BaseNotification-1.2-draft-01.wsdl" xmlns:wsrbfw="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-BaseFaults-1.2-draft-01.wsdl" xmlns:wsrpw="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties-1.2-draft-01.wsdl" xmlns:wns0="http://security.introduce.cagrid.nci.nih.gov/ServiceSecurity" xmlns:wns1="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties-1.2-draft-01.wsdl" xmlns:ns17="gme://caCORE.caCORE/3.2/gov.nih.nci.evs.security" xmlns:ns30="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/Filter/types" xmlns:ns27="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/HistoryService/types" xmlns:ns24="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/CodedNodeGraph/types" xmlns:ns18="http://schemas.xmlsoap.org/ws/2004/03/addressing" xmlns:ns0="uri:iso.org:21090" xmlns:ns1="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/codingSchemes" xmlns:ns3="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Core" xmlns:ns15="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/enums" xmlns:ns8="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/NCIHistorytypes" xmlns:ns12="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/Coretypes" xmlns:ns5="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/lbInterfacetypes" xmlns:ns2="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Collections" xmlns:ns26="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/ResolvedConceptReferencesIterator/types" xmlns:ns9="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/concepts" xmlns:ns7="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/NCIHistory" xmlns:ns13="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/commonTypesTypes" xmlns:ns11="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/InterfaceElements" xmlns:ns4="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/commonTypes" xmlns:ns10="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/versions" xmlns:ns19="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/types" xmlns:ns20="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.security" xmlns:ns6="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/relations" xmlns:ns14="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid" xmlns:ns21="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata" xmlns:ns29="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/Sort/types" xmlns:ns25="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/types" xmlns:ns22="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/CodedNodeSet/types" xmlns:ns28="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceMetadata/types" xmlns:ns23="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceLifetime-1.2-draft-01.xsd" xmlns:ns16="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/NCIChangeTypes" name="LexEVSGridService" targetNamespace="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices">
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices" xmlns:wsrp="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties-1.2-draft-01.xsd" xmlns:wsrlw="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceLifetime-1.2-draft-01.wsdl" xmlns:wsdlpp="http://www.globus.org/namespaces/2004/10/WSDLPreprocessor" xmlns:gtwsdl1="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ServiceGroup-1.2-draft-01.wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/03/addressing" xmlns:wsntw="http://docs.oasis-open.org/wsn/2004/06/wsn-WS-BaseNotification-1.2-draft-01.wsdl" xmlns:wsrbfw="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-BaseFaults-1.2-draft-01.wsdl" xmlns:wsrpw="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties-1.2-draft-01.wsdl" xmlns:wns0="http://security.introduce.cagrid.nci.nih.gov/ServiceSecurity" xmlns:wns1="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties-1.2-draft-01.wsdl" xmlns:ns13="gme://caCORE.caCORE/3.2/gov.nih.nci.evs.security" xmlns:ns26="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/Filter/types" xmlns:ns20="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/CodedNodeGraph/types" xmlns:ns23="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/HistoryService/types" xmlns:ns14="http://schemas.xmlsoap.org/ws/2004/03/addressing" xmlns:ns0="uri:iso.org:21090" xmlns:ns1="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/codingSchemes" xmlns:ns11="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/enums" xmlns:ns3="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Core" xmlns:ns2="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Collections" xmlns:ns7="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/concepts" xmlns:ns6="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/NCIHistory" xmlns:ns22="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/ResolvedConceptReferencesIterator/types" xmlns:ns9="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/InterfaceElements" xmlns:ns4="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/commonTypes" xmlns:ns8="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/versions" xmlns:ns15="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/types" xmlns:ns16="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.security" xmlns:ns5="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/relations" xmlns:ns10="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid" xmlns:ns17="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata" xmlns:ns25="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/Sort/types" xmlns:ns18="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/CodedNodeSet/types" xmlns:ns21="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/types" xmlns:ns24="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceMetadata/types" xmlns:ns19="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceLifetime-1.2-draft-01.xsd" xmlns:ns12="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/NCIChangeTypes" name="LexEVSGridService" targetNamespace="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices">
   <import namespace="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties-1.2-draft-01.wsdl" location="../wsrf/properties/WS-ResourceProperties.wsdl" />
   <import namespace="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-BaseFaults-1.2-draft-01.wsdl" location="../wsrf/faults/WS-BaseFaults.wsdl" />
   <import namespace="http://docs.oasis-open.org/wsn/2004/06/wsn-WS-BaseNotification-1.2-draft-01.wsdl" location="../wsrf/notification/WS-BaseN.wsdl" />
@@ -15,17 +15,17 @@
       <import namespace="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-BaseFaults-1.2-draft-01.xsd" schemaLocation="../wsrf/faults/WS-BaseFaults.xsd" />
       <import namespace="gme://caCORE.caCORE/3.2/gov.nih.nci.evs.security" schemaLocation="./caCORE.caCORE-3.2_gov.nih.nci.evs.security.xsd" />
       <import namespace="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/Filter/types" schemaLocation="./FilterTypes.xsd" />
-      <import namespace="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/HistoryService/types" schemaLocation="./HistoryServiceTypes.xsd" />
       <import namespace="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/CodedNodeGraph/types" schemaLocation="./CodedNodeGraphTypes.xsd" />
+      <import namespace="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/HistoryService/types" schemaLocation="./HistoryServiceTypes.xsd" />
       <import namespace="http://schemas.xmlsoap.org/ws/2004/03/addressing" schemaLocation="./../ws/addressing/WS-Addressing.xsd" />
       <import namespace="uri:iso.org:21090" schemaLocation="./ISO_extensions.xsd" />
       <import namespace="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/codingSchemes" schemaLocation="./codingSchemes.xsd" />
-      <import namespace="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Core" schemaLocation="./Core.xsd" />
       <import namespace="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/enums" schemaLocation="./enums.xsd" />
+      <import namespace="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Core" schemaLocation="./Core.xsd" />
       <import namespace="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/Collections" schemaLocation="./Collections.xsd" />
-      <import namespace="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/ResolvedConceptReferencesIterator/types" schemaLocation="./ResolvedConceptReferencesIteratorTypes.xsd" />
       <import namespace="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/concepts" schemaLocation="./concepts.xsd" />
       <import namespace="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/NCIHistory" schemaLocation="./NCIHistory.xsd" />
+      <import namespace="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/ResolvedConceptReferencesIterator/types" schemaLocation="./ResolvedConceptReferencesIteratorTypes.xsd" />
       <import namespace="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/InterfaceElements" schemaLocation="./InterfaceElements.xsd" />
       <import namespace="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/commonTypes" schemaLocation="./commonTypes.xsd" />
       <import namespace="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/versions" schemaLocation="./versions.xsd" />
@@ -35,8 +35,8 @@
       <import namespace="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid" schemaLocation="./cagrid.xsd" />
       <import namespace="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata" schemaLocation="./cagrid/types/caGridMetadata.xsd" />
       <import namespace="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/Sort/types" schemaLocation="./SortTypes.xsd" />
-      <import namespace="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/types" schemaLocation="./LexBIGServiceConvenienceMethodsTypes.xsd" />
       <import namespace="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/CodedNodeSet/types" schemaLocation="./CodedNodeSetTypes.xsd" />
+      <import namespace="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/types" schemaLocation="./LexBIGServiceConvenienceMethodsTypes.xsd" />
       <import namespace="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceMetadata/types" schemaLocation="./LexBIGServiceMetadataTypes.xsd" />
       <import namespace="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceLifetime-1.2-draft-01.xsd" schemaLocation="../wsrf/lifetime/WS-ResourceLifetime.xsd" />
       <import namespace="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/NCIChangeTypes" schemaLocation="./NCIHistory.xsd" />
@@ -58,7 +58,7 @@
             <element name="codingSchemeIdentification">
               <complexType>
                 <sequence>
-                  <element ref="ns14:CodingSchemeIdentification" minOccurs="1" maxOccurs="1" />
+                  <element ref="ns10:CodingSchemeIdentification" minOccurs="1" maxOccurs="1" />
                 </sequence>
               </complexType>
             </element>
@@ -75,19 +75,7 @@
       <element name="GetCodingSchemeConceptsResponse">
         <complexType>
           <sequence>
-            <element ref="ns22:CodedNodeSetReference" minOccurs="1" maxOccurs="1" />
-          </sequence>
-        </complexType>
-      </element>
-      <element name="GetLastUpdateTimeRequest">
-        <complexType>
-          <sequence />
-        </complexType>
-      </element>
-      <element name="GetLastUpdateTimeResponse">
-        <complexType>
-          <sequence>
-            <element ref="ns0:Ts" minOccurs="1" maxOccurs="1" />
+            <element ref="ns18:CodedNodeSetReference" minOccurs="1" maxOccurs="1" />
           </sequence>
         </complexType>
       </element>
@@ -97,7 +85,7 @@
             <element name="codingSchemeIdentification">
               <complexType>
                 <sequence>
-                  <element ref="ns14:CodingSchemeIdentification" minOccurs="1" maxOccurs="1" />
+                  <element ref="ns10:CodingSchemeIdentification" minOccurs="1" maxOccurs="1" />
                 </sequence>
               </complexType>
             </element>
@@ -136,7 +124,7 @@
             <element name="codingSchemeIdentification">
               <complexType>
                 <sequence>
-                  <element ref="ns14:CodingSchemeIdentification" minOccurs="1" maxOccurs="1" />
+                  <element ref="ns10:CodingSchemeIdentification" minOccurs="1" maxOccurs="1" />
                 </sequence>
               </complexType>
             </element>
@@ -150,7 +138,7 @@
             <element name="relationContainerIdentification">
               <complexType>
                 <sequence>
-                  <element ref="ns14:RelationContainerIdentification" minOccurs="1" maxOccurs="1" />
+                  <element ref="ns10:RelationContainerIdentification" minOccurs="1" maxOccurs="1" />
                 </sequence>
               </complexType>
             </element>
@@ -160,7 +148,7 @@
       <element name="GetNodeGraphResponse">
         <complexType>
           <sequence>
-            <element ref="ns24:CodedNodeGraphReference" minOccurs="1" maxOccurs="1" />
+            <element ref="ns20:CodedNodeGraphReference" minOccurs="1" maxOccurs="1" />
           </sequence>
         </complexType>
       </element>
@@ -196,7 +184,7 @@
             <element name="extensionIdentification">
               <complexType>
                 <sequence>
-                  <element ref="ns14:ExtensionIdentification" minOccurs="1" maxOccurs="1" />
+                  <element ref="ns10:ExtensionIdentification" minOccurs="1" maxOccurs="1" />
                 </sequence>
               </complexType>
             </element>
@@ -206,7 +194,7 @@
       <element name="GetGenericExtensionResponse">
         <complexType>
           <sequence>
-            <element ref="ns25:LexBIGServiceConvenienceMethodsReference" minOccurs="1" maxOccurs="1" />
+            <element ref="ns21:LexBIGServiceConvenienceMethodsReference" minOccurs="1" maxOccurs="1" />
           </sequence>
         </complexType>
       </element>
@@ -228,7 +216,7 @@
             <element name="codingSchemeIdentification">
               <complexType>
                 <sequence>
-                  <element ref="ns14:CodingSchemeIdentification" minOccurs="1" maxOccurs="1" />
+                  <element ref="ns10:CodingSchemeIdentification" minOccurs="1" maxOccurs="1" />
                 </sequence>
               </complexType>
             </element>
@@ -238,7 +226,7 @@
       <element name="GetHistoryServiceResponse">
         <complexType>
           <sequence>
-            <element ref="ns27:HistoryServiceReference" minOccurs="1" maxOccurs="1" />
+            <element ref="ns23:HistoryServiceReference" minOccurs="1" maxOccurs="1" />
           </sequence>
         </complexType>
       </element>
@@ -250,7 +238,7 @@
       <element name="GetServiceMetadataResponse">
         <complexType>
           <sequence>
-            <element ref="ns28:LexBIGServiceMetadataReference" minOccurs="1" maxOccurs="1" />
+            <element ref="ns24:LexBIGServiceMetadataReference" minOccurs="1" maxOccurs="1" />
           </sequence>
         </complexType>
       </element>
@@ -260,7 +248,7 @@
             <element name="extensionIdentification">
               <complexType>
                 <sequence>
-                  <element ref="ns14:ExtensionIdentification" minOccurs="1" maxOccurs="1" />
+                  <element ref="ns10:ExtensionIdentification" minOccurs="1" maxOccurs="1" />
                 </sequence>
               </complexType>
             </element>
@@ -270,7 +258,7 @@
       <element name="GetSortAlgorithmResponse">
         <complexType>
           <sequence>
-            <element ref="ns29:SortReference" minOccurs="1" maxOccurs="1" />
+            <element ref="ns25:SortReference" minOccurs="1" maxOccurs="1" />
           </sequence>
         </complexType>
       </element>
@@ -280,7 +268,7 @@
             <element name="extensionIdentification">
               <complexType>
                 <sequence>
-                  <element ref="ns14:ExtensionIdentification" minOccurs="1" maxOccurs="1" />
+                  <element ref="ns10:ExtensionIdentification" minOccurs="1" maxOccurs="1" />
                 </sequence>
               </complexType>
             </element>
@@ -290,7 +278,7 @@
       <element name="GetFilterResponse">
         <complexType>
           <sequence>
-            <element ref="ns30:FilterReference" minOccurs="1" maxOccurs="1" />
+            <element ref="ns26:FilterReference" minOccurs="1" maxOccurs="1" />
           </sequence>
         </complexType>
       </element>
@@ -300,7 +288,7 @@
             <element name="codingSchemeIdentification">
               <complexType>
                 <sequence>
-                  <element ref="ns14:CodingSchemeIdentification" minOccurs="1" maxOccurs="1" />
+                  <element ref="ns10:CodingSchemeIdentification" minOccurs="1" maxOccurs="1" />
                 </sequence>
               </complexType>
             </element>
@@ -317,7 +305,7 @@
       <element name="ResolveCodingSchemeCopyrightResponse">
         <complexType>
           <sequence>
-            <element ref="ns14:CodingSchemeCopyRight" minOccurs="1" maxOccurs="1" />
+            <element ref="ns10:CodingSchemeCopyRight" minOccurs="1" maxOccurs="1" />
           </sequence>
         </complexType>
       </element>
@@ -327,14 +315,14 @@
             <element name="codingSchemeIdentification">
               <complexType>
                 <sequence>
-                  <element ref="ns14:CodingSchemeIdentification" minOccurs="1" maxOccurs="1" />
+                  <element ref="ns10:CodingSchemeIdentification" minOccurs="1" maxOccurs="1" />
                 </sequence>
               </complexType>
             </element>
             <element name="securityToken">
               <complexType>
                 <sequence>
-                  <element ref="ns17:SecurityToken" minOccurs="1" maxOccurs="1" />
+                  <element ref="ns13:SecurityToken" minOccurs="1" maxOccurs="1" />
                 </sequence>
               </complexType>
             </element>
@@ -344,14 +332,14 @@
       <element name="SetSecurityTokenResponse">
         <complexType>
           <sequence>
-            <element ref="ns19:LexEVSGridServiceReference" minOccurs="1" maxOccurs="1" />
+            <element ref="ns15:LexEVSGridServiceReference" minOccurs="1" maxOccurs="1" />
           </sequence>
         </complexType>
       </element>
       <element name="LexEVSGridServiceResourceProperties">
         <complexType>
           <sequence>
-            <element ref="ns21:ServiceMetadata" />
+            <element ref="ns17:ServiceMetadata" />
           </sequence>
         </complexType>
       </element>
@@ -369,12 +357,6 @@
   </message>
   <message name="GetCodingSchemeConceptsResponse">
     <part name="parameters" element="tns:GetCodingSchemeConceptsResponse" />
-  </message>
-  <message name="GetLastUpdateTimeRequest">
-    <part name="parameters" element="tns:GetLastUpdateTimeRequest" />
-  </message>
-  <message name="GetLastUpdateTimeResponse">
-    <part name="parameters" element="tns:GetLastUpdateTimeResponse" />
   </message>
   <message name="ResolveCodingSchemeRequest">
     <part name="parameters" element="tns:ResolveCodingSchemeRequest" />
@@ -455,10 +437,10 @@
     <part name="parameters" element="tns:SetSecurityTokenResponse" />
   </message>
   <message name="LBInvocationExceptionFaultMessage">
-    <part name="fault" element="ns19:LBInvocationException" />
+    <part name="fault" element="ns15:LBInvocationException" />
   </message>
   <message name="LBExceptionFaultMessage">
-    <part name="fault" element="ns19:LBException" />
+    <part name="fault" element="ns15:LBException" />
   </message>
   <!--============================================================
 
@@ -475,11 +457,6 @@
       <input message="tns:GetCodingSchemeConceptsRequest" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/GetCodingSchemeConceptsRequest" />
       <output message="tns:GetCodingSchemeConceptsResponse" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/GetCodingSchemeConceptsResponse" />
       <fault name="LBException" message="tns:LBExceptionFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LBExceptionFaultMessage" />
-    </operation>
-    <operation name="getLastUpdateTime">
-      <input message="tns:GetLastUpdateTimeRequest" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/GetLastUpdateTimeRequest" />
-      <output message="tns:GetLastUpdateTimeResponse" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/GetLastUpdateTimeResponse" />
-      <fault name="LBInvocationException" message="tns:LBInvocationExceptionFaultMessage" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LBInvocationExceptionFaultMessage" />
     </operation>
     <operation name="resolveCodingScheme">
       <input message="tns:ResolveCodingSchemeRequest" wsa:Action="http://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/ResolveCodingSchemeRequest" />

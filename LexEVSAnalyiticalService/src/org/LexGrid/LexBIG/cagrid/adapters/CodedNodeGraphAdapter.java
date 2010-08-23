@@ -20,6 +20,7 @@
 package org.LexGrid.LexBIG.cagrid.adapters;
 
 import java.rmi.RemoteException;
+import java.util.List;
 
 import org.LexGrid.LexBIG.DataModel.Collections.ConceptReferenceList;
 import org.LexGrid.LexBIG.DataModel.Collections.LocalNameList;
@@ -28,9 +29,9 @@ import org.LexGrid.LexBIG.DataModel.Collections.ResolvedConceptReferenceList;
 import org.LexGrid.LexBIG.DataModel.Collections.SortOptionList;
 import org.LexGrid.LexBIG.DataModel.Core.ConceptReference;
 import org.LexGrid.LexBIG.DataModel.Core.NameAndValue;
-import org.LexGrid.LexBIG.DataModel.cagrid.CodeRelationship;
-import org.LexGrid.LexBIG.DataModel.cagrid.GraphResolutionPolicy;
-import org.LexGrid.LexBIG.DataModel.cagrid.NodeListPolicy;
+import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodeRelationship;
+import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.GraphResolutionPolicy;
+import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.NodeListPolicy;
 import org.LexGrid.LexBIG.Exceptions.LBInvocationException;
 import org.LexGrid.LexBIG.Exceptions.LBParameterException;
 import org.LexGrid.LexBIG.LexBIGService.CodedNodeGraph;
@@ -39,6 +40,7 @@ import org.LexGrid.LexBIG.LexBIGService.CodedNodeSet.PropertyType;
 import org.LexGrid.LexBIG.cagrid.Utils;
 import org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess;
 import org.LexGrid.LexBIG.cagrid.interfaces.CodedNodeGraphGrid;
+import org.LexGrid.LexBIG.cagrid.iso21090.converter.ConvertUtils;
 import org.apache.axis.message.addressing.EndpointReferenceType;
 
 public class CodedNodeGraphAdapter implements CodedNodeGraph {
@@ -61,7 +63,11 @@ public class CodedNodeGraphAdapter implements CodedNodeGraph {
 			LBParameterException {
 		CodeRelationship relationship;
 		try {
-			relationship = cng.areCodesRelated(Utils.buildRelationshipTypeBasedPolicy(sourceConcept, targetConcept, directOnly), arg0);
+			relationship = cng.areCodesRelated(Utils.buildRelationshipTypeBasedPolicy(
+					ConvertUtils.convert(sourceConcept, org.LexGrid.LexBIG.iso21090.DataModel.Core.ConceptReference.class),
+					ConvertUtils.convert(targetConcept, org.LexGrid.LexBIG.iso21090.DataModel.Core.ConceptReference.class),
+					directOnly),
+					ConvertUtils.convert(arg0, org.LexGrid.LexBIG.iso21090.DataModel.Core.NameAndValue.class));
 		} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException e) {
 			throw new LBInvocationException(e.getMessage(), null);
 		} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException e) {
@@ -69,7 +75,7 @@ public class CodedNodeGraphAdapter implements CodedNodeGraph {
 		} catch (RemoteException e) {
 			throw new LBInvocationException(e.getMessage(), null);
 		}
-		return relationship.getIsCodeRelated();
+		return relationship.getIsCodeRelated().getValue();
 	}
 
 	/*
@@ -101,7 +107,8 @@ public class CodedNodeGraphAdapter implements CodedNodeGraph {
 	public Boolean isCodeInGraph(ConceptReference arg0)
 	throws LBInvocationException, LBParameterException {
 		try {
-			return cng.isCodeInGraph(arg0).getIsPresent();
+			return cng.isCodeInGraph(
+					ConvertUtils.convert(arg0, org.LexGrid.LexBIG.iso21090.DataModel.Core.ConceptReference.class)).getIsPresent().getValue();
 		} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException e) {
 			throw new LBInvocationException(e.getMessage(), null);
 		} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException e) {
@@ -119,11 +126,14 @@ public class CodedNodeGraphAdapter implements CodedNodeGraph {
 	 * @see org.LexGrid.LexBIG.LexBIGService.CodedNodeGraph#listCodeRelationships(org.LexGrid.LexBIG.DataModel.Core.ConceptReference,
 	 *      org.LexGrid.LexBIG.DataModel.Core.ConceptReference, boolean)
 	 */
-	public ConceptReferenceList listCodeRelationships(ConceptReference sourceConcept,
+	public List<String> listCodeRelationships(ConceptReference sourceConcept,
 			ConceptReference targetConcept, boolean directOnly) throws LBInvocationException,
 			LBParameterException {
 		try {
-			return cng.listCodeRelationships(Utils.buildRelationshipTypeBasedPolicy(sourceConcept, targetConcept, directOnly));
+			return cng.listCodeRelationships(Utils.buildRelationshipTypeBasedPolicy(
+					ConvertUtils.convert(sourceConcept, org.LexGrid.LexBIG.iso21090.DataModel.Core.ConceptReference.class),
+					ConvertUtils.convert(targetConcept, org.LexGrid.LexBIG.iso21090.DataModel.Core.ConceptReference.class),
+					directOnly));
 		} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException e) {
 			throw new LBInvocationException(e.getMessage(), null);
 		} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException e) {
@@ -141,11 +151,14 @@ public class CodedNodeGraphAdapter implements CodedNodeGraph {
 	 * @see org.LexGrid.LexBIG.LexBIGService.CodedNodeGraph#listCodeRelationships(org.LexGrid.LexBIG.DataModel.Core.ConceptReference,
 	 *      org.LexGrid.LexBIG.DataModel.Core.ConceptReference, int)
 	 */
-	public ConceptReferenceList listCodeRelationships(ConceptReference sourceConcept,
+	public List<String> listCodeRelationships(ConceptReference sourceConcept,
 			ConceptReference targetConcept, int distance) throws LBInvocationException,
 			LBParameterException {
 		try {
-			return cng.listCodeRelationships(Utils.buildRelationshipDistanceBasedPolicy(sourceConcept, targetConcept, distance));
+			cng.listCodeRelationships(Utils.buildRelationshipDistanceBasedPolicy(
+					ConvertUtils.convert(sourceConcept, org.LexGrid.LexBIG.iso21090.DataModel.Core.ConceptReference.class),
+					ConvertUtils.convert(targetConcept, org.LexGrid.LexBIG.iso21090.DataModel.Core.ConceptReference.class),
+					distance));
 		} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException e) {
 			throw new LBInvocationException(e.getMessage(), null);
 		} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException e) {
@@ -155,6 +168,8 @@ public class CodedNodeGraphAdapter implements CodedNodeGraph {
 		} catch (RemoteException e) {
 			throw new LBInvocationException(e.getMessage(), null);
 		}
+		
+		return null;
 	}
 
 	/*
@@ -197,7 +212,7 @@ public class CodedNodeGraphAdapter implements CodedNodeGraph {
 				resolveAssociationDepth, propertyNames, propertyTypes, sortOptions, filterOptions, 
 				maxToReturn, keepLastAssociationLevelUnresolved);
 		try {
-			return cng.resolveAsList(policy);
+			return ConvertUtils.convert(cng.resolveAsList(policy), org.LexGrid.LexBIG.DataModel.Collections.ResolvedConceptReferenceList.class);
 		} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException e) {
 			throw new LBInvocationException(e.getMessage(), null);
 		} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException e) {
@@ -237,7 +252,9 @@ public class CodedNodeGraphAdapter implements CodedNodeGraph {
 			NameAndValueList arg1) throws LBInvocationException,
 			LBParameterException {
 		try{
-			cng.restrictToAssociations(arg0, arg1);
+			cng.restrictToAssociations(
+					ConvertUtils.convert(arg0, org.LexGrid.LexBIG.iso21090.DataModel.Collections.NameAndValueList.class),
+					ConvertUtils.convert(arg1, org.LexGrid.LexBIG.iso21090.DataModel.Collections.NameAndValueList.class));
 			return this;
 		} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException e) {
 			throw new LBInvocationException(e.getMessage(), null);
@@ -303,7 +320,9 @@ public class CodedNodeGraphAdapter implements CodedNodeGraph {
 			NameAndValueList arg1) throws LBInvocationException,
 			LBParameterException {
 		try{	
-			cng.restrictToDirectionalNames(arg0, arg1);
+			cng.restrictToDirectionalNames(
+					ConvertUtils.convert(arg0, org.LexGrid.LexBIG.iso21090.DataModel.Collections.NameAndValueList.class), 
+					ConvertUtils.convert(arg1, org.LexGrid.LexBIG.iso21090.DataModel.Collections.NameAndValueList.class));
 			return this;
 		} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException e) {
 			throw new LBInvocationException(e.getMessage(), null);
@@ -413,7 +432,9 @@ public class CodedNodeGraphAdapter implements CodedNodeGraph {
 			int resolveAssociationDepth, int maxToReturn) throws LBInvocationException,
 			LBParameterException {
 
-		NodeListPolicy policy = Utils.buildNodeListPolicy(graphFocus, resolveForward, 
+		NodeListPolicy policy = Utils.buildNodeListPolicy(
+				graphFocus, 
+				resolveForward, 
 				resolveBackward, resolveAssociationDepth, maxToReturn);
 		try{
 			CodedNodeSetGridAdapter adapter = (CodedNodeSetGridAdapter)cng.toNodeList(policy);
@@ -453,6 +474,21 @@ public class CodedNodeGraphAdapter implements CodedNodeGraph {
 			throw new LBInvocationException(e.getMessage(), null);
 		} 
 	}
+
+	@Override
+	public CodedNodeGraph restrictToAnonymous(Boolean arg0)
+			throws LBInvocationException, LBParameterException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public CodedNodeGraph restrictToEntityTypes(LocalNameList arg0)
+			throws LBInvocationException, LBParameterException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 
 	public CodedNodeGraphGrid getCodedNodeGraphGridInterface(){
 		return cng;

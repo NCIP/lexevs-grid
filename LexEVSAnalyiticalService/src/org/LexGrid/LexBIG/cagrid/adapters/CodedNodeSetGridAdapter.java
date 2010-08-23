@@ -21,20 +21,20 @@ package org.LexGrid.LexBIG.cagrid.adapters;
 
 import java.rmi.RemoteException;
 
-import org.LexGrid.LexBIG.DataModel.Collections.ConceptReferenceList;
-import org.LexGrid.LexBIG.DataModel.Collections.LocalNameList;
-import org.LexGrid.LexBIG.DataModel.Collections.NameAndValueList;
-import org.LexGrid.LexBIG.DataModel.Collections.ResolvedConceptReferenceList;
-import org.LexGrid.LexBIG.DataModel.Core.ConceptReference;
-import org.LexGrid.LexBIG.DataModel.cagrid.CodeExistence;
-import org.LexGrid.LexBIG.DataModel.cagrid.ExtensionIdentification;
-import org.LexGrid.LexBIG.DataModel.cagrid.LanguageIdentification;
-import org.LexGrid.LexBIG.DataModel.cagrid.MatchCriteria;
-import org.LexGrid.LexBIG.DataModel.cagrid.SetResolutionPolicy;
-import org.LexGrid.LexBIG.DataModel.cagrid.Status;
-import org.LexGrid.LexBIG.DataModel.enums.ActiveOption;
-import org.LexGrid.LexBIG.DataModel.enums.PropertyType;
-import org.LexGrid.LexBIG.DataModel.enums.SearchDesignationOption;
+import org.LexGrid.LexBIG.iso21090.DataModel.Collections.ConceptReferenceList;
+import org.LexGrid.LexBIG.iso21090.DataModel.Collections.LocalNameList;
+import org.LexGrid.LexBIG.iso21090.DataModel.Collections.NameAndValueList;
+import org.LexGrid.LexBIG.iso21090.DataModel.Collections.ResolvedConceptReferenceList;
+import org.LexGrid.LexBIG.iso21090.DataModel.Core.ConceptReference;
+import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodeExistence;
+import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.ExtensionIdentification;
+import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.LanguageIdentification;
+import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.MatchCriteria;
+import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.SetResolutionPolicy;
+import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.Status;
+import org.LexGrid.LexBIG.iso21090.DataModel.enums.ActiveOption;
+import org.LexGrid.LexBIG.iso21090.DataModel.enums.PropertyType;
+import org.LexGrid.LexBIG.iso21090.DataModel.enums.SearchDesignationOption;
 import org.LexGrid.LexBIG.LexBIGService.CodedNodeSet;
 import org.LexGrid.LexBIG.Utility.Iterators.ResolvedConceptReferencesIterator;
 import org.LexGrid.LexBIG.cagrid.Utils;
@@ -86,7 +86,8 @@ private CodedNodeSetClient cns;
 	public CodeExistence isCodeInSet(ConceptReference code)
 			throws LBInvocationException, LBParameterException, InvalidServiceContextAccess, RemoteException {
 			return cns.isCodeInSet(Utils
-					.checkIfConceptReferencsIsResolved(code));
+					.checkIfConceptReferencsIsResolved(
+							code));
 	}
 
 	/* (non-Javadoc)
@@ -110,23 +111,27 @@ private CodedNodeSetClient cns;
 	 */
 	public ResolvedConceptReferenceList resolveToList(SetResolutionPolicy policy) throws LBInvocationException,
 			LBParameterException, InvalidServiceContextAccess, RemoteException {
-			return cns.resolveToList(policy);
+			return 
+				cns.resolveToList(policy);
 	}
 
 	/* (non-Javadoc)
 	 * @see org.LexGrid.LexBIG.cagrid.interfaces.CodedNodeSetGrid#restrictToCodes(org.LexGrid.LexBIG.DataModel.Collections.ConceptReferenceList)
 	 */
 	public CodedNodeSetGrid restrictToCodes(ConceptReferenceList codeList)
-			throws LBInvocationException, LBParameterException, InvalidServiceContextAccess, RemoteException {
-			cns.restrictToCodes(codeList);
+	throws LBInvocationException, LBParameterException, InvalidServiceContextAccess, RemoteException {
+		cns.restrictToCodes(
+				codeList);
 		return this;
 	}
 
 	/* (non-Javadoc)
 	 * @see org.LexGrid.LexBIG.cagrid.interfaces.CodedNodeSetGrid#restrictToMatchingDesignations(org.LexGrid.LexBIG.DataModel.cagrid.MatchCriteria, org.LexGrid.LexBIG.DataModel.enums.SearchDesignationOption, org.LexGrid.LexBIG.DataModel.cagrid.ExtensionIdentification, org.LexGrid.LexBIG.DataModel.cagrid.LanguageIdentification)
 	 */
-	public CodedNodeSetGrid restrictToMatchingDesignations(MatchCriteria matchText,
-			SearchDesignationOption option, ExtensionIdentification matchAlgorithm,
+	public CodedNodeSetGrid restrictToMatchingDesignations(
+			MatchCriteria matchText,
+			SearchDesignationOption option, 
+			ExtensionIdentification matchAlgorithm,
 			LanguageIdentification language) throws LBInvocationException,
 			LBParameterException, InvalidServiceContextAccess, RemoteException {
 			cns.restrictToMatchingDesignations(matchText, option, matchAlgorithm, language);
@@ -137,25 +142,42 @@ private CodedNodeSetClient cns;
 	 * @see org.LexGrid.LexBIG.cagrid.interfaces.CodedNodeSetGrid#restrictToMatchingProperties(org.LexGrid.LexBIG.DataModel.Collections.LocalNameList, org.LexGrid.LexBIG.DataModel.enums.PropertyType[], org.LexGrid.LexBIG.DataModel.Collections.LocalNameList, org.LexGrid.LexBIG.DataModel.Collections.LocalNameList, org.LexGrid.LexBIG.DataModel.Collections.NameAndValueList, org.LexGrid.LexBIG.DataModel.cagrid.MatchCriteria, org.LexGrid.LexBIG.DataModel.cagrid.ExtensionIdentification, org.LexGrid.LexBIG.DataModel.cagrid.LanguageIdentification)
 	 */
 	public CodedNodeSetGrid restrictToMatchingProperties(
-			LocalNameList propertyNames, PropertyType[] propertyTypes,
-			LocalNameList sourceList, LocalNameList contextList,
-			NameAndValueList qualifierList, MatchCriteria matchText,
+			LocalNameList propertyNames, 
+			PropertyType[] propertyTypes,
+			LocalNameList sourceList, 
+			LocalNameList contextList,
+			NameAndValueList qualifierList, 
+			MatchCriteria matchText,
 			ExtensionIdentification matchAlgorithm, LanguageIdentification language)
 			throws LBInvocationException, LBParameterException, InvalidServiceContextAccess, RemoteException {
-			cns.restrictToMatchingProperties(propertyNames, propertyTypes, sourceList, contextList,
-					qualifierList, matchText, matchAlgorithm, language);
+			cns.restrictToMatchingProperties(
+					propertyNames, 
+					propertyTypes, 
+					sourceList, 
+					contextList, 
+					qualifierList, 
+					matchText, 
+					matchAlgorithm, 
+					language);
 		return this;
 	}
 
 	/* (non-Javadoc)
 	 * @see org.LexGrid.LexBIG.cagrid.interfaces.CodedNodeSetGrid#restrictToProperties(org.LexGrid.LexBIG.DataModel.Collections.LocalNameList, org.LexGrid.LexBIG.DataModel.enums.PropertyType[], org.LexGrid.LexBIG.DataModel.Collections.LocalNameList, org.LexGrid.LexBIG.DataModel.Collections.LocalNameList, org.LexGrid.LexBIG.DataModel.Collections.NameAndValueList)
 	 */
-	public CodedNodeSetGrid restrictToProperties(LocalNameList propertyList,
-			PropertyType[] propertyTypes, LocalNameList sourceList,
-			LocalNameList contextList, NameAndValueList qualifierList)
+	public CodedNodeSetGrid restrictToProperties(
+			LocalNameList propertyList,
+			PropertyType[] propertyTypes, 
+			LocalNameList sourceList,
+			LocalNameList contextList, 
+			NameAndValueList qualifierList)
 			throws LBInvocationException, LBParameterException, InvalidServiceContextAccess, RemoteException {
-			cns.restrictToProperties(propertyList, propertyTypes,
-					sourceList, contextList, qualifierList);
+			cns.restrictToProperties(
+					propertyList, 
+					propertyTypes,
+					sourceList, 
+					contextList, 
+					qualifierList);
 		return this;
 	}
 

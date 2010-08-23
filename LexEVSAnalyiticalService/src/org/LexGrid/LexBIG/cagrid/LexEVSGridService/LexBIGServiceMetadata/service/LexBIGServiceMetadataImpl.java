@@ -36,7 +36,7 @@ public class LexBIGServiceMetadataImpl extends LexBIGServiceMetadataImplBase {
 		super();
 	}
 
-  public org.LexGrid.LexBIG.DataModel.Collections.AbsoluteCodingSchemeVersionReferenceList listCodingSchemes() throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException {
+  public org.LexGrid.LexBIG.iso21090.DataModel.Collections.AbsoluteCodingSchemeVersionReferenceList listCodingSchemes() throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException {
 		try {
 			return getResourceHome().getAddressedResource()
 					.getLexBIGServiceMetadata().listCodingSchemes();
@@ -46,7 +46,7 @@ public class LexBIGServiceMetadataImpl extends LexBIGServiceMetadataImplBase {
 		 }
 	}
 
-  public void restrictToCodingScheme(org.LexGrid.LexBIG.DataModel.Core.AbsoluteCodingSchemeVersionReference acsvr) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
+  public void restrictToCodingScheme(org.LexGrid.LexBIG.iso21090.DataModel.Core.AbsoluteCodingSchemeVersionReference acsvr) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
 		try {
 			LexBIGServiceMetadata lbsmd = getResourceHome()
 					.getAddressedResource().getLexBIGServiceMetadata();
@@ -59,7 +59,7 @@ public class LexBIGServiceMetadataImpl extends LexBIGServiceMetadataImplBase {
 		 }
 	}
 
-  public void restrictToProperties(org.LexGrid.LexBIG.DataModel.cagrid.PropertyIdentification[] propertyIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
+  public void restrictToProperties(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.PropertyIdentification[] propertyIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
 		try {
 			LexBIGServiceMetadata lbsmd = getResourceHome()
 					.getAddressedResource().getLexBIGServiceMetadata();
@@ -72,7 +72,7 @@ public class LexBIGServiceMetadataImpl extends LexBIGServiceMetadataImplBase {
 		 }
 	}
 
-  public void restrictToPropertyParents(org.LexGrid.LexBIG.DataModel.cagrid.PropertyIdentification[] propertyIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
+  public void restrictToPropertyParents(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.PropertyIdentification[] propertyIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
 		try {
 			LexBIGServiceMetadata lbsmd = getResourceHome()
 					.getAddressedResource().getLexBIGServiceMetadata();
@@ -85,7 +85,7 @@ public class LexBIGServiceMetadataImpl extends LexBIGServiceMetadataImplBase {
 		 }
 	}
 
-  public void restrictToValue(org.LexGrid.LexBIG.DataModel.cagrid.MatchCriteria matchCriteria,org.LexGrid.LexBIG.DataModel.cagrid.ExtensionIdentification extensionIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
+  public void restrictToValue(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.MatchCriteria matchCriteria,org.LexGrid.LexBIG.iso21090.DataModel.cagrid.ExtensionIdentification extensionIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
 		try {
 			LexBIGServiceMetadata lbsmd = getResourceHome()
 					.getAddressedResource().getLexBIGServiceMetadata();
@@ -98,7 +98,7 @@ public class LexBIGServiceMetadataImpl extends LexBIGServiceMetadataImplBase {
 		 }
 	}
 
-  public org.LexGrid.LexBIG.DataModel.Collections.MetadataPropertyList resolve() throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException {
+  public org.LexGrid.LexBIG.iso21090.DataModel.Collections.MetadataPropertyList resolve() throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException {
 		try {
 			return getResourceHome().getAddressedResource()
 					.getLexBIGServiceMetadata().resolve();

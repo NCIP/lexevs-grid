@@ -80,36 +80,32 @@ http\://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-ResourceProperties-1.2-draft-01
 
 gme\://caCORE.caCORE/3.2/gov.nih.nci.evs.security=gov.nih.nci.evs.security
 http\://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/Filter/types=org.LexGrid.LexBIG.cagrid.LexEVSGridService.Filter.stubs.types
-http\://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/HistoryService/types=org.LexGrid.LexBIG.cagrid.LexEVSGridService.HistoryService.stubs.types
 http\://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/CodedNodeGraph/types=org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeGraph.stubs.types
-uri\:iso.org\:21090=org.iso._21090
-http\://LexGrid.org/schema/2010/01/LexGrid/iso21090/codingSchemes=org.LexGrid.codingSchemes
-http\://LexGrid.org/schema/LexBIG/iso21090/2010/01/Core=org.LexGrid.LexBIG.DataModel.Core
-http\://LexGrid.org/schema/LexBIG/iso21090/2010/01/enums=org.LexGrid.LexBIG.DataModel.enums
-http\://LexGrid.org/schema/2010/01/LexGrid/iso21090/NCIHistorytypes=org.LexGrid.LexBIG.DataModel.NCIHistory.types
-http\://LexGrid.org/schema/2010/01/LexGrid/iso21090/Coretypes=org.LexGrid.LexBIG.DataModel.Core.types
-http\://LexGrid.org/schema/2010/01/LexGrid/iso21090/lbInterfacetypes=org.LexGrid.LexBIG.DataModel.InterfaceElements.types
-http\://LexGrid.org/schema/LexBIG/iso21090/2010/01/Collections=org.LexGrid.LexBIG.DataModel.Collections
+http\://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/HistoryService/types=org.LexGrid.LexBIG.cagrid.LexEVSGridService.HistoryService.stubs.types
+uri\:iso.org\:21090=gov.nih.nci.iso21090
+http\://LexGrid.org/schema/2010/01/LexGrid/iso21090/codingSchemes=org.LexGrid.iso21090.codingSchemes
+http\://LexGrid.org/schema/LexBIG/iso21090/2010/01/enums=org.LexGrid.LexBIG.iso21090.DataModel.enums
+http\://LexGrid.org/schema/LexBIG/iso21090/2010/01/Core=org.LexGrid.LexBIG.iso21090.DataModel.Core
+http\://LexGrid.org/schema/LexBIG/iso21090/2010/01/Collections=org.LexGrid.LexBIG.iso21090.DataModel.Collections
+http\://LexGrid.org/schema/2010/01/LexGrid/iso21090/concepts=org.LexGrid.iso21090.concepts
+http\://LexGrid.org/schema/2010/01/LexGrid/iso21090/NCIHistory=org.LexGrid.LexBIG.iso21090.DataModel.NCIHistory
 http\://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/ResolvedConceptReferencesIterator/types=org.LexGrid.LexBIG.cagrid.LexEVSGridService.ResolvedConceptReferencesIterator.stubs.types
-http\://LexGrid.org/schema/2010/01/LexGrid/iso21090/concepts=org.LexGrid.concepts
-http\://LexGrid.org/schema/2010/01/LexGrid/iso21090/NCIHistory=org.LexGrid.LexBIG.DataModel.NCIHistory
-http\://LexGrid.org/schema/2010/01/LexGrid/iso21090/commonTypesTypes=org.LexGrid.commonTypes.types
-http\://LexGrid.org/schema/LexBIG/iso21090/2010/01/InterfaceElements=org.LexGrid.LexBIG.DataModel.InterfaceElements
-http\://LexGrid.org/schema/2010/01/LexGrid/iso21090/commonTypes=org.LexGrid.commonTypes
-http\://LexGrid.org/schema/2010/01/LexGrid/iso21090/versions=org.LexGrid.versions
+http\://LexGrid.org/schema/LexBIG/iso21090/2010/01/InterfaceElements=org.LexGrid.LexBIG.iso21090.DataModel.InterfaceElements
+http\://LexGrid.org/schema/2010/01/LexGrid/iso21090/commonTypes=org.LexGrid.iso21090.commonTypes
+http\://LexGrid.org/schema/2010/01/LexGrid/iso21090/versions=org.LexGrid.iso21090.versions
 http\://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/types=org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types
 gme\://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.security=gov.nih.nci.cagrid.metadata.security
-http\://LexGrid.org/schema/2010/01/LexGrid/iso21090/relations=org.LexGrid.relations
-http\://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid=org.LexGrid.LexBIG.DataModel.cagrid
+http\://LexGrid.org/schema/2010/01/LexGrid/iso21090/relations=org.LexGrid.iso21090.relations
+http\://LexGrid.org/schema/LexBIG/iso21090/2010/01/caGrid=org.LexGrid.LexBIG.iso21090.DataModel.cagrid
 gme\://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata=gov.nih.nci.cagrid.metadata
 http\://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/Sort/types=org.LexGrid.LexBIG.cagrid.LexEVSGridService.Sort.stubs.types
-http\://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/types=org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceConvenienceMethods.stubs.types
 http\://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/CodedNodeSet/types=org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeSet.stubs.types
+http\://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/types=org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceConvenienceMethods.stubs.types
 http\://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceMetadata/types=org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceMetadata.stubs.types
 http\://LexGrid.org/schema/2010/01/LexGrid/iso21090/NCIChangeTypes=org.LexGrid.LexBIG.DataModel.NCIHistory
-http\://LexGrid.org/schema/LexBIG/2009/01/enums=enums
 
 gme\://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.service=gov.nih.nci.cagrid.metadata.service
+
 
 
 
@@ -119,6 +115,5 @@ http\://LexGrid.org/schema/2010/01/LexGrid/iso21090/naming=naming
 
 
 
-http\://LexGrid.org/schema/LexBIG/2009/01/Core=core
 
 

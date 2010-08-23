@@ -67,10 +67,6 @@ public class LexEVSGridServiceAuthorization implements PDP {
 		
 	}
 	   				
-	public void authorizeGetLastUpdateTime(Subject peerSubject, MessageContext context, QName operation) throws AuthorizationException {
-		
-	}
-	   				
 	public void authorizeResolveCodingScheme(Subject peerSubject, MessageContext context, QName operation) throws AuthorizationException {
 		
 	}
@@ -150,9 +146,6 @@ public class LexEVSGridServiceAuthorization implements PDP {
 			return true;
 		} else if(operation.getLocalPart().equals("getCodingSchemeConcepts")){
 			authorizeGetCodingSchemeConcepts(peerSubject, context, operation);
-			return true;
-		} else if(operation.getLocalPart().equals("getLastUpdateTime")){
-			authorizeGetLastUpdateTime(peerSubject, context, operation);
 			return true;
 		} else if(operation.getLocalPart().equals("resolveCodingScheme")){
 			authorizeResolveCodingScheme(peerSubject, context, operation);

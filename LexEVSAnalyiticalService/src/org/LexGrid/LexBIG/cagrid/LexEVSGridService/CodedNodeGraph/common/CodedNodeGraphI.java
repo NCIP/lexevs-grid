@@ -32,6 +32,19 @@ import java.rmi.RemoteException;
 public interface CodedNodeGraphI {
 
   /**
+   * Return a list of all of the associations in the graph that have the supplied source and target concepts based on distance between them. Distance (or the No. of edges) for a direct association between a source and target codes is 1. Values if distance should be equal or greater than 1, otherwise exception is thrown. Resulting list is not based on associations source & target have, but on distance only.
+   *
+   * @param relationshipDistanceBasedPolicy
+   * @throws InvalidServiceContextAccess
+   *	
+   * @throws LBInvocationException
+   *	
+   * @throws LBParameterException
+   *	
+   */
+ 
+
+  /**
    * Resolve all of the coded nodes in the list, sorting by the supplied property (if any), resolving the supplied properties, resolving coded entries to the supplied depth and resolving associations to the supplied   * depth.
    *
    * @param graphResolutionPolicy
@@ -42,20 +55,7 @@ public interface CodedNodeGraphI {
    * @throws LBParameterException
    *	
    */
-  public org.LexGrid.LexBIG.DataModel.Collections.ResolvedConceptReferenceList resolveAsList(org.LexGrid.LexBIG.DataModel.cagrid.GraphResolutionPolicy graphResolutionPolicy) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException ;
-
-  /**
-   * Return a list of all of the associations in the graph that have the supplied source and target concepts or, if directOnly is false, all associations whose transitive closure has the supplied associations.
-   *
-   * @param relationshipTypeBasedPolicy
-   * @throws InvalidServiceContextAccess
-   *	
-   * @throws LBInvocationException
-   *	
-   * @throws LBParameterException
-   *	
-   */
-  public org.LexGrid.LexBIG.DataModel.Collections.ConceptReferenceList listCodeRelationships(org.LexGrid.LexBIG.DataModel.cagrid.RelationshipTypeBasedPolicy relationshipTypeBasedPolicy) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException ;
+  public org.LexGrid.LexBIG.iso21090.DataModel.Collections.ResolvedConceptReferenceList resolveAsList(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.GraphResolutionPolicy graphResolutionPolicy) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException ;
 
   /**
    * Restrict the graph to concept codes (source and target) that originate from the supplied code system. Note: edges defined by other code systems will still be resolved if associated with both source and target nodes for the restricted code system.
@@ -68,7 +68,7 @@ public interface CodedNodeGraphI {
    * @throws LBParameterException
    *	
    */
-  public void restrictToSourceCodeSystem(org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException ;
+  public void restrictToSourceCodeSystem(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException ;
 
   /**
    * Restrict the graph to edges that have concepts derived from the supplied code system as a target.
@@ -81,7 +81,7 @@ public interface CodedNodeGraphI {
    * @throws LBParameterException
    *	
    */
-  public void restrictToTargetCodeSystem(org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException ;
+  public void restrictToTargetCodeSystem(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException ;
 
   /**
    * Restrict the graph to concept codes (source and target) that originate from the supplied code system. Note: edges defined by other code systems will still be resolved if associated with both source and target nodes for the restricted code system.
@@ -94,7 +94,7 @@ public interface CodedNodeGraphI {
    * @throws LBParameterException
    *	
    */
-  public void restrictToCodeSystem(org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException ;
+  public void restrictToCodeSystem(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException ;
 
   /**
    * Restrict the graph to associations that have one of the codes in the supplied list as target codes.
@@ -134,7 +134,7 @@ public interface CodedNodeGraphI {
    * @throws LBParameterException
    *	
    */
-  public void restrictToDirectionalNames(org.LexGrid.LexBIG.DataModel.Collections.NameAndValueList directionalNames,org.LexGrid.LexBIG.DataModel.Collections.NameAndValueList associationQualifiers) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException ;
+  public void restrictToDirectionalNames(org.LexGrid.LexBIG.iso21090.DataModel.Collections.NameAndValueList directionalNames,org.LexGrid.LexBIG.iso21090.DataModel.Collections.NameAndValueList associationQualifiers) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException ;
 
   /**
    * Restrict the graph to the nodes that participate as a source or target of the named association and, if supplied, the named association qualifiers.
@@ -148,7 +148,7 @@ public interface CodedNodeGraphI {
    * @throws LBParameterException
    *	
    */
-  public void restrictToAssociations(org.LexGrid.LexBIG.DataModel.Collections.NameAndValueList associations,org.LexGrid.LexBIG.DataModel.Collections.NameAndValueList associationQualifiers) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException ;
+  public void restrictToAssociations(org.LexGrid.LexBIG.iso21090.DataModel.Collections.NameAndValueList associations,org.LexGrid.LexBIG.iso21090.DataModel.Collections.NameAndValueList associationQualifiers) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException ;
 
   /**
    * Return a graph that contains only the codes that are present in the supplied list, and all edges that still have a source and target code remaining.
@@ -200,7 +200,7 @@ public interface CodedNodeGraphI {
    * @throws LBParameterException
    *	
    */
-  public org.LexGrid.LexBIG.DataModel.cagrid.CodeExistence isCodeInGraph(org.LexGrid.LexBIG.DataModel.Core.ConceptReference code) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException ;
+  public org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodeExistence isCodeInGraph(org.LexGrid.LexBIG.iso21090.DataModel.Core.ConceptReference code) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException ;
 
   /**
    * Transform the graph into a simple of list of concept codes, removing all association information.
@@ -213,7 +213,7 @@ public interface CodedNodeGraphI {
    * @throws LBParameterException
    *	
    */
-  public org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeSet.client.CodedNodeSetClient toNodeList(org.LexGrid.LexBIG.DataModel.cagrid.NodeListPolicy nodeListPolicy) throws RemoteException, org.apache.axis.types.URI.MalformedURIException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException ;
+  public org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeSet.client.CodedNodeSetClient toNodeList(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.NodeListPolicy nodeListPolicy) throws RemoteException, org.apache.axis.types.URI.MalformedURIException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException ;
 
   /**
    * Determine whether there is an directed edge (or transitive closure of an edge) from the source code to the target code in this graph. The last parameter determines whether only direct associations are considered or  whether the transitive closure of the edge is used.
@@ -227,20 +227,7 @@ public interface CodedNodeGraphI {
    * @throws LBParameterException
    *	
    */
-  public org.LexGrid.LexBIG.DataModel.cagrid.CodeRelationship areCodesRelated(org.LexGrid.LexBIG.DataModel.cagrid.RelationshipTypeBasedPolicy relationshipTypeBasedPolicy,org.LexGrid.LexBIG.DataModel.Core.NameAndValue nameAndValue) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException ;
-
-  /**
-   * Return a list of all of the associations in the graph that have the supplied source and target concepts based on distance between them. Distance (or the No. of edges) for a direct association between a source and target codes is 1. Values if distance should be equal or greater than 1, otherwise exception is thrown. Resulting list is not based on associations source & target have, but on distance only.
-   *
-   * @param relationshipDistanceBasedPolicy
-   * @throws InvalidServiceContextAccess
-   *	
-   * @throws LBInvocationException
-   *	
-   * @throws LBParameterException
-   *	
-   */
-  public org.LexGrid.LexBIG.DataModel.Collections.ConceptReferenceList listCodeRelationships2(org.LexGrid.LexBIG.DataModel.cagrid.RelationshipDistanceBasedPolicy relationshipDistanceBasedPolicy) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException ;
+  public org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodeRelationship areCodesRelated(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.RelationshipTypeBasedPolicy relationshipTypeBasedPolicy,org.LexGrid.LexBIG.iso21090.DataModel.Core.NameAndValue nameAndValue) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException ;
 
   public org.oasis.wsrf.lifetime.DestroyResponse destroy(org.oasis.wsrf.lifetime.Destroy params) throws RemoteException ;
 

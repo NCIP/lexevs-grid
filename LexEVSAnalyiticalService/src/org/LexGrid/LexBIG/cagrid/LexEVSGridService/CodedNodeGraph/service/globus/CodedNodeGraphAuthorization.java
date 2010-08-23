@@ -63,10 +63,6 @@ public class CodedNodeGraphAuthorization implements PDP {
 		
 	}
 	   				
-	public void authorizeListCodeRelationships(Subject peerSubject, MessageContext context, QName operation) throws AuthorizationException {
-		
-	}
-	   				
 	public void authorizeRestrictToSourceCodeSystem(Subject peerSubject, MessageContext context, QName operation) throws AuthorizationException {
 		
 	}
@@ -119,10 +115,6 @@ public class CodedNodeGraphAuthorization implements PDP {
 		
 	}
 	   				
-	public void authorizeListCodeRelationships2(Subject peerSubject, MessageContext context, QName operation) throws AuthorizationException {
-		
-	}
-	   				
 	public void authorizeDestroy(Subject peerSubject, MessageContext context, QName operation) throws AuthorizationException {
 		
 	}
@@ -155,9 +147,6 @@ public class CodedNodeGraphAuthorization implements PDP {
 			return true;
 		} else if(operation.getLocalPart().equals("getServiceSecurityMetadata")){
 			authorizeGetServiceSecurityMetadata(peerSubject, context, operation);
-			return true;
-		} else if(operation.getLocalPart().equals("listCodeRelationships")){
-			authorizeListCodeRelationships(peerSubject, context, operation);
 			return true;
 		} else if(operation.getLocalPart().equals("restrictToSourceCodeSystem")){
 			authorizeRestrictToSourceCodeSystem(peerSubject, context, operation);
@@ -197,9 +186,6 @@ public class CodedNodeGraphAuthorization implements PDP {
 			return true;
 		} else if(operation.getLocalPart().equals("areCodesRelated")){
 			authorizeAreCodesRelated(peerSubject, context, operation);
-			return true;
-		} else if(operation.getLocalPart().equals("listCodeRelationships2")){
-			authorizeListCodeRelationships2(peerSubject, context, operation);
 			return true;
 		} else if(operation.getLocalPart().equals("destroy")){
 			authorizeDestroy(peerSubject, context, operation);

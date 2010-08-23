@@ -76,7 +76,7 @@ public class CodedNodeGraphClient extends CodedNodeGraphClientBase implements Co
 		}
 	}
 
-  public org.LexGrid.LexBIG.DataModel.Collections.ResolvedConceptReferenceList resolveAsList(org.LexGrid.LexBIG.DataModel.cagrid.GraphResolutionPolicy graphResolutionPolicy) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
+  public org.LexGrid.LexBIG.iso21090.DataModel.Collections.ResolvedConceptReferenceList resolveAsList(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.GraphResolutionPolicy graphResolutionPolicy) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
     synchronized(portTypeMutex){
       configureStubSecurity((Stub)portType,"resolveAsList");
     org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeGraph.stubs.ResolveAsListRequest params = new org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeGraph.stubs.ResolveAsListRequest();
@@ -88,19 +88,7 @@ public class CodedNodeGraphClient extends CodedNodeGraphClientBase implements Co
     }
   }
 
-  public org.LexGrid.LexBIG.DataModel.Collections.ConceptReferenceList listCodeRelationships(org.LexGrid.LexBIG.DataModel.cagrid.RelationshipTypeBasedPolicy relationshipTypeBasedPolicy) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
-    synchronized(portTypeMutex){
-      configureStubSecurity((Stub)portType,"listCodeRelationships");
-    org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeGraph.stubs.ListCodeRelationshipsRequest params = new org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeGraph.stubs.ListCodeRelationshipsRequest();
-    org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeGraph.stubs.ListCodeRelationshipsRequestRelationshipTypeBasedPolicy relationshipTypeBasedPolicyContainer = new org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeGraph.stubs.ListCodeRelationshipsRequestRelationshipTypeBasedPolicy();
-    relationshipTypeBasedPolicyContainer.setRelationshipTypeBasedPolicy(relationshipTypeBasedPolicy);
-    params.setRelationshipTypeBasedPolicy(relationshipTypeBasedPolicyContainer);
-    org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeGraph.stubs.ListCodeRelationshipsResponse boxedResult = portType.listCodeRelationships(params);
-    return boxedResult.getConceptReferenceList();
-    }
-  }
-
-  public void restrictToSourceCodeSystem(org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
+  public void restrictToSourceCodeSystem(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
     synchronized(portTypeMutex){
       configureStubSecurity((Stub)portType,"restrictToSourceCodeSystem");
     org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeGraph.stubs.RestrictToSourceCodeSystemRequest params = new org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeGraph.stubs.RestrictToSourceCodeSystemRequest();
@@ -111,7 +99,7 @@ public class CodedNodeGraphClient extends CodedNodeGraphClientBase implements Co
     }
   }
 
-  public void restrictToTargetCodeSystem(org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
+  public void restrictToTargetCodeSystem(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
     synchronized(portTypeMutex){
       configureStubSecurity((Stub)portType,"restrictToTargetCodeSystem");
     org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeGraph.stubs.RestrictToTargetCodeSystemRequest params = new org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeGraph.stubs.RestrictToTargetCodeSystemRequest();
@@ -122,7 +110,7 @@ public class CodedNodeGraphClient extends CodedNodeGraphClientBase implements Co
     }
   }
 
-  public void restrictToCodeSystem(org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
+  public void restrictToCodeSystem(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
     synchronized(portTypeMutex){
       configureStubSecurity((Stub)portType,"restrictToCodeSystem");
     org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeGraph.stubs.RestrictToCodeSystemRequest params = new org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeGraph.stubs.RestrictToCodeSystemRequest();
@@ -155,7 +143,7 @@ public class CodedNodeGraphClient extends CodedNodeGraphClientBase implements Co
     }
   }
 
-  public void restrictToDirectionalNames(org.LexGrid.LexBIG.DataModel.Collections.NameAndValueList directionalNames,org.LexGrid.LexBIG.DataModel.Collections.NameAndValueList associationQualifiers) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
+  public void restrictToDirectionalNames(org.LexGrid.LexBIG.iso21090.DataModel.Collections.NameAndValueList directionalNames,org.LexGrid.LexBIG.iso21090.DataModel.Collections.NameAndValueList associationQualifiers) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
     synchronized(portTypeMutex){
       configureStubSecurity((Stub)portType,"restrictToDirectionalNames");
     org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeGraph.stubs.RestrictToDirectionalNamesRequest params = new org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeGraph.stubs.RestrictToDirectionalNamesRequest();
@@ -169,7 +157,7 @@ public class CodedNodeGraphClient extends CodedNodeGraphClientBase implements Co
     }
   }
 
-  public void restrictToAssociations(org.LexGrid.LexBIG.DataModel.Collections.NameAndValueList associations,org.LexGrid.LexBIG.DataModel.Collections.NameAndValueList associationQualifiers) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
+  public void restrictToAssociations(org.LexGrid.LexBIG.iso21090.DataModel.Collections.NameAndValueList associations,org.LexGrid.LexBIG.iso21090.DataModel.Collections.NameAndValueList associationQualifiers) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
     synchronized(portTypeMutex){
       configureStubSecurity((Stub)portType,"restrictToAssociations");
     org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeGraph.stubs.RestrictToAssociationsRequest params = new org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeGraph.stubs.RestrictToAssociationsRequest();
@@ -216,7 +204,7 @@ public class CodedNodeGraphClient extends CodedNodeGraphClientBase implements Co
     }
   }
 
-  public org.LexGrid.LexBIG.DataModel.cagrid.CodeExistence isCodeInGraph(org.LexGrid.LexBIG.DataModel.Core.ConceptReference code) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
+  public org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodeExistence isCodeInGraph(org.LexGrid.LexBIG.iso21090.DataModel.Core.ConceptReference code) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
     synchronized(portTypeMutex){
       configureStubSecurity((Stub)portType,"isCodeInGraph");
     org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeGraph.stubs.IsCodeInGraphRequest params = new org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeGraph.stubs.IsCodeInGraphRequest();
@@ -228,7 +216,7 @@ public class CodedNodeGraphClient extends CodedNodeGraphClientBase implements Co
     }
   }
 
-  public org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeSet.client.CodedNodeSetClient toNodeList(org.LexGrid.LexBIG.DataModel.cagrid.NodeListPolicy nodeListPolicy) throws RemoteException, org.apache.axis.types.URI.MalformedURIException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
+  public org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeSet.client.CodedNodeSetClient toNodeList(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.NodeListPolicy nodeListPolicy) throws RemoteException, org.apache.axis.types.URI.MalformedURIException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
     synchronized(portTypeMutex){
       configureStubSecurity((Stub)portType,"toNodeList");
     org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeGraph.stubs.ToNodeListRequest params = new org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeGraph.stubs.ToNodeListRequest();
@@ -241,7 +229,7 @@ public class CodedNodeGraphClient extends CodedNodeGraphClientBase implements Co
     }
   }
 
-  public org.LexGrid.LexBIG.DataModel.cagrid.CodeRelationship areCodesRelated(org.LexGrid.LexBIG.DataModel.cagrid.RelationshipTypeBasedPolicy relationshipTypeBasedPolicy,org.LexGrid.LexBIG.DataModel.Core.NameAndValue nameAndValue) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
+  public org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodeRelationship areCodesRelated(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.RelationshipTypeBasedPolicy relationshipTypeBasedPolicy,org.LexGrid.LexBIG.iso21090.DataModel.Core.NameAndValue nameAndValue) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
     synchronized(portTypeMutex){
       configureStubSecurity((Stub)portType,"areCodesRelated");
     org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeGraph.stubs.AreCodesRelatedRequest params = new org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeGraph.stubs.AreCodesRelatedRequest();
@@ -253,18 +241,6 @@ public class CodedNodeGraphClient extends CodedNodeGraphClientBase implements Co
     params.setNameAndValue(nameAndValueContainer);
     org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeGraph.stubs.AreCodesRelatedResponse boxedResult = portType.areCodesRelated(params);
     return boxedResult.getCodeRelationship();
-    }
-  }
-
-  public org.LexGrid.LexBIG.DataModel.Collections.ConceptReferenceList listCodeRelationships2(org.LexGrid.LexBIG.DataModel.cagrid.RelationshipDistanceBasedPolicy relationshipDistanceBasedPolicy) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
-    synchronized(portTypeMutex){
-      configureStubSecurity((Stub)portType,"listCodeRelationships2");
-    org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeGraph.stubs.ListCodeRelationships2Request params = new org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeGraph.stubs.ListCodeRelationships2Request();
-    org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeGraph.stubs.ListCodeRelationships2RequestRelationshipDistanceBasedPolicy relationshipDistanceBasedPolicyContainer = new org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeGraph.stubs.ListCodeRelationships2RequestRelationshipDistanceBasedPolicy();
-    relationshipDistanceBasedPolicyContainer.setRelationshipDistanceBasedPolicy(relationshipDistanceBasedPolicy);
-    params.setRelationshipDistanceBasedPolicy(relationshipDistanceBasedPolicyContainer);
-    org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeGraph.stubs.ListCodeRelationships2Response boxedResult = portType.listCodeRelationships2(params);
-    return boxedResult.getConceptReferenceList();
     }
   }
 

@@ -20,19 +20,20 @@
 package org.LexGrid.LexBIG.cagrid.adapters;
 
 import java.rmi.RemoteException;
+import java.util.List;
 
-import org.LexGrid.LexBIG.DataModel.Collections.ConceptReferenceList;
-import org.LexGrid.LexBIG.DataModel.Collections.NameAndValueList;
-import org.LexGrid.LexBIG.DataModel.Collections.ResolvedConceptReferenceList;
-import org.LexGrid.LexBIG.DataModel.Core.ConceptReference;
-import org.LexGrid.LexBIG.DataModel.Core.NameAndValue;
-import org.LexGrid.LexBIG.DataModel.cagrid.CodeExistence;
-import org.LexGrid.LexBIG.DataModel.cagrid.CodeRelationship;
-import org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeIdentification;
-import org.LexGrid.LexBIG.DataModel.cagrid.GraphResolutionPolicy;
-import org.LexGrid.LexBIG.DataModel.cagrid.NodeListPolicy;
-import org.LexGrid.LexBIG.DataModel.cagrid.RelationshipDistanceBasedPolicy;
-import org.LexGrid.LexBIG.DataModel.cagrid.RelationshipTypeBasedPolicy;
+import org.LexGrid.LexBIG.iso21090.DataModel.Collections.ConceptReferenceList;
+import org.LexGrid.LexBIG.iso21090.DataModel.Collections.NameAndValueList;
+import org.LexGrid.LexBIG.iso21090.DataModel.Collections.ResolvedConceptReferenceList;
+import org.LexGrid.LexBIG.iso21090.DataModel.Core.ConceptReference;
+import org.LexGrid.LexBIG.iso21090.DataModel.Core.NameAndValue;
+import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodeExistence;
+import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodeRelationship;
+import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification;
+import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.GraphResolutionPolicy;
+import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.NodeListPolicy;
+import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.RelationshipDistanceBasedPolicy;
+import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.RelationshipTypeBasedPolicy;
 import org.LexGrid.LexBIG.LexBIGService.CodedNodeGraph;
 import org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeGraph.client.CodedNodeGraphClient;
 import org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeGraph.stubs.types.CodedNodeGraphReference;
@@ -88,17 +89,9 @@ public class CodedNodeGraphGridAdapter implements CodedNodeGraphGrid {
 	/* (non-Javadoc)
 	 * @see org.LexGrid.LexBIG.cagrid.interfaces.CodedNodeGraphGrid#listCodeRelationships(org.LexGrid.LexBIG.DataModel.cagrid.RelationshipTypeBasedPolicy)
 	 */
-	public ConceptReferenceList listCodeRelationships(RelationshipTypeBasedPolicy policy)
+	public List<String> listCodeRelationships(RelationshipTypeBasedPolicy policy)
 			throws LBInvocationException, LBParameterException, InvalidServiceContextAccess, RemoteException {
-			return cng.listCodeRelationships(policy);
-	}
-
-	/* (non-Javadoc)
-	 * @see org.LexGrid.LexBIG.cagrid.interfaces.CodedNodeGraphGrid#listCodeRelationships(org.LexGrid.LexBIG.DataModel.cagrid.RelationshipDistanceBasedPolicy)
-	 */
-	public ConceptReferenceList listCodeRelationships(RelationshipDistanceBasedPolicy policy) 
-			throws LBInvocationException, LBParameterException, InvalidServiceContextAccess, RemoteException {
-			return cng.listCodeRelationships2(policy);
+			return null;//cng.listCodeRelationships(policy);
 	}
 
 	/* (non-Javadoc)
@@ -227,5 +220,13 @@ public class CodedNodeGraphGridAdapter implements CodedNodeGraphGrid {
 	
 	public EndpointReferenceType getEndpointReference(){
 		return cng.getEndpointReference();
+	}
+	@Override
+	public ConceptReferenceList listCodeRelationships(
+			RelationshipDistanceBasedPolicy policy)
+			throws LBInvocationException, LBParameterException,
+			InvalidServiceContextAccess, RemoteException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

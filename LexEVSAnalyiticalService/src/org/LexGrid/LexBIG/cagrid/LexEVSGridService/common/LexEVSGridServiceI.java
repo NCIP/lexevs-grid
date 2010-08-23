@@ -37,7 +37,7 @@ public interface LexEVSGridServiceI {
    * @throws LBInvocationException
    *	
    */
-  public org.LexGrid.LexBIG.DataModel.Collections.CodingSchemeRenderingList getSupportedCodingSchemes() throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException ;
+  public org.LexGrid.LexBIG.iso21090.DataModel.Collections.CodingSchemeRenderingList getSupportedCodingSchemes() throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException ;
 
   /**
    * Returns the set of all (or all active) concepts in the specified coding scheme.
@@ -47,15 +47,7 @@ public interface LexEVSGridServiceI {
    * @throws LBException
    *	
    */
-  public org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeSet.client.CodedNodeSetClient getCodingSchemeConcepts(org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag versionOrTag) throws RemoteException, org.apache.axis.types.URI.MalformedURIException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException ;
-
-  /**
-   * Return the last time that the content of this service was changed; null if no changes have occurred. Tag assignments do not count as service changes for this purpose.
-   *
-   * @throws LBInvocationException
-   *	
-   */
-  public java.util.Date getLastUpdateTime() throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException ;
+  public org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeSet.client.CodedNodeSetClient getCodingSchemeConcepts(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag versionOrTag) throws RemoteException, org.apache.axis.types.URI.MalformedURIException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException ;
 
   /**
    * Return detailed coding scheme information given a specific tag or version identifier.
@@ -65,13 +57,13 @@ public interface LexEVSGridServiceI {
    * @throws LBException
    *	
    */
-  public org.LexGrid.codingSchemes.CodingScheme resolveCodingScheme(org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag versionOrTag) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException ;
+  public org.LexGrid.iso21090.codingSchemes.CodingScheme resolveCodingScheme(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag versionOrTag) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException ;
 
   /**
    * Returns the full description of all supported match algorithms.
    *
    */
-  public org.LexGrid.LexBIG.DataModel.Collections.ModuleDescriptionList getMatchAlgorithms() throws RemoteException ;
+  public org.LexGrid.LexBIG.iso21090.DataModel.Collections.ModuleDescriptionList getMatchAlgorithms() throws RemoteException ;
 
   /**
    * Returns the node graph as represented in the particular relationship set in the coding scheme.
@@ -82,20 +74,20 @@ public interface LexEVSGridServiceI {
    * @throws LBException
    *	
    */
-  public org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeGraph.client.CodedNodeGraphClient getNodeGraph(org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag versionOrTag,org.LexGrid.LexBIG.DataModel.cagrid.RelationContainerIdentification relationContainerIdentification) throws RemoteException, org.apache.axis.types.URI.MalformedURIException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException ;
+  public org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeGraph.client.CodedNodeGraphClient getNodeGraph(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag versionOrTag,org.LexGrid.LexBIG.iso21090.DataModel.cagrid.RelationContainerIdentification relationContainerIdentification) throws RemoteException, org.apache.axis.types.URI.MalformedURIException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException ;
 
   /**
    * Returns a description of all registered extensions used to provide additional sorting of query results in the given context. Note: The returned list will include any 'built-in' sort algorithms in addition to extensions externally packaged and registered to the service.
    *
    * @param context
    */
-  public org.LexGrid.LexBIG.DataModel.Collections.SortDescriptionList getSortAlgorithms(java.lang.String context) throws RemoteException ;
+  public org.LexGrid.LexBIG.iso21090.DataModel.Collections.SortDescriptionList getSortAlgorithms(java.lang.String context) throws RemoteException ;
 
   /**
    * Returns a description of all registered extensions used to implement application-specific behavior that is centrally accessible from a LexBIGService.  Note that only generic extensions (base class GenericExtension) will be listed here. All other classes are retrievable at the appropriate interface point (filter, sort, etc).
    *
    */
-  public org.LexGrid.LexBIG.DataModel.Collections.ExtensionDescriptionList getGenericExtensions() throws RemoteException ;
+  public org.LexGrid.LexBIG.iso21090.DataModel.Collections.ExtensionDescriptionList getGenericExtensions() throws RemoteException ;
 
   /**
    * Returns an instance of the application-specific extension registered with the given name.
@@ -104,13 +96,13 @@ public interface LexEVSGridServiceI {
    * @throws LBException
    *	
    */
-  public org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceConvenienceMethods.client.LexBIGServiceConvenienceMethodsClient getGenericExtension(org.LexGrid.LexBIG.DataModel.cagrid.ExtensionIdentification extensionIdentification) throws RemoteException, org.apache.axis.types.URI.MalformedURIException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException ;
+  public org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceConvenienceMethods.client.LexBIGServiceConvenienceMethodsClient getGenericExtension(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.ExtensionIdentification extensionIdentification) throws RemoteException, org.apache.axis.types.URI.MalformedURIException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException ;
 
   /**
    *  Returns a description of all registered extensions used to provide additional filtering of query results.
    *
    */
-  public org.LexGrid.LexBIG.DataModel.Collections.ExtensionDescriptionList getFilterExtensions() throws RemoteException ;
+  public org.LexGrid.LexBIG.iso21090.DataModel.Collections.ExtensionDescriptionList getFilterExtensions() throws RemoteException ;
 
   /**
    * Resolve a reference to the history api servicing the given coding scheme.
@@ -119,7 +111,7 @@ public interface LexEVSGridServiceI {
    * @throws LBException
    *	
    */
-  public org.LexGrid.LexBIG.cagrid.LexEVSGridService.HistoryService.client.HistoryServiceClient getHistoryService(org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification) throws RemoteException, org.apache.axis.types.URI.MalformedURIException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException ;
+  public org.LexGrid.LexBIG.cagrid.LexEVSGridService.HistoryService.client.HistoryServiceClient getHistoryService(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification) throws RemoteException, org.apache.axis.types.URI.MalformedURIException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException ;
 
   /**
    * Return an interface to perform system-wide query over metadata for loaded code systems and providers.
@@ -136,7 +128,7 @@ public interface LexEVSGridServiceI {
    * @throws LBException
    *	
    */
-  public org.LexGrid.LexBIG.cagrid.LexEVSGridService.Sort.client.SortClient getSortAlgorithm(org.LexGrid.LexBIG.DataModel.cagrid.ExtensionIdentification extensionIdentification) throws RemoteException, org.apache.axis.types.URI.MalformedURIException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException ;
+  public org.LexGrid.LexBIG.cagrid.LexEVSGridService.Sort.client.SortClient getSortAlgorithm(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.ExtensionIdentification extensionIdentification) throws RemoteException, org.apache.axis.types.URI.MalformedURIException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException ;
 
   /**
    * Returns an instance of the filter extension registered with the given name.
@@ -145,7 +137,7 @@ public interface LexEVSGridServiceI {
    * @throws LBException
    *	
    */
-  public org.LexGrid.LexBIG.cagrid.LexEVSGridService.Filter.client.FilterClient getFilter(org.LexGrid.LexBIG.DataModel.cagrid.ExtensionIdentification extensionIdentification) throws RemoteException, org.apache.axis.types.URI.MalformedURIException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException ;
+  public org.LexGrid.LexBIG.cagrid.LexEVSGridService.Filter.client.FilterClient getFilter(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.ExtensionIdentification extensionIdentification) throws RemoteException, org.apache.axis.types.URI.MalformedURIException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException ;
 
   /**
    * Return coding scheme copyright given a specific tag or version identifier.
@@ -155,7 +147,7 @@ public interface LexEVSGridServiceI {
    * @throws LBException
    *	
    */
-  public org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeCopyRight resolveCodingSchemeCopyright(org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag versionOrTag) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException ;
+  public org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeCopyRight resolveCodingSchemeCopyright(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag versionOrTag) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException ;
 
   /**
    * Sets the Security Token for the given Coding Scheme.
@@ -165,7 +157,7 @@ public interface LexEVSGridServiceI {
    * @throws LBException
    *	
    */
-  public org.LexGrid.LexBIG.cagrid.LexEVSGridService.client.LexEVSGridServiceClient setSecurityToken(org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,gov.nih.nci.evs.security.SecurityToken securityToken) throws RemoteException, org.apache.axis.types.URI.MalformedURIException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException ;
+  public org.LexGrid.LexBIG.cagrid.LexEVSGridService.client.LexEVSGridServiceClient setSecurityToken(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,gov.nih.nci.evs.security.SecurityToken securityToken) throws RemoteException, org.apache.axis.types.URI.MalformedURIException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException ;
 
   public org.oasis.wsrf.properties.GetMultipleResourcePropertiesResponse getMultipleResourceProperties(org.oasis.wsrf.properties.GetMultipleResourceProperties_Element params) throws RemoteException ;
 

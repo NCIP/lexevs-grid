@@ -24,22 +24,22 @@ import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.util.Date;
 
-import org.LexGrid.LexBIG.DataModel.Collections.CodingSchemeRenderingList;
-import org.LexGrid.LexBIG.DataModel.Collections.ExtensionDescriptionList;
-import org.LexGrid.LexBIG.DataModel.Collections.ModuleDescriptionList;
-import org.LexGrid.LexBIG.DataModel.Collections.SortDescriptionList;
-import org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag;
-import org.LexGrid.LexBIG.DataModel.InterfaceElements.types.SortContext;
-import org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeCopyRight;
-import org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeIdentification;
-import org.LexGrid.LexBIG.DataModel.cagrid.ExtensionIdentification;
-import org.LexGrid.LexBIG.DataModel.cagrid.RelationContainerIdentification;
+import org.LexGrid.LexBIG.iso21090.DataModel.Collections.CodingSchemeRenderingList;
+import org.LexGrid.LexBIG.iso21090.DataModel.Collections.ExtensionDescriptionList;
+import org.LexGrid.LexBIG.iso21090.DataModel.Collections.ModuleDescriptionList;
+import org.LexGrid.LexBIG.iso21090.DataModel.Collections.SortDescriptionList;
+import org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag;
+import org.LexGrid.LexBIG.iso21090.DataModel.InterfaceElements.types.SortContext;
+import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeCopyRight;
+import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification;
+import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.ExtensionIdentification;
+import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.RelationContainerIdentification;
 import org.LexGrid.LexBIG.Extensions.Generic.GenericExtension;
 import org.LexGrid.LexBIG.Extensions.Query.Filter;
 import org.LexGrid.LexBIG.Extensions.Query.Sort;
 import org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException;
 import org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException;
-import org.LexGrid.codingSchemes.CodingScheme;
+import org.LexGrid.iso21090.codingSchemes.CodingScheme;
 
 /**
  * This interface represents the core interface to a LexBIG service.

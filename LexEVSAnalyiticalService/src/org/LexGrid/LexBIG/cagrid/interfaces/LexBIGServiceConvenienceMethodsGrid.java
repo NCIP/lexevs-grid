@@ -20,21 +20,21 @@ package org.LexGrid.LexBIG.cagrid.interfaces;
 
 import java.rmi.RemoteException;
 
-import org.LexGrid.LexBIG.DataModel.Collections.AssociationList;
-import org.LexGrid.LexBIG.DataModel.Collections.CodingSchemeRenderingList;
-import org.LexGrid.LexBIG.DataModel.Collections.ResolvedConceptReferenceList;
-import org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag;
-import org.LexGrid.LexBIG.DataModel.InterfaceElements.CodingSchemeRendering;
-import org.LexGrid.LexBIG.DataModel.cagrid.AssociationIdentification;
-import org.LexGrid.LexBIG.DataModel.cagrid.CodeState;
-import org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeCopyRight;
-import org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeIdentification;
-import org.LexGrid.LexBIG.DataModel.cagrid.ConceptIdentification;
-import org.LexGrid.LexBIG.DataModel.cagrid.Direction;
-import org.LexGrid.LexBIG.DataModel.cagrid.DirectionalAssociationIdentification;
-import org.LexGrid.LexBIG.DataModel.cagrid.HierarchyIdentification;
-import org.LexGrid.LexBIG.DataModel.cagrid.HierarchyResolutionPolicy;
-import org.LexGrid.LexBIG.DataModel.enums.HierarchyPathResolveOption;
+import org.LexGrid.LexBIG.iso21090.DataModel.Collections.AssociationList;
+import org.LexGrid.LexBIG.iso21090.DataModel.Collections.CodingSchemeRenderingList;
+import org.LexGrid.LexBIG.iso21090.DataModel.Collections.ResolvedConceptReferenceList;
+import org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag;
+import org.LexGrid.LexBIG.iso21090.DataModel.InterfaceElements.CodingSchemeRendering;
+import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.AssociationIdentification;
+import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodeState;
+import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeCopyRight;
+import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification;
+import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.ConceptIdentification;
+import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.Direction;
+import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.DirectionalAssociationIdentification;
+import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.HierarchyIdentification;
+import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.HierarchyResolutionPolicy;
+import org.LexGrid.LexBIG.iso21090.DataModel.enums.HierarchyPathResolveOption;
 import org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess;
 import org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException;
 

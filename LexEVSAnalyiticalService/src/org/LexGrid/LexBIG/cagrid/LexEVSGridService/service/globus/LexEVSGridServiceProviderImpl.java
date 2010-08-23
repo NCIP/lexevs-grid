@@ -19,6 +19,7 @@
  *******************************************************************************/
 package org.LexGrid.LexBIG.cagrid.LexEVSGridService.service.globus;
 
+import org.LexGrid.LexBIG.cagrid.Iso21090Utils;
 import org.LexGrid.LexBIG.cagrid.LexEVSGridService.service.LexEVSGridServiceImpl;
 
 import java.rmi.RemoteException;
@@ -54,12 +55,6 @@ public class LexEVSGridServiceProviderImpl{
     public org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.GetCodingSchemeConceptsResponse getCodingSchemeConcepts(org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.GetCodingSchemeConceptsRequest params) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
     org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.GetCodingSchemeConceptsResponse boxedResult = new org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.GetCodingSchemeConceptsResponse();
     boxedResult.setCodedNodeSetReference(impl.getCodingSchemeConcepts(params.getCodingSchemeIdentification().getCodingSchemeIdentification(),params.getVersionOrTag().getCodingSchemeVersionOrTag()));
-    return boxedResult;
-  }
-
-    public org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.GetLastUpdateTimeResponse getLastUpdateTime(org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.GetLastUpdateTimeRequest params) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException {
-    org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.GetLastUpdateTimeResponse boxedResult = new org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.GetLastUpdateTimeResponse();
-    boxedResult.setResponse(impl.getLastUpdateTime());
     return boxedResult;
   }
 

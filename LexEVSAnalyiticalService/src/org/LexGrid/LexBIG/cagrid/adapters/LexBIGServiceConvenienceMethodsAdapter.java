@@ -30,6 +30,7 @@ import org.LexGrid.LexBIG.DataModel.Collections.ResolvedConceptReferenceList;
 import org.LexGrid.LexBIG.DataModel.Core.Association;
 import org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag;
 import org.LexGrid.LexBIG.DataModel.Core.ConceptReference;
+import org.LexGrid.LexBIG.DataModel.Core.ResolvedConceptReference;
 import org.LexGrid.LexBIG.DataModel.cagrid.AssociationIdentification;
 import org.LexGrid.LexBIG.DataModel.cagrid.CodeState;
 import org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeCopyRight;
@@ -37,12 +38,14 @@ import org.LexGrid.LexBIG.DataModel.cagrid.Direction;
 import org.LexGrid.LexBIG.DataModel.cagrid.DirectionalAssociationIdentification;
 import org.LexGrid.LexBIG.DataModel.cagrid.HierarchyResolutionPolicy;
 import org.LexGrid.LexBIG.Exceptions.LBException;
+import org.LexGrid.LexBIG.Exceptions.LBParameterException;
 import org.LexGrid.LexBIG.Extensions.Generic.LexBIGServiceConvenienceMethods;
 import org.LexGrid.LexBIG.LexBIGService.CodedNodeSet;
 import org.LexGrid.LexBIG.LexBIGService.LexBIGService;
 import org.LexGrid.LexBIG.cagrid.Utils;
 import org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess;
 import org.LexGrid.naming.SupportedHierarchy;
+import org.LexGrid.naming.SupportedProperty;
 
 public class LexBIGServiceConvenienceMethodsAdapter implements LexBIGServiceConvenienceMethods {
 
@@ -632,6 +635,44 @@ private LexBIGServiceConvenienceMethodsGridAdapter lbscm;
 	public ResolvedConceptReferenceList getHierarchyRoots(String arg0,
 			CodingSchemeVersionOrTag arg1, String arg2, boolean arg3)
 			throws LBException {
+		throw new RuntimeException("This is not a valid Grid Service Call");
+	}
+
+	@Override
+	public String[] getAssociationNameForDirectionalName(String arg0,
+			CodingSchemeVersionOrTag arg1, String arg2) throws LBException {
+		throw new RuntimeException("This is not a valid Grid Service Call");
+	}
+
+	@Override
+	public List<SupportedProperty> getSupportedPropertiesOfTypeComment(
+			String arg0, CodingSchemeVersionOrTag arg1) throws LBException {
+		throw new RuntimeException("This is not a valid Grid Service Call");
+	}
+
+	@Override
+	public List<SupportedProperty> getSupportedPropertiesOfTypeDefinition(
+			String arg0, CodingSchemeVersionOrTag arg1) throws LBException {
+		throw new RuntimeException("This is not a valid Grid Service Call");
+	}
+
+	@Override
+	public List<SupportedProperty> getSupportedPropertiesOfTypePresentation(
+			String arg0, CodingSchemeVersionOrTag arg1) throws LBException {
+		throw new RuntimeException("This is not a valid Grid Service Call");
+	}
+
+	@Override
+	public List<SupportedProperty> getSupportedPropertiesOfTypeProperty(
+			String arg0, CodingSchemeVersionOrTag arg1) throws LBException {
+		throw new RuntimeException("This is not a valid Grid Service Call");
+	}
+
+	@Override
+	public ResolvedConceptReference getNodesPath(String arg0,
+			CodingSchemeVersionOrTag arg1, String arg2, String arg3,
+			String arg4, String arg5, String arg6, String arg7)
+			throws LBParameterException {
 		throw new RuntimeException("This is not a valid Grid Service Call");
 	}
 }

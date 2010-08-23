@@ -39,7 +39,7 @@ public interface LexBIGServiceMetadataI {
    * @throws LBInvocationException
    *	
    */
-  public org.LexGrid.LexBIG.DataModel.Collections.AbsoluteCodingSchemeVersionReferenceList listCodingSchemes() throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException ;
+  public org.LexGrid.LexBIG.iso21090.DataModel.Collections.AbsoluteCodingSchemeVersionReferenceList listCodingSchemes() throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException ;
 
   /**
    * Restrict the search to a particular coding scheme.
@@ -50,7 +50,7 @@ public interface LexBIGServiceMetadataI {
    * @throws LBParameterException
    *	
    */
-  public void restrictToCodingScheme(org.LexGrid.LexBIG.DataModel.Core.AbsoluteCodingSchemeVersionReference acsvr) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException ;
+  public void restrictToCodingScheme(org.LexGrid.LexBIG.iso21090.DataModel.Core.AbsoluteCodingSchemeVersionReference acsvr) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException ;
 
   /**
    * Restrict the search to a particular property.  Currently, this can be any element or attribute name from the OBO metadata schema.  When we move to the 2006 version of the schema, there will be a method to get the available properties.
@@ -61,7 +61,7 @@ public interface LexBIGServiceMetadataI {
    * @throws LBParameterException
    *	
    */
-  public void restrictToProperties(org.LexGrid.LexBIG.DataModel.cagrid.PropertyIdentification[] propertyIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException ;
+  public void restrictToProperties(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.PropertyIdentification[] propertyIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException ;
 
   /**
    * Restrict the search by the parents of the metadata elements. The OBO MetaData format is hierarchial - if you wish to restrict your search to properties that are under another property, provide the required property containers here.  
@@ -72,7 +72,7 @@ public interface LexBIGServiceMetadataI {
    * @throws LBParameterException
    *	
    */
-  public void restrictToPropertyParents(org.LexGrid.LexBIG.DataModel.cagrid.PropertyIdentification[] propertyIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException ;
+  public void restrictToPropertyParents(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.PropertyIdentification[] propertyIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException ;
 
   /**
    * Restrict the result to the metadata elements that match the supplied string, using the supplied matching algorithm 
@@ -84,7 +84,7 @@ public interface LexBIGServiceMetadataI {
    * @throws LBParameterException
    *	
    */
-  public void restrictToValue(org.LexGrid.LexBIG.DataModel.cagrid.MatchCriteria matchCriteria,org.LexGrid.LexBIG.DataModel.cagrid.ExtensionIdentification extensionIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException ;
+  public void restrictToValue(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.MatchCriteria matchCriteria,org.LexGrid.LexBIG.iso21090.DataModel.cagrid.ExtensionIdentification extensionIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException ;
 
   /**
    * Apply all of the restrictions, and return the result.
@@ -96,7 +96,7 @@ public interface LexBIGServiceMetadataI {
    * @throws LBInvocationException
    *	
    */
-  public org.LexGrid.LexBIG.DataModel.Collections.MetadataPropertyList resolve() throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException ;
+  public org.LexGrid.LexBIG.iso21090.DataModel.Collections.MetadataPropertyList resolve() throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException ;
 
   public org.oasis.wsrf.lifetime.DestroyResponse destroy(org.oasis.wsrf.lifetime.Destroy params) throws RemoteException ;
 
