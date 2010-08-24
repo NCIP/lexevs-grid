@@ -19,8 +19,6 @@
  *******************************************************************************/
 package org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeGraph.service;
 
-import gov.nih.nci.iso21090.St;
-
 import java.rmi.RemoteException;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -30,7 +28,6 @@ import javax.xml.namespace.QName;
 import org.LexGrid.LexBIG.DataModel.Collections.LocalNameList;
 import org.LexGrid.LexBIG.DataModel.Collections.SortOptionList;
 import org.LexGrid.LexBIG.DataModel.Core.ConceptReference;
-import org.LexGrid.LexBIG.DataModel.cagrid.GraphResolutionPolicy;
 import org.LexGrid.LexBIG.LexBIGService.CodedNodeGraph;
 import org.LexGrid.LexBIG.LexBIGService.CodedNodeSet;
 import org.LexGrid.LexBIG.LexBIGService.CodedNodeSet.PropertyType;
@@ -56,19 +53,17 @@ public class CodedNodeGraphImpl extends CodedNodeGraphImplBase {
 		super();
 	}
 
-  public org.LexGrid.LexBIG.iso21090.DataModel.Collections.ResolvedConceptReferenceList resolveAsList(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.GraphResolutionPolicy iso21090GraphResolutionPolicy) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
-		try {
-			GraphResolutionPolicy graphResolutionPolicy = ConvertUtils.convert(iso21090GraphResolutionPolicy, GraphResolutionPolicy.class);
-			
-			ConceptReference graphFocus = graphResolutionPolicy.getGraphFocus();
-			boolean resolveForward = graphResolutionPolicy.getResolveForward();
-			boolean resolveBackward = graphResolutionPolicy.getResolveBackwards();
-			int resolveCodedEntryDepth = graphResolutionPolicy.getResolveCodedEntryDepth();
-			int resolveAssociationDepth = graphResolutionPolicy.getResolveAssociationDepth();
-			LocalNameList propertyNames = graphResolutionPolicy.getPropertyNames();
+  public org.LexGrid.LexBIG.iso21090.DataModel.Collections.ResolvedConceptReferenceList resolveAsList(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.GraphResolutionPolicy graphResolutionPolicy) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
+		try {	
+			ConceptReference graphFocus = ConvertUtils.convert(graphResolutionPolicy.getGraphFocus(), ConceptReference.class);
+			boolean resolveForward = graphResolutionPolicy.getResolveForward().getValue();
+			boolean resolveBackward = graphResolutionPolicy.getResolveBackwards().getValue();
+			int resolveCodedEntryDepth = graphResolutionPolicy.getResolveCodedEntryDepth().getValue();
+			int resolveAssociationDepth = graphResolutionPolicy.getResolveAssociationDepth().getValue();
+			LocalNameList propertyNames = ConvertUtils.convert(graphResolutionPolicy.getPropertyNames(), LocalNameList.class);
 			PropertyType[] propertyTypes = Utils.convertPropertyType(graphResolutionPolicy.getPropertyTypes());
-			SortOptionList sortOptions = graphResolutionPolicy.getSortOptions();
-			int maxToReturn = graphResolutionPolicy.getMaximumToReturn();
+			SortOptionList sortOptions = ConvertUtils.convert(graphResolutionPolicy.getSortOptions(), SortOptionList.class);
+			int maxToReturn = graphResolutionPolicy.getMaximumToReturn().getValue();
 	
 			org.LexGrid.LexBIG.DataModel.Collections.ResolvedConceptReferenceList
 				list = getResourceHome().getAddressedResource().getCodedNodeGraph()
@@ -85,21 +80,22 @@ public class CodedNodeGraphImpl extends CodedNodeGraphImplBase {
 		}
 	}
 
-  public org.LexGrid.LexBIG.DataModel.Collections.ConceptReferenceList listCodeRelationships(org.LexGrid.LexBIG.DataModel.cagrid.RelationshipTypeBasedPolicy relationshipTypeBasedPolicy) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
-	  ConceptReference sourceCode = relationshipTypeBasedPolicy.getSourceConcept();
-	  ConceptReference targetCode = relationshipTypeBasedPolicy.getTargetConcept();
-	  boolean directOnly = relationshipTypeBasedPolicy.getDirectOnly();
+  public org.LexGrid.LexBIG.DataModel.Collections.ConceptReferenceList listCodeRelationships(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.RelationshipTypeBasedPolicy relationshipTypeBasedPolicy) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
+	  ConceptReference sourceCode = ConvertUtils.convert(relationshipTypeBasedPolicy.getSourceConcept(), ConceptReference.class);
+	  ConceptReference targetCode = ConvertUtils.convert(relationshipTypeBasedPolicy.getTargetConcept(), ConceptReference.class);
+	  boolean directOnly = relationshipTypeBasedPolicy.getDirectOnly().getValue();
 	  
-	  throw new UnsupportedOperationException();
-	  /*
 	  try {
-			return getResourceHome().getAddressedResource().getCodedNodeGraph()
-					.listCodeRelationships(sourceCode, targetCode, directOnly);
+			return 
+				ConvertUtils.convert(getResourceHome().getAddressedResource().getCodedNodeGraph()
+					.listCodeRelationships(
+							sourceCode, 
+							targetCode,
+							directOnly), org.LexGrid.LexBIG.DataModel.Collections.ConceptReferenceList.class);
 		} catch (Exception e) {
 			Utils.processException(e);
 			return null;
 		} 
-		*/
 	}
 
   public void restrictToTargetCodeSystem(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
@@ -353,22 +349,22 @@ public class CodedNodeGraphImpl extends CodedNodeGraphImplBase {
 		}
 	}
 
-  public org.LexGrid.LexBIG.DataModel.Collections.ConceptReferenceList listCodeRelationships2(org.LexGrid.LexBIG.DataModel.cagrid.RelationshipDistanceBasedPolicy relationshipDistanceBasedPolicy) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
-	  ConceptReference sourceCode = relationshipDistanceBasedPolicy.getSourceConcept();
-	  ConceptReference targetCode = relationshipDistanceBasedPolicy.getTargetConcept();
-	  int distance = relationshipDistanceBasedPolicy.getDistance();
-	 
+  public org.LexGrid.LexBIG.DataModel.Collections.ConceptReferenceList listCodeRelationships2(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.RelationshipDistanceBasedPolicy relationshipDistanceBasedPolicy) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
+	  ConceptReference sourceCode = ConvertUtils.convert(relationshipDistanceBasedPolicy.getSourceConcept(), ConceptReference.class);
+	  ConceptReference targetCode = ConvertUtils.convert(relationshipDistanceBasedPolicy.getTargetConcept(), ConceptReference.class);
+	  int distance = relationshipDistanceBasedPolicy.getDistance().getValue();
 	  
-	  throw new UnsupportedOperationException();
-	  /*
 	  try {
-			return getResourceHome().getAddressedResource().getCodedNodeGraph()
-					.listCodeRelationships(sourceCode, targetCode, distance);
+			return 
+				ConvertUtils.convert(getResourceHome().getAddressedResource().getCodedNodeGraph()
+					.listCodeRelationships(
+							sourceCode, 
+							targetCode,
+							distance), org.LexGrid.LexBIG.DataModel.Collections.ConceptReferenceList.class);
 		} catch (Exception e) {
 			Utils.processException(e);
 			return null;
-		}
-		*/
+		} 
 	}
 
 }

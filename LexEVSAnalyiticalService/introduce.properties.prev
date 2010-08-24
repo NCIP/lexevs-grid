@@ -1,5 +1,5 @@
 #Introduce Properties
-#Mon Aug 23 17:36:24 CDT 2010
+#Tue Aug 24 07:13:52 CDT 2010
 introduce.skeleton.extensions=cagrid_metadata
 introduce.skeleton.services.list=LexEVSGridService,CodedNodeSet,CodedNodeGraph,LexBIGServiceConvenienceMethods,ResolvedConceptReferencesIterator,HistoryService,LexBIGServiceMetadata,Sort,Filter
 introduce.skeleton.destination.dir=C\:\\workspaces\\grid\\LexEVSAnalyiticalService

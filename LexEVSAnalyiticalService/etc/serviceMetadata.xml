@@ -11,7 +11,7 @@
       <ns2:Operation description="" name="getServiceSecurityMetadata">
        <ns2:inputParameterCollection/>
        <ns2:Output qName="ns5:ServiceSecurityMetadata" dimensionality="1" isArray="false" xmlns:ns5="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.security">
-        <ns6:UMLClass className="ServiceSecurityMetadata" description="An instance of the Security Service Metadata." id="8E7A74B9-D300-646D-E040-BB89AD43706D" packageName="gov.nih.nci.cagrid.metadata.security" projectName="caGrid_Metadata_Models" projectVersion="1" xmlns:ns6="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.common">
+        <ns6:UMLClass className="ServiceSecurityMetadata" description="An instance of the Security Service Metadata." id="8E8E9446-0C2B-A4B8-E040-BB89AD436472" packageName="gov.nih.nci.cagrid.metadata.security" projectName="caGrid_Metadata_Models" projectVersion="1" xmlns:ns6="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.common">
          <ns6:umlAttributeCollection/>
          <ns6:SemanticMetadata conceptCode="C80736" conceptDefinition="A software system providing a public need." conceptName="Software Service" order="2"/>
          <ns6:SemanticMetadata conceptCode="C25669" conceptDefinition="Security; freedom from anxiety or fear." conceptName="Security" order="1"/>
@@ -176,7 +176,7 @@
       <ns2:Operation description="" name="getServiceSecurityMetadata">
        <ns2:inputParameterCollection/>
        <ns2:Output qName="ns39:ServiceSecurityMetadata" dimensionality="1" isArray="false" xmlns:ns39="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.security">
-        <ns40:UMLClass className="ServiceSecurityMetadata" description="An instance of the Security Service Metadata." id="8E7A74B9-D300-646D-E040-BB89AD43706D" packageName="gov.nih.nci.cagrid.metadata.security" projectName="caGrid_Metadata_Models" projectVersion="1" xmlns:ns40="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.common">
+        <ns40:UMLClass className="ServiceSecurityMetadata" description="An instance of the Security Service Metadata." id="8E8E9446-0C2B-A4B8-E040-BB89AD436472" packageName="gov.nih.nci.cagrid.metadata.security" projectName="caGrid_Metadata_Models" projectVersion="1" xmlns:ns40="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.common">
          <ns40:umlAttributeCollection/>
          <ns40:SemanticMetadata conceptCode="C80736" conceptDefinition="A software system providing a public need." conceptName="Software Service" order="2"/>
          <ns40:SemanticMetadata conceptCode="C25669" conceptDefinition="Security; freedom from anxiety or fear." conceptName="Security" order="1"/>
@@ -344,7 +344,7 @@
       <ns2:Operation description="" name="getServiceSecurityMetadata">
        <ns2:inputParameterCollection/>
        <ns2:Output qName="ns70:ServiceSecurityMetadata" dimensionality="1" isArray="false" xmlns:ns70="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.security">
-        <ns71:UMLClass className="ServiceSecurityMetadata" description="An instance of the Security Service Metadata." id="8E7A74B9-D300-646D-E040-BB89AD43706D" packageName="gov.nih.nci.cagrid.metadata.security" projectName="caGrid_Metadata_Models" projectVersion="1" xmlns:ns71="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.common">
+        <ns71:UMLClass className="ServiceSecurityMetadata" description="An instance of the Security Service Metadata." id="8E8E9446-0C2B-A4B8-E040-BB89AD436472" packageName="gov.nih.nci.cagrid.metadata.security" projectName="caGrid_Metadata_Models" projectVersion="1" xmlns:ns71="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.common">
          <ns71:umlAttributeCollection/>
          <ns71:SemanticMetadata conceptCode="C80736" conceptDefinition="A software system providing a public need." conceptName="Software Service" order="2"/>
          <ns71:SemanticMetadata conceptCode="C25669" conceptDefinition="Security; freedom from anxiety or fear." conceptName="Security" order="1"/>
@@ -520,7 +520,7 @@
       <ns2:Operation description="" name="getServiceSecurityMetadata">
        <ns2:inputParameterCollection/>
        <ns2:Output qName="ns91:ServiceSecurityMetadata" dimensionality="1" isArray="false" xmlns:ns91="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.security">
-        <ns92:UMLClass className="ServiceSecurityMetadata" description="An instance of the Security Service Metadata." id="8E7A74B9-D300-646D-E040-BB89AD43706D" packageName="gov.nih.nci.cagrid.metadata.security" projectName="caGrid_Metadata_Models" projectVersion="1" xmlns:ns92="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.common">
+        <ns92:UMLClass className="ServiceSecurityMetadata" description="An instance of the Security Service Metadata." id="8E8E9446-0C2B-A4B8-E040-BB89AD436472" packageName="gov.nih.nci.cagrid.metadata.security" projectName="caGrid_Metadata_Models" projectVersion="1" xmlns:ns92="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.common">
          <ns92:umlAttributeCollection/>
          <ns92:SemanticMetadata conceptCode="C80736" conceptDefinition="A software system providing a public need." conceptName="Software Service" order="2"/>
          <ns92:SemanticMetadata conceptCode="C25669" conceptDefinition="Security; freedom from anxiety or fear." conceptName="Security" order="1"/>
@@ -847,7 +847,7 @@
       <ns2:Operation description="" name="getServiceSecurityMetadata">
        <ns2:inputParameterCollection/>
        <ns2:Output qName="ns178:ServiceSecurityMetadata" dimensionality="1" isArray="false" xmlns:ns178="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.security">
-        <ns179:UMLClass className="ServiceSecurityMetadata" description="An instance of the Security Service Metadata." id="8E7A74B9-D300-646D-E040-BB89AD43706D" packageName="gov.nih.nci.cagrid.metadata.security" projectName="caGrid_Metadata_Models" projectVersion="1" xmlns:ns179="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.common">
+        <ns179:UMLClass className="ServiceSecurityMetadata" description="An instance of the Security Service Metadata." id="8E8E9446-0C2B-A4B8-E040-BB89AD436472" packageName="gov.nih.nci.cagrid.metadata.security" projectName="caGrid_Metadata_Models" projectVersion="1" xmlns:ns179="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.common">
          <ns179:umlAttributeCollection/>
          <ns179:SemanticMetadata conceptCode="C80736" conceptDefinition="A software system providing a public need." conceptName="Software Service" order="2"/>
          <ns179:SemanticMetadata conceptCode="C25669" conceptDefinition="Security; freedom from anxiety or fear." conceptName="Security" order="1"/>
@@ -903,7 +903,7 @@
       <ns2:Operation description="" name="getServiceSecurityMetadata">
        <ns2:inputParameterCollection/>
        <ns2:Output qName="ns180:ServiceSecurityMetadata" dimensionality="1" isArray="false" xmlns:ns180="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.security">
-        <ns181:UMLClass className="ServiceSecurityMetadata" description="An instance of the Security Service Metadata." id="8E7A74B9-D300-646D-E040-BB89AD43706D" packageName="gov.nih.nci.cagrid.metadata.security" projectName="caGrid_Metadata_Models" projectVersion="1" xmlns:ns181="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.common">
+        <ns181:UMLClass className="ServiceSecurityMetadata" description="An instance of the Security Service Metadata." id="8E8E9446-0C2B-A4B8-E040-BB89AD436472" packageName="gov.nih.nci.cagrid.metadata.security" projectName="caGrid_Metadata_Models" projectVersion="1" xmlns:ns181="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.common">
          <ns181:umlAttributeCollection/>
          <ns181:SemanticMetadata conceptCode="C80736" conceptDefinition="A software system providing a public need." conceptName="Software Service" order="2"/>
          <ns181:SemanticMetadata conceptCode="C25669" conceptDefinition="Security; freedom from anxiety or fear." conceptName="Security" order="1"/>
@@ -1065,7 +1065,7 @@
       <ns2:Operation description="" name="getServiceSecurityMetadata">
        <ns2:inputParameterCollection/>
        <ns2:Output qName="ns201:ServiceSecurityMetadata" dimensionality="1" isArray="false" xmlns:ns201="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.security">
-        <ns202:UMLClass className="ServiceSecurityMetadata" description="An instance of the Security Service Metadata." id="8E7A74B9-D300-646D-E040-BB89AD43706D" packageName="gov.nih.nci.cagrid.metadata.security" projectName="caGrid_Metadata_Models" projectVersion="1" xmlns:ns202="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.common">
+        <ns202:UMLClass className="ServiceSecurityMetadata" description="An instance of the Security Service Metadata." id="8E8E9446-0C2B-A4B8-E040-BB89AD436472" packageName="gov.nih.nci.cagrid.metadata.security" projectName="caGrid_Metadata_Models" projectVersion="1" xmlns:ns202="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.common">
          <ns202:umlAttributeCollection/>
          <ns202:SemanticMetadata conceptCode="C80736" conceptDefinition="A software system providing a public need." conceptName="Software Service" order="2"/>
          <ns202:SemanticMetadata conceptCode="C25669" conceptDefinition="Security; freedom from anxiety or fear." conceptName="Security" order="1"/>
@@ -1159,7 +1159,7 @@
       <ns2:Operation description="" name="getServiceSecurityMetadata">
        <ns2:inputParameterCollection/>
        <ns2:Output qName="ns210:ServiceSecurityMetadata" dimensionality="1" isArray="false" xmlns:ns210="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.security">
-        <ns211:UMLClass className="ServiceSecurityMetadata" description="An instance of the Security Service Metadata." id="8E7A74B9-D300-646D-E040-BB89AD43706D" packageName="gov.nih.nci.cagrid.metadata.security" projectName="caGrid_Metadata_Models" projectVersion="1" xmlns:ns211="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.common">
+        <ns211:UMLClass className="ServiceSecurityMetadata" description="An instance of the Security Service Metadata." id="8E8E9446-0C2B-A4B8-E040-BB89AD436472" packageName="gov.nih.nci.cagrid.metadata.security" projectName="caGrid_Metadata_Models" projectVersion="1" xmlns:ns211="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.common">
          <ns211:umlAttributeCollection/>
          <ns211:SemanticMetadata conceptCode="C80736" conceptDefinition="A software system providing a public need." conceptName="Software Service" order="2"/>
          <ns211:SemanticMetadata conceptCode="C25669" conceptDefinition="Security; freedom from anxiety or fear." conceptName="Security" order="1"/>
@@ -1227,7 +1227,7 @@
       <ns2:Operation description="" name="getServiceSecurityMetadata">
        <ns2:inputParameterCollection/>
        <ns2:Output qName="ns212:ServiceSecurityMetadata" dimensionality="1" isArray="false" xmlns:ns212="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.security">
-        <ns213:UMLClass className="ServiceSecurityMetadata" description="An instance of the Security Service Metadata." id="8E7A74B9-D300-646D-E040-BB89AD43706D" packageName="gov.nih.nci.cagrid.metadata.security" projectName="caGrid_Metadata_Models" projectVersion="1" xmlns:ns213="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.common">
+        <ns213:UMLClass className="ServiceSecurityMetadata" description="An instance of the Security Service Metadata." id="8E8E9446-0C2B-A4B8-E040-BB89AD436472" packageName="gov.nih.nci.cagrid.metadata.security" projectName="caGrid_Metadata_Models" projectVersion="1" xmlns:ns213="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.common">
          <ns213:umlAttributeCollection/>
          <ns213:SemanticMetadata conceptCode="C80736" conceptDefinition="A software system providing a public need." conceptName="Software Service" order="2"/>
          <ns213:SemanticMetadata conceptCode="C25669" conceptDefinition="Security; freedom from anxiety or fear." conceptName="Security" order="1"/>

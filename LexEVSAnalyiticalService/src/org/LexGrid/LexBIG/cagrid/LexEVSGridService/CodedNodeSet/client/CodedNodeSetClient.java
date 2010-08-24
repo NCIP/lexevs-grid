@@ -76,18 +76,6 @@ public class CodedNodeSetClient extends CodedNodeSetClientBase implements CodedN
 		}
 	}
 
-  public org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodeExistence isCodeInSet(org.LexGrid.LexBIG.iso21090.DataModel.Core.ConceptReference code) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
-    synchronized(portTypeMutex){
-      configureStubSecurity((Stub)portType,"isCodeInSet");
-    org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeSet.stubs.IsCodeInSetRequest params = new org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeSet.stubs.IsCodeInSetRequest();
-    org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeSet.stubs.IsCodeInSetRequestCode codeContainer = new org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeSet.stubs.IsCodeInSetRequestCode();
-    codeContainer.setConceptReference(code);
-    params.setCode(codeContainer);
-    org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeSet.stubs.IsCodeInSetResponse boxedResult = portType.isCodeInSet(params);
-    return boxedResult.getCodeExistence();
-    }
-  }
-
   public org.LexGrid.LexBIG.iso21090.DataModel.Collections.ResolvedConceptReferenceList resolveToList(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.SetResolutionPolicy setResolutionPolicy) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
     synchronized(portTypeMutex){
       configureStubSecurity((Stub)portType,"resolveToList");

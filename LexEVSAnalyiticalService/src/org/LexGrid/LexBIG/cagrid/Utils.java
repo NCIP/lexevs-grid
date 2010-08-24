@@ -195,7 +195,7 @@ public class Utils {
 	 * @return
 	 * 		The constructed PropertyType enum array.
 	 */
-	public static org.LexGrid.LexBIG.LexBIGService.CodedNodeSet.PropertyType[] convertPropertyType(org.LexGrid.LexBIG.DataModel.enums.PropertyType[] inputArray){
+	public static org.LexGrid.LexBIG.LexBIGService.CodedNodeSet.PropertyType[] convertPropertyType(org.LexGrid.LexBIG.iso21090.DataModel.enums.PropertyType[] inputArray){
 		if (inputArray == null) {
 			return null;
 		}
@@ -609,7 +609,7 @@ public class Utils {
 		return returnOption;
 	}
 	
-	public static org.LexGrid.LexBIG.LexBIGService.CodedNodeSet.SearchDesignationOption convertSearchDesignationOption(org.LexGrid.LexBIG.DataModel.enums.SearchDesignationOption option){
+	public static org.LexGrid.LexBIG.LexBIGService.CodedNodeSet.SearchDesignationOption convertSearchDesignationOption(org.LexGrid.LexBIG.iso21090.DataModel.enums.SearchDesignationOption option){
 		if(option.getSearchDesignationOptionName() == null){
 			return null;
 		}

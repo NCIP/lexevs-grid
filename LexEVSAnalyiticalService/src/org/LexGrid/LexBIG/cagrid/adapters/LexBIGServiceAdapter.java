@@ -31,7 +31,6 @@ import org.LexGrid.LexBIG.DataModel.Collections.ModuleDescriptionList;
 import org.LexGrid.LexBIG.DataModel.Collections.SortDescriptionList;
 import org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag;
 import org.LexGrid.LexBIG.DataModel.InterfaceElements.types.SortContext;
-import org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeCopyRight;
 import org.LexGrid.LexBIG.Exceptions.LBException;
 import org.LexGrid.LexBIG.Exceptions.LBInvocationException;
 import org.LexGrid.LexBIG.Extensions.Generic.GenericExtension;
@@ -45,6 +44,7 @@ import org.LexGrid.LexBIG.LexBIGService.LexBIGServiceManager;
 import org.LexGrid.LexBIG.LexBIGService.LexBIGServiceMetadata;
 import org.LexGrid.LexBIG.cagrid.Utils;
 import org.LexGrid.LexBIG.cagrid.iso21090.converter.ConvertUtils;
+import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeCopyRight;
 import org.LexGrid.codingSchemes.CodingScheme;
 import org.apache.axis.types.URI.MalformedURIException;
 
@@ -333,10 +333,10 @@ public class LexBIGServiceAdapter implements LexBIGService {
 					lbSvc.resolveCodingSchemeCopyright(
 						Utils.wrapCodingSchemeIdentifier(codingScheme), 
 						ConvertUtils.convert(versionOrTag, org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag.class)),
-					org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeCopyRight.class
+					org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeCopyRight.class
 					);
 						
-				return copyright.getCopyrightTextOrURL();
+				return copyright.getCopyrightTextOrURL().getValue();
 			} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException e) {
 				throw new LBException(e.getMessage(), e);
 			} catch (RemoteException e) {

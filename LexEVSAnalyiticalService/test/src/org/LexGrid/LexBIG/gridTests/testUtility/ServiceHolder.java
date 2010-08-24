@@ -28,13 +28,12 @@ import gov.nih.nci.evs.security.SecurityToken;
 import java.io.File;
 import java.util.Properties;
 
-import org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeIdentification;
-import org.LexGrid.LexBIG.Exceptions.LBException;
-import org.LexGrid.LexBIG.gridTests.LexBIGServiceTestCase;
 import org.LexGrid.LexBIG.LexBIGService.LexBIGService;
-import org.LexGrid.LexBIG.cagrid.adapters.LexBIGServiceAdapter;
+import org.LexGrid.LexBIG.cagrid.Iso21090Utils;
 import org.LexGrid.LexBIG.cagrid.adapters.LexBIGServiceGridAdapter;
 import org.LexGrid.LexBIG.cagrid.interfaces.LexBIGServiceGrid;
+import org.LexGrid.LexBIG.gridTests.LexBIGServiceTestCase;
+import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification;
 
 /**
  * Singleton class for getting a LexBIGService for the JUnit test cases.
@@ -84,13 +83,13 @@ public class ServiceHolder
     		}
 
     		CodingSchemeIdentification csMeta = new CodingSchemeIdentification();
-    		csMeta.setName(ServiceTestCase.META_SCHEME);
+    		csMeta.setName(Iso21090Utils.createSt(ServiceTestCase.META_SCHEME));
     		
     		CodingSchemeIdentification csMedra = new CodingSchemeIdentification();
-    		csMedra.setName(ServiceTestCase.MEDDRA_SCHEME);
+    		csMedra.setName(Iso21090Utils.createSt(ServiceTestCase.MEDDRA_SCHEME));
     		
     		CodingSchemeIdentification csMedraURN = new CodingSchemeIdentification();
-    		csMedraURN.setName(ServiceTestCase.MEDDRA_URN);
+    		csMedraURN.setName(Iso21090Utils.createSt(ServiceTestCase.MEDDRA_URN));
 
     		SecurityToken metaToken = new SecurityToken();
     		metaToken.setAccessToken(ServiceTestCase.META_TOKEN);

@@ -1,18 +1,12 @@
 package org.LexGrid.LexBIG.gridTests.dataAccess;
 
-import java.rmi.RemoteException;
-
-import org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeIdentification;
-import org.LexGrid.LexBIG.LexBIGService.LexBIGService;
-import org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException;
-import org.LexGrid.LexBIG.cagrid.adapters.LexBIGServiceAdapter;
-import org.LexGrid.LexBIG.cagrid.adapters.LexBIGServiceGridAdapter;
-import org.LexGrid.LexBIG.cagrid.interfaces.LexBIGServiceGrid;
-import org.LexGrid.codingSchemes.CodingScheme;
-
 import gov.nih.nci.ServiceTestCase;
 import gov.nih.nci.evs.security.SecurityToken;
 import junit.framework.TestCase;
+
+import org.LexGrid.LexBIG.LexBIGService.LexBIGService;
+import org.LexGrid.LexBIG.cagrid.adapters.LexBIGServiceAdapter;
+import org.LexGrid.codingSchemes.CodingScheme;
 
 public class SecurityTest extends TestCase {
 
