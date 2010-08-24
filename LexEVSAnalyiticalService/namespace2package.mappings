@@ -102,7 +102,7 @@ http\://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/Sort
 http\://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/CodedNodeSet/types=org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeSet.stubs.types
 http\://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceConvenienceMethods/types=org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceConvenienceMethods.stubs.types
 http\://LexBIGCaGridServices.cagrid.LexBIG.LexGrid.org/LexBIGCaGridServices/LexBIGServiceMetadata/types=org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceMetadata.stubs.types
-http\://LexGrid.org/schema/2010/01/LexGrid/iso21090/NCIChangeTypes=org.LexGrid.LexBIG.DataModel.NCIHistory
+http\://LexGrid.org/schema/2010/01/LexGrid/iso21090/NCIChangeTypes=org.LexGrid.LexBIG.iso21090.DataModel.NCIHistory
 
 gme\://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.service=gov.nih.nci.cagrid.metadata.service
 

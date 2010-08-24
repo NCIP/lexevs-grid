@@ -31,12 +31,12 @@ import org.LexGrid.LexBIG.DataModel.Core.Association;
 import org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag;
 import org.LexGrid.LexBIG.DataModel.Core.ConceptReference;
 import org.LexGrid.LexBIG.DataModel.Core.ResolvedConceptReference;
-import org.LexGrid.LexBIG.DataModel.cagrid.AssociationIdentification;
-import org.LexGrid.LexBIG.DataModel.cagrid.CodeState;
-import org.LexGrid.LexBIG.DataModel.cagrid.CodingSchemeCopyRight;
-import org.LexGrid.LexBIG.DataModel.cagrid.Direction;
-import org.LexGrid.LexBIG.DataModel.cagrid.DirectionalAssociationIdentification;
-import org.LexGrid.LexBIG.DataModel.cagrid.HierarchyResolutionPolicy;
+import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.AssociationIdentification;
+import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodeState;
+import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeCopyRight;
+import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.Direction;
+import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.DirectionalAssociationIdentification;
+import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.HierarchyResolutionPolicy;
 import org.LexGrid.LexBIG.Exceptions.LBException;
 import org.LexGrid.LexBIG.Exceptions.LBParameterException;
 import org.LexGrid.LexBIG.Extensions.Generic.LexBIGServiceConvenienceMethods;
@@ -44,6 +44,7 @@ import org.LexGrid.LexBIG.LexBIGService.CodedNodeSet;
 import org.LexGrid.LexBIG.LexBIGService.LexBIGService;
 import org.LexGrid.LexBIG.cagrid.Utils;
 import org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess;
+import org.LexGrid.LexBIG.cagrid.iso21090.converter.ConvertUtils;
 import org.LexGrid.naming.SupportedHierarchy;
 import org.LexGrid.naming.SupportedProperty;
 
@@ -64,7 +65,12 @@ private LexBIGServiceConvenienceMethodsGridAdapter lbscm;
 	public org.LexGrid.LexBIG.DataModel.InterfaceElements.CodingSchemeRendering getRenderingDetail(
 			String codingScheme, CodingSchemeVersionOrTag versionOrTag) throws LBException {
 			try {
-				return lbscm.getRenderingDetail(Utils.wrapCodingSchemeIdentifier(codingScheme), versionOrTag);
+				return 
+					ConvertUtils.convert(
+						lbscm.getRenderingDetail(
+								Utils.wrapCodingSchemeIdentifier(codingScheme), 
+								ConvertUtils.convert(versionOrTag, org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag.class)),
+								org.LexGrid.LexBIG.DataModel.InterfaceElements.CodingSchemeRendering.class);
 			} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException e) {
 				throw new LBException(e.getMessage(), e);
 			} catch (InvalidServiceContextAccess e) {
@@ -82,8 +88,11 @@ private LexBIGServiceConvenienceMethodsGridAdapter lbscm;
 	public CodingSchemeRenderingList getCodingSchemesWithSupportedAssociation(
 			String associationName) throws LBException {
 		try{
-			return lbscm.getCodingSchemesWithSupportedAssociation(
-					Utils.wrapAssociationIdentification(associationName));
+			return 
+				ConvertUtils.convert(
+					lbscm.getCodingSchemesWithSupportedAssociation(
+						Utils.wrapAssociationIdentification(associationName)),
+				org.LexGrid.LexBIG.DataModel.Collections.CodingSchemeRenderingList.class);
 			} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException e) {
 				throw new LBException(e.getMessage(), e);
 			} catch (InvalidServiceContextAccess e) {
@@ -103,7 +112,9 @@ private LexBIGServiceConvenienceMethodsGridAdapter lbscm;
 			CodingSchemeVersionOrTag csvt) throws LBException {
 		try{
 			return Utils.hierarchyIdentificationToStringArray(
-					lbscm.getHierarchyIDs(Utils.wrapCodingSchemeIdentifier(codingScheme), csvt));
+					lbscm.getHierarchyIDs(
+							Utils.wrapCodingSchemeIdentifier(codingScheme), 
+							ConvertUtils.convert(csvt, org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag.class)));
 			} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException e) {
 				throw new LBException(e.getMessage(), e);
 			} catch (InvalidServiceContextAccess e) {
@@ -169,7 +180,8 @@ private LexBIGServiceConvenienceMethodsGridAdapter lbscm;
 		try {
 			CodedNodeSetGridAdapter cnsa = (CodedNodeSetGridAdapter)lbscm.createCodeNodeSet(
 					Utils.stringArrayToConceptIdentification(conceptCodes), 
-					Utils.wrapCodingSchemeIdentifier(codingScheme), versionOrTag);
+					Utils.wrapCodingSchemeIdentifier(codingScheme), 
+					ConvertUtils.convert(versionOrTag, org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag.class));
 			return cnsa.getCodedNodeSetInterface();
 		} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException e) {
 			throw new LBException(e.getMessage(), e);
@@ -194,7 +206,8 @@ private LexBIGServiceConvenienceMethodsGridAdapter lbscm;
 			try {
 				return Utils.associationIdentificationToStringArray(
 						lbscm.getAssociationForwardAndReverseNames(
-						Utils.wrapCodingSchemeIdentifier(codingScheme), versionOrTag));
+						Utils.wrapCodingSchemeIdentifier(codingScheme), 
+						ConvertUtils.convert(versionOrTag, org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag.class)));
 			} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException e) {
 				throw new LBException(e.getMessage(), e);
 			} catch (InvalidServiceContextAccess e) {
@@ -215,8 +228,9 @@ private LexBIGServiceConvenienceMethodsGridAdapter lbscm;
 			CodingSchemeVersionOrTag versionOrTag) throws LBException {
 			try {
 				AssociationIdentification id = lbscm.getAssociationForwardName(Utils.wrapAssociationIdentification(association), 
-						Utils.wrapCodingSchemeIdentifier(codingScheme), versionOrTag);
-				return id.getRelationshipName();
+						Utils.wrapCodingSchemeIdentifier(codingScheme),
+						ConvertUtils.convert(versionOrTag, org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag.class));
+				return id.getRelationshipName().getValue();
 			} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException e) {
 				throw new LBException(e.getMessage(), e);
 			} catch (InvalidServiceContextAccess e) {
@@ -238,7 +252,7 @@ private LexBIGServiceConvenienceMethodsGridAdapter lbscm;
 			return Utils.directionalAssociationIdentificationToStringArray(
 						lbscm.getAssociationForwardNames(
 						Utils.wrapCodingSchemeIdentifier(codingScheme), 
-						versionOrTag));
+						ConvertUtils.convert(versionOrTag, org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag.class)));
 		} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException e) {
 			throw new LBException(e.getMessage(), e);
 		} catch (InvalidServiceContextAccess e) {
@@ -260,8 +274,8 @@ private LexBIGServiceConvenienceMethodsGridAdapter lbscm;
 		try {
 			DirectionalAssociationIdentification assoc = lbscm.getAssociationReverseName(Utils.wrapAssociationIdentification(association), 
 						Utils.wrapCodingSchemeIdentifier(codingScheme), 
-						versionOrTag);
-			return assoc.getRelationshipName();
+						ConvertUtils.convert(versionOrTag, org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag.class));
+			return assoc.getRelationshipName().getValue();
 		} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException e) {
 			throw new LBException(e.getMessage(), e);
 		} catch (InvalidServiceContextAccess e) {
@@ -282,7 +296,7 @@ private LexBIGServiceConvenienceMethodsGridAdapter lbscm;
 			try {
 				return Utils.directionalAssociationIdentificationToStringArray(
 						lbscm.getAssociationReverseNames(Utils.wrapCodingSchemeIdentifier(codingScheme), 
-						versionOrTag));
+								ConvertUtils.convert(versionOrTag, org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag.class)));
 			} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException e) {
 				throw new LBException(e.getMessage(), e);
 			} catch (InvalidServiceContextAccess e) {
@@ -305,11 +319,16 @@ private LexBIGServiceConvenienceMethodsGridAdapter lbscm;
 			NameAndValueList associationQualifiers) throws LBException {
 		
 			HierarchyResolutionPolicy policy = Utils.buildHierarchyResolutionPolicy(hierarchyID, 
-					conceptCode, resolveConcepts, associationQualifiers);
+					conceptCode, 
+					resolveConcepts, 
+					associationQualifiers);
 		try {
-			return lbscm.getHierarchyLevelNext(
-					policy, Utils.wrapCodingSchemeIdentifier(codingScheme), 
-					versionOrTag);
+			return ConvertUtils.convert(
+					lbscm.getHierarchyLevelNext(
+					policy, 
+					Utils.wrapCodingSchemeIdentifier(codingScheme), 
+					ConvertUtils.convert(versionOrTag, org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag.class)),
+					org.LexGrid.LexBIG.DataModel.Collections.AssociationList.class);		
 		} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException e) {
 			throw new LBException(e.getMessage(), e);
 		} catch (InvalidServiceContextAccess e) {
@@ -333,9 +352,13 @@ private LexBIGServiceConvenienceMethodsGridAdapter lbscm;
 		HierarchyResolutionPolicy policy = Utils.buildHierarchyResolutionPolicy(hierarchyID, 
 				conceptCode, resolveConcepts, associationQualifiers);
 		try {
-			return lbscm.getHierarchyLevelPrev(
-				policy, Utils.wrapCodingSchemeIdentifier(codingScheme), 
-				versionOrTag);
+			return ConvertUtils.convert(
+					lbscm.getHierarchyLevelPrev(
+					policy, 
+					Utils.wrapCodingSchemeIdentifier(codingScheme), 
+					ConvertUtils.convert(versionOrTag, org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag.class)),
+					org.LexGrid.LexBIG.DataModel.Collections.AssociationList.class);		
+
 		} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException e) {
 			throw new LBException(e.getMessage(), e);
 		} catch (InvalidServiceContextAccess e) {
@@ -362,10 +385,13 @@ private LexBIGServiceConvenienceMethodsGridAdapter lbscm;
 		HierarchyResolutionPolicy policy = Utils.buildHierarchyResolutionPolicy(hierarchyID, 
 				conceptCode, resolveConcepts, associationQualifiers);
 		try {
-			return lbscm.getHierarchyPathToRoot(
-				policy, Utils.wrapCodingSchemeIdentifier(codingScheme), 
-				versionOrTag,
-				Utils.convertHierarchyPathResolveOption(pathResolveOption));
+			return ConvertUtils.convert(
+				lbscm.getHierarchyPathToRoot(
+				policy, 
+				Utils.wrapCodingSchemeIdentifier(codingScheme), 
+				ConvertUtils.convert(versionOrTag, org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag.class),
+				Utils.convertHierarchyPathResolveOption(pathResolveOption)),
+			org.LexGrid.LexBIG.DataModel.Collections.AssociationList.class);
 		} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException e) {
 			throw new LBException(e.getMessage(), e);
 		} catch (InvalidServiceContextAccess e) {
@@ -385,9 +411,13 @@ private LexBIGServiceConvenienceMethodsGridAdapter lbscm;
 	public ResolvedConceptReferenceList getHierarchyRoots(String codingScheme, CodingSchemeVersionOrTag versionOrTag,
 			String hierarchyID) throws LBException {
 			try {
-				return lbscm.getHierarchyRoots(
+				return 
+				ConvertUtils.convert(
+					lbscm.getHierarchyRoots(
 						Utils.wrapCodingSchemeIdentifier(codingScheme), 
-						versionOrTag, Utils.wrapHierarchyIdentificationIdentification(hierarchyID));
+						ConvertUtils.convert(versionOrTag, org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag.class),
+						Utils.wrapHierarchyIdentificationIdentification(hierarchyID)),
+					org.LexGrid.LexBIG.DataModel.Collections.ResolvedConceptReferenceList.class);
 			} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException e) {
 				throw new LBException(e.getMessage(), e);
 			} catch (InvalidServiceContextAccess e) {
@@ -409,7 +439,8 @@ private LexBIGServiceConvenienceMethodsGridAdapter lbscm;
 			try {
 				CodedNodeSetGridAdapter cnsga = (CodedNodeSetGridAdapter)lbscm.getHierarchyRootSet(
 						Utils.wrapCodingSchemeIdentifier(codingScheme),
-						versionOrTag, Utils.wrapHierarchyIdentificationIdentification(hierarchyID));
+						ConvertUtils.convert(versionOrTag, org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag.class), 
+						Utils.wrapHierarchyIdentificationIdentification(hierarchyID));
 				return cnsga.getCodedNodeSetInterface();
 			} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException e) {
 				throw new LBException(e.getMessage(), e);
@@ -434,8 +465,9 @@ private LexBIGServiceConvenienceMethodsGridAdapter lbscm;
 			try {
 				Direction direction = lbscm.isForwardName(
 						Utils.wrapCodingSchemeIdentifier(codingScheme), 
-						versionOrTag, Utils.wrapAssociationIdentification(directionalName));
-				return direction.getIsForward();
+						ConvertUtils.convert(versionOrTag, org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag.class),
+						Utils.wrapAssociationIdentification(directionalName));
+				return direction.getIsForward().getValue();
 			} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException e) {
 				throw new LBException(e.getMessage(), e);
 			} catch (InvalidServiceContextAccess e) {
@@ -456,10 +488,11 @@ private LexBIGServiceConvenienceMethodsGridAdapter lbscm;
 		try {
 			Direction direction = lbscm.isForwardName(
 					Utils.wrapCodingSchemeIdentifier(codingScheme), 
-					versionOrTag, Utils.wrapAssociationIdentification(directionalName));
+					ConvertUtils.convert(versionOrTag, org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag.class),
+					Utils.wrapAssociationIdentification(directionalName));
 			
 			//TODO: check into this -- must reverse this
-			return !direction.getIsForward();
+			return !direction.getIsForward().getValue();
 		} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException e) {
 			throw new LBException(e.getMessage(), e);
 		} catch (InvalidServiceContextAccess e) {
@@ -481,8 +514,9 @@ private LexBIGServiceConvenienceMethodsGridAdapter lbscm;
 			try {
 				CodeState state = lbscm.isCodeRetired(
 						Utils.wrapConceptIdentification(conceptCode), 
-						Utils.wrapCodingSchemeIdentifier(codingScheme), versionOrTag);
-				return state.getIsActive();
+						Utils.wrapCodingSchemeIdentifier(codingScheme),
+						ConvertUtils.convert(versionOrTag, org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag.class));
+				return state.getIsActive().getValue();
 			} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException e) {
 				throw new LBException(e.getMessage(), e);
 			} catch (InvalidServiceContextAccess e) {
@@ -500,8 +534,8 @@ private LexBIGServiceConvenienceMethodsGridAdapter lbscm;
 			try {
 				CodingSchemeCopyRight copyright = lbscm.getCodingSchemeCopyright(
 						Utils.wrapCodingSchemeIdentifier(codingScheme), 
-						versionOrTag);
-				return copyright.getCopyrightTextOrURL();
+						ConvertUtils.convert(versionOrTag, org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag.class));
+				return copyright.getCopyrightTextOrURL().getValue();
 			} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException e) {
 				throw new LBException(e.getMessage(), e);
 			} catch (InvalidServiceContextAccess e) {

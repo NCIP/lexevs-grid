@@ -159,13 +159,13 @@
    <ns2:SchemaElement className="Status" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="Status" xsi:type="ns2:SchemaElementType"/>
    <ns2:SchemaElement className="TestDirectEdgeOnly" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="TestDirectEdgeOnly" xsi:type="ns2:SchemaElementType"/>
   </ns2:Namespace>
-  <ns2:Namespace location="./enums.xsd" namespace="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/enums" packageName="org.LexGrid.LexBIG.DataModel.enums" xsi:type="ns2:NamespaceType">
+  <ns2:Namespace location="./enums.xsd" namespace="http://LexGrid.org/schema/LexBIG/iso21090/2010/01/enums" packageName="org.LexGrid.LexBIG.iso21090.DataModel.enums" xsi:type="ns2:NamespaceType">
    <ns2:SchemaElement className="ActiveOption" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="ActiveOption" xsi:type="ns2:SchemaElementType"/>
    <ns2:SchemaElement className="HierarchyPathResolveOption" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="HierarchyPathResolveOption" xsi:type="ns2:SchemaElementType"/>
    <ns2:SchemaElement className="PropertyType" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="PropertyType" xsi:type="ns2:SchemaElementType"/>
    <ns2:SchemaElement className="SearchDesignationOption" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="SearchDesignationOption" xsi:type="ns2:SchemaElementType"/>
   </ns2:Namespace>
-  <ns2:Namespace location="./NCIHistory.xsd" namespace="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/NCIChangeTypes" packageName="org.LexGrid.LexBIG.DataModel.NCIHistory" xsi:type="ns2:NamespaceType">
+  <ns2:Namespace location="./NCIHistory.xsd" namespace="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/NCIChangeTypes" packageName="org.LexGrid.LexBIG.iso21090.DataModel.NCIHistory" xsi:type="ns2:NamespaceType">
    <ns2:SchemaElement className="NCIChangeEvent" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" type="NCIChangeEvent" xsi:type="ns2:SchemaElementType"/>
   </ns2:Namespace>
   <ns2:Namespace location="./caCORE.caCORE-3.2_gov.nih.nci.evs.security.xsd" namespace="gme://caCORE.caCORE/3.2/gov.nih.nci.evs.security" packageName="gov.nih.nci.evs.security" xsi:type="ns2:NamespaceType">

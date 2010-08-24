@@ -7,6 +7,7 @@ import gov.nih.nci.iso21090.TS;
 
 import java.util.Date;
 
+import org.LexGrid.LexBIG.cagrid.iso21090.converter.ConvertUtils;
 import org.LexGrid.codingSchemes.CodingScheme;
 import org.LexGrid.commonTypes.Text;
 import org.LexGrid.concepts.Entities;
@@ -28,7 +29,7 @@ public class Iso21090Utils {
 		entity.setEntityCode("123");
 		entity.setEntityCodeNamespace("ns");
 
-		org.LexGrid.iso21090.codingSchemes.CodingScheme destObject = ConvertUtil.convert(cs, org.LexGrid.iso21090.codingSchemes.CodingScheme.class);
+		org.LexGrid.iso21090.codingSchemes.CodingScheme destObject = ConvertUtils.convert(cs, org.LexGrid.iso21090.codingSchemes.CodingScheme.class);
 		
 		System.out.println(destObject.getEntities().getEntity(0).getEntityCode().getValue());
 		System.out.println(destObject.getEntities().getEntity(0).getEntityCodeNamespace().getValue());

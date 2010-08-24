@@ -30,6 +30,7 @@ import javax.xml.namespace.QName;
 import org.LexGrid.LexBIG.DataModel.Collections.LocalNameList;
 import org.LexGrid.LexBIG.DataModel.Collections.SortOptionList;
 import org.LexGrid.LexBIG.DataModel.Core.ConceptReference;
+import org.LexGrid.LexBIG.DataModel.cagrid.GraphResolutionPolicy;
 import org.LexGrid.LexBIG.LexBIGService.CodedNodeGraph;
 import org.LexGrid.LexBIG.LexBIGService.CodedNodeSet;
 import org.LexGrid.LexBIG.LexBIGService.CodedNodeSet.PropertyType;
@@ -38,6 +39,7 @@ import org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeGraph.common.CodedNo
 import org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeGraph.service.globus.resource.CodedNodeGraphResource;
 import org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeSet.common.CodedNodeSetConstants;
 import org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeSet.service.globus.resource.CodedNodeSetResource;
+import org.LexGrid.LexBIG.cagrid.iso21090.converter.ConvertUtils;
 import org.apache.axis.message.MessageElement;
 import org.globus.wsrf.ResourceKey;
 import org.globus.wsrf.impl.SimpleResourceKey;
@@ -54,8 +56,10 @@ public class CodedNodeGraphImpl extends CodedNodeGraphImplBase {
 		super();
 	}
 
-  public org.LexGrid.LexBIG.iso21090.DataModel.Collections.ResolvedConceptReferenceList resolveAsList(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.GraphResolutionPolicy graphResolutionPolicy) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
+  public org.LexGrid.LexBIG.iso21090.DataModel.Collections.ResolvedConceptReferenceList resolveAsList(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.GraphResolutionPolicy iso21090GraphResolutionPolicy) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
 		try {
+			GraphResolutionPolicy graphResolutionPolicy = ConvertUtils.convert(iso21090GraphResolutionPolicy, GraphResolutionPolicy.class);
+			
 			ConceptReference graphFocus = graphResolutionPolicy.getGraphFocus();
 			boolean resolveForward = graphResolutionPolicy.getResolveForward();
 			boolean resolveBackward = graphResolutionPolicy.getResolveBackwards();
@@ -65,15 +69,16 @@ public class CodedNodeGraphImpl extends CodedNodeGraphImplBase {
 			PropertyType[] propertyTypes = Utils.convertPropertyType(graphResolutionPolicy.getPropertyTypes());
 			SortOptionList sortOptions = graphResolutionPolicy.getSortOptions();
 			int maxToReturn = graphResolutionPolicy.getMaximumToReturn();
-			
-			St st = new St();
-			
-			return getResourceHome().getAddressedResource().getCodedNodeGraph()
+	
+			org.LexGrid.LexBIG.DataModel.Collections.ResolvedConceptReferenceList
+				list = getResourceHome().getAddressedResource().getCodedNodeGraph()
 					.resolveAsList(graphFocus, resolveForward, resolveBackward,
 							resolveCodedEntryDepth, resolveAssociationDepth,
 							propertyNames,
 							propertyTypes,
 							sortOptions, maxToReturn);
+			
+			return ConvertUtils.convert(list, org.LexGrid.LexBIG.iso21090.DataModel.Collections.ResolvedConceptReferenceList.class);
 		} catch (Exception e) {
 			Utils.processException(e);
 			return null;
@@ -100,7 +105,7 @@ public class CodedNodeGraphImpl extends CodedNodeGraphImplBase {
   public void restrictToTargetCodeSystem(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
 		try {
 			getResourceHome().getAddressedResource().getCodedNodeGraph()
-					.restrictToTargetCodeSystem(codingSchemeIdentification.getName());
+					.restrictToTargetCodeSystem(codingSchemeIdentification.getName().getValue());
 		} catch (Exception e) {
 			Utils.processException(e);
 		}
@@ -109,7 +114,7 @@ public class CodedNodeGraphImpl extends CodedNodeGraphImplBase {
   public void restrictToCodeSystem(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
 		try {
 			getResourceHome().getAddressedResource().getCodedNodeGraph()
-					.restrictToCodeSystem(codingSchemeIdentification.getName());
+					.restrictToCodeSystem(codingSchemeIdentification.getName().getValue());
 		} catch (Exception e) {
 			Utils.processException(e);
 		} 
@@ -158,8 +163,10 @@ public class CodedNodeGraphImpl extends CodedNodeGraphImplBase {
   public void restrictToDirectionalNames(org.LexGrid.LexBIG.iso21090.DataModel.Collections.NameAndValueList directionalNames,org.LexGrid.LexBIG.iso21090.DataModel.Collections.NameAndValueList associationQualifiers) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
 		try {
 			getResourceHome().getAddressedResource().getCodedNodeGraph()
-					.restrictToDirectionalNames(directionalNames,
-							associationQualifiers);
+					.restrictToDirectionalNames(
+							ConvertUtils.convert(directionalNames, org.LexGrid.LexBIG.DataModel.Collections.NameAndValueList.class),
+							ConvertUtils.convert(associationQualifiers, org.LexGrid.LexBIG.DataModel.Collections.NameAndValueList.class)
+					);
 		} catch (Exception e) {
 			Utils.processException(e);
 		} 
@@ -170,7 +177,9 @@ public class CodedNodeGraphImpl extends CodedNodeGraphImplBase {
 			getResourceHome()
 					.getAddressedResource()
 					.getCodedNodeGraph()
-					.restrictToAssociations(associations, associationQualifiers);
+					.restrictToAssociations(
+							ConvertUtils.convert(associations, org.LexGrid.LexBIG.DataModel.Collections.NameAndValueList.class),
+							ConvertUtils.convert(associationQualifiers, org.LexGrid.LexBIG.DataModel.Collections.NameAndValueList.class));
 		} catch (Exception e) {
 			Utils.processException(e);
 		}
@@ -239,7 +248,7 @@ public class CodedNodeGraphImpl extends CodedNodeGraphImplBase {
   public void restrictToSourceCodeSystem(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
 		try {
 			getResourceHome().getAddressedResource().getCodedNodeGraph()
-					.restrictToSourceCodeSystem(codingSchemeIdentification.getName());
+					.restrictToSourceCodeSystem(codingSchemeIdentification.getName().getValue());
 		} catch (Exception e) {
 			Utils.processException(e);
 		}
@@ -248,7 +257,8 @@ public class CodedNodeGraphImpl extends CodedNodeGraphImplBase {
   public org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodeExistence isCodeInGraph(org.LexGrid.LexBIG.iso21090.DataModel.Core.ConceptReference code) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
 		try {
 			boolean isInGraph = getResourceHome().getAddressedResource().getCodedNodeGraph()
-					.isCodeInGraph(code);
+					.isCodeInGraph(
+							ConvertUtils.convert(code, org.LexGrid.LexBIG.DataModel.Core.ConceptReference.class));
 			 return Utils.wrapCodeExistence(isInGraph);
 		} catch (Exception e) {
 			Utils.processException(e);
@@ -284,11 +294,11 @@ public class CodedNodeGraphImpl extends CodedNodeGraphImplBase {
 			// is where you would
 			// give it the query string.
 			
-			ConceptReference graphFocus = nodeListPolicy.getGraphFocus();
-			boolean resolveForward = nodeListPolicy.getResolveForward();
-			boolean resolveBackward = nodeListPolicy.getResolveBackward();
-			int resolveAssociationDepth = nodeListPolicy.getResolveAssociationDepth();
-			int maxToReturn = nodeListPolicy.getMaximumToReturn();
+			ConceptReference graphFocus = ConvertUtils.convert(nodeListPolicy.getGraphFocus(), ConceptReference.class);
+			boolean resolveForward = nodeListPolicy.getResolveForward().getValue();
+			boolean resolveBackward = nodeListPolicy.getResolveBackward().getValue();
+			int resolveAssociationDepth = nodeListPolicy.getResolveAssociationDepth().getValue();
+			int maxToReturn = nodeListPolicy.getMaximumToReturn().getValue();
 		
 
 			CodedNodeSet cns = getResourceHome().getAddressedResource()
@@ -324,13 +334,16 @@ public class CodedNodeGraphImpl extends CodedNodeGraphImplBase {
 
   public org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodeRelationship areCodesRelated(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.RelationshipTypeBasedPolicy relationshipTypeBasedPolicy,org.LexGrid.LexBIG.iso21090.DataModel.Core.NameAndValue nameAndValue) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
 	
-	  ConceptReference sourceCode = relationshipTypeBasedPolicy.getSourceConcept();
-	  ConceptReference targetCode =relationshipTypeBasedPolicy.getTargetConcept();
-	  boolean directOnly = relationshipTypeBasedPolicy.getDirectOnly();
+	  ConceptReference sourceCode = ConvertUtils.convert(relationshipTypeBasedPolicy.getSourceConcept(), ConceptReference.class);
+	  ConceptReference targetCode = ConvertUtils.convert(relationshipTypeBasedPolicy.getTargetConcept(), ConceptReference.class);
+	  boolean directOnly = relationshipTypeBasedPolicy.getDirectOnly().getValue();
 
 	  try {
 			boolean areRelated = getResourceHome().getAddressedResource().getCodedNodeGraph()
-					.areCodesRelated(nameAndValue, sourceCode, targetCode,
+					.areCodesRelated(
+							ConvertUtils.convert(nameAndValue, org.LexGrid.LexBIG.DataModel.Core.NameAndValue.class),
+							sourceCode, 
+							targetCode,
 							directOnly);
 			 
 			 return Utils.wrapCodeRelationship(areRelated);

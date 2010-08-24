@@ -193,7 +193,7 @@ public interface LexBIGServiceConvenienceMethodsI {
    * @throws LBException
    *	
    */
-  public org.LexGrid.LexBIG.iso21090.DataModel.Collections.AssociationList getHierarchyPathToRoot(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.HierarchyResolutionPolicy hierarchyResolutionPolicy,org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag versionOrTag,org.LexGrid.LexBIG.DataModel.enums.HierarchyPathResolveOption hierarchyPathResolveOption) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException ;
+  public org.LexGrid.LexBIG.iso21090.DataModel.Collections.AssociationList getHierarchyPathToRoot(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.HierarchyResolutionPolicy hierarchyResolutionPolicy,org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag versionOrTag,org.LexGrid.LexBIG.iso21090.DataModel.enums.HierarchyPathResolveOption hierarchyPathResolveOption) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException ;
 
   /**
    * Returns all root nodes for the given hierarchy and coding scheme.  Each root concept represents the conceptual start or narrowest point of a tree when visualizing the hierarchy. 

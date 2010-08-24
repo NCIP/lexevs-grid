@@ -230,7 +230,8 @@ public class LexBIGServiceAdapter implements LexBIGService {
 		
 			try {
 				CodedNodeGraphGridAdapter adapter = (CodedNodeGraphGridAdapter)lbSvc.getNodeGraph(
-						Utils.wrapCodingSchemeIdentifier(codingScheme), versionOrTag, 
+						Utils.wrapCodingSchemeIdentifier(codingScheme), 
+						ConvertUtils.convert(versionOrTag, org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag.class),
 						Utils.wrapRelationContainerIdentification(relationsName));
 				return adapter.getCodedNodeGraphInterface();
 			} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException e) {

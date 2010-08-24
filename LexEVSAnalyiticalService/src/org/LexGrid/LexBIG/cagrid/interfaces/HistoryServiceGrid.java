@@ -23,16 +23,16 @@ import java.net.URI;
 import java.rmi.RemoteException;
 import java.util.Date;
 
-import org.LexGrid.LexBIG.DataModel.Collections.CodingSchemeVersionList;
-import org.LexGrid.LexBIG.DataModel.Collections.NCIChangeEventList;
-import org.LexGrid.LexBIG.DataModel.Collections.SystemReleaseList;
-import org.LexGrid.LexBIG.DataModel.Core.ConceptReference;
-import org.LexGrid.LexBIG.DataModel.InterfaceElements.SystemReleaseDetail;
+import org.LexGrid.LexBIG.iso21090.DataModel.Collections.CodingSchemeVersionList;
+import org.LexGrid.LexBIG.iso21090.DataModel.Collections.NCIChangeEventList;
+import org.LexGrid.LexBIG.iso21090.DataModel.Collections.SystemReleaseList;
+import org.LexGrid.LexBIG.iso21090.DataModel.Core.ConceptReference;
+import org.LexGrid.LexBIG.iso21090.DataModel.InterfaceElements.SystemReleaseDetail;
 import org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess;
 import org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException;
 import org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException;
-import org.LexGrid.versions.CodingSchemeVersion;
-import org.LexGrid.versions.SystemRelease;
+import org.LexGrid.iso21090.versions.CodingSchemeVersion;
+import org.LexGrid.iso21090.versions.SystemRelease;
 
 /**
  * The history service returns information about the change history of a coding

@@ -24,10 +24,9 @@ import java.rmi.RemoteException;
 
 import org.LexGrid.LexBIG.DataModel.Collections.ResolvedConceptReferenceList;
 import org.LexGrid.LexBIG.DataModel.Core.ResolvedConceptReference;
-import org.LexGrid.LexBIG.Exceptions.LBInvocationException;
-import org.LexGrid.LexBIG.Exceptions.LBResourceUnavailableException;
 import org.LexGrid.LexBIG.Utility.Iterators.ResolvedConceptReferencesIterator;
 import org.LexGrid.LexBIG.cagrid.Utils;
+import org.LexGrid.LexBIG.cagrid.iso21090.converter.ConvertUtils;
 import org.springframework.aop.framework.Advised;
 
 /**
@@ -45,8 +44,10 @@ public class ResolvedConceptReferencesIteratorImpl extends
 
   public org.LexGrid.LexBIG.iso21090.DataModel.Core.ResolvedConceptReference next() throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBResourceUnavailableException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException {
 		try {
-			return getResourceHome().getAddressedResource()
-					.getResolvedConceptReferencesIterator().next();
+			return ConvertUtils.convert(
+					getResourceHome().getAddressedResource()
+						.getResolvedConceptReferencesIterator().next(),
+				   org.LexGrid.LexBIG.iso21090.DataModel.Core.ResolvedConceptReference.class);
 		 } catch (Exception e) {
 				Utils.processException(e);
 				return null;
@@ -55,8 +56,11 @@ public class ResolvedConceptReferencesIteratorImpl extends
 
   public org.LexGrid.LexBIG.iso21090.DataModel.Collections.ResolvedConceptReferenceList nextInt(int maxToReturn) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBResourceUnavailableException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException {
 		try {
-			return unwrap(getResourceHome().getAddressedResource()
-					.getResolvedConceptReferencesIterator().next(maxToReturn));
+			return unwrap(
+					ConvertUtils.convert(
+						getResourceHome().getAddressedResource()
+							.getResolvedConceptReferencesIterator().next(maxToReturn),
+					org.LexGrid.LexBIG.iso21090.DataModel.Collections.ResolvedConceptReferenceList.class));
 		 } catch (Exception e) {
 				Utils.processException(e);
 				return null;
@@ -65,8 +69,11 @@ public class ResolvedConceptReferencesIteratorImpl extends
 
   public org.LexGrid.LexBIG.iso21090.DataModel.Collections.ResolvedConceptReferenceList get(int start,int end) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBResourceUnavailableException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
 		try {
-			return unwrap(getResourceHome().getAddressedResource()
-					.getResolvedConceptReferencesIterator().get(start, end));
+			return ConvertUtils.convert(
+					unwrap(
+						getResourceHome().getAddressedResource()
+						.getResolvedConceptReferencesIterator().get(start, end)),
+						org.LexGrid.LexBIG.iso21090.DataModel.Collections.ResolvedConceptReferenceList.class);
 		 } catch (Exception e) {
 				Utils.processException(e);
 				return null;
@@ -75,8 +82,10 @@ public class ResolvedConceptReferencesIteratorImpl extends
 
   public org.LexGrid.LexBIG.iso21090.DataModel.Collections.ResolvedConceptReferenceList getNext() throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBResourceUnavailableException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException {
 		try {
-			return unwrap(getResourceHome().getAddressedResource()
-					.getResolvedConceptReferencesIterator().getNext());
+			return ConvertUtils.convert(
+						unwrap(getResourceHome().getAddressedResource()
+							.getResolvedConceptReferencesIterator().getNext()),
+							org.LexGrid.LexBIG.iso21090.DataModel.Collections.ResolvedConceptReferenceList.class);
 		 } catch (Exception e) {
 				Utils.processException(e);
 				return null;

@@ -24,8 +24,8 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 import org.LexGrid.LexBIG.DataModel.Collections.NameAndValueList;
-import org.LexGrid.LexBIG.DataModel.cagrid.ConceptIdentification;
-import org.LexGrid.LexBIG.DataModel.cagrid.HierarchyIdentification;
+import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.ConceptIdentification;
+import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.HierarchyIdentification;
 import org.LexGrid.LexBIG.Extensions.Generic.LexBIGServiceConvenienceMethods;
 import org.LexGrid.LexBIG.cagrid.Utils;
 import org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceConvenienceMethods.service.globus.resource.LexBIGServiceConvenienceMethodsResource;
@@ -48,7 +48,11 @@ public class LexBIGServiceConvenienceMethodsImpl extends
   public org.LexGrid.LexBIG.iso21090.DataModel.InterfaceElements.CodingSchemeRendering getRenderingDetail(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag versionOrTag) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
 		try {
 			LexBIGServiceConvenienceMethods lbcm = getLexBIGServiceConvenienceMethods();
-			return lbcm.getRenderingDetail(codingSchemeIdentification.getName(), versionOrTag);
+			return ConvertUtils.convert(
+					lbcm.getRenderingDetail(
+						codingSchemeIdentification.getName().getValue(), 
+						ConvertUtils.convert(versionOrTag, org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag.class)),
+					org.LexGrid.LexBIG.iso21090.DataModel.InterfaceElements.CodingSchemeRendering.class);
 		 } catch (Exception e) {
 				Utils.processException(e);
 				return null;
@@ -58,7 +62,10 @@ public class LexBIGServiceConvenienceMethodsImpl extends
   public org.LexGrid.LexBIG.iso21090.DataModel.Collections.CodingSchemeRenderingList getCodingSchemesWithSupportedAssociation(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.AssociationIdentification associationIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
 		try {
 			LexBIGServiceConvenienceMethods lbcm = getLexBIGServiceConvenienceMethods();
-			return lbcm.getCodingSchemesWithSupportedAssociation(associationIdentification.getRelationshipName());
+			return ConvertUtils.convert(
+					lbcm.getCodingSchemesWithSupportedAssociation(
+					associationIdentification.getRelationshipName().getValue()),
+					org.LexGrid.LexBIG.iso21090.DataModel.Collections.CodingSchemeRenderingList.class);
 		 } catch (Exception e) {
 				Utils.processException(e);
 				return null;
@@ -68,7 +75,9 @@ public class LexBIGServiceConvenienceMethodsImpl extends
   public org.LexGrid.LexBIG.iso21090.DataModel.cagrid.HierarchyIdentification[] getHierarchyIDs(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag versionOrTag) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
 		try {
 			LexBIGServiceConvenienceMethods lbcm = getLexBIGServiceConvenienceMethods();
-			String[] hierIds = lbcm.getHierarchyIDs(codingSchemeIdentification.getName(), versionOrTag);
+			String[] hierIds = lbcm.getHierarchyIDs(
+					codingSchemeIdentification.getName().getValue(), 
+					ConvertUtils.convert(versionOrTag, org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag.class));
 			return Utils.stringArrayToHierarchyIdentification(hierIds);
 		 } catch (Exception e) {
 				Utils.processException(e);
@@ -79,7 +88,10 @@ public class LexBIGServiceConvenienceMethodsImpl extends
   public org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodeState isCodeRetired(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.ConceptIdentification conceptIdentification,org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag versionOrTag) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
 		try {
 			LexBIGServiceConvenienceMethods lbcm = getLexBIGServiceConvenienceMethods();
-			boolean isRetiered = lbcm.isCodeRetired(conceptIdentification.getCode(), codingSchemeIdentification.getName(), versionOrTag);
+			boolean isRetiered = lbcm.isCodeRetired(
+					conceptIdentification.getCode().getValue(), 
+					codingSchemeIdentification.getName().getValue(), 
+					ConvertUtils.convert(versionOrTag, org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag.class));
 			return Utils.wrapCodeState(isRetiered);
 		 } catch (Exception e) {
 				Utils.processException(e);
@@ -90,8 +102,10 @@ public class LexBIGServiceConvenienceMethodsImpl extends
   public org.LexGrid.LexBIG.iso21090.DataModel.cagrid.DirectionalAssociationIdentification getAssociationForwardName(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.AssociationIdentification associationIdentification,org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag versionOrTag) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
 		try {
 			LexBIGServiceConvenienceMethods lbcm = getLexBIGServiceConvenienceMethods();
-			String assocName = lbcm.getAssociationForwardName(associationIdentification.getRelationshipName(),
-					codingSchemeIdentification.getName(), versionOrTag);
+			String assocName = lbcm.getAssociationForwardName(
+					associationIdentification.getRelationshipName().getValue(),
+					codingSchemeIdentification.getName().getValue(), 
+					ConvertUtils.convert(versionOrTag, org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag.class));
 			return Utils.wrapDirectionalAssociationIdentification(assocName, true);
 		 } catch (Exception e) {
 				Utils.processException(e);
@@ -102,7 +116,9 @@ public class LexBIGServiceConvenienceMethodsImpl extends
   public org.LexGrid.LexBIG.iso21090.DataModel.cagrid.DirectionalAssociationIdentification[] getAssociationForwardNames(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag versionOrTag) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
 		try {
 			LexBIGServiceConvenienceMethods lbcm = getLexBIGServiceConvenienceMethods();
-			String[] assocNames = lbcm.getAssociationForwardNames(codingSchemeIdentification.getName(), versionOrTag);
+			String[] assocNames = lbcm.getAssociationForwardNames(
+					codingSchemeIdentification.getName().getValue(), 
+					ConvertUtils.convert(versionOrTag, org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag.class));
 			return Utils.stringArrayToDirectionalAssociationIdentification(assocNames, true);
 		 } catch (Exception e) {
 				Utils.processException(e);
@@ -113,9 +129,10 @@ public class LexBIGServiceConvenienceMethodsImpl extends
   public org.LexGrid.LexBIG.iso21090.DataModel.cagrid.DirectionalAssociationIdentification getAssociationReverseName(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.AssociationIdentification associationIdentification,org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag versionOrTag) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
 		try {
 			LexBIGServiceConvenienceMethods lbcm = getLexBIGServiceConvenienceMethods();
-			String assocName = lbcm.getAssociationReverseName(associationIdentification.getRelationshipName(),
-					codingSchemeIdentification.getName(), 
-					ConvertUtils.convert(versionOrTag, org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag.class));
+			String assocName = lbcm.getAssociationReverseName(
+					associationIdentification.getRelationshipName().getValue(),
+					codingSchemeIdentification.getName().getValue(), 
+					ConvertUtils.convert(versionOrTag, org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag.class));
 			return Utils.wrapDirectionalAssociationIdentification(assocName, false);
 		 } catch (Exception e) {
 				Utils.processException(e);
@@ -126,7 +143,9 @@ public class LexBIGServiceConvenienceMethodsImpl extends
   public org.LexGrid.LexBIG.iso21090.DataModel.cagrid.DirectionalAssociationIdentification[] getAssociationReverseNames(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag versionOrTag) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
 		try {
 			LexBIGServiceConvenienceMethods lbcm = getLexBIGServiceConvenienceMethods();
-			String[] assocNames = lbcm.getAssociationReverseNames(codingSchemeIdentification.getName(), versionOrTag);
+			String[] assocNames = lbcm.getAssociationReverseNames(
+					codingSchemeIdentification.getName().getValue(), 
+					ConvertUtils.convert(versionOrTag, org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag.class));
 			return Utils.stringArrayToDirectionalAssociationIdentification(assocNames, false);
 		 } catch (Exception e) {
 				Utils.processException(e);
@@ -137,8 +156,10 @@ public class LexBIGServiceConvenienceMethodsImpl extends
   public org.LexGrid.LexBIG.iso21090.DataModel.cagrid.Direction isForwardName(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag versionOrTag,org.LexGrid.LexBIG.iso21090.DataModel.cagrid.AssociationIdentification associationIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
 		try {
 			LexBIGServiceConvenienceMethods lbcm = getLexBIGServiceConvenienceMethods();
-			boolean isForward = lbcm.isForwardName(codingSchemeIdentification.getName(), versionOrTag,
-					associationIdentification.getRelationshipName());
+			boolean isForward = lbcm.isForwardName(
+					codingSchemeIdentification.getName().getValue(), 
+					ConvertUtils.convert(versionOrTag, org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag.class),
+					associationIdentification.getRelationshipName().getValue());
 			return Utils.wrapDirection(isForward);
 		 } catch (Exception e) {
 				Utils.processException(e);
@@ -149,8 +170,10 @@ public class LexBIGServiceConvenienceMethodsImpl extends
   public org.LexGrid.LexBIG.iso21090.DataModel.cagrid.Direction isReverseName(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag versionOrTag,org.LexGrid.LexBIG.iso21090.DataModel.cagrid.AssociationIdentification associationIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
 		try {
 			LexBIGServiceConvenienceMethods lbcm = getLexBIGServiceConvenienceMethods();
-			boolean isReverse = lbcm.isReverseName(codingSchemeIdentification.getName(), versionOrTag,
-					associationIdentification.getRelationshipName());
+			boolean isReverse = lbcm.isReverseName(
+					codingSchemeIdentification.getName().getValue(), 
+					ConvertUtils.convert(versionOrTag, org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag.class),
+					associationIdentification.getRelationshipName().getValue());
 			return Utils.wrapDirection(!isReverse);
 		 } catch (Exception e) {
 				Utils.processException(e);
@@ -162,13 +185,19 @@ public class LexBIGServiceConvenienceMethodsImpl extends
 		try {	
 			LexBIGServiceConvenienceMethods lbcm = getLexBIGServiceConvenienceMethods();
 			
-			NameAndValueList assocQualifiers = hierarchyResolutionPolicy.getAssociationQualifiers();
+			NameAndValueList assocQualifiers = ConvertUtils.convert(hierarchyResolutionPolicy.getAssociationQualifiers(), NameAndValueList.class);
 			HierarchyIdentification hierarchyID = hierarchyResolutionPolicy.getHierarchyId();
 			ConceptIdentification conceptCode = hierarchyResolutionPolicy.getConceptCode();
-			boolean resolveConcepts = hierarchyResolutionPolicy.getResolveConcepts();
+			boolean resolveConcepts = hierarchyResolutionPolicy.getResolveConcepts().getValue();
 			
-			return lbcm.getHierarchyLevelNext(codingSchemeIdentification.getName(), versionOrTag,
-					hierarchyID.getIdentifier(), conceptCode.getCode(), resolveConcepts, assocQualifiers);
+			return 
+				ConvertUtils.convert(lbcm.getHierarchyLevelNext(
+					codingSchemeIdentification.getName().getValue(), 
+					ConvertUtils.convert(versionOrTag, org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag.class),
+					hierarchyID.getIdentifier().getValue(), 
+					conceptCode.getCode().getValue(), 
+					resolveConcepts, 
+					assocQualifiers), org.LexGrid.LexBIG.iso21090.DataModel.Collections.AssociationList.class);
 		 } catch (Exception e) {
 				Utils.processException(e);
 				return null;
@@ -179,36 +208,44 @@ public class LexBIGServiceConvenienceMethodsImpl extends
 		try {
 			LexBIGServiceConvenienceMethods lbcm = getLexBIGServiceConvenienceMethods();
 			
-			NameAndValueList assocQualifiers = hierarchyResolutionPolicy.getAssociationQualifiers();
+			NameAndValueList assocQualifiers = ConvertUtils.convert(hierarchyResolutionPolicy.getAssociationQualifiers(), NameAndValueList.class);
 			HierarchyIdentification hierarchyID = hierarchyResolutionPolicy.getHierarchyId();
 			ConceptIdentification conceptCode = hierarchyResolutionPolicy.getConceptCode();
-			boolean resolveConcepts = hierarchyResolutionPolicy.getResolveConcepts();
+			boolean resolveConcepts = hierarchyResolutionPolicy.getResolveConcepts().getValue();
 			
-			return lbcm.getHierarchyLevelPrev(codingSchemeIdentification.getName(), versionOrTag,
-					hierarchyID.getIdentifier(), conceptCode.getCode(), resolveConcepts, assocQualifiers);
+			return 
+				ConvertUtils.convert(lbcm.getHierarchyLevelPrev(
+					codingSchemeIdentification.getName().getValue(), 
+					ConvertUtils.convert(versionOrTag, org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag.class),
+					hierarchyID.getIdentifier().getValue(), 
+					conceptCode.getCode().getValue(), 
+					resolveConcepts, 
+					assocQualifiers), org.LexGrid.LexBIG.iso21090.DataModel.Collections.AssociationList.class);
 		 } catch (Exception e) {
 				Utils.processException(e);
 				return null;
 		 }
 	}
 
-  public org.LexGrid.LexBIG.iso21090.DataModel.Collections.AssociationList getHierarchyPathToRoot(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.HierarchyResolutionPolicy hierarchyResolutionPolicy,org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag versionOrTag,org.LexGrid.LexBIG.DataModel.enums.HierarchyPathResolveOption hierarchyPathResolveOption) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
+  public org.LexGrid.LexBIG.iso21090.DataModel.Collections.AssociationList getHierarchyPathToRoot(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.HierarchyResolutionPolicy hierarchyResolutionPolicy,org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag versionOrTag,org.LexGrid.LexBIG.iso21090.DataModel.enums.HierarchyPathResolveOption hierarchyPathResolveOption) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
 		try {
 			LexBIGServiceConvenienceMethods lbcm = getLexBIGServiceConvenienceMethods();
 			
-			NameAndValueList assocQualifiers = hierarchyResolutionPolicy.getAssociationQualifiers();
+			NameAndValueList assocQualifiers = ConvertUtils.convert(hierarchyResolutionPolicy.getAssociationQualifiers(), NameAndValueList.class);
 			HierarchyIdentification hierarchyID = hierarchyResolutionPolicy.getHierarchyId();
 			ConceptIdentification conceptCode = hierarchyResolutionPolicy.getConceptCode();
-			boolean resolveConcepts = hierarchyResolutionPolicy.getResolveConcepts();
+			boolean resolveConcepts = hierarchyResolutionPolicy.getResolveConcepts().getValue();
 			
-			return lbcm
+			return ConvertUtils.convert(
+					lbcm
 					.getHierarchyPathToRoot(
-							codingSchemeIdentification.getName(),
-							versionOrTag,
-							hierarchyID.getIdentifier(),
-							conceptCode.getCode(),
+							codingSchemeIdentification.getName().getValue(),
+							ConvertUtils.convert(versionOrTag, org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag.class),
+							hierarchyID.getIdentifier().getValue(),
+							conceptCode.getCode().getValue(),
 							resolveConcepts,
-							Utils.convertHierarchyPathResolveOption(hierarchyPathResolveOption), assocQualifiers);
+							Utils.convertHierarchyPathResolveOption(hierarchyPathResolveOption), assocQualifiers), 
+					org.LexGrid.LexBIG.iso21090.DataModel.Collections.AssociationList.class);
 		 } catch (Exception e) {
 				Utils.processException(e);
 				return null;
@@ -218,8 +255,12 @@ public class LexBIGServiceConvenienceMethodsImpl extends
   public org.LexGrid.LexBIG.iso21090.DataModel.Collections.ResolvedConceptReferenceList getHierarchyRoots(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag versionOrTag,org.LexGrid.LexBIG.iso21090.DataModel.cagrid.HierarchyIdentification hierarchyIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
 		try {
 			LexBIGServiceConvenienceMethods lbcm = getLexBIGServiceConvenienceMethods();
-			return lbcm.getHierarchyRoots(codingSchemeIdentification.getName(), versionOrTag,
-					hierarchyIdentification.getIdentifier());
+			return ConvertUtils.convert(
+					lbcm.getHierarchyRoots(
+						codingSchemeIdentification.getName().getValue(), 
+						ConvertUtils.convert(versionOrTag, org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag.class),
+						hierarchyIdentification.getIdentifier().getValue()),
+					org.LexGrid.LexBIG.iso21090.DataModel.Collections.ResolvedConceptReferenceList.class);
 		 } catch (Exception e) {
 				Utils.processException(e);
 				return null;
@@ -265,9 +306,9 @@ public class LexBIGServiceConvenienceMethodsImpl extends
 					.getLexBIGServiceConvenienceMethods();
 
 			thisResource.setCodedNodeSet(lbscm.getHierarchyRootSet(
-					codingSchemeIdentification.getName(), 
-					versionOrTag, 
-					hierarchyIdentification.getIdentifier()));
+					codingSchemeIdentification.getName().getValue(), 
+					ConvertUtils.convert(versionOrTag, org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag.class),
+					hierarchyIdentification.getIdentifier().getValue()));
 
 			// sample of setting creator only security. This will only allow the
 			// caller that created
@@ -337,8 +378,10 @@ public class LexBIGServiceConvenienceMethodsImpl extends
 			LexBIGServiceConvenienceMethods lbscm = lbscmr
 					.getLexBIGServiceConvenienceMethods();
 
-			thisResource.setCodedNodeSet(lbscm.createCodeNodeSet(Utils.conceptIdentificationArrayToString(conceptIdentification),
-					codingSchemeIdentification.getName(), versionOrTag));
+			thisResource.setCodedNodeSet(lbscm.createCodeNodeSet(
+					Utils.conceptIdentificationArrayToString(conceptIdentification),
+					codingSchemeIdentification.getName().getValue(), 
+					ConvertUtils.convert(versionOrTag, org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag.class)));
 
 			// sample of setting creator only security. This will only allow the
 			// caller that created
@@ -366,8 +409,9 @@ public class LexBIGServiceConvenienceMethodsImpl extends
   public org.LexGrid.LexBIG.iso21090.DataModel.cagrid.AssociationIdentification[] getAssociationForwardAndReverseNames(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag versionOrTag) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
 	  try {
 		  String[] assocNames = getLexBIGServiceConvenienceMethods()
-		  .getAssociationForwardAndReverseNames(codingSchemeIdentification.getName(),
-				  versionOrTag);
+		  .getAssociationForwardAndReverseNames(
+				  codingSchemeIdentification.getName().getValue(),
+				  ConvertUtils.convert(versionOrTag, org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag.class));
 		  
 		   //TODO: Need to figure out whether to set true or false for the line below.
 			return Utils.stringArrayToAssociationIdentification(assocNames);
@@ -380,7 +424,8 @@ public class LexBIGServiceConvenienceMethodsImpl extends
   public org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeCopyRight getCodingSchemeCopyright(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag versionOrTag) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
 	  try {
 		  String copyright = getLexBIGServiceConvenienceMethods().getCodingSchemeCopyright(
-				  codingSchemeIdentification.getName(), versionOrTag);
+				  codingSchemeIdentification.getName().getValue(), 
+				  ConvertUtils.convert(versionOrTag, org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag.class));
 		  return Utils.wrapCodingSchemCopyRight(copyright);
 	  } catch (Exception e) {
 			Utils.processException(e);
@@ -389,20 +434,21 @@ public class LexBIGServiceConvenienceMethodsImpl extends
   }
   public org.LexGrid.LexBIG.iso21090.DataModel.Core.Association getAssociationReverseOneLevel(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.ConceptIdentification conceptIdentification,org.LexGrid.LexBIG.iso21090.DataModel.cagrid.RelationContainerIdentification relationContainerIdentification,org.LexGrid.LexBIG.iso21090.DataModel.cagrid.AssociationIdentification associationIdentification,org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag versionOrTag,org.LexGrid.LexBIG.iso21090.DataModel.cagrid.ResolveConcepts buildReferencedEntries,org.LexGrid.LexBIG.iso21090.DataModel.Collections.NameAndValueList associationQualifiers) throws RemoteException {
 	  try {
-		  String concept = conceptIdentification.getCode();
-		  String relationsContainer = relationContainerIdentification.getContextName();
-		  String association = associationIdentification.getRelationshipName();
-		  String codingScheme = codingSchemeIdentification.getName();
-		  Boolean resolve = buildReferencedEntries.getFlag();
+		  String concept = conceptIdentification.getCode().getValue();
+		  String relationsContainer = relationContainerIdentification.getContextName().getValue();
+		  String association = associationIdentification.getRelationshipName().getValue();
+		  String codingScheme = codingSchemeIdentification.getName().getValue();
+		  Boolean resolve = buildReferencedEntries.getFlag().getValue();
 		  
-		  return getLexBIGServiceConvenienceMethods().getAssociationReverseOneLevel(
+		  return ConvertUtils.convert(getLexBIGServiceConvenienceMethods().getAssociationReverseOneLevel(
 				  concept, 
 				  relationsContainer, 
 				  association, 
 				  codingScheme, 
-				  versionOrTag, 
+				  ConvertUtils.convert(versionOrTag, org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag.class), 
 				  resolve, 
-				  associationQualifiers);
+				  ConvertUtils.convert(associationQualifiers, org.LexGrid.LexBIG.DataModel.Collections.NameAndValueList.class)),
+				  org.LexGrid.LexBIG.iso21090.DataModel.Core.Association.class);
 	  } catch (Exception e) {
 			Utils.processException(e);
 			return null;
@@ -411,20 +457,21 @@ public class LexBIGServiceConvenienceMethodsImpl extends
 
   public org.LexGrid.LexBIG.iso21090.DataModel.Core.Association getAssociationForwardOneLevel(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.ConceptIdentification conceptIdentification,org.LexGrid.LexBIG.iso21090.DataModel.cagrid.RelationContainerIdentification relationContainerIdentification,org.LexGrid.LexBIG.iso21090.DataModel.cagrid.AssociationIdentification associationIdentification,org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag versionOrTag,org.LexGrid.LexBIG.iso21090.DataModel.cagrid.ResolveConcepts buildReferencedEntries,org.LexGrid.LexBIG.iso21090.DataModel.Collections.NameAndValueList associationQualifiers) throws RemoteException {
 	  try {
-		  String concept = conceptIdentification.getCode();
-		  String relationsContainer = relationContainerIdentification.getContextName();
-		  String association = associationIdentification.getRelationshipName();
-		  String codingScheme = codingSchemeIdentification.getName();
-		  Boolean resolve = buildReferencedEntries.getFlag();
+		  String concept = conceptIdentification.getCode().getValue();
+		  String relationsContainer = relationContainerIdentification.getContextName().getValue();
+		  String association = associationIdentification.getRelationshipName().getValue();
+		  String codingScheme = codingSchemeIdentification.getName().getValue();
+		  Boolean resolve = buildReferencedEntries.getFlag().getValue();
 		  
-		  return getLexBIGServiceConvenienceMethods().getAssociationForwardOneLevel(
+		  return ConvertUtils.convert(getLexBIGServiceConvenienceMethods().getAssociationForwardOneLevel(
 				  concept, 
 				  relationsContainer, 
 				  association, 
 				  codingScheme, 
-				  versionOrTag, 
+				  ConvertUtils.convert(versionOrTag, org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag.class), 
 				  resolve, 
-				  associationQualifiers);
+				  ConvertUtils.convert(associationQualifiers, org.LexGrid.LexBIG.DataModel.Collections.NameAndValueList.class)),
+				  org.LexGrid.LexBIG.iso21090.DataModel.Core.Association.class);
 	  } catch (Exception e) {
 			Utils.processException(e);
 			return null;

@@ -35,8 +35,8 @@ import org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceCon
 import org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException;
 import org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException;
 import org.LexGrid.LexBIG.cagrid.interfaces.HistoryServiceGrid;
-import org.LexGrid.versions.CodingSchemeVersion;
-import org.LexGrid.versions.SystemRelease;
+import org.LexGrid.iso21090.versions.CodingSchemeVersion;
+import org.LexGrid.iso21090.versions.SystemRelease;
 import org.apache.axis.types.URI.MalformedURIException;
 
 public class HistoryServiceGridAdapter implements HistoryServiceGrid {

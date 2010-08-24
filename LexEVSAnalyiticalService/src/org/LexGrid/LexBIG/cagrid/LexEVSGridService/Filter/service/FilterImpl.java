@@ -3,6 +3,7 @@ package org.LexGrid.LexBIG.cagrid.LexEVSGridService.Filter.service;
 import java.rmi.RemoteException;
 
 import org.LexGrid.LexBIG.cagrid.Utils;
+import org.LexGrid.LexBIG.cagrid.iso21090.converter.ConvertUtils;
 
 /**
  * TODO:I am the service side implementation class. IMPLEMENT AND DOCUMENT ME
@@ -19,7 +20,8 @@ public class FilterImpl extends FilterImplBase {
   public boolean match(org.LexGrid.LexBIG.iso21090.DataModel.Core.ResolvedConceptReference ref) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess {
 		try {
 			return this.getResourceHome().getAddressedResource().getFilter()
-					.match(ref);
+					.match(
+							ConvertUtils.convert(ref, org.LexGrid.LexBIG.DataModel.Core.ResolvedConceptReference.class));
 		 } catch (Exception e) {
 			Utils.processException(e);
 			return false;

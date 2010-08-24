@@ -32,6 +32,7 @@ import org.LexGrid.LexBIG.Exceptions.LBInvocationException;
 import org.LexGrid.LexBIG.Exceptions.LBParameterException;
 import org.LexGrid.LexBIG.History.HistoryService;
 import org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess;
+import org.LexGrid.LexBIG.cagrid.iso21090.converter.ConvertUtils;
 import org.LexGrid.versions.CodingSchemeVersion;
 import org.LexGrid.versions.SystemRelease;
 
@@ -51,7 +52,11 @@ public class HistoryServiceAdapter implements HistoryService {
 	public NCIChangeEventList getAncestors(ConceptReference conceptReference)
 	throws LBParameterException, LBInvocationException {
 		try {
-			return history.getAncestors(conceptReference);
+			return 
+			ConvertUtils.convert(
+			history.getAncestors(
+					ConvertUtils.convert(conceptReference, org.LexGrid.LexBIG.iso21090.DataModel.Core.ConceptReference.class)),
+					org.LexGrid.LexBIG.DataModel.Collections.NCIChangeEventList.class);	
 		} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException e) {
 			throw new LBInvocationException(e.getMessage(), null);
 		} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException e) {
@@ -73,7 +78,12 @@ public class HistoryServiceAdapter implements HistoryService {
 			Date releasedBefore) throws LBParameterException,
 			LBInvocationException {
 		try{
-			return history.getBaselines(releasedAfter, releasedBefore);
+			return 
+				ConvertUtils.convert(
+			history.getBaselines(
+					releasedAfter, 
+					releasedBefore),
+			org.LexGrid.LexBIG.DataModel.Collections.SystemReleaseList.class);
 		} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException e) {
 			throw new LBInvocationException(e.getMessage(), null);
 		} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException e) {
@@ -95,8 +105,13 @@ public class HistoryServiceAdapter implements HistoryService {
 			ConceptReference conceptReference, Date beginDate, Date endDate)
 	throws LBParameterException, LBInvocationException {
 		try {
-			return history.getConceptChangeVersions(conceptReference, beginDate,
-					endDate);
+			return 
+				ConvertUtils.convert(
+			history.getConceptChangeVersions(
+					ConvertUtils.convert(conceptReference, org.LexGrid.LexBIG.iso21090.DataModel.Core.ConceptReference.class),
+					beginDate,
+					endDate),
+					org.LexGrid.LexBIG.DataModel.Collections.CodingSchemeVersionList.class);	
 		} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException e) {
 			throw new LBInvocationException(e.getMessage(), null);
 		} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException e) {
@@ -117,7 +132,11 @@ public class HistoryServiceAdapter implements HistoryService {
 			ConceptReference conceptReference) throws LBParameterException,
 			LBInvocationException {
 		try {
-			return history.getConceptCreationVersion(conceptReference);
+			return 
+			ConvertUtils.convert(
+					history.getConceptCreationVersion(
+							ConvertUtils.convert(conceptReference, org.LexGrid.LexBIG.iso21090.DataModel.Core.ConceptReference.class)),
+							org.LexGrid.versions.CodingSchemeVersion.class);			
 		} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException e) {
 			throw new LBInvocationException(e.getMessage(), null);
 		} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException e) {
@@ -137,7 +156,11 @@ public class HistoryServiceAdapter implements HistoryService {
 	public NCIChangeEventList getDescendants(ConceptReference conceptReference)
 	throws LBParameterException, LBInvocationException {
 		try {
-			return history.getDescendants(conceptReference);
+			return 
+			ConvertUtils.convert(
+			history.getDescendants(
+					ConvertUtils.convert(conceptReference, org.LexGrid.LexBIG.iso21090.DataModel.Core.ConceptReference.class)),
+					org.LexGrid.LexBIG.DataModel.Collections.NCIChangeEventList.class);	
 		} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException e) {
 			throw new LBInvocationException(e.getMessage(), null);
 		} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException e) {
@@ -156,7 +179,10 @@ public class HistoryServiceAdapter implements HistoryService {
 	 */
 	public SystemRelease getEarliestBaseline() throws LBInvocationException {
 		try{
-			return history.getEarliestBaseline();
+			return 
+				ConvertUtils.convert(
+						history.getEarliestBaseline(),
+						org.LexGrid.versions.SystemRelease.class);
 		} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException e) {
 			throw new LBInvocationException(e.getMessage(), null);
 		} catch (InvalidServiceContextAccess e) {
@@ -177,7 +203,12 @@ public class HistoryServiceAdapter implements HistoryService {
 			CodingSchemeVersion codingSchemeVersion)
 	throws LBParameterException, LBInvocationException {
 		try{
-			return history.getEditActionList(conceptReference, codingSchemeVersion);
+			return 
+				ConvertUtils.convert(
+						history.getEditActionList(
+								ConvertUtils.convert(conceptReference, org.LexGrid.LexBIG.iso21090.DataModel.Core.ConceptReference.class),
+								ConvertUtils.convert(codingSchemeVersion, org.LexGrid.iso21090.versions.CodingSchemeVersion.class)),
+								org.LexGrid.LexBIG.DataModel.Collections.NCIChangeEventList.class);		
 		} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException e) {
 			throw new LBInvocationException(e.getMessage(), null);
 		} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException e) {
@@ -199,7 +230,13 @@ public class HistoryServiceAdapter implements HistoryService {
 			ConceptReference conceptReference, Date beginDate, Date endDate)
 	throws LBParameterException, LBInvocationException {
 		try{
-			return history.getEditActionList(conceptReference, beginDate, endDate);
+			return 
+				ConvertUtils.convert(
+						history.getEditActionList(
+					ConvertUtils.convert(conceptReference, org.LexGrid.LexBIG.iso21090.DataModel.Core.ConceptReference.class),
+					beginDate, 
+					endDate),
+					org.LexGrid.LexBIG.DataModel.Collections.NCIChangeEventList.class);
 		} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException e) {
 			throw new LBInvocationException(e.getMessage(), null);
 		} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException e) {
@@ -221,7 +258,12 @@ public class HistoryServiceAdapter implements HistoryService {
 			ConceptReference conceptReference, URI releaseURN)
 	throws LBParameterException, LBInvocationException {
 		try{
-			return history.getEditActionList(conceptReference, releaseURN);
+			return 
+			ConvertUtils.convert(
+					history.getEditActionList(
+				ConvertUtils.convert(conceptReference, org.LexGrid.LexBIG.iso21090.DataModel.Core.ConceptReference.class),
+				releaseURN),
+				org.LexGrid.LexBIG.DataModel.Collections.NCIChangeEventList.class);
 		} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException e) {
 			throw new LBInvocationException(e.getMessage(), null);
 		} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException e) {
@@ -240,7 +282,10 @@ public class HistoryServiceAdapter implements HistoryService {
 	 */
 	public SystemRelease getLatestBaseline() throws LBInvocationException {
 		try{
-			return history.getLatestBaseline();
+			return 
+				ConvertUtils.convert(
+						history.getLatestBaseline(),
+				org.LexGrid.versions.SystemRelease.class);
 		} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException e) {
 			throw new LBInvocationException(e.getMessage(), null);
 		} catch (InvalidServiceContextAccess e) {
@@ -258,7 +303,10 @@ public class HistoryServiceAdapter implements HistoryService {
 	public SystemReleaseDetail getSystemRelease(URI releaseURN)		
 	throws LBParameterException, LBInvocationException {
 		try{
-			return history.getSystemRelease(releaseURN);
+			return 
+			ConvertUtils.convert(
+					history.getSystemRelease(releaseURN),
+					org.LexGrid.LexBIG.DataModel.InterfaceElements.SystemReleaseDetail.class);
 		} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException e) {
 			throw new LBInvocationException(e.getMessage(), null);
 		} catch (org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException e) {

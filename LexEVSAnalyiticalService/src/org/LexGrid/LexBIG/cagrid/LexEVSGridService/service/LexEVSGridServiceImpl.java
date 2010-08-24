@@ -23,9 +23,6 @@ import java.rmi.RemoteException;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-import javax.xml.namespace.QName;
-import javax.xml.soap.SOAPHeaderElement;
-
 import org.LexGrid.LexBIG.DataModel.InterfaceElements.types.SortContext;
 import org.LexGrid.LexBIG.Exceptions.LBInvocationException;
 import org.LexGrid.LexBIG.LexBIGService.LexBIGService;
@@ -34,14 +31,10 @@ import org.LexGrid.LexBIG.cagrid.Utils;
 import org.LexGrid.LexBIG.cagrid.iso21090.converter.ConvertUtils;
 import org.LexGrid.LexBIG.cagrid.security.connection.SecureConnectionManager;
 import org.LexGrid.LexBIG.cagrid.security.connection.SecureConnectionManagerFactory;
-import org.apache.axis.Message;
 import org.apache.axis.MessageContext;
 import org.apache.axis.components.uuid.UUIDGen;
 import org.apache.axis.components.uuid.UUIDGenFactory;
 import org.apache.axis.message.addressing.EndpointReferenceType;
-import org.globus.wsrf.ResourceKey;
-import org.globus.wsrf.impl.ResourceContextImpl;
-import org.globus.wsrf.impl.SimpleResourceKey;
 
 /**
  * TODO:I am the service side implementation class. IMPLEMENT AND DOCUMENT ME
@@ -66,8 +59,8 @@ public class LexEVSGridServiceImpl extends LexEVSGridServiceImplBase {
 
   public org.LexGrid.LexBIG.iso21090.DataModel.Collections.CodingSchemeRenderingList getSupportedCodingSchemes() throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException {
 		try {
-			return getLexBIGServiceFromCache()
-					.getSupportedCodingSchemes();
+			return ConvertUtils.convert(
+					getLexBIGServiceFromCache().getSupportedCodingSchemes(),org.LexGrid.LexBIG.iso21090.DataModel.Collections.CodingSchemeRenderingList.class);
 		} catch (LBInvocationException e) {
 				org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException fault = new 
 				org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException();
@@ -111,7 +104,9 @@ public class LexEVSGridServiceImpl extends LexEVSGridServiceImplBase {
 			thisResource.setTerminationTime(cal);
 
 			LexBIGService lbSvc = getLexBIGServiceFromCache();
-			thisResource.setCodedNodeSet(lbSvc.getCodingSchemeConcepts(codingSchemeIdentification.getName(), versionOrTag));
+			thisResource.setCodedNodeSet(lbSvc.getCodingSchemeConcepts(
+					codingSchemeIdentification.getName().getValue(), 
+					ConvertUtils.convert(versionOrTag, org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag.class)));
 
 			// sample of setting creator only security. This will only allow the
 			// caller that created
@@ -151,7 +146,7 @@ public class LexEVSGridServiceImpl extends LexEVSGridServiceImplBase {
 		try {
 			return ConvertUtils.convert(getLexBIGServiceFromCache()
 					.resolveCodingScheme(
-							codingSchemeIdentification.getName(), 
+							codingSchemeIdentification.getName().getValue(), 
 							ConvertUtils.convert(versionOrTag, org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag.class)), 
 							org.LexGrid.iso21090.codingSchemes.CodingScheme.class);
 		} catch (Exception e) {
@@ -202,8 +197,10 @@ public class LexEVSGridServiceImpl extends LexEVSGridServiceImplBase {
 			thisResource.setTerminationTime(cal);
 
 			LexBIGService lbSvc = getLexBIGServiceFromCache();
-			thisResource.setCodedNodeGraph(lbSvc.getNodeGraph(codingSchemeIdentification.getName(), versionOrTag,
-					relationContainerIdentification.getContextName()));
+			thisResource.setCodedNodeGraph(lbSvc.getNodeGraph(
+					codingSchemeIdentification.getName().getValue(), 
+					ConvertUtils.convert(versionOrTag, org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag.class),
+					relationContainerIdentification.getContextName().getValue()));
 
 			// sample of setting creator only security. This will only allow the
 			// caller that created
@@ -285,7 +282,7 @@ public class LexEVSGridServiceImpl extends LexEVSGridServiceImplBase {
 			LexBIGService lbs = getLexBIGServiceFromCache();
 
 			org.LexGrid.LexBIG.Impl.Extensions.GenericExtensions.LexBIGServiceConvenienceMethodsImpl lbscm = (org.LexGrid.LexBIG.Impl.Extensions.GenericExtensions.LexBIGServiceConvenienceMethodsImpl) lbs
-					.getGenericExtension(extensionIdentification.getLexBIGExtensionName());
+					.getGenericExtension(extensionIdentification.getLexBIGExtensionName().getValue());
 			lbscm.setLexBIGService(lbs);
 
 			thisResource.setLexBIGServiceConvenienceMethods(lbscm);
@@ -357,7 +354,7 @@ public class LexEVSGridServiceImpl extends LexEVSGridServiceImplBase {
 
 			LexBIGService lbSvc = getLexBIGServiceFromCache();
 			thisResource.setHistoryService(lbSvc
-					.getHistoryService(codingSchemeIdentification.getName()));
+					.getHistoryService(codingSchemeIdentification.getName().getValue()));
 
 			// sample of setting creator only security. This will only allow the
 			// caller that created
@@ -471,7 +468,7 @@ public class LexEVSGridServiceImpl extends LexEVSGridServiceImplBase {
 			thisResource.setTerminationTime(cal);
 
 			LexBIGService lbSvc = getLexBIGServiceFromCache();
-			thisResource.setSort(lbSvc.getSortAlgorithm(extensionIdentification.getLexBIGExtensionName()));
+			thisResource.setSort(lbSvc.getSortAlgorithm(extensionIdentification.getLexBIGExtensionName().getValue()));
 
 			// sample of setting creator only security. This will only allow the
 			// caller that created
@@ -528,7 +525,7 @@ public class LexEVSGridServiceImpl extends LexEVSGridServiceImplBase {
 			thisResource.setTerminationTime(cal);
 
 			LexBIGService lbSvc = getLexBIGServiceFromCache();
-			thisResource.setFilter(lbSvc.getFilter(extensionIdentification.getLexBIGExtensionName()));
+			thisResource.setFilter(lbSvc.getFilter(extensionIdentification.getLexBIGExtensionName().getValue()));
 
 			// sample of setting creator only security. This will only allow the
 			// caller that created
@@ -556,7 +553,9 @@ public class LexEVSGridServiceImpl extends LexEVSGridServiceImplBase {
   public org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeCopyRight resolveCodingSchemeCopyright(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag versionOrTag) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
 	  try {
 		  String copyright = getLexBIGServiceFromCache()
-		  		.resolveCodingSchemeCopyright(codingSchemeIdentification.getName(), versionOrTag);					
+		  		.resolveCodingSchemeCopyright(
+		  				codingSchemeIdentification.getName().getValue(), 
+		  				ConvertUtils.convert(versionOrTag, org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag.class));					
 		  return Utils.wrapCodingSchemCopyRight(copyright);
 	  } catch (Exception e) {
 			Utils.processException(e);
@@ -565,7 +564,7 @@ public class LexEVSGridServiceImpl extends LexEVSGridServiceImplBase {
   }
 
   public org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LexEVSGridServiceReference setSecurityToken(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,gov.nih.nci.evs.security.SecurityToken securityToken) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {  
-	  String csName = codingSchemeIdentification.getName();
+	  String csName = codingSchemeIdentification.getName().getValue();
 	  try{
 		  EndpointReferenceType eprt =  connectionManager.processSecurityToken(getMessageContext(), csName, securityToken);
 		  

@@ -23,7 +23,6 @@ import java.rmi.RemoteException;
 
 import org.LexGrid.LexBIG.cagrid.iso21090.converter.ConvertUtils;
 import org.LexGrid.LexBIG.iso21090.DataModel.Collections.LocalNameList;
-import org.LexGrid.LexBIG.iso21090.DataModel.Collections.NameAndValueList;
 import org.LexGrid.LexBIG.iso21090.DataModel.Collections.SortOptionList;
 import org.LexGrid.LexBIG.iso21090.DataModel.Core.ConceptReference;
 import org.LexGrid.LexBIG.iso21090.DataModel.Core.ResolvedConceptReference;
@@ -389,13 +388,17 @@ public class Utils {
 		return urn;
 	}
 	
-	public static HierarchyResolutionPolicy buildHierarchyResolutionPolicy(String hierarchyID, String conceptCode, boolean resolveConcepts, 
-			NameAndValueList associationQualifiers){
+	public static HierarchyResolutionPolicy buildHierarchyResolutionPolicy(
+			String hierarchyID, 
+			String conceptCode, 
+			boolean resolveConcepts, 
+			org.LexGrid.LexBIG.DataModel.Collections.NameAndValueList associationQualifiers){
 		HierarchyResolutionPolicy policy = new HierarchyResolutionPolicy();
 		policy.setHierarchyId(Utils.wrapHierarchyIdentificationIdentification(hierarchyID));
 		policy.setConceptCode(Utils.wrapConceptIdentification(conceptCode));
 		policy.setResolveConcepts(Iso21090Utils.createBl(resolveConcepts));
-		policy.setAssociationQualifiers(associationQualifiers);	
+		policy.setAssociationQualifiers(
+				ConvertUtils.convert(associationQualifiers, org.LexGrid.LexBIG.iso21090.DataModel.Collections.NameAndValueList.class));	
 		return policy;
 	}
 	
@@ -597,11 +600,11 @@ public class Utils {
 		return assoc;
 	}
 	
-	public static org.LexGrid.LexBIG.DataModel.enums.SearchDesignationOption convertSearchDesignationOption(org.LexGrid.LexBIG.LexBIGService.CodedNodeSet.SearchDesignationOption option){
+	public static org.LexGrid.LexBIG.iso21090.DataModel.enums.SearchDesignationOption convertSearchDesignationOption(org.LexGrid.LexBIG.LexBIGService.CodedNodeSet.SearchDesignationOption option){
 		if(option == null){
-			return new org.LexGrid.LexBIG.DataModel.enums.SearchDesignationOption();
+			return new org.LexGrid.LexBIG.iso21090.DataModel.enums.SearchDesignationOption();
 		}
-		org.LexGrid.LexBIG.DataModel.enums.SearchDesignationOption returnOption = new org.LexGrid.LexBIG.DataModel.enums.SearchDesignationOption();
+		org.LexGrid.LexBIG.iso21090.DataModel.enums.SearchDesignationOption returnOption = new org.LexGrid.LexBIG.iso21090.DataModel.enums.SearchDesignationOption();
 		returnOption.setSearchDesignationOptionName(option.toString());
 		return returnOption;
 	}
@@ -614,11 +617,11 @@ public class Utils {
 			valueOf(option.getSearchDesignationOptionName());
 	}
 	
-	public static org.LexGrid.LexBIG.DataModel.enums.ActiveOption convertActiveOption(org.LexGrid.LexBIG.LexBIGService.CodedNodeSet.ActiveOption option){
+	public static org.LexGrid.LexBIG.iso21090.DataModel.enums.ActiveOption convertActiveOption(org.LexGrid.LexBIG.LexBIGService.CodedNodeSet.ActiveOption option){
 		if(option == null){
-			return new org.LexGrid.LexBIG.DataModel.enums.ActiveOption();
+			return new org.LexGrid.LexBIG.iso21090.DataModel.enums.ActiveOption();
 		}
-		org.LexGrid.LexBIG.DataModel.enums.ActiveOption returnOption = new org.LexGrid.LexBIG.DataModel.enums.ActiveOption();
+		org.LexGrid.LexBIG.iso21090.DataModel.enums.ActiveOption returnOption = new org.LexGrid.LexBIG.iso21090.DataModel.enums.ActiveOption();
 		returnOption.setActiveOptionName(option.toString());
 		return returnOption;
 	}
@@ -637,16 +640,16 @@ public class Utils {
 		return org.LexGrid.LexBIG.LexBIGService.CodedNodeSet.ActiveOption.valueOf(option.getActiveOptionName());
 	}
 	
-	public static org.LexGrid.LexBIG.DataModel.enums.HierarchyPathResolveOption convertHierarchyPathResolveOption(org.LexGrid.LexBIG.Extensions.Generic.LexBIGServiceConvenienceMethods.HierarchyPathResolveOption option){
+	public static org.LexGrid.LexBIG.iso21090.DataModel.enums.HierarchyPathResolveOption convertHierarchyPathResolveOption(org.LexGrid.LexBIG.Extensions.Generic.LexBIGServiceConvenienceMethods.HierarchyPathResolveOption option){
 		if(option == null){
-			return new org.LexGrid.LexBIG.DataModel.enums.HierarchyPathResolveOption();
+			return new org.LexGrid.LexBIG.iso21090.DataModel.enums.HierarchyPathResolveOption();
 		}
-		org.LexGrid.LexBIG.DataModel.enums.HierarchyPathResolveOption returnOption = new org.LexGrid.LexBIG.DataModel.enums.HierarchyPathResolveOption();
+		org.LexGrid.LexBIG.iso21090.DataModel.enums.HierarchyPathResolveOption returnOption = new org.LexGrid.LexBIG.iso21090.DataModel.enums.HierarchyPathResolveOption();
 		returnOption.setPathToRootResovleOption(option.toString());
 		return returnOption;
 	}
 	
-	public static org.LexGrid.LexBIG.Extensions.Generic.LexBIGServiceConvenienceMethods.HierarchyPathResolveOption convertHierarchyPathResolveOption(org.LexGrid.LexBIG.DataModel.enums.HierarchyPathResolveOption option){
+	public static org.LexGrid.LexBIG.Extensions.Generic.LexBIGServiceConvenienceMethods.HierarchyPathResolveOption convertHierarchyPathResolveOption(org.LexGrid.LexBIG.iso21090.DataModel.enums.HierarchyPathResolveOption option){
 		if(option.getPathToRootResovleOption() == null){
 			return null;
 		}

@@ -23,6 +23,7 @@ import java.rmi.RemoteException;
 
 import org.LexGrid.LexBIG.LexBIGService.LexBIGServiceMetadata;
 import org.LexGrid.LexBIG.cagrid.Utils;
+import org.LexGrid.LexBIG.cagrid.iso21090.converter.ConvertUtils;
 
 /**
  * TODO:I am the service side implementation class. IMPLEMENT AND DOCUMENT ME
@@ -38,8 +39,11 @@ public class LexBIGServiceMetadataImpl extends LexBIGServiceMetadataImplBase {
 
   public org.LexGrid.LexBIG.iso21090.DataModel.Collections.AbsoluteCodingSchemeVersionReferenceList listCodingSchemes() throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException {
 		try {
-			return getResourceHome().getAddressedResource()
-					.getLexBIGServiceMetadata().listCodingSchemes();
+			return 
+			ConvertUtils.convert(
+			getResourceHome().getAddressedResource()
+					.getLexBIGServiceMetadata().listCodingSchemes(),
+					org.LexGrid.LexBIG.iso21090.DataModel.Collections.AbsoluteCodingSchemeVersionReferenceList.class);
 		 } catch (Exception e) {
 				Utils.processException(e);
 				return null;
@@ -51,7 +55,8 @@ public class LexBIGServiceMetadataImpl extends LexBIGServiceMetadataImplBase {
 			LexBIGServiceMetadata lbsmd = getResourceHome()
 					.getAddressedResource().getLexBIGServiceMetadata();
 			LexBIGServiceMetadata lbsmdRestricted = lbsmd
-					.restrictToCodingScheme(acsvr);
+					.restrictToCodingScheme(
+							ConvertUtils.convert(acsvr,org.LexGrid.LexBIG.DataModel.Core.AbsoluteCodingSchemeVersionReference.class));
 			getResourceHome().getAddressedResource().setLexBIGServiceMetadata(
 					lbsmdRestricted);
 		 } catch (Exception e) {
@@ -90,7 +95,8 @@ public class LexBIGServiceMetadataImpl extends LexBIGServiceMetadataImplBase {
 			LexBIGServiceMetadata lbsmd = getResourceHome()
 					.getAddressedResource().getLexBIGServiceMetadata();
 			LexBIGServiceMetadata lbsmdRestricted = lbsmd.restrictToValue(
-					matchCriteria.getText(), extensionIdentification.getLexBIGExtensionName());
+					matchCriteria.getText().getValue(), 
+					extensionIdentification.getLexBIGExtensionName().getValue());
 			getResourceHome().getAddressedResource().setLexBIGServiceMetadata(
 					lbsmdRestricted);
 		 } catch (Exception e) {
@@ -100,8 +106,11 @@ public class LexBIGServiceMetadataImpl extends LexBIGServiceMetadataImplBase {
 
   public org.LexGrid.LexBIG.iso21090.DataModel.Collections.MetadataPropertyList resolve() throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException {
 		try {
-			return getResourceHome().getAddressedResource()
-					.getLexBIGServiceMetadata().resolve();
+			return 
+				ConvertUtils.convert(
+					getResourceHome().getAddressedResource()
+							.getLexBIGServiceMetadata().resolve(),
+				org.LexGrid.LexBIG.iso21090.DataModel.Collections.MetadataPropertyList.class);
 		 } catch (Exception e) {
 				Utils.processException(e);
 				return null;

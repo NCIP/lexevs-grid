@@ -80,7 +80,7 @@ public class CodedNodeSetImpl extends CodedNodeSetImplBase {
 	  }
   }
 
-  public void restrictToMatchingDesignations(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.MatchCriteria matchCriteria,org.LexGrid.LexBIG.DataModel.enums.SearchDesignationOption searchDesignationOption,org.LexGrid.LexBIG.iso21090.DataModel.cagrid.ExtensionIdentification extensionIdentification,org.LexGrid.LexBIG.iso21090.DataModel.cagrid.LanguageIdentification languageIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
+  public void restrictToMatchingDesignations(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.MatchCriteria matchCriteria,org.LexGrid.LexBIG.iso21090.DataModel.enums.SearchDesignationOption searchDesignationOption,org.LexGrid.LexBIG.iso21090.DataModel.cagrid.ExtensionIdentification extensionIdentification,org.LexGrid.LexBIG.iso21090.DataModel.cagrid.LanguageIdentification languageIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
 	  try {
 		CodedNodeSet cns = getResourceHome().getAddressedResource().getCodedNodeSet();
 		CodedNodeSet cnsRestricted = cns.restrictToMatchingDesignations(matchCriteria.getText(), 
@@ -187,7 +187,7 @@ public class CodedNodeSetImpl extends CodedNodeSetImplBase {
 		return ref;
   }
 
-  public void restrictToProperties(org.LexGrid.LexBIG.iso21090.DataModel.Collections.LocalNameList propertyList,org.LexGrid.LexBIG.DataModel.enums.PropertyType[] propertyType,org.LexGrid.LexBIG.iso21090.DataModel.Collections.LocalNameList localNameList2,org.LexGrid.LexBIG.iso21090.DataModel.Collections.LocalNameList localNameList3,org.LexGrid.LexBIG.iso21090.DataModel.Collections.NameAndValueList nameAndValueList) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
+  public void restrictToProperties(org.LexGrid.LexBIG.iso21090.DataModel.Collections.LocalNameList propertyList,org.LexGrid.LexBIG.iso21090.DataModel.enums.PropertyType[] propertyType,org.LexGrid.LexBIG.iso21090.DataModel.Collections.LocalNameList localNameList2,org.LexGrid.LexBIG.iso21090.DataModel.Collections.LocalNameList localNameList3,org.LexGrid.LexBIG.iso21090.DataModel.Collections.NameAndValueList nameAndValueList) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
 	  	try {
 	  		CodedNodeSet cns = getResourceHome().getAddressedResource().getCodedNodeSet();
 	  		CodedNodeSet cnsRestricted = cns.restrictToProperties(propertyList, Utils.convertPropertyType(propertyType));
@@ -197,7 +197,7 @@ public class CodedNodeSetImpl extends CodedNodeSetImplBase {
 		 }   
   }
 
-  public void restrictToStatus(org.LexGrid.LexBIG.DataModel.enums.ActiveOption activeOption,org.LexGrid.LexBIG.iso21090.DataModel.cagrid.Status[] status) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
+  public void restrictToStatus(org.LexGrid.LexBIG.iso21090.DataModel.enums.ActiveOption activeOption,org.LexGrid.LexBIG.iso21090.DataModel.cagrid.Status[] status) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
 	  try {
 		  CodedNodeSet cns = getResourceHome().getAddressedResource().getCodedNodeSet();
 		  CodedNodeSet cnsRestricted = cns.restrictToStatus(Utils.convertActiveOption(activeOption), Utils.statusArrayToString(status) );
@@ -262,7 +262,7 @@ public class CodedNodeSetImpl extends CodedNodeSetImplBase {
 		 }
   }
 
-  public void restrictToMatchingProperties(org.LexGrid.LexBIG.iso21090.DataModel.Collections.LocalNameList localNameList,org.LexGrid.LexBIG.DataModel.enums.PropertyType[] propertyType,org.LexGrid.LexBIG.iso21090.DataModel.Collections.LocalNameList localNameList2,org.LexGrid.LexBIG.iso21090.DataModel.Collections.LocalNameList localNameList3,org.LexGrid.LexBIG.iso21090.DataModel.Collections.NameAndValueList nameAndValueList,org.LexGrid.LexBIG.iso21090.DataModel.cagrid.MatchCriteria matchCriteria,org.LexGrid.LexBIG.iso21090.DataModel.cagrid.ExtensionIdentification extensionIdentification,org.LexGrid.LexBIG.iso21090.DataModel.cagrid.LanguageIdentification languageIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
+  public void restrictToMatchingProperties(org.LexGrid.LexBIG.iso21090.DataModel.Collections.LocalNameList localNameList,org.LexGrid.LexBIG.iso21090.DataModel.enums.PropertyType[] propertyType,org.LexGrid.LexBIG.iso21090.DataModel.Collections.LocalNameList localNameList2,org.LexGrid.LexBIG.iso21090.DataModel.Collections.LocalNameList localNameList3,org.LexGrid.LexBIG.iso21090.DataModel.Collections.NameAndValueList nameAndValueList,org.LexGrid.LexBIG.iso21090.DataModel.cagrid.MatchCriteria matchCriteria,org.LexGrid.LexBIG.iso21090.DataModel.cagrid.ExtensionIdentification extensionIdentification,org.LexGrid.LexBIG.iso21090.DataModel.cagrid.LanguageIdentification languageIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
 	  try {
 		  CodedNodeSet cns = getResourceHome().getAddressedResource().getCodedNodeSet();
 		  CodedNodeSet cnsRestricted = cns.restrictToMatchingProperties(localNameList, 

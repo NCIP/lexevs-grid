@@ -274,7 +274,7 @@ public class LexBIGServiceConvenienceMethodsClient extends LexBIGServiceConvenie
     }
   }
 
-  public org.LexGrid.LexBIG.iso21090.DataModel.Collections.AssociationList getHierarchyPathToRoot(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.HierarchyResolutionPolicy hierarchyResolutionPolicy,org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag versionOrTag,org.LexGrid.LexBIG.DataModel.enums.HierarchyPathResolveOption hierarchyPathResolveOption) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
+  public org.LexGrid.LexBIG.iso21090.DataModel.Collections.AssociationList getHierarchyPathToRoot(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.HierarchyResolutionPolicy hierarchyResolutionPolicy,org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification,org.LexGrid.LexBIG.iso21090.DataModel.Core.CodingSchemeVersionOrTag versionOrTag,org.LexGrid.LexBIG.iso21090.DataModel.enums.HierarchyPathResolveOption hierarchyPathResolveOption) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBException {
     synchronized(portTypeMutex){
       configureStubSecurity((Stub)portType,"getHierarchyPathToRoot");
     org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceConvenienceMethods.stubs.GetHierarchyPathToRootRequest params = new org.LexGrid.LexBIG.cagrid.LexEVSGridService.LexBIGServiceConvenienceMethods.stubs.GetHierarchyPathToRootRequest();
