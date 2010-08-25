@@ -3,7 +3,7 @@
   <ns2:Service description="" name="LexEVSGridService" version="5.0" xmlns:ns2="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.service">
    <ns2:pointOfContactCollection>
     <ns3:PointOfContact affiliation="Mayo" email="kevin.peterson@mayo.edu" firstName="Kevin" lastName="Peterson" phoneNumber="" role="Developer" xmlns:ns3="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.common"/>
-    <ns4:PointOfContact affiliation="" email="ncicbmb@mail.nih.gov  " firstName="" lastName="NCICB Support Team " phoneNumber="888-478-4423" role="Maintainer" xmlns:ns4="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.common"/>
+    <ns4:PointOfContact affiliation="NCICB" email="ncicbmb@mail.nih.gov" firstName="NA" lastName="NCICB Support Team" phoneNumber="888-478-4423" role="Maintainer" xmlns:ns4="gme://caGrid.caBIG/1.0/gov.nih.nci.cagrid.metadata.common"/>
    </ns2:pointOfContactCollection>
    <ns2:serviceContextCollection>
     <ns2:ServiceContext description="LexEVS Analytical Grid Service" name="LexEVSGridService">
@@ -1309,7 +1309,7 @@
    <ns217:Address country="US" locality="Rockville" postalCode="20852" stateProvince="MD" street1="2115 East Jefferson Street - Suite 5000 " street2=""/>
    <ns217:ResearchCenterDescription description="" homepageURL="http://ncicb.nci.nih.gov/" imageURL="" rssNewsURL=""/>
    <ns217:pointOfContactCollection>
-    <ns217:PointOfContact affiliation="" email="ncicbmb@mail.nih.gov " firstName="" lastName="NCICB Support Team" phoneNumber="888-478-4423" role="Maintainer"/>
+    <ns217:PointOfContact affiliation="NCICB" email="ncicbmb@mail.nih.gov" firstName="NA" lastName="NCICB Support Team" phoneNumber="888-478-4423" role="Maintainer"/>
    </ns217:pointOfContactCollection>
   </ns217:ResearchCenter>
  </ns1:hostingResearchCenter>
