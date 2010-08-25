@@ -15,6 +15,11 @@
 			<class-a>java.lang.Boolean</class-a>
 			<class-b>gov.nih.nci.iso21090.BL</class-b>
 		</converter>
+		
+		<converter type="org.LexGrid.LexBIG.cagrid.iso21090.converter.DateToTsCustomConverter">
+			<class-a>java.util.Date</class-a>
+			<class-b>gov.nih.nci.iso21090.TS</class-b>
+		</converter>
 
 	</custom-converters>
 

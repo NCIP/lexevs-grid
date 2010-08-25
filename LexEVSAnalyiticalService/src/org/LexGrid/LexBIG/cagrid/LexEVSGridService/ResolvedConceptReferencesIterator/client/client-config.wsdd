@@ -73,7 +73,7 @@
 
 <ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:gov.nih.nci.iso21090.CD" qname="ns2:Cd" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="uri:iso.org:21090" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
 
-<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:gov.nih.nci.iso21090.DSSET_AD" qname="ns2:DSetAd" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="uri:iso.org:21090" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:gov.nih.nci.iso21090.DSET_AD" qname="ns2:DSetAd" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="uri:iso.org:21090" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
 
 <ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:gov.nih.nci.iso21090.DSET_CD" qname="ns2:DSetCd" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="uri:iso.org:21090" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
 
@@ -221,8 +221,6 @@
 
 <ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.iso21090.relations.AssociatableElement" qname="ns2:associatableElement" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/relations" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
 
-<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.iso21090.relations.Association" qname="ns2:association" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/relations" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
-
 <ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.iso21090.relations.AssociationData" qname="ns2:associationData" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/relations" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
 
 <ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.iso21090.relations.AssociationQualification" qname="ns2:associationQualification" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/relations" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
@@ -237,15 +235,11 @@
 
 <ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.iso21090.concepts.Comment" qname="ns2:comment" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/concepts" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
 
-<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.iso21090.concepts.Concept" qname="ns2:concept" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/concepts" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
-
 <ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.iso21090.concepts.Definition" qname="ns2:definition" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/concepts" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
 
 <ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.iso21090.concepts.Entities" qname="ns2:entities" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/concepts" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
 
 <ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.iso21090.concepts.Entity" qname="ns2:entity" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/concepts" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
-
-<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.iso21090.concepts.Instance" qname="ns2:instance" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/concepts" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
 
 <ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.iso21090.concepts.Presentation" qname="ns2:presentation" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2010/01/LexGrid/iso21090/concepts" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
 

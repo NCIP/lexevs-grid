@@ -101,7 +101,7 @@ public class CodedNodeSetImpl extends CodedNodeSetImplBase {
 	  }
   }
   
-  public org.LexGrid.LexBIG.cagrid.LexEVSGridService.ResolvedConceptReferencesIterator.stubs.types.ResolvedConceptReferencesIteratorReference resolve(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.SetResolutionPolicy setResolutionPolicy) throws RemoteException {
+  public org.LexGrid.LexBIG.cagrid.LexEVSGridService.ResolvedConceptReferencesIterator.stubs.types.ResolvedConceptReferencesIteratorReference resolve(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.SetResolutionPolicy setResolutionPolicy) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
 		org.apache.axis.message.addressing.EndpointReferenceType epr = new org.apache.axis.message.addressing.EndpointReferenceType();
 		org.LexGrid.LexBIG.cagrid.LexEVSGridService.ResolvedConceptReferencesIterator.service.globus.resource.ResolvedConceptReferencesIteratorResourceHome home = null;
 		org.globus.wsrf.ResourceKey resourceKey = null;

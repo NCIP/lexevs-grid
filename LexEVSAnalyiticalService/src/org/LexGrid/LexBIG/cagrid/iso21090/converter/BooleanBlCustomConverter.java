@@ -2,6 +2,8 @@ package org.LexGrid.LexBIG.cagrid.iso21090.converter;
 
 import gov.nih.nci.iso21090.BL;
 
+import java.util.List;
+
 public class BooleanBlCustomConverter extends AbstractCustomConverter<Boolean,BL>{
 
 	@Override

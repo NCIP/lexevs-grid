@@ -1,5 +1,6 @@
 package org.LexGrid.LexBIG.cagrid.iso21090.converter;
 
+import org.apache.commons.lang.ClassUtils;
 import org.dozer.CustomConverter;
 import org.dozer.MappingException;
 
@@ -9,10 +10,11 @@ public abstract class AbstractCustomConverter<A,B> implements CustomConverter{
 	@Override
 	public Object convert(Object destination, Object source, Class<?> destClass, Class<?> sourceClass) {
 		if(source == null){return null;}
+		//if(destination == null){return null;}
 
-		if(sourceClass.equals(getAClass())){
+		if(ClassUtils.isAssignable(sourceClass,getAClass())){
 			return this.aToB((A) source);
-		} if(sourceClass.equals(getBClass())){
+		} if(ClassUtils.isAssignable(sourceClass,getBClass())){
 			return this.bToA((B) source);
 		} 
 
@@ -27,6 +29,4 @@ public abstract class AbstractCustomConverter<A,B> implements CustomConverter{
 	protected abstract A bToA(B b);
 	protected abstract Class<?> getAClass();
 	protected abstract Class<?> getBClass();
-		
-
 }
