@@ -35,6 +35,7 @@
 	<property name="client.base.dir" value="client" />
 	<property name="client.wsdd.file" value="src/org/LexGrid/LexBIG/cagrid/dataService/client/client-config.wsdd"/>
 
+	<property name="util" value="util.properties"/>
     <!-- Load Introduce property file -->
     <property file="${properties.file}"/>
 
@@ -403,7 +404,7 @@
 
         <!-- Load property settings using passed in prefix. Prefix is removed when loaded -->
 
-        <loadproperties srcFile="util.properties">
+        <loadproperties srcFile="${util}">
             <filterchain>
                 <tokenfilter>
                     <containsregex pattern="^${env.set}\.(.*)" replace="\1"/>

@@ -33,7 +33,6 @@
 	<property name="client.lib.dir" value="build/lib"/>
 
 	<property name="util" value="util.properties"/>
-	<property file="${bda.override.property.file}" />
     <!-- Load Introduce property file -->
     <property file="${properties.file}"/>
 
