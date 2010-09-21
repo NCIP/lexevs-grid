@@ -155,7 +155,8 @@
 
         <tar destfile="${target.dir}/${tar.name}"
             basedir="${target.dir}/${war.dir}"
-            longfile="gnu"
+            longfile="gnu" 
+        	excludes="WEB-INF/lib/xercesImpl*.*,WEB-INF/lib/log4j*.*,WEB-INF/lib/commons-logging*.*"
         />
 
         <!-- tar-up Globus libs incase this is a new deployment -->
@@ -168,7 +169,7 @@
         <!-- zip-up service from Jboss deploy directory -->
 
         <zip destfile="${target.dir}/${zip.name}"
-            basedir="${target.dir}/${war.dir}"
+            basedir="${target.dir}/${war.dir}" excludes="xercesImpl.jar"
         />
     	
         <!-- zip-up Globus libs incase this is a new deployment -->
@@ -181,11 +182,13 @@
     	<mkdir dir="${target.dir}/LexEVS_50_caGRIDServices_analytical_jboss"/>
     
 		<war destfile="${target.dir}/LexEVS_50_caGRIDServices_analytical_jboss/wsrf.war" 
-			basedir="${target.dir}/${war.dir}" excludes="WEB-INF/lib/log4j*.*,WEB-INF/lib/commons-logging*.*">	
+			basedir="${target.dir}/${war.dir}" 
+			excludes="WEB-INF/lib/xercesImpl*.*,WEB-INF/lib/log4j*.*,WEB-INF/lib/commons-logging*.*">	
     	</war>
     	
     	<zip destfile="${target.dir}/LexEVS_50_caGRIDServices_analytical_jboss.zip" 
-    		basedir="${target.dir}/LexEVS_50_caGRIDServices_analytical_jboss"
+    		basedir="${target.dir}/LexEVS_50_caGRIDServices_analytical_jboss" 
+    		excludes="WEB-INF/lib/xercesImpl*.*,WEB-INF/lib/log4j*.*,WEB-INF/lib/commons-logging*.*"
     	/>
     
 
