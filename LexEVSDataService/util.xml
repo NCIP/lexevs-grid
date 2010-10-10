@@ -160,6 +160,7 @@
         <tar destfile="${target.dir}/${tar.name}"
             basedir="${target.dir}/${war.dir}"
             longfile="gnu"
+        	excludes="WEB-INF/lib/xercesImpl*.*,WEB-INF/lib/log4j*.*,WEB-INF/lib/commons-logging*.*"
         />
 
         <!-- tar-up Globus libs incase this is a new deployment -->
@@ -185,11 +186,13 @@
     	<mkdir dir="${target.dir}/LexEVS_50_caGRIDServices_data_jboss"/>
     
 		<war destfile="${target.dir}/LexEVS_50_caGRIDServices_data_jboss/wsrf.war" 
-			basedir="${target.dir}/${war.dir}" excludes="WEB-INF/lib/log4j*.*,WEB-INF/lib/commons-logging*.*">	
-    	</war>
+			basedir="${target.dir}/${war.dir}"
+    	excludes="WEB-INF/lib/xercesImpl*.*,WEB-INF/lib/log4j*.*,WEB-INF/lib/commons-logging*.*"
+    	/>
     	
     	<zip destfile="${target.dir}/LexEVS_50_caGRIDServices_data_jboss.zip" 
     		basedir="${target.dir}/LexEVS_50_caGRIDServices_data_jboss"
+    		excludes="WEB-INF/lib/xercesImpl*.*,WEB-INF/lib/log4j*.*,WEB-INF/lib/commons-logging*.*"
     	/>
     
 
