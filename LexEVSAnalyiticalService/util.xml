@@ -170,7 +170,8 @@
         <!-- zip-up service from Jboss deploy directory -->
 
         <zip destfile="${target.dir}/${zip.name}"
-            basedir="${target.dir}/${war.dir}" excludes="xercesImpl.jar"
+            basedir="${target.dir}/${war.dir}" 	
+        	excludes="WEB-INF/lib/xercesImpl*.*,WEB-INF/lib/log4j*.*,WEB-INF/lib/commons-logging*.*"
         />
     	
         <!-- zip-up Globus libs incase this is a new deployment -->
