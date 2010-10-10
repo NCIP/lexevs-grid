@@ -151,6 +151,10 @@
 
         <delete file="${tar.name}" quiet="true" />
 
+    	<!-- correcting web.xml for deployment to jboss 5.1 -->
+    	
+    	<replace file="${target.dir}/server/default/deploy/wsrf.war/WEB-INF/web.xml" token="load-on-startup>true" value="load-on-startup>1" />
+    	
         <!-- tar-up service from Jboss deploy directory -->
 
         <tar destfile="${target.dir}/${tar.name}"
