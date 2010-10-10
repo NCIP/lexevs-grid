@@ -168,6 +168,7 @@
         <tar destfile="${target.dir}/${gs.lib.tar.name}"
             basedir="${gs.lib}"
             longfile="gnu"
+         	excludes="WEB-INF/lib/xercesImpl*.*,WEB-INF/lib/log4j*.*,WEB-INF/lib/commons-logging*.*"
         />
     	
         <!-- zip-up service from Jboss deploy directory -->
