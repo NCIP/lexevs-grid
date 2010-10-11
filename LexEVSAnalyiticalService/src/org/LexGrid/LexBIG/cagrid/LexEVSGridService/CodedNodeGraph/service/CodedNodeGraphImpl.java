@@ -100,8 +100,9 @@ public class CodedNodeGraphImpl extends CodedNodeGraphImplBase {
 
   public void restrictToTargetCodeSystem(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
 		try {
-			getResourceHome().getAddressedResource().getCodedNodeGraph()
-					.restrictToTargetCodeSystem(codingSchemeIdentification.getName().getValue());
+			CodedNodeGraph cng = getResourceHome().getAddressedResource().getCodedNodeGraph();
+			cng = cng.restrictToTargetCodeSystem(codingSchemeIdentification.getName().getValue());
+			this.getResourceHome().getAddressedResource().setCodedNodeGraph(cng);
 		} catch (Exception e) {
 			Utils.processException(e);
 		}
@@ -109,8 +110,9 @@ public class CodedNodeGraphImpl extends CodedNodeGraphImplBase {
 
   public void restrictToCodeSystem(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
 		try {
-			getResourceHome().getAddressedResource().getCodedNodeGraph()
-					.restrictToCodeSystem(codingSchemeIdentification.getName().getValue());
+			CodedNodeGraph cng = getResourceHome().getAddressedResource().getCodedNodeGraph();
+			cng = cng.restrictToCodeSystem(codingSchemeIdentification.getName().getValue());
+			this.getResourceHome().getAddressedResource().setCodedNodeGraph(cng);
 		} catch (Exception e) {
 			Utils.processException(e);
 		} 
@@ -149,8 +151,9 @@ public class CodedNodeGraphImpl extends CodedNodeGraphImplBase {
 					.getResource((newKey));
 			CodedNodeSet cns = cnsr.getCodedNodeSet();
 
-			getResourceHome().getAddressedResource().getCodedNodeGraph()
-					.restrictToSourceCodes(cns);
+			CodedNodeGraph cng = getResourceHome().getAddressedResource().getCodedNodeGraph();
+			cng = cng.restrictToSourceCodes(cns);
+			this.getResourceHome().getAddressedResource().setCodedNodeGraph(cng);
 		} catch (Exception e) {
 			Utils.processException(e);
 		}
@@ -158,11 +161,13 @@ public class CodedNodeGraphImpl extends CodedNodeGraphImplBase {
 
   public void restrictToDirectionalNames(org.LexGrid.LexBIG.iso21090.DataModel.Collections.NameAndValueList directionalNames,org.LexGrid.LexBIG.iso21090.DataModel.Collections.NameAndValueList associationQualifiers) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
 		try {
-			getResourceHome().getAddressedResource().getCodedNodeGraph()
-					.restrictToDirectionalNames(
+			CodedNodeGraph cng = 
+				getResourceHome().getAddressedResource().getCodedNodeGraph();
+			cng = cng.restrictToDirectionalNames(
 							ConvertUtils.convert(directionalNames, org.LexGrid.LexBIG.DataModel.Collections.NameAndValueList.class),
 							ConvertUtils.convert(associationQualifiers, org.LexGrid.LexBIG.DataModel.Collections.NameAndValueList.class)
 					);
+			this.getResourceHome().getAddressedResource().setCodedNodeGraph(cng);
 		} catch (Exception e) {
 			Utils.processException(e);
 		} 
@@ -170,12 +175,14 @@ public class CodedNodeGraphImpl extends CodedNodeGraphImplBase {
 
   public void restrictToAssociations(org.LexGrid.LexBIG.iso21090.DataModel.Collections.NameAndValueList associations,org.LexGrid.LexBIG.iso21090.DataModel.Collections.NameAndValueList associationQualifiers) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
 		try {
-			getResourceHome()
+			CodedNodeGraph cng = getResourceHome()
 					.getAddressedResource()
-					.getCodedNodeGraph()
-					.restrictToAssociations(
+					.getCodedNodeGraph();
+			cng = cng.restrictToAssociations(
 							ConvertUtils.convert(associations, org.LexGrid.LexBIG.DataModel.Collections.NameAndValueList.class),
 							ConvertUtils.convert(associationQualifiers, org.LexGrid.LexBIG.DataModel.Collections.NameAndValueList.class));
+		
+			this.getResourceHome().getAddressedResource().setCodedNodeGraph(cng);
 		} catch (Exception e) {
 			Utils.processException(e);
 		}
@@ -194,8 +201,11 @@ public class CodedNodeGraphImpl extends CodedNodeGraphImplBase {
 					.getResource((newKey));
 			CodedNodeSet cns = cnsr.getCodedNodeSet();
 
-			getResourceHome().getAddressedResource().getCodedNodeGraph()
-					.restrictToCodes(cns);
+			CodedNodeGraph cng = getResourceHome().getAddressedResource().getCodedNodeGraph();
+			
+			cng = cng.restrictToCodes(cns);
+			
+			this.getResourceHome().getAddressedResource().setCodedNodeGraph(cng);
 		} catch (Exception e) {
 			Utils.processException(e);
 		} 
@@ -214,8 +224,10 @@ public class CodedNodeGraphImpl extends CodedNodeGraphImplBase {
 					(newKey));
 			CodedNodeGraph cng = cngr.getCodedNodeGraph();
 
-			getResourceHome().getAddressedResource().getCodedNodeGraph()
-					.intersect(cng);
+			CodedNodeGraph resource = getResourceHome().getAddressedResource().getCodedNodeGraph();
+			resource = resource.intersect(cng);
+			
+			this.getResourceHome().getAddressedResource().setCodedNodeGraph(resource);
 		} catch (Exception e){
 			Utils.processException(e);
 		}
@@ -234,8 +246,10 @@ public class CodedNodeGraphImpl extends CodedNodeGraphImplBase {
 					(newKey));
 			CodedNodeGraph cng = cngr.getCodedNodeGraph();
 
-			getResourceHome().getAddressedResource().getCodedNodeGraph().union(
-					cng);
+			CodedNodeGraph resource = getResourceHome().getAddressedResource().getCodedNodeGraph();
+			resource = resource.union(cng);
+			
+			this.getResourceHome().getAddressedResource().setCodedNodeGraph(resource);
 		} catch (Exception e){
 			Utils.processException(e);
 		}
@@ -243,8 +257,10 @@ public class CodedNodeGraphImpl extends CodedNodeGraphImplBase {
 
   public void restrictToSourceCodeSystem(org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeIdentification codingSchemeIdentification) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
 		try {
-			getResourceHome().getAddressedResource().getCodedNodeGraph()
-					.restrictToSourceCodeSystem(codingSchemeIdentification.getName().getValue());
+			CodedNodeGraph cng = getResourceHome().getAddressedResource().getCodedNodeGraph();
+			cng = cng.restrictToSourceCodeSystem(codingSchemeIdentification.getName().getValue());
+		
+			this.getResourceHome().getAddressedResource().setCodedNodeGraph(cng);
 		} catch (Exception e) {
 			Utils.processException(e);
 		}

@@ -3,12 +3,21 @@
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://dozer.sourceforge.net
           http://dozer.sourceforge.net/schema/beanmapping.xsd">
-<configuration>
 
+
+  
+<configuration>
+	<relationship-type>non-cumulative</relationship-type>
+	
 	<custom-converters>
 		<converter type="org.LexGrid.LexBIG.cagrid.iso21090.converter.StringStCustomConverter">
 			<class-a>java.lang.String</class-a>
 			<class-b>gov.nih.nci.iso21090.ST</class-b>
+		</converter>
+		
+		<converter type="org.LexGrid.LexBIG.cagrid.iso21090.converter.TextTextCustomConverter">
+			<class-a>org.LexGrid.commonTypes.Text</class-a>
+			<class-b>org.LexGrid.iso21090.commonTypes.Text</class-b>
 		</converter>
 		
 		<converter type="org.LexGrid.LexBIG.cagrid.iso21090.converter.BooleanBlCustomConverter">
@@ -20,8 +29,48 @@
 			<class-a>java.util.Date</class-a>
 			<class-b>gov.nih.nci.iso21090.TS</class-b>
 		</converter>
+		
+		<converter type="org.LexGrid.LexBIG.cagrid.iso21090.converter.TextToStringCustomConverter">
+			<class-a>org.LexGrid.commonTypes.Text</class-a>
+			<class-b>java.lang.String</class-b>
+		</converter>
+		
+		<converter type="org.LexGrid.LexBIG.cagrid.iso21090.converter.LongToIntCustomConverter">
+			<class-a>java.lang.Long</class-a>
+			<class-b>gov.nih.nci.iso21090.INT</class-b>
+		</converter>
+		
+		<converter type="org.LexGrid.LexBIG.cagrid.iso21090.converter.EntityDescriptionToEntityDescriptionCustomConverter">
+			<class-a>org.LexGrid.commonTypes.EntityDescription</class-a>
+			<class-b>org.LexGrid.iso21090.commonTypes.EntityDescription</class-b>
+		</converter>
+		
+		
+		<converter type="org.LexGrid.LexBIG.cagrid.iso21090.converter.PropertyTypesStCustomConverter">
+			<class-a>org.LexGrid.commonTypes.EntityDescription</class-a>
+			<class-b>org.LexGrid.iso21090.commonTypes.EntityDescription</class-b>
+		</converter>
+	
 
 	</custom-converters>
+	
+
 
 </configuration>
+
+
+	<mapping>
+		<class-a>org.LexGrid.LexBIG.DataModel.Core.ResolvedConceptReference</class-a>
+		<class-b>org.LexGrid.LexBIG.iso21090.DataModel.Core.ResolvedConceptReference</class-b>
+		<field>
+			<a set-method="setEntity" get-method="getEntity">entity</a>
+			<b set-method="setEntity" get-method="getEntity">entity</b>
+		</field>
+		<field-exclude>
+			<a>referencedEntry</a>
+			<b>referencedEntry</b>
+		</field-exclude>
+	</mapping>
+		
+
 </mappings>

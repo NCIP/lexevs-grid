@@ -69,8 +69,11 @@ public class CodedNodeSetImpl extends CodedNodeSetImplBase {
 	  }
   public void restrictToCodes(org.LexGrid.LexBIG.iso21090.DataModel.Collections.ConceptReferenceList codeList) throws RemoteException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException, org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException {
 	  try {
-		getResourceHome().getAddressedResource().getCodedNodeSet().restrictToCodes(
+		CodedNodeSet cns = getResourceHome().getAddressedResource().getCodedNodeSet();
+		cns = cns.restrictToCodes(
 				ConvertUtils.convert(codeList, org.LexGrid.LexBIG.DataModel.Collections.ConceptReferenceList.class));
+	 
+		this.getResourceHome().getAddressedResource().setCodedNodeSet(cns);
 	  } catch (Exception e) {
 			Utils.processException(e);
 	  }
@@ -186,7 +189,10 @@ public class CodedNodeSetImpl extends CodedNodeSetImplBase {
 		CodedNodeSetResource cnsr = this.getResourceHome().getResource((newKey));
 		CodedNodeSet cns = cnsr.getCodedNodeSet();
 		
-		getResourceHome().getAddressedResource().getCodedNodeSet().intersect(cns);	
+		CodedNodeSet resource = getResourceHome().getAddressedResource().getCodedNodeSet();
+		resource = resource.intersect(cns);	
+		
+		this.getResourceHome().getAddressedResource().setCodedNodeSet(resource);
 	 } catch (Exception e) {
 			Utils.processException(e);
 	 } 	
@@ -204,7 +210,10 @@ public class CodedNodeSetImpl extends CodedNodeSetImplBase {
 				CodedNodeSetResource cnsr = this.getResourceHome().getResource((newKey));
 				CodedNodeSet cns = cnsr.getCodedNodeSet();
 				
-				getResourceHome().getAddressedResource().getCodedNodeSet().union(cns);	
+				CodedNodeSet resource = getResourceHome().getAddressedResource().getCodedNodeSet();
+				resource = resource.union(cns);	
+		
+				this.getResourceHome().getAddressedResource().setCodedNodeSet(resource);
 		 } catch (Exception e) {
 				Utils.processException(e);
 		 }
@@ -222,7 +231,10 @@ public class CodedNodeSetImpl extends CodedNodeSetImplBase {
 				CodedNodeSetResource cnsr = this.getResourceHome().getResource((newKey));
 				CodedNodeSet cns = cnsr.getCodedNodeSet();
 				
-				getResourceHome().getAddressedResource().getCodedNodeSet().difference(cns);	
+				CodedNodeSet resource = getResourceHome().getAddressedResource().getCodedNodeSet();
+				resource = resource.difference(cns);	
+		
+				this.getResourceHome().getAddressedResource().setCodedNodeSet(resource);
 		 } catch (Exception e) {
 				Utils.processException(e);
 		 }

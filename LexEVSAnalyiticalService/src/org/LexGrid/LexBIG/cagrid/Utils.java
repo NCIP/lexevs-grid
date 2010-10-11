@@ -49,6 +49,7 @@ import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.RelationshipTypeBasedPolicy;
 import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.SetResolutionPolicy;
 import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.Status;
 import org.LexGrid.LexBIG.iso21090.DataModel.enums.ActiveOption;
+import org.LexGrid.commonTypes.types.PropertyTypes;
 import org.apache.axis.types.URI.MalformedURIException;
 
 /**
@@ -201,9 +202,26 @@ public class Utils {
 		}
 		org.LexGrid.LexBIG.LexBIGService.CodedNodeSet.PropertyType[] returnArray = new org.LexGrid.LexBIG.LexBIGService.CodedNodeSet.PropertyType[inputArray.length];
 		for (int i = 0; i < inputArray.length; i++) {
-			returnArray[i] = org.LexGrid.LexBIG.LexBIGService.CodedNodeSet.PropertyType.valueOf(inputArray[i].getPropertyTypeOption());
+			returnArray[i] = convertPropertyType(inputArray[i]);
 		}
 		return returnArray;
+	}
+	
+	public static org.LexGrid.LexBIG.LexBIGService.CodedNodeSet.PropertyType convertPropertyType(org.LexGrid.LexBIG.iso21090.DataModel.enums.PropertyType propertyType){
+		if(propertyType.getPropertyTypeOption().equals(PropertyTypes.COMMENT.toString())){
+			return org.LexGrid.LexBIG.LexBIGService.CodedNodeSet.PropertyType.COMMENT;
+		}
+		if(propertyType.getPropertyTypeOption().equals(PropertyTypes.DEFINITION.toString())){
+			return org.LexGrid.LexBIG.LexBIGService.CodedNodeSet.PropertyType.DEFINITION;
+		}
+		if(propertyType.getPropertyTypeOption().equals(PropertyTypes.PRESENTATION.toString())){
+			return org.LexGrid.LexBIG.LexBIGService.CodedNodeSet.PropertyType.PRESENTATION;
+		}
+		if(propertyType.getPropertyTypeOption().equals(PropertyTypes.PROPERTY.toString())){
+			return org.LexGrid.LexBIG.LexBIGService.CodedNodeSet.PropertyType.GENERIC;
+		}
+		
+		throw new RuntimeException("Could not map PropertyType.");
 	}
 	
 	/**
