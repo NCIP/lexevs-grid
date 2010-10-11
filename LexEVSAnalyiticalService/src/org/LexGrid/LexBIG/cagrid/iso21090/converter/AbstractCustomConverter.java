@@ -9,8 +9,8 @@ public abstract class AbstractCustomConverter<A,B> implements CustomConverter{
 	@SuppressWarnings("unchecked")
 	@Override
 	public Object convert(Object destination, Object source, Class<?> destClass, Class<?> sourceClass) {
+
 		if(source == null){return null;}
-		//if(destination == null){return null;}
 
 		if(ClassUtils.isAssignable(sourceClass,getAClass())){
 			return this.aToB((A) source);

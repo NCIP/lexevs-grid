@@ -15,6 +15,9 @@ public class ConvertUtils {
 	}
 
 	public static <T> T convert(Object obj, Class<T> destination){
+		if(obj == null){
+			return null;
+		}
 
 		return mapper.map(obj, destination);
 
