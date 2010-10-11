@@ -145,7 +145,7 @@
 
 <ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.relations.AssociatableElement" qname="ns2:associatableElement" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2010/01/LexGrid/relations" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
 
-<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.relations.Association" qname="ns2:association" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2010/01/LexGrid/relations" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+<ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.relations.AssociationPredicate" qname="ns2:association" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2010/01/LexGrid/relations" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
 
 <ns3:typeMapping encodingStyle="" serializer="edu.mayo.cagrid.encoding.CastorBeanSerializerFactory" deserializer="edu.mayo.cagrid.encoding.CastorBeanDeserializerFactory" type="ns1:org.LexGrid.relations.AssociationData" qname="ns2:associationData" xmlns:ns1="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns2="http://LexGrid.org/schema/2010/01/LexGrid/relations" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
 
