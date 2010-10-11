@@ -109,14 +109,14 @@ public class TestBugFixes extends LexBIGServiceTestCase
     {
 
         CodedNodeSet cns = ServiceHolder.instance().getLexBIGService().
-                         getCodingSchemeConcepts(THES_SCHEME, null);
+                   getCodingSchemeConcepts(SNOMED_SCHEME, null);
         
         //priviously, just specifying a language restriction was causing an error.
-        cns = cns.restrictToMatchingDesignations("heart", SearchDesignationOption.ALL, "LuceneQuery", "en");
+        cns = cns.restrictToMatchingDesignations("heart", SearchDesignationOption.ALL, "LuceneQuery", "ENG");
         
         ResolvedConceptReference[] rcr = cns.resolveToList(null, null, null, 50).getResolvedConceptReference();
         
-        assertTrue(rcr.length >= 40);
+        assertTrue("Length: " + rcr.length, rcr.length >= 40);
     }
     
     /*
@@ -133,9 +133,9 @@ public class TestBugFixes extends LexBIGServiceTestCase
     public void testAssociationQualifiers() throws LBException
     {
     	  CodedNodeGraph cng = ServiceHolder.instance().getLexBIGService().getNodeGraph(THES_SCHEME, null, null);
-          cng = cng.restrictToAssociations(Constructors.createNameAndValueList("R82"), Constructors.createNameAndValueList("owl:someValuesFrom"));
+    	  cng = cng.restrictToAssociations(Constructors.createNameAndValueList("Anatomic_Structure_Is_Physical_Part_Of"), Constructors.createNameAndValueList("owl:someValuesFrom"));
           ResolvedConceptReference[] rcr = cng.resolveAsList(Constructors.createConceptReference("C12366", null), 
-                                                                       true, false, 1, 1, Constructors.createLocalNameList("invalid"), null, null, -1).getResolvedConceptReference();
+                                                                       true, false, 1, 1, null, null, null, -1).getResolvedConceptReference();
 
           assertTrue(rcr.length>=1);
           assertTrue(
