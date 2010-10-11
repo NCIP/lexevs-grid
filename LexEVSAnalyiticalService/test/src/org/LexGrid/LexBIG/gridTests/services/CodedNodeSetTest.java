@@ -181,7 +181,7 @@ public void testRestrictPropertyTypeReturns() throws LBException
         Entity ce = rcrs[0].getReferencedEntry();
 
         assertTrue("1",ce.getCommentCount() == 0);
-        assertTrue("2",ce.getPropertyCount() == 5);
+        assertEquals(6,ce.getPropertyCount());
         assertTrue("3",ce.getDefinitionCount() == 1);
         assertTrue("5",ce.getPresentationCount() == 4);
 
@@ -199,7 +199,7 @@ public void testRestrictPropertyTypeReturns() throws LBException
         assertTrue("9",ce.getDefinitionCount() == 1);
         assertTrue("11",ce.getPresentationCount() == 4);
         
-        assertTrue("12",ce.getPresentation()[0].getValue().getContent().equals("Purple"));
+        assertTrue("12",ce.getPresentation()[0].getValue().getContent().equals("PURPLE"));
         assertTrue("13",ce.getDefinition()[0].getValue().getContent().contains("Any of a group of colors with a hue between that of violet and red."));  
         
         // restrict to one presentation type and one property name (which don't line up)

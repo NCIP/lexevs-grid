@@ -97,9 +97,9 @@ public class ServiceHolder
     		SecurityToken medraToken = new SecurityToken();
     		medraToken.setAccessToken(ServiceTestCase.MEDDRA_TOKEN);
     		
-    		lbs = lbs.setSecurityToken(csMeta, metaToken);
-			lbs = lbs.setSecurityToken(csMedra, medraToken);
-			lbs = lbs.setSecurityToken(csMedraURN, medraToken);
+    		//lbs = lbs.setSecurityToken(csMeta, metaToken);
+			//lbs = lbs.setSecurityToken(csMedra, medraToken);
+			//lbs = lbs.setSecurityToken(csMedraURN, medraToken);
 
     		LexBIGServiceGridAdapter lbsg = (LexBIGServiceGridAdapter)lbs;      
     		lbsi_ = lbsg.getLexBIGServiceInterface();

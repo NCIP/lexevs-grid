@@ -25,11 +25,6 @@ package org.LexGrid.LexBIG.gridTests.testUtility;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
-import org.LexGrid.LexBIG.gridTests.services.CodedNodeGraphTest;
-import org.LexGrid.LexBIG.gridTests.services.CodedNodeSetTest;
-import org.LexGrid.LexBIG.gridTests.services.LexBIGServiceConvenienceMethodsTest;
-import org.LexGrid.LexBIG.gridTests.services.LexBIGServiceTest;
-import org.LexGrid.LexBIG.gridTests.services.ResolvedConceptReferenceIteratorTest;
 import org.LexGrid.LexBIG.gridTests.bugs.TestBugFixes;
 import org.LexGrid.LexBIG.gridTests.dataAccess.SecurityTest;
 import org.LexGrid.LexBIG.gridTests.function.metadata.TestMetaDataSearch;
@@ -47,7 +42,6 @@ import org.LexGrid.LexBIG.gridTests.function.query.TestEnumerateAssociationNames
 import org.LexGrid.LexBIG.gridTests.function.query.TestEnumerateConceptsbyRelationship;
 import org.LexGrid.LexBIG.gridTests.function.query.TestEnumerateProperties;
 import org.LexGrid.LexBIG.gridTests.function.query.TestEnumerateRelationsbyRange;
-import org.LexGrid.LexBIG.gridTests.function.query.TestEnumerateRelationships;
 import org.LexGrid.LexBIG.gridTests.function.query.TestEnumerateSourceConceptsforRelationandTarget;
 import org.LexGrid.LexBIG.gridTests.function.query.TestGenerateDAG;
 import org.LexGrid.LexBIG.gridTests.function.query.TestLexicalMatchingTechniques;
@@ -71,6 +65,11 @@ import org.LexGrid.LexBIG.gridTests.function.query.TestTraverseGraphviaRoleLinks
 import org.LexGrid.LexBIG.gridTests.function.query.TestVersionChanges;
 import org.LexGrid.LexBIG.gridTests.function.query.TestVersioningandAuthorityEnumeration;
 import org.LexGrid.LexBIG.gridTests.function.query.TestforCurrentOrObsoleteConcept;
+import org.LexGrid.LexBIG.gridTests.services.CodedNodeGraphTest;
+import org.LexGrid.LexBIG.gridTests.services.CodedNodeSetTest;
+import org.LexGrid.LexBIG.gridTests.services.LexBIGServiceConvenienceMethodsTest;
+import org.LexGrid.LexBIG.gridTests.services.LexBIGServiceTest;
+import org.LexGrid.LexBIG.gridTests.services.ResolvedConceptReferenceIteratorTest;
 
 /**
  * The Class AllTestsRemoteConfig.
@@ -116,7 +115,6 @@ public class AllTestsLexEVSAnalyticalGridService
         functionalTests.addTestSuite(TestEnumerateConceptsbyRelationship.class);
         functionalTests.addTestSuite(TestEnumerateProperties.class);
         functionalTests.addTestSuite(TestEnumerateRelationsbyRange.class);
-        functionalTests.addTestSuite(TestEnumerateRelationships.class);
         functionalTests.addTestSuite(TestEnumerateSourceConceptsforRelationandTarget.class);
         functionalTests.addTestSuite(TestforCurrentOrObsoleteConcept.class);
         functionalTests.addTestSuite(TestGenerateDAG.class);
