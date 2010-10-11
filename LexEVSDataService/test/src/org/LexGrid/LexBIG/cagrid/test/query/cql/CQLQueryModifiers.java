@@ -81,9 +81,9 @@ public class CQLQueryModifiers extends ServiceTestCase
 		
 		CQLQueryResults results = svc.query(query);
 
-		CQLObjectResult[] obj = results.getObjectResult();
+		CQLCountResult countResult = results.getCountResult();
 		
-		assertTrue(Integer.valueOf(obj[0].get_any()[0].getValue()) == 1);
+		assertEquals(1,countResult.getCount());
 	}	
 	
 	public void testCountOnlyFalse() throws Exception {
