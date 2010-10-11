@@ -44,13 +44,6 @@
 			<class-a>org.LexGrid.commonTypes.EntityDescription</class-a>
 			<class-b>org.LexGrid.iso21090.commonTypes.EntityDescription</class-b>
 		</converter>
-		
-		
-		<converter type="org.LexGrid.LexBIG.cagrid.iso21090.converter.PropertyTypesStCustomConverter">
-			<class-a>org.LexGrid.commonTypes.EntityDescription</class-a>
-			<class-b>org.LexGrid.iso21090.commonTypes.EntityDescription</class-b>
-		</converter>
-	
 
 	</custom-converters>
 	
