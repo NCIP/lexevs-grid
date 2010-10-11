@@ -62,11 +62,7 @@ public class LexBIGServiceTest extends TestCase{
 		CodingSchemeRendering[] csr = csrl.getCodingSchemeRendering();
 		assertTrue(csr.length > 0);		
 	}
-	
-	public void testGetLastUpdateTime() throws Exception{
-		Date date = lbs.getLastUpdateTime();
-		assertNotNull(date);
-	}
+
 	public void testGetMatchAlgorithms(){
 		ModuleDescriptionList mdl = lbs.getMatchAlgorithms();
 		ModuleDescription[] md = mdl.getModuleDescription();

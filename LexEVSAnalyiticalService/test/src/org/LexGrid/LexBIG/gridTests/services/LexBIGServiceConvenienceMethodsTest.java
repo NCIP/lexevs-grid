@@ -101,30 +101,6 @@ public class LexBIGServiceConvenienceMethodsTest extends LexBIGServiceTestCase {
 		assertTrue(ArrayUtils.contains(forwardNames, "Has_Salt_Form"));
 		assertTrue(ArrayUtils.contains(forwardNames, "Is_Related_To_Endogenous_Product"));
 	}
-	public void testGetAssociationReverseName() throws Exception {	
-		String names = lbscm.getAssociationReverseName("instance", THES_SCHEME, csvt);
-		assertTrue(names.equals("isInstanceOf"));
-	}
-	public void testGetAssociationReverseNames() throws Exception {
-		String[] reverseNames = lbscm.getAssociationReverseNames(THES_SCHEME, csvt);
-		assertTrue(reverseNames.length > 0);
-		
-		String[] expectedNames = {"Has_Free_Acid_Or_Base_Form", "AllDifferent", "complementOf", "differentFrom", "disjointWith", "equivalentClass", "equivalentProperty", "inverseOf", "sameAs", "isInstanceOf"};
-		Arrays.sort(reverseNames);
-		Arrays.sort(expectedNames);
-		
-		assertTrue(Arrays.equals(reverseNames, expectedNames));	
-	}
-	
-	public void testGetCodingSchemesWithSupportedAssociation(){
-		try {
-			CodingSchemeRenderingList csrl = lbscm.getCodingSchemesWithSupportedAssociation("subClassOf");
-			assertTrue(csrl.getCodingSchemeRendering().length > 0);
-		} catch (LBException e) {
-			e.printStackTrace();
-			fail("GForge #15437: Exception Thrown");		
-		}
-	}
 	
 	public void testGetHierarchyIDs() throws Exception {
 		String[] ids = lbscm.getHierarchyIDs(THES_SCHEME, csvt);
@@ -173,12 +149,5 @@ public class LexBIGServiceConvenienceMethodsTest extends LexBIGServiceTestCase {
 	public void testIsForwardName() throws Exception {
 		boolean isForwardName = lbscm.isForwardName(THES_SCHEME, csvt, "differentFrom");
 		assertTrue(isForwardName);
-	}
-	public void testIsReverseName() throws Exception {
-		boolean badReverseName = lbscm.isReverseName(THES_SCHEME, csvt, "instance");
-		assertFalse(badReverseName);
-		
-		boolean goodReverseName = lbscm.isReverseName(THES_SCHEME, csvt, "isInstanceOf");
-		assertTrue(goodReverseName);
 	}
 }
