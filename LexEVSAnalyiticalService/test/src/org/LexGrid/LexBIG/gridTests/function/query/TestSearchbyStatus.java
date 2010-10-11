@@ -56,9 +56,8 @@ public class TestSearchbyStatus extends LexBIGServiceTestCase
                 .getCodingSchemeConcepts(THES_SCHEME, null);
 
         cns = cns.restrictToStatus(ActiveOption.INACTIVE_ONLY, null);
-        ResolvedConceptReference[] rcr = cns.resolveToList(null, null, null, 100).getResolvedConceptReference();
-   
-        assertTrue("1",rcr.length == 100);
+        ResolvedConceptReference[] rcr = cns.resolveToList(null, null, null, 400).getResolvedConceptReference();
+        assertTrue("1",rcr.length == 400);
         assertTrue("2",contains(rcr,"C10906",THES_SCHEME));
 
     }

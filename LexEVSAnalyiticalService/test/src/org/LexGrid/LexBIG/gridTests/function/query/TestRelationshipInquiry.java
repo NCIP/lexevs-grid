@@ -54,18 +54,18 @@ public class TestRelationshipInquiry extends LexBIGServiceTestCase
 
     	CodedNodeGraph cng = ServiceHolder.instance().getLexBIGService().getNodeGraph(THES_SCHEME, null, "roles");
 
-    	ConceptReference cr1 = new ConceptReference();
-    	cr1.setCode("C33231");
-    	cr1.setCodeNamespace("NCI_Thesaurus");
-    	cr1.setCodingSchemeName(THES_SCHEME);
-
-    	ConceptReference cr2 = new ConceptReference();
-    	cr2.setCode("C33090");
-    	cr2.setCodeNamespace("NCI_Thesaurus");
-    	cr2.setCodingSchemeName(THES_SCHEME);
-
-    	assertTrue(cng.areCodesRelated(Constructors.createNameAndValue("R81", null),
-    			cr1,
-    			cr2, true).booleanValue());
+    	 ConceptReference cr1 = new ConceptReference();
+         cr1.setCode("C33231");
+         cr1.setCodeNamespace("NCI_Thesaurus");
+         cr1.setCodingSchemeName(THES_SCHEME);
+         
+         ConceptReference cr2 = new ConceptReference();
+         cr2.setCode("C33090");
+         cr2.setCodeNamespace("NCI_Thesaurus");
+         cr2.setCodingSchemeName(THES_SCHEME);
+         
+         assertTrue(cng.areCodesRelated(Constructors.createNameAndValue("Anatomic_Structure_Has_Location", null),
+                                        cr1,
+                                        cr2, true).booleanValue());
     }
 }
