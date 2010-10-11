@@ -54,7 +54,7 @@ public class CQLQueryModifiers extends ServiceTestCase
 		
 		Object target = new Object();
 
-		target.setName("org.LexGrid.concepts.Concept");
+		target.setName("org.LexGrid.concepts.Entity");
 
 		Attribute at1 = new Attribute();
 		at1.setName("_entityCode");
@@ -94,7 +94,7 @@ public class CQLQueryModifiers extends ServiceTestCase
 		
 		Object target = new Object();
 
-		target.setName("org.LexGrid.concepts.Concept");
+		target.setName("org.LexGrid.concepts.Entity");
 
 		Attribute at1 = new Attribute();
 		at1.setName("_entityCode");
@@ -134,7 +134,7 @@ public class CQLQueryModifiers extends ServiceTestCase
 		CQLQuery query = new CQLQuery();	
 		Object target = new Object();
 
-		target.setName("org.LexGrid.concepts.Concept");
+		target.setName("org.LexGrid.concepts.Entity");
 
 		Attribute at1 = new Attribute();
 		at1.setName("_entityCode");
@@ -171,7 +171,7 @@ public class CQLQueryModifiers extends ServiceTestCase
 		CQLQuery query = new CQLQuery();	
 		Object target = new Object();
 
-		target.setName("org.LexGrid.concepts.Concept");
+		target.setName("org.LexGrid.concepts.Entity");
 
 		//This should return 11 results or so.
 		Attribute at1 = new Attribute();
@@ -215,7 +215,7 @@ public class CQLQueryModifiers extends ServiceTestCase
 		
 		Object target = new Object();
 
-		target.setName("org.LexGrid.concepts.Concept");
+		target.setName("org.LexGrid.concepts.Entity");
 
 		Attribute at1 = new Attribute();
 		at1.setName("_entityCode");
