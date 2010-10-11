@@ -39,20 +39,8 @@ public class LexEVSDataServiceQueryProcessor extends CQLQueryProcessor {
 		try {
 			Mappings mappings = getClassToQnameMappings();
 			if(cqlQuery.getQueryModifier() != null && cqlQuery.getQueryModifier().isCountOnly()){
-				long count;
-				if(results == null || results.size() == 0){
-					count = 0;
-				} else {
-					if(results.size() > 1){
-						throw new QueryProcessingException("Count Query returned too many results.");
-					}
-					try {
-						Integer integerCount = (Integer)results.get(0);
-						count = integerCount.longValue();
-					} catch (Exception e) {
-						throw new QueryProcessingException("Count Query returned wrong result.");
-					}
-				}
+				long count = getCount(results);
+				
 				queryResults = CQLResultsCreationUtil.createCountResults(count, target);
 			} else {
 				queryResults = CQLResultsCreationUtil.createObjectResults(results, target, mappings);
@@ -63,6 +51,26 @@ public class LexEVSDataServiceQueryProcessor extends CQLQueryProcessor {
 			throw new QueryProcessingException(e);
 		}
 		return queryResults;	
+	}
+	
+	private long getCount(List results) throws QueryProcessingException{
+		long count = 0;
+		if(results != null && results.size() > 0){
+			for(Object result : results){
+				count = count + this.getCountFromResult(result);
+			}
+		}
+		
+		return count;
+	}
+	
+	private long getCountFromResult(Object result) throws QueryProcessingException{
+		try {
+			Integer integerCount = (Integer)result;
+			return integerCount.longValue();
+		} catch (Exception e) {
+			throw new QueryProcessingException("Count Query returned wrong result.");
+		}
 	}
 
 	@Override
