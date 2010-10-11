@@ -38,7 +38,25 @@ public class LexEVSDataServiceQueryProcessor extends CQLQueryProcessor {
 		CQLQueryResults queryResults;
 		try {
 			Mappings mappings = getClassToQnameMappings();
-			queryResults = CQLResultsCreationUtil.createObjectResults(results, target, mappings);
+			if(cqlQuery.getQueryModifier() != null && cqlQuery.getQueryModifier().isCountOnly()){
+				long count;
+				if(results == null || results.size() == 0){
+					count = 0;
+				} else {
+					if(results.size() > 1){
+						throw new QueryProcessingException("Count Query returned too many results.");
+					}
+					try {
+						Integer integerCount = (Integer)results.get(0);
+						count = integerCount.longValue();
+					} catch (Exception e) {
+						throw new QueryProcessingException("Count Query returned wrong result.");
+					}
+				}
+				queryResults = CQLResultsCreationUtil.createCountResults(count, target);
+			} else {
+				queryResults = CQLResultsCreationUtil.createObjectResults(results, target, mappings);
+			}
 		} catch (ResultsCreationException e) {
 			throw new QueryProcessingException(e);
 		} catch (Exception e) {
