@@ -22,6 +22,16 @@ package org.LexGrid.LexBIG.cagrid.adapters;
 import java.rmi.RemoteException;
 import java.util.List;
 
+import org.LexGrid.LexBIG.LexBIGService.CodedNodeGraph;
+import org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeGraph.client.CodedNodeGraphClient;
+import org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeGraph.stubs.types.CodedNodeGraphReference;
+import org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeSet.client.CodedNodeSetClient;
+import org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeSet.stubs.types.CodedNodeSetReference;
+import org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess;
+import org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException;
+import org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException;
+import org.LexGrid.LexBIG.cagrid.interfaces.CodedNodeGraphGrid;
+import org.LexGrid.LexBIG.cagrid.interfaces.CodedNodeSetGrid;
 import org.LexGrid.LexBIG.iso21090.DataModel.Collections.ConceptReferenceList;
 import org.LexGrid.LexBIG.iso21090.DataModel.Collections.NameAndValueList;
 import org.LexGrid.LexBIG.iso21090.DataModel.Collections.ResolvedConceptReferenceList;
@@ -34,16 +44,6 @@ import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.GraphResolutionPolicy;
 import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.NodeListPolicy;
 import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.RelationshipDistanceBasedPolicy;
 import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.RelationshipTypeBasedPolicy;
-import org.LexGrid.LexBIG.LexBIGService.CodedNodeGraph;
-import org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeGraph.client.CodedNodeGraphClient;
-import org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeGraph.stubs.types.CodedNodeGraphReference;
-import org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeSet.client.CodedNodeSetClient;
-import org.LexGrid.LexBIG.cagrid.LexEVSGridService.CodedNodeSet.stubs.types.CodedNodeSetReference;
-import org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess;
-import org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBInvocationException;
-import org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.LBParameterException;
-import org.LexGrid.LexBIG.cagrid.interfaces.CodedNodeGraphGrid;
-import org.LexGrid.LexBIG.cagrid.interfaces.CodedNodeSetGrid;
 import org.apache.axis.message.addressing.EndpointReferenceType;
 import org.apache.axis.types.URI.MalformedURIException;
 
@@ -91,7 +91,7 @@ public class CodedNodeGraphGridAdapter implements CodedNodeGraphGrid {
 	 */
 	public List<String> listCodeRelationships(RelationshipTypeBasedPolicy policy)
 			throws LBInvocationException, LBParameterException, InvalidServiceContextAccess, RemoteException {
-			return null;//cng.listCodeRelationships(policy);
+			throw new UnsupportedOperationException();
 	}
 
 	/* (non-Javadoc)
