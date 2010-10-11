@@ -57,7 +57,7 @@ public class TestGenerateDAG extends LexBIGServiceTestCase
         cng = cng.restrictToAssociations(Constructors.createNameAndValueList("subClassOf"), null);
 
         ResolvedConceptReference[] rcr = cng.resolveAsList(Constructors.createConceptReference("C12727", THES_SCHEME),
-                                                           true, true, 10, -1, null, null, null, 0)
+                                                           true, true, 1, 1, null, null, null, 1)
                 .getResolvedConceptReference();
 
         assertTrue("1",rcr.length == 1);
