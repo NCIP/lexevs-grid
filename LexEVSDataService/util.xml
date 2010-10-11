@@ -160,7 +160,7 @@
         <tar destfile="${target.dir}/${tar.name}"
             basedir="${target.dir}/${war.dir}"
             longfile="gnu"
-        	excludes="WEB-INF/lib/xercesImpl*.*,WEB-INF/lib/log4j*.*,WEB-INF/lib/commons-logging*.*"
+        	excludes="WEB-INF/lib/xml-apis*.*,WEB-INF/lib/xercesImpl*.*,WEB-INF/lib/log4j*.*,WEB-INF/lib/commons-logging*.*"
         />
 
         <!-- tar-up Globus libs incase this is a new deployment -->
@@ -168,14 +168,14 @@
         <tar destfile="${target.dir}/${gs.lib.tar.name}"
             basedir="${gs.lib}"
             longfile="gnu"
-         	excludes="WEB-INF/lib/xercesImpl*.*,WEB-INF/lib/log4j*.*,WEB-INF/lib/commons-logging*.*"
+         	excludes="WEB-INF/lib/xml-apis*.*,WEB-INF/lib/xercesImpl*.*,WEB-INF/lib/log4j*.*,WEB-INF/lib/commons-logging*.*"
         />
     	
         <!-- zip-up service from Jboss deploy directory -->
 
         <zip destfile="${target.dir}/${zip.name}"
             basedir="${target.dir}/${war.dir}"
-         	excludes="WEB-INF/lib/xercesImpl*.*,WEB-INF/lib/log4j*.*,WEB-INF/lib/commons-logging*.*"
+         	excludes="WEB-INF/lib/xml-apis*.*,WEB-INF/lib/xercesImpl*.*,WEB-INF/lib/log4j*.*,WEB-INF/lib/commons-logging*.*"
         />
     	
         <!-- zip-up Globus libs incase this is a new deployment -->
@@ -189,12 +189,12 @@
     
 		<war destfile="${target.dir}/LexEVS_50_caGRIDServices_data_jboss/wsrf.war" 
 			basedir="${target.dir}/${war.dir}"
-    	excludes="WEB-INF/lib/xercesImpl*.*,WEB-INF/lib/log4j*.*,WEB-INF/lib/commons-logging*.*"
+    	excludes="WEB-INF/lib/xml-apis*.*,WEB-INF/lib/xercesImpl*.*,WEB-INF/lib/log4j*.*,WEB-INF/lib/commons-logging*.*"
     	/>
     	
     	<zip destfile="${target.dir}/LexEVS_50_caGRIDServices_data_jboss.zip" 
     		basedir="${target.dir}/LexEVS_50_caGRIDServices_data_jboss"
-    		excludes="WEB-INF/lib/xercesImpl*.*,WEB-INF/lib/log4j*.*,WEB-INF/lib/commons-logging*.*"
+    		excludes="WEB-INF/lib/xml-apis*.*,WEB-INF/lib/xercesImpl*.*,WEB-INF/lib/log4j*.*,WEB-INF/lib/commons-logging*.*"
     	/>
     
 
