@@ -247,4 +247,27 @@ public class CQLQueryModifiers extends ServiceTestCase
 		assertTrue("GForge #19406", countResult != null);
 		assertTrue("GForge #19406", countResult.getCount() == 1);
 	}
+	
+	public void testCountOnlyMultipleCodingSchemes() throws Exception {
+		DataServiceClient svc = LexEVSDataServiceHolder.instance().getStandardService();
+		
+		CQLQuery query = new CQLQuery();	
+		
+		Object target = new Object();
+
+		target.setName("org.LexGrid.codingSchemes.CodingScheme");
+
+		QueryModifier modifiers = new QueryModifier();
+		modifiers.setCountOnly(true);
+		
+		query.setTarget(target);
+		
+		query.setQueryModifier(modifiers);
+		
+		CQLQueryResults results = svc.query(query);
+
+		CQLCountResult countResult = results.getCountResult();
+
+		assertTrue("GForge #19406", countResult.getCount() > 1);
+	}
 }
