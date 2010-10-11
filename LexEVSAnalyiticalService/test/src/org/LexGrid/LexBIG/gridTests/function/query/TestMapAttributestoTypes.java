@@ -68,7 +68,7 @@ public class TestMapAttributestoTypes extends LexBIGServiceTestCase
 
         for (int i = 0; i < sp.length; i++)
         {
-            if (sp[i].getContent().equals(item))
+            if (sp[i].getLocalId().equals(item))
             {
                 result = true;
                 break;
