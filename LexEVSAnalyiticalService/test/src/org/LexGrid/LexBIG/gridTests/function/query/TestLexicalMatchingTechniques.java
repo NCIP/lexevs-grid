@@ -30,6 +30,7 @@ import org.LexGrid.LexBIG.gridTests.LexBIGServiceTestCase;
 import org.LexGrid.LexBIG.gridTests.testUtility.ServiceHolder;
 import org.LexGrid.LexBIG.LexBIGService.CodedNodeSet;
 import org.LexGrid.LexBIG.LexBIGService.CodedNodeSet.SearchDesignationOption;
+import org.LexGrid.LexBIG.Utility.Constructors;
 
 /**
  * The Class TestLexicalMatchingTechniques.
@@ -53,7 +54,7 @@ public class TestLexicalMatchingTechniques extends LexBIGServiceTestCase
     {
 
         CodedNodeSet cns = ServiceHolder.instance().getLexBIGService()
-                .getCodingSchemeConcepts(THES_SCHEME, null);
+                .getCodingSchemeConcepts(THES_SCHEME, Constructors.createCodingSchemeVersionOrTagFromVersion("10.07e"));
 
         cns = cns.restrictToMatchingDesignations("heaart", SearchDesignationOption.ALL, "DoubleMetaphoneLuceneQuery", null);
 

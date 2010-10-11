@@ -31,6 +31,7 @@ import org.LexGrid.LexBIG.gridTests.LexBIGServiceTestCase;
 import org.LexGrid.LexBIG.gridTests.testUtility.ServiceHolder;
 import org.LexGrid.LexBIG.LexBIGService.CodedNodeSet;
 import org.LexGrid.LexBIG.LexBIGService.CodedNodeSet.SearchDesignationOption;
+import org.LexGrid.LexBIG.Utility.Constructors;
 
 /**
  * The Class TestAttributePresenceMatch.
@@ -57,7 +58,7 @@ public class TestAttributePresenceMatch extends LexBIGServiceTestCase
     public boolean matchAttribute(String attribute) throws LBException
     {
         CodedNodeSet cns = ServiceHolder.instance().getLexBIGService()
-                .getCodingSchemeConcepts(THES_SCHEME, null);
+                .getCodingSchemeConcepts(THES_SCHEME, Constructors.createCodingSchemeVersionOrTagFromVersion("10.07e"));
         cns = cns.restrictToMatchingDesignations("heart", SearchDesignationOption.PREFERRED_ONLY, "contains", null);
         
         LocalNameList lnl = new LocalNameList();

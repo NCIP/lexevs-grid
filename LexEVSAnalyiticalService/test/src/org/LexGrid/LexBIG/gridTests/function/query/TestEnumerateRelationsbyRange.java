@@ -60,7 +60,7 @@ public class TestEnumerateRelationsbyRange extends LexBIGServiceTestCase
         ConvenienceMethods cm = new ConvenienceMethods(ServiceHolder.instance().getLexBIGService());
 
 
-        CodedNodeGraph cng = ServiceHolder.instance().getLexBIGService().getNodeGraph(THES_SCHEME, null, null);
+        CodedNodeGraph cng = ServiceHolder.instance().getLexBIGService().getNodeGraph(THES_SCHEME, Constructors.createCodingSchemeVersionOrTagFromVersion(THES_VERSION), null);
         cng = cng.restrictToTargetCodes(cm.createCodedNodeSet(new String[]{rangeCode}, THES_LOCAL, null));
           
         assertTrue(cng.isCodeInGraph(Constructors.createConceptReference(rangeCode, THES_SCHEME)).booleanValue());
@@ -69,7 +69,7 @@ public class TestEnumerateRelationsbyRange extends LexBIGServiceTestCase
         // that is focused on that code (rangeCode)
 
         // I'll go down two levels for the heck of it.
-        cng = ServiceHolder.instance().getLexBIGService().getNodeGraph(THES_SCHEME, null, "roles");
+        cng = ServiceHolder.instance().getLexBIGService().getNodeGraph(THES_SCHEME, Constructors.createCodingSchemeVersionOrTagFromVersion(THES_VERSION), "roles");
 
         ResolvedConceptReference[] rcr = cng.resolveAsList(Constructors.createConceptReference(rangeCode, THES_SCHEME),
                                                            false, true, -1, 2, null, null, null, 0)
