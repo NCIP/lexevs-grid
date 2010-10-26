@@ -79,29 +79,13 @@ public class LexBIGServiceConvenienceMethodsTest extends LexBIGServiceTestCase {
 			assertTrue(rcr[i].getConceptCode().equals("C53276") || rcr[i].getConceptCode().equals("C12907"));
 		}
 	}
-	public void testGetAssociationForwardAndReverseNames() throws Exception {
-		String[] names = lbscm.getAssociationForwardAndReverseNames(THES_SCHEME, csvt);
-		assertTrue(names.length > 0);
-		
-		assertTrue(ArrayUtils.contains(names, "disjointWith"));
-		assertTrue(ArrayUtils.contains(names, "Has_Salt_Form"));
-		assertTrue(ArrayUtils.contains(names, "Is_Related_To_Endogenous_Product"));
-	}
+
 	public void testGetAssociationForwardName() throws Exception {
 		String name = lbscm.getAssociationForwardName("disjointWith", THES_SCHEME, csvt);
 		assertTrue(name.equals("disjointWith"));
 	
 	}
-	public void testGetAssociationForwardNames() throws Exception {
-		String[] forwardNames = lbscm.getAssociationForwardNames(THES_SCHEME, csvt);
-		assertTrue(forwardNames.length > 0);
-		
-		assertTrue(ArrayUtils.contains(forwardNames, "equivalentClass"));
-		assertTrue(ArrayUtils.contains(forwardNames, "subPropertyOf"));
-		assertTrue(ArrayUtils.contains(forwardNames, "Has_Salt_Form"));
-		assertTrue(ArrayUtils.contains(forwardNames, "Is_Related_To_Endogenous_Product"));
-	}
-	
+
 	public void testGetHierarchyIDs() throws Exception {
 		String[] ids = lbscm.getHierarchyIDs(THES_SCHEME, csvt);
 		assertTrue(ids.length == 1);
@@ -134,8 +118,5 @@ public class LexBIGServiceConvenienceMethodsTest extends LexBIGServiceTestCase {
 		assertTrue(isRetired);
 	
 	}
-	public void testIsForwardName() throws Exception {
-		boolean isForwardName = lbscm.isForwardName(THES_SCHEME, csvt, "differentFrom");
-		assertTrue(isForwardName);
-	}
+
 }
