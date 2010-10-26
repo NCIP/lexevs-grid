@@ -38,7 +38,6 @@ import org.LexGrid.LexBIG.gridTests.function.query.TestDescribeSearchTechniques;
 import org.LexGrid.LexBIG.gridTests.function.query.TestDescribeSupportedSearchCriteria;
 import org.LexGrid.LexBIG.gridTests.function.query.TestDiscoverAvailableVocabulariesandVersions;
 import org.LexGrid.LexBIG.gridTests.function.query.TestEnumerateAllConcepts;
-import org.LexGrid.LexBIG.gridTests.function.query.TestEnumerateAssociationNames;
 import org.LexGrid.LexBIG.gridTests.function.query.TestEnumerateConceptsbyRelationship;
 import org.LexGrid.LexBIG.gridTests.function.query.TestEnumerateProperties;
 import org.LexGrid.LexBIG.gridTests.function.query.TestEnumerateRelationsbyRange;
@@ -111,7 +110,6 @@ public class AllTestsLexEVSAnalyticalGridService
         functionalTests.addTestSuite(TestDescribeSupportedSearchCriteria.class);
         functionalTests.addTestSuite(TestDiscoverAvailableVocabulariesandVersions.class);
         functionalTests.addTestSuite(TestEnumerateAllConcepts.class);
-        functionalTests.addTestSuite(TestEnumerateAssociationNames.class);
         functionalTests.addTestSuite(TestEnumerateConceptsbyRelationship.class);
         functionalTests.addTestSuite(TestEnumerateProperties.class);
         functionalTests.addTestSuite(TestEnumerateRelationsbyRange.class);
