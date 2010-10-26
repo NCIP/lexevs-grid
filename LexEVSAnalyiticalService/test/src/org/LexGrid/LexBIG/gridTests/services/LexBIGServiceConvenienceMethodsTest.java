@@ -124,19 +124,7 @@ public class LexBIGServiceConvenienceMethodsTest extends LexBIGServiceTestCase {
 		assertTrue(assocs.length == 1);
 		assertTrue(assocs[0].getAssociationName().equals("subClassOf"));
 	}
-	public void testGetHierarchyRoots() throws Exception {
-		ResolvedConceptReferenceList rcrl = lbscm.getHierarchyRoots(THES_SCHEME, csvt, null);
-		ResolvedConceptReference[] rcr = rcrl.getResolvedConceptReference();
-		assertTrue(rcr.length > 0);
-	}
-	
-	public void testGetHierarchyRootSet() throws Exception {
-		CodedNodeSet cns = lbscm.getHierarchyRootSet(THES_SCHEME, csvt, null);
-		ResolvedConceptReferenceList rcrl = cns.resolveToList(null, null, null, -1);
-		ResolvedConceptReference[] rcr = rcrl.getResolvedConceptReference();
-		assertTrue(rcr.length > 0);
-	}
-	
+
 	public void testGetRenderingDetail() throws Exception {
 		CodingSchemeRendering csr = lbscm.getRenderingDetail(THES_SCHEME, csvt);
 		assertTrue(csr.getCodingSchemeSummary().getCodingSchemeURI().equals(THES_URN));

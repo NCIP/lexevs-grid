@@ -58,7 +58,7 @@ public class TestAttributePresenceMatch extends LexBIGServiceTestCase
     public boolean matchAttribute(String attribute) throws LBException
     {
         CodedNodeSet cns = ServiceHolder.instance().getLexBIGService()
-                .getCodingSchemeConcepts(THES_SCHEME, Constructors.createCodingSchemeVersionOrTagFromVersion("10.07e"));
+                .getCodingSchemeConcepts(THES_SCHEME, Constructors.createCodingSchemeVersionOrTagFromVersion(THES_VERSION));
         cns = cns.restrictToMatchingDesignations("heart", SearchDesignationOption.PREFERRED_ONLY, "contains", null);
         
         LocalNameList lnl = new LocalNameList();

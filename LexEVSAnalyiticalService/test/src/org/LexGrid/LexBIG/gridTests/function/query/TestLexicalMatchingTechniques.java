@@ -54,7 +54,7 @@ public class TestLexicalMatchingTechniques extends LexBIGServiceTestCase
     {
 
         CodedNodeSet cns = ServiceHolder.instance().getLexBIGService()
-                .getCodingSchemeConcepts(THES_SCHEME, Constructors.createCodingSchemeVersionOrTagFromVersion("10.07e"));
+                .getCodingSchemeConcepts(THES_SCHEME, Constructors.createCodingSchemeVersionOrTagFromVersion(THES_VERSION));
 
         cns = cns.restrictToMatchingDesignations("heaart", SearchDesignationOption.ALL, "DoubleMetaphoneLuceneQuery", null);
 
