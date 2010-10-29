@@ -30,6 +30,7 @@ import org.LexGrid.LexBIG.gridTests.LexBIGServiceTestCase;
 import org.LexGrid.LexBIG.gridTests.testUtility.ServiceHolder;
 import org.LexGrid.LexBIG.LexBIGService.CodedNodeSet;
 import org.LexGrid.LexBIG.LexBIGService.CodedNodeSet.SearchDesignationOption;
+import org.LexGrid.LexBIG.Utility.Constructors;
 
 /**
  * The Class TestOtherMatchingTechniques.
@@ -187,13 +188,6 @@ public class TestOtherMatchingTechniques extends LexBIGServiceTestCase
         rcr = cns.resolveToList(null, null, null, 0).getResolvedConceptReference();
         assertTrue(rcr.length == 1);
         
-        // non-preferred should have 0 hits.
-        cns = ServiceHolder.instance().getLexBIGService().getCodingSchemeConcepts(GO_SCHEME, null);
-        cns = cns.restrictToMatchingDesignations("\"delta5-delta2,4-dienoyl-CoA isomerase activity\"", SearchDesignationOption.NON_PREFERRED_ONLY,
-                                           "LuceneQuery", null);
-        rcr = cns.resolveToList(null, null, null, 0).getResolvedConceptReference();
-        assertTrue("8",rcr.length == 0);
-
         // all should have 1 hits.
         cns = ServiceHolder.instance().getLexBIGService().getCodingSchemeConcepts(THES_SCHEME, null);
         cns = cns.restrictToMatchingDesignations("\"Blood Clot\"", SearchDesignationOption.ALL, "LuceneQuery", null);

@@ -29,6 +29,7 @@ import org.LexGrid.LexBIG.Exceptions.LBException;
 import org.LexGrid.LexBIG.gridTests.LexBIGServiceTestCase;
 import org.LexGrid.LexBIG.gridTests.testUtility.ServiceHolder;
 import org.LexGrid.LexBIG.LexBIGService.CodedNodeSet;
+import org.LexGrid.LexBIG.Utility.Constructors;
 import org.LexGrid.LexBIG.Utility.Iterators.ResolvedConceptReferencesIterator;
 
 /**
@@ -52,7 +53,7 @@ public class TestContentExtraction extends LexBIGServiceTestCase
     public void testContentExtraction() throws LBException
     {
         CodedNodeSet cns = ServiceHolder.instance().getLexBIGService()
-                .getCodingSchemeConcepts(LexBIGServiceTestCase.GO_SCHEME, null);
+                .getCodingSchemeConcepts(LexBIGServiceTestCase.ZEBRAFISH_SCHEME, null);
 
         ResolvedConceptReferencesIterator iter = cns.resolve(null, null, null);
 
