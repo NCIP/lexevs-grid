@@ -31,12 +31,6 @@ import org.LexGrid.LexBIG.DataModel.Core.Association;
 import org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag;
 import org.LexGrid.LexBIG.DataModel.Core.ConceptReference;
 import org.LexGrid.LexBIG.DataModel.Core.ResolvedConceptReference;
-import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.AssociationIdentification;
-import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodeState;
-import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeCopyRight;
-import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.Direction;
-import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.DirectionalAssociationIdentification;
-import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.HierarchyResolutionPolicy;
 import org.LexGrid.LexBIG.Exceptions.LBException;
 import org.LexGrid.LexBIG.Exceptions.LBParameterException;
 import org.LexGrid.LexBIG.Extensions.Generic.LexBIGServiceConvenienceMethods;
@@ -45,6 +39,12 @@ import org.LexGrid.LexBIG.LexBIGService.LexBIGService;
 import org.LexGrid.LexBIG.cagrid.Utils;
 import org.LexGrid.LexBIG.cagrid.LexEVSGridService.stubs.types.InvalidServiceContextAccess;
 import org.LexGrid.LexBIG.cagrid.iso21090.converter.ConvertUtils;
+import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.AssociationIdentification;
+import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodeState;
+import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.CodingSchemeCopyRight;
+import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.Direction;
+import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.DirectionalAssociationIdentification;
+import org.LexGrid.LexBIG.iso21090.DataModel.cagrid.HierarchyResolutionPolicy;
 import org.LexGrid.naming.SupportedHierarchy;
 import org.LexGrid.naming.SupportedProperty;
 
@@ -707,6 +707,12 @@ private LexBIGServiceConvenienceMethodsGridAdapter lbscm;
 			CodingSchemeVersionOrTag arg1, String arg2, String arg3,
 			String arg4, String arg5, String arg6, String arg7)
 			throws LBParameterException {
+		throw new RuntimeException("This is not a valid Grid Service Call");
+	}
+
+	@Override
+	public List<String> getDistinctNamespacesOfCode(String arg0,
+			CodingSchemeVersionOrTag arg1, String arg2) throws LBException {
 		throw new RuntimeException("This is not a valid Grid Service Call");
 	}
 }
