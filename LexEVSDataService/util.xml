@@ -35,7 +35,7 @@
 	<property name="client.base.dir" value="client" />
 	<property name="client.wsdd.file" value="src/org/LexGrid/LexBIG/cagrid/dataService/client/client-config.wsdd"/>
 
-    <property name="cagrid.package.url.suffix" value="analytical_grid" />
+    <property name="cagrid.package.url.suffix" value="data_grid" />
     <import file="../cagrid-helper.xml" />
 
 	<property name="util" value="util.properties"/>
