@@ -35,6 +35,9 @@
 	<property name="client.base.dir" value="client" />
 	<property name="client.wsdd.file" value="src/org/LexGrid/LexBIG/cagrid/dataService/client/client-config.wsdd"/>
 
+    <property name="cagrid.package.url.suffix" value="analytical_grid" />
+    <import file="../cagrid-helper.xml" />
+
 	<property name="util" value="util.properties"/>
     <!-- Load Introduce property file -->
     <property file="${properties.file}"/>
@@ -142,7 +145,23 @@
     <!-- build: tar up evs grid service -->
     <!--================================-->
 
-    <target name="pack" description="Tar up evs grid service." depends="-init">
+    <target name="packBda" description="Tar up evs grid service." depends="-init,pack:get:cagrid:package">
+
+        <!-- Check for prerequisites -->
+		<antcall target="-test.target.dir"/>
+    	
+        <!-- Convert deploy.sh to Unix format -->
+
+        <antcall target="-fixup"/>
+
+        <copy todir="${target.dir}"
+              file="deploy.sh"
+              overwrite="true"
+        />
+
+    </target>
+
+	<target name="pack" description="Tar up evs grid service." depends="-init">
 
         <!-- Check for prerequisites -->
 
@@ -247,7 +266,8 @@
         />
 
     </target>
-
+    
+    
     <target name="-fixup">
         <!-- Convert deploy.sh to Unix format -->
         <fixcrlf srcdir="."
@@ -688,5 +708,4 @@
         </fail>
         <echo message="Using ${env.set}"/>
     </target>
-
 </project>

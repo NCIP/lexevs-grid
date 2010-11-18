@@ -32,6 +32,9 @@
     <property name="target.dir" value="target"/>
 	<property name="client.lib.dir" value="build/lib"/>
 
+    <property name="cagrid.package.url.suffix" value="analytical_grid" />
+    <import file="../cagrid-helper.xml" />
+
 	<property name="util" value="util.properties"/>
     <!-- Load Introduce property file -->
     <property file="${properties.file}"/>
@@ -139,12 +142,34 @@
     <!-- build: tar up evs grid service -->
     <!--================================-->
 	
-    <target name="pack" description="Tar up evs grid service." depends="-init">
+    <target name="packBda" description="Tar up evs grid service." depends="-init,pack:get:cagrid:package">
+        <antcall target="-test.target.dir"/>
+        <!-- Convert deploy.sh to Unix format -->
+
+        <antcall target="-fixup"/>
+
+        <copy todir="${target.dir}"
+              file="deploy.sh"
+              overwrite="true"
+        />
+
+    </target>
+
+    <target name="-fixup">
+        <!-- Convert deploy.sh to Unix format -->
+        <fixcrlf srcdir="."
+           eol="lf"
+           eof="remove"
+           includes="deploy.sh"
+        />
+    </target>
+
+<target name="pack" description="Tar up evs grid service." depends="-init">
 
         <!-- Check for prerequisites -->
 
         <antcall target="-test.build.dir"/>
-        <antcall target="-test.target.dir"/>
+    	<antcall target="-test.target.dir"/>
 
         <delete file="${tar.name}" quiet="true" />
     	
@@ -238,14 +263,6 @@
 
     </target>
 
-    <target name="-fixup">
-        <!-- Convert deploy.sh to Unix format -->
-        <fixcrlf srcdir="."
-           eol="lf"
-           eof="remove"
-           includes="deploy.sh"
-        />
-    </target>
 
     <!--============================================-->
     <!-- deploy: Deploy using Introduce ant command -->
