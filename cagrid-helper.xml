@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<project name="cagrid-helper" basedir="." default="usage">
+
+    <property name="cagrid.package.url.suffix" value="Set property 'cagrid.package.url.suffix' in your util.xml file.  This is here to fulfill IntelliJ." />
+    <property name="zip.name" value="Set property 'tar.name' in your util.xml file.  This is here to fulfill IntelliJ"/>
+    <property name="target.dir" value="Set property 'target.dir' in your util.xml file.  This is here to fulfill IntelliJ"/>
+
+    <target name="pack:get:cagrid:package">
+        <!--<property name="cagrid.package.file.name" value="LexEVS-wsrf.zip" />-->
+        <pack.get.cagrid.package.macro/>
+        <!--<pack.get.cagrid.package.macro-->
+                <!--package.file.name="LexEVS-wsrf.zip"-->
+                <!--cagrid.package.url.suffix="data_grid" />-->
+    </target>
+
+    <macrodef name="pack.get.cagrid.package.macro">
+        <attribute name="package.file.name" default="lexEVS-wsrf.zip" />
+        <attribute name="cagrid.package.url.suffix" default="${cagrid.package.url.suffix}" />
+        <sequential>
+            <echo>env.set=${env.set}</echo>
+            <property name="cagrid.package.url.root" value="https://ncisvn.nci.nih.gov/svn/lexevs/artifactTransfer" />
+            <property name="cagrid.package.url" value="${cagrid.package.url.root}/${env.set}/@{cagrid.package.url.suffix}/@{package.file.name}" />
+            <echo>cagrid.package.url=${cagrid.package.url}</echo>
+            <property name="cagrid.package.dest" value="${target.dir}" />
+            <property name="cagrid.package.file.path" value="${cagrid.package.dest}/${zip.name}" />
+
+            <delete file="${cagrid.package.file.path}" failonerror="false" />
+            <mkdir dir="${target.dir}" />
+            <get src="${cagrid.package.url}" dest="${cagrid.package.file.path}" verbose="true" />
+        </sequential>
+    </macrodef>
+</project>
