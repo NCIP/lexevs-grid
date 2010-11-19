@@ -33,7 +33,7 @@
 	<property name="client.lib.dir" value="build/lib"/>
 
     <property name="cagrid.package.url.suffix" value="analytical_grid" />
-    <import file="../cagrid-helper.xml" />
+    <import file="cagrid-helper.xml" />
 
 	<property name="util" value="util.properties"/>
     <!-- Load Introduce property file -->
