@@ -36,7 +36,7 @@
 	<property name="client.wsdd.file" value="src/org/LexGrid/LexBIG/cagrid/dataService/client/client-config.wsdd"/>
 
     <property name="cagrid.package.url.suffix" value="data_grid" />
-    <import file="../cagrid-helper.xml" />
+    <import file="cagrid-helper.xml" />
 
 	<property name="util" value="util.properties"/>
     <!-- Load Introduce property file -->
