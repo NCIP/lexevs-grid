@@ -17,7 +17,7 @@ public class ResolvedConceptReferenceIteratorTest extends TestCase{
 			CodedNodeSet cns = lbs.getCodingSchemeConcepts("NCI Thesaurus", null);
 			cns = cns.restrictToMatchingDesignations("heart", null, "startsWith", null);
 			
-			ResolvedConceptReferencesIterator rcrl = cns.resolve(null, null, null);
+			ResolvedConceptReferencesIterator rcrl = cns.resolve(null, null, null, null, false);
 			
 			String conceptCode = null;
 			
@@ -39,7 +39,7 @@ public class ResolvedConceptReferenceIteratorTest extends TestCase{
 			CodedNodeSet cns = lbs.getCodingSchemeConcepts("NCI Thesaurus", null);
 			cns = cns.restrictToMatchingDesignations("heart", null, "startsWith", null);
 
-			ResolvedConceptReferencesIterator rcrl = cns.resolve(null, null, null);
+			ResolvedConceptReferencesIterator rcrl = cns.resolve(null, null, null, null, false);
 
 			ResolvedConceptReferenceList list1 = rcrl.next(10);
 			ResolvedConceptReferenceList list2 = rcrl.next(10);
