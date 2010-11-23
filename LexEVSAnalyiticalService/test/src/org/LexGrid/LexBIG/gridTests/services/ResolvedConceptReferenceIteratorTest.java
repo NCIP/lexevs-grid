@@ -45,7 +45,8 @@ public class ResolvedConceptReferenceIteratorTest extends TestCase{
 
 			assertFalse(compareResolvedConceptReferenceList(list1, list2));
 		} catch (Exception e) {
-			fail("Exception Thrown");
+			fail("Exception Thrown: " + e.getMessage());
+			e.printStackTrace();
 		}
 	}
 
