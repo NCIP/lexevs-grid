@@ -28,7 +28,8 @@ public class ResolvedConceptReferenceIteratorTest extends TestCase{
 				conceptCode = currentCode;
 			}
 		} catch (Exception e) {
-			fail("Exception Thrown");
+			fail("Exception Thrown: " + e.getMessage());
+			e.printStackTrace();
 		}
 	}
 	
