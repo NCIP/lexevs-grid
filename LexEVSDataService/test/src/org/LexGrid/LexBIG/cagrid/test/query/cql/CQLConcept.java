@@ -238,7 +238,7 @@ public class CQLConcept extends ServiceTestCase
 		
 		Attribute at = new Attribute();
 		at.setName("_entityCodeNamespace");
-		at.setValue("Zebra%");
+		at.setValue("SN%");
 		at.setPredicate(Predicate.LIKE);
 		
 		target.setAttribute(at);
@@ -251,7 +251,7 @@ public class CQLConcept extends ServiceTestCase
 		
 		Attribute content = new Attribute();
 		content.setName("_content");	
-		content.setValue("hypochord");
+		content.setValue("Boxing ring");
 		content.setPredicate(Predicate.EQUAL_TO);
 		
 		textAssoc.setAttribute(content);
@@ -266,7 +266,7 @@ public class CQLConcept extends ServiceTestCase
 		while (results.hasNext()){
 			foundResults = true;
 			Entity concept = (Entity)results.next();
-			assertTrue(concept.getEntityDescription().getContent().equals("hypochord"));
+			assertTrue(concept.getEntityDescription().getContent().equals("Boxing ring"));
 		}
 		assertTrue(foundResults);
 	}	
