@@ -53,7 +53,7 @@ public class TestCodingSchemesWithSupportedAssociation extends LexBIGServiceTest
     {
         try {
 			ConvenienceMethods cm = new ConvenienceMethods(ServiceHolder.instance().getLexBIGService());
-			CodingSchemeRenderingList csrl = cm.getCodingSchemesWithSupportedAssociation("R81");
+			CodingSchemeRenderingList csrl = cm.getCodingSchemesWithSupportedAssociation("Concept_In_Subset");
 			CodingSchemeRendering csr[] = csrl.getCodingSchemeRendering();
 			boolean found = false;
 			
