@@ -19,3 +19,4 @@ You will find more details about LexEVS Grid Services in the following links to 
 * [Issues Tracker](https://tracker.nci.nih.gov/browse/LEXEVS)
 * [Documentation](https://wiki.nci.nih.gov/display/LexEVS/LexEVS#LexEVS-DocumentationandTraining)
 * [Source code](https://github.com/NCIP/LexEVS)
+* [Install Instructions](https://wiki.nci.nih.gov/display/LexEVS/5+-+Installing+LexEVS+6.0+Grid+Services#id-5-InstallingLexEVS60GridServices-DownloadingandInstallingtheLexEVSDataorAnalyticalGridServices)
