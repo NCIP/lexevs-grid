@@ -6,7 +6,7 @@ This project is distributed under the Eclipse Public License.
 Please see LICENSE file for details.
 
 
-Portions of this project were developed as part of the NCI caBIG initiative.
+This project was developed as part of the NCI caBIG initiative.
 
 In 2013, as part of the National Cancer Informatics Program (NCIP) Open Development Initiative,
 the LexEVS Grid Services source code was migrated to GitHub to allow further development by the broader
