@@ -14,9 +14,9 @@ Please see the NOTICE and LICENSE files for details.
 
 You will find more details about LexEVS Grid Services in the following links to LexEVS documentation:
 
-* [LexEVS Home](https://wiki.nci.nih.gov/display/LexEVS/LexEVS)
+* [LexEVS Home](https://wiki.nci.nih.gov/x/OJG4Aw)
 * [Public Forum](https://cabig-kc.nci.nih.gov/Vocab/forums/viewforum.php?f=13)
 * [Issues Tracker](https://tracker.nci.nih.gov/browse/LEXEVS)
-* [Documentation](https://wiki.nci.nih.gov/display/LexEVS/LexEVS#LexEVS-DocumentationandTraining)
+* [Documentation](https://wiki.nci.nih.gov/x/OJG4Aw)
 * [Source code](https://github.com/NCIP/LexEVS)
-* [Install Instructions](https://wiki.nci.nih.gov/display/LexEVS/5+-+Installing+LexEVS+6.0+Grid+Services#id-5-InstallingLexEVS60GridServices-DownloadingandInstallingtheLexEVSDataorAnalyticalGridServices)
+* [Install Instructions](https://wiki.nci.nih.gov/x/w5C4Aw)
